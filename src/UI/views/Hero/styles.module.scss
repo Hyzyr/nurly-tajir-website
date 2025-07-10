@@ -1,0 +1,59 @@
+.hero {
+  position: relative;
+
+  &__body {
+    display: flex;
+    min-height: 60vh;
+    align-items: flex-end;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+
+    h6 {
+      color: var(--black);
+      font-style: normal;
+      font-weight: 400;
+      //  font-size: 32px;
+      line-height: 120%;
+      letter-spacing: 0.02em;
+    }
+    h1 {
+      line-height: 1;
+    }
+    &__cta {
+      margin-top: 1em;
+    }
+  }
+  &__bg {
+    width: 50vw;
+    top: 30%;
+    left: 50%;
+    background: var(--n30);
+
+    mask-image: url(/images/brand-shape-outlined-hor.svg);
+    mask-size: auto 100%;
+    mask-repeat: no-repeat;
+
+    &__yellow,
+    &__blue {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 20vw 12vw currentColor;
+    }
+    &__blue {
+      color: var(--secondary);
+      opacity: 0.22;
+    }
+    &__yellow {
+      top: 10%;
+      right: -5%;
+      color: var(--yellow);
+      opacity: 0.12;
+    }
+  }
+}

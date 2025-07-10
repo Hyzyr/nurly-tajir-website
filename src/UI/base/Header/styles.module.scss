@@ -1,0 +1,89 @@
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  & + section {
+    margin-top: 120px;
+  }
+  &__pre {
+    padding: 12px 0px 8px;
+    background: var(--n40);
+
+    font-size: 14px;
+
+    span {
+      color: var(--n500);
+      font-family: var(--font-default);
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 110%;
+    }
+    &__body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &__group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+
+      :global(.icon) {
+        width: 1.7em;
+        height: 1.7em;
+        background: var(--white);
+        border-radius: 50%;
+
+        svg {
+          width: 1em;
+          height: 1em;
+        }
+      }
+    }
+  }
+  &__main {
+    padding: 0.88em 0;
+
+    &__body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.88em;
+
+        a {
+          // font
+          font-family: var(--font-default);
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 110%;
+          color: var(--n800);
+          transition: 0.3s ease-out;
+
+          &:hover {
+            color: var(--primary-300);
+          }
+          &:active {
+            transition: 0.1s ease;
+            color: var(--primary-200);
+          }
+        }
+        :global(.button){
+          min-width: 140px;
+        }
+      }
+    }
+  }
+}

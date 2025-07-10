@@ -1,0 +1,121 @@
+@use './variables.scss';
+@use './typo.scss';
+
+body {
+  font-size: 18px;
+  font-family: var(--font-montserrat);
+  background: var(--n20);
+  color: var(--n900);
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  // Prevents adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none; // Remove default underlines
+  color: inherit; // Inherit text color by default
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Remove default button styling in Firefox
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+img {
+  pointer-events: none;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// Improve SVG defaults
+svg {
+  display: block; // Prevents potential layout issues
+  width: 100%;
+  height: auto;
+}
