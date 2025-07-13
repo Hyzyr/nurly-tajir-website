@@ -1,10 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
 
-const Logo = () => {
+type Props = {
+  style?: 'main' | 'white';
+};
+
+const Logo = ({ style = 'main' }: Props) => {
   return (
     <Link className="logo" href="/">
-      <img src="/images/logo-main.svg" alt="Nurly Tajir" />
+      {style === 'main' && <img src="/images/logo-main.svg" alt="Nurly Tajir" />}
+      {style === 'white' && <img src="/images/logo-white.svg" alt="Nurly Tajir" />}
     </Link>
   );
 };

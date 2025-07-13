@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Security Cameras",
+    "brands": ["Hikvision", "Dahua", "Samsung"],
+    "image": "cameras.webp"
+  },
+  {
+    "name": "Automation Smart Home",
+    "brands": ["Amazon", "LG", "PHILIPS HUE"],
+    "image": "smart-home.webp"
+  },
+  {
+    "name": "Alarms Systems",
+    "brands": ["Bosch", "Notifier", "Honeywell"],
+    "image": "smoke-detector.webp"
+  },
+  {
+    "name": "Cables Fiber Optics ",
+    "brands": ["UGREEN", "AFL", "Corning Incorporated"],
+    "image": "cables.webp"
+  },
+  {
+    "name": "Network Solutions",
+    "brands": ["TP-Link", "Tenda", "ASUS"],
+    "image": "network.webp"
+  }
+]

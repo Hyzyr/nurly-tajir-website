@@ -1,0 +1,17 @@
+[
+  {
+    "image": "/images/projects/project-1.png",
+    "title": "National Airport",
+    "description": "We implemented over 50 reliable IT and system solutions — including networking, control systems, and integration support across the airport facility."
+  },
+  {
+    "image": "/images/projects/project-2.png",
+    "title": "Commercial Buildings",
+    "description": "Designed and installed a full camera system for safety, monitoring, and secure building management on Cehow Street."
+  },
+  {
+    "image": "/images/projects/project-3.png",
+    "title": "Hotel Yyldyz",
+    "description": "Built and configured a stable, hotel-wide network to support guests, operations, and internal systems with seamless connectivity."
+  }
+]

@@ -1,13 +1,13 @@
 import '@/UI/assets/css/main.scss';
 
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 
-const montserrat = Montserrat({
+const manrope = Manrope({
   subsets: ['latin'],
   weight: ['200', '300', '400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-montserrat',
+  variable: '--font-manrope',
 });
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} `}>
+      <body className={`${manrope.variable} `}>
         <main className={'main'}>{children}</main>
       </body>
     </html>

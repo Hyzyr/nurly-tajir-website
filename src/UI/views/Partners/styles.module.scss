@@ -1,0 +1,46 @@
+.partners {
+  padding: 120px 0;
+  overflow: hidden;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5em;
+  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.88em;
+    padding: 0 3.5em;
+
+    h5 {
+      color: var(--n900);
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: 0.02em;
+    }
+    p {
+      color: var(--n400);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.6;
+      max-width: 990px ;
+    }
+  }
+  &__body {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+  }
+}
+.slider {
+  &__container {
+    display: flex;
+    align-items: center;
+    will-change: transform;
+  }
+  &__item {
+    margin: 0 2em;
+  }
+}

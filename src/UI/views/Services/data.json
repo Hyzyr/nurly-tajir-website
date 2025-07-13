@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Professional Audio, Video & Lighting",
+    "description": "High-performance AV and lighting systems for events, venues, and installations, ensuring exceptional sound, visuals, and ambiance.",
+    "imageIcon": "speaker.svg",
+    "image": "microphone.png"
+  },
+  {
+    "title": "CCTV & Security Cameras",
+    "description": "Advanced surveillance solutions offering real-time monitoring and reliable protection for homes, businesses, and public spaces.",
+    "imageIcon": "camera.svg",
+    "image": "cameras.png"
+  },
+  {
+    "title": "Network Solutions",
+    "description": "Robust and scalable networking services including design, setup, and management for secure, high-speed connectivity.",
+    "imageIcon": "router.svg",
+    "image": "router-2.png"
+  },
+  {
+    "title": "Structured Cabling",
+    "description": "Organized and future-proof cabling infrastructure for voice, data, and multimedia across commercial and industrial environments.",
+    "imageIcon": "cables.svg",
+    "image": "cables.png"
+  },
+  {
+    "title": "Smart Building Solutions",
+    "description": "Integrated technologies for automation, energy efficiency, and intelligent control of building systems and environments.",
+    "imageIcon": "lamp.svg",
+    "image": "smart-home.png"
+  },
+  {
+    "title": "IT Systems",
+    "description": "Comprehensive IT infrastructure, hardware, and software solutions tailored to optimize performance and productivity.",
+    "imageIcon": "pc.svg",
+    "image": "server.png"
+  },
+  {
+    "title": "Fire Detection Systems",
+    "description": "Early warning systems with precise detection to protect people and property from fire risks.",
+    "image": "fire-alarm.png"
+  },
+  {
+    "title": "Access Control & Parking Systems",
+    "description": "Secure, automated access and parking management solutions for buildings, campuses, and gated facilities.",
+    "image": "parking-system.png"
+  }
+]

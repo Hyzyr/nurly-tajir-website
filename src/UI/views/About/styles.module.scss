@@ -1,0 +1,42 @@
+.about {
+  padding: 120px 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3.55rem;
+  }
+  &__header {
+    h3 {
+      line-height: 100%;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.35rem;
+
+    svg {
+      width: 40%;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.34rem;
+      width: calc(60% - 3.55rem);
+      p {
+        font-style: normal;
+        line-height: 160%;
+        color: var(--n400);
+
+        b{
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
