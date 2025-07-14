@@ -12,8 +12,10 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
-      <Projects />
+      <div id="pin">
+        <Hero />
+        <Projects />
+      </div>
       <Services />
       <Partners />
       <Products />

@@ -1,0 +1,21 @@
+$breakpoints: (
+  xsm: 480px,
+  sm: 600px,
+  md: 768px,
+  md-extra: 880px,
+  lg: 1024px,
+  xl: 1280px,
+  xxl: 1340px,
+);
+
+// Mixin for max-width media queries
+@mixin respond-max($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "No value found for breakpoint `#{$breakpoint}`. Check your $breakpoints map.";
+  }
+}

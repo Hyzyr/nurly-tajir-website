@@ -1,4 +1,7 @@
-@use './nulifier.scss';
+@use './variables';
+@use './nulifier';
+@use './typo';
+@use './mixins/breakpoints';
 
 .seperator {
   &-ver {
@@ -29,7 +32,6 @@
 .main {
   overflow: hidden;
 }
-
 /* layout-utils.scss or globals.scss */
 
 .fbox {
@@ -84,5 +86,12 @@
     height: 100%;
     object-fit: cover;
     border-radius: inherit;
+  }
+}
+
+@include breakpoints.respond-max(xxl) {
+  body,
+  html {
+    font-size: 16px;
   }
 }

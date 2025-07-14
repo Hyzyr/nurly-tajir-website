@@ -1,5 +1,6 @@
-import Container from '@/UI/containers';
 import styles from './styles.module.scss';
+
+import Container from '@/UI/containers';
 import ProductCard from './ProductCard';
 
 import data from './data.json';

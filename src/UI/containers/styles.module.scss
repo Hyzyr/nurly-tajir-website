@@ -1,6 +1,25 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .container {
   width: 100%;
   margin: 0 auto;
   max-width: 1440px;
   padding: 0 60px;
+
+  @include breakpoints.respond-max(xl) {
+    padding: 0 50px;
+    max-width: 1180px;
+  }
+  @include breakpoints.respond-max(lg) {
+    padding: 0 40px;
+  }
+  @include breakpoints.respond-max(md-extra) {
+    padding: 0 30px;
+  }
+  @include breakpoints.respond-max(sm) {
+    padding: 0 24px;
+  }
+  @include breakpoints.respond-max(xsm) {
+    padding: 0 16px;
+  }
 }

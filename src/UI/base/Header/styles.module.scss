@@ -1,8 +1,12 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .header {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
+  z-index: 4;
+  transition: box-shadow 0.2s ease, background-color 0.3s ease-in 0.15s;
 
   & + section {
     margin-top: 120px;
@@ -10,6 +14,8 @@
   &__pre {
     padding: 12px 0px 8px;
     background: var(--n40);
+    transition: 0.3s ease-out;
+    overflow: hidden;
 
     font-size: 14px;
 
@@ -80,10 +86,146 @@
             color: var(--primary-200);
           }
         }
-        :global(.button){
+        :global(.button) {
           min-width: 140px;
         }
       }
+    }
+  }
+
+  &:global(.sticky) {
+    background: var(--n0);
+    box-shadow: 0 0.25em 1.5em rgba(#0d2133, 0.1),
+      0 0.1em 0.6em rgba(#0d2133, 0.05);
+
+    .header__pre {
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+    }
+  }
+
+  @include breakpoints.respond-max(lg) {
+    background: var(--n30);
+  }
+}
+.headermob {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.88em 0;
+}
+.hamburger {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  transition: 0.13s ease-out;
+  color: var(--n80);
+
+  &__body {
+    position: relative;
+    width: 2.5em;
+    height: 2.25em;
+    font-size: inherit;
+  }
+
+  &:active {
+    color: var(--primary-600);
+  }
+  span {
+    display: block;
+    position: absolute;
+    height: 0.25em;
+    width: 100%;
+    background: currentColor;
+    border-radius: 0.25em;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 0px;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: 0.9em;
+    }
+    &:nth-child(4) {
+      top: 1.8em;
+    }
+  }
+  &:global(.open) span {
+    &:nth-child(1) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+    &:nth-child(2) {
+      transform: rotate(45deg);
+    }
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+    }
+    &:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+  }
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(#0d2133, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 3;
+  padding: 80px 30px 100px 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      font-family: var(--font-clash);
+      font-size: 18px;
+      line-height: 110%;
+      font-weight: 400;
+      border-top: 1px solid var(--n30);
+      padding: 0.5em 0.25em;
+      transition: 0.13s ease-out;
+
+      &:active {
+        color: var(--primary-600);
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    width: 100%;
+    max-width: 420px;
+    background: var(--n20);
+    border-radius: 0.8em;
+    padding: 1em 0.8em;
+
+    box-shadow: 0 0.25em 1.5em rgba(#0d2133, 0.1),
+      0 0.1em 0.6em rgba(#0d2133, 0.05);
+
+    small {
+      font-size: 14px;
+      line-height: 120%;
+      color: var(--n60);
     }
   }
 }

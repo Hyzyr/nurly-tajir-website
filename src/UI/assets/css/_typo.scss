@@ -1,0 +1,196 @@
+@use './mixins/breakpoints';
+
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2'),
+    url('/fonts/ClashDisplay-Variable.woff') format('woff'),
+    url('/fonts/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+:root {
+  --font-clash: 'Clash Display', 'Manrope', 'Roboto', Arial, sans-serif;
+}
+
+.font {
+  &-clash {
+    font-family: var(--font-clash);
+  }
+  &-default {
+    font-family: var(--font-manrope);
+  }
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: var(--font-clash);
+  font-weight: 500;
+  line-height: 120%;
+  text-transform: capitalize;
+}
+
+.h1 {
+  font-size: 4.56em; // 82 / 18
+
+  &._xxl {
+    font-size: 5.33em; // 96 / 18
+  }
+}
+
+.h2 {
+  font-size: 4.22em; // 76 / 18
+}
+
+.h3 {
+  font-size: 3.56em; // 64 / 18
+}
+
+.h4 {
+  font-size: 3em; // 54 / 18
+
+  &._sm {
+    font-size: 2.44em; // 44 / 18
+  }
+}
+
+.h5 {
+  font-size: 2em; // 36 / 18
+}
+
+.h6 {
+  font-size: 1.33em; // 24 / 18
+}
+
+.subtitle {
+  font-family: var(--font-clash);
+  font-size: 1.22em; // 22 / 18
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: 0.02em;
+
+  &._xsm {
+    font-size: 1em; // 18 / 18
+  }
+  &._sm {
+    font-size: 1.11em; // 20 / 18
+  }
+  &._lg {
+    font-size: 1.33em; // 24 / 18
+  }
+  &._xlg {
+    font-size: 1.56em; // 28 / 18
+  }
+}
+
+p {
+  color: var(--n800);
+  line-height: 1.5;
+  font-weight: 400;
+
+  &._sm {
+    font-size: 0.89em; // 16 / 18
+  }
+  &._lg {
+    font-size: 1.11em; // 20 / 18
+  }
+  &._xxlg {
+    font-size: 1.33em; // 24 / 18
+  }
+
+  b {
+    font-weight: 500;
+  }
+}
+
+.color {
+  &-gray {
+    color: var(--primary-100);
+  }
+}
+
+@include breakpoints.respond-max(xl) {
+  .h1 {
+    font-size: 4.5em; // 72 / 16
+
+    &._xxl {
+      font-size: 4.9em; // 78 / 16
+    }
+  }
+  .h2 {
+    font-size: 4em; // 64 / 16
+  }
+  .h3 {
+    font-size: 3.25em; // 52 / 16
+  }
+  .h4 {
+    font-size: 2.75em; // 44 / 16
+
+    &._sm {
+      font-size: 2.37em; // 38 / 16
+    }
+  }
+  .subtitle {
+    font-size: 1.25em; // 20 / 16
+
+    &._xsm {
+      font-size: 1.12em; // 18 / 16
+    }
+    &._sm {
+      font-size: 1.25em; // 20 / 16
+    }
+    &._lg {
+      font-size: 1.375em; // 22 / 16
+    }
+    &._xlg {
+      font-size: 1.5em; // 24 / 16
+    }
+  }
+}
+
+@include breakpoints.respond-max(lg) {
+  .h1 {
+    font-size: 4em; // 64 / 16
+
+    &._xxl {
+      font-size: 4.25em; // 68 / 16
+    }
+  }
+  .h2 {
+    font-size: 3.6em; // 58 / 16
+  }
+  .h3 {
+    font-size: 3em; // 48 / 16
+  }
+  .h4 {
+    font-size: 2.375em; // 38 / 16
+
+    &._sm {
+      font-size: 2em; // 32 / 16
+    }
+  }
+  .h5 {
+    font-size: 1.5em; // 24 / 16
+  }
+
+  .subtitle {
+    font-size: 1.25em; // 20 / 16
+
+    &._xsm {
+      font-size: 1.12em; // 18 / 16
+    }
+    &._sm {
+      font-size: 1.25em; // 20 / 16
+    }
+    &._lg {
+      font-size: 1.25em; // 20 / 16
+    }
+    &._xlg {
+      font-size: 1.25em; // 20 / 16
+    }
+  }
+}

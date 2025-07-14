@@ -1,5 +1,6 @@
-import Container from '@/UI/containers';
 import styles from './styles.module.scss';
+
+import Container from '@/UI/containers';
 import Button from '@/UI/components/Button';
 import HeroBg from './HeroBg';
 
@@ -7,7 +8,7 @@ type Props = {};
 
 const Hero = (props: Props) => {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id='hero'>
       <Container>
         <div className={styles.hero__body}>
           <div className={styles.hero__content}>
