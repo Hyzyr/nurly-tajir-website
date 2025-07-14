@@ -1,5 +1,9 @@
 @use '@/UI/assets/css/mixins/breakpoints';
 
+.header-space {
+  height: 125px;
+  width: 100%;
+}
 .header {
   position: absolute;
   left: 0;
@@ -224,5 +228,10 @@
       line-height: 120%;
       color: var(--n60);
     }
+  }
+}
+@include breakpoints.respond-max(lg) {
+  .header-space {
+    height: 75px;
   }
 }

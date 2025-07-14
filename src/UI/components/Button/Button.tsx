@@ -15,9 +15,12 @@ const Button = ({
   size = 'md',
   onClick,
 }: Props) => {
+  const sizeClass = `button-${size}`;
+  const styleClass = `button-${style}`;
+
   return (
     <button
-      className={`button ${styles.button} ${styles.button}-${size}  ${styles.button}-${style}`}
+      className={`button ${styles.button} ${styles[sizeClass]} ${styles[styleClass]}`}
       onClick={onClick}>
       {text && text}
       {children && children}

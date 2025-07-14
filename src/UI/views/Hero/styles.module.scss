@@ -2,7 +2,6 @@
 
 .hero {
   position: relative;
-  margin-top: 125px;
 
   &__body {
     display: flex;
@@ -61,7 +60,6 @@
   }
 
   @include breakpoints.respond-max(lg) {
-    margin-top: 75px;
     &__bg {
       width: 60vw;
       left: 40%;

@@ -34,9 +34,10 @@ const ProjectsRow = ({ children }: Props) => {
           trigger: pinElement,
           pin: true,
           pinSpacing: true,
-          start: () => `+=${hero.clientHeight * 0.65} top`,
+          start: () => `+=${hero.clientHeight * 0.7} top`,
           end: () => `+=${scrollDistance + 100}`, // how long to pin
           scrub: 1,
+          markers: true
         },
       });
     }, container);
