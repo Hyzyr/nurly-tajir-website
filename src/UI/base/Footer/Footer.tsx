@@ -3,9 +3,7 @@ import styles from './styles.module.scss';
 import Icon from '@/UI/components/Icon';
 import Container from '@/UI/containers';
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Container>
@@ -20,19 +18,19 @@ const Footer = (props: Props) => {
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">Company</strong>
             <div className="fbox fbox-column fbox-gap-2">
-              <a href="/" className={styles.footer__link}>
+              <a href="#projects" className={styles.footer__link}>
                 Projects
               </a>
-              <a href="/" className={styles.footer__link}>
+              <a href="#services" className={styles.footer__link}>
                 Services
               </a>
-              <a href="/" className={styles.footer__link}>
+              <a href="#products" className={styles.footer__link}>
                 Products
               </a>
-              <a href="/" className={styles.footer__link}>
+              <a href="#about-us" className={styles.footer__link}>
                 About Us
               </a>
-              <a href="/" className={styles.footer__link}>
+              <a href="#contacts" className={styles.footer__link}>
                 Contacts
               </a>
             </div>
@@ -40,13 +38,13 @@ const Footer = (props: Props) => {
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">Legal</strong>
             <div className="fbox fbox-column fbox-gap-2">
-              <a href="/" className={styles.footer__link}>
+              <a href="#" className={styles.footer__link}>
                 Documents
               </a>
-              <a href="/" className={styles.footer__link}>
+              <a href="#" className={styles.footer__link}>
                 Privacy Policy
               </a>
-              <a href="/" className={styles.footer__link}>
+              <a href="#" className={styles.footer__link}>
                 Terms & Conditions
               </a>
             </div>

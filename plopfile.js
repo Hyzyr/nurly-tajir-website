@@ -15,8 +15,8 @@ module.exports = function (plop) {
         type: 'add',
         path: 'src/UI/{{pascalCase name}}/{{pascalCase name}}.tsx',
         template: `import styles from './styles.module.scss';\n\n
-        type Props = {};\n
-        const {{pascalCase name}} = (props: Props) => {
+        \n
+        const {{pascalCase name}} = () => {
             return (
                 <div className={ styles.{{lowerCase name}} }>
                    {{pascalCase name}} component

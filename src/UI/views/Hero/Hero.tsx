@@ -4,9 +4,9 @@ import Container from '@/UI/containers';
 import Button from '@/UI/components/Button';
 import HeroBg from './HeroBg';
 
-type Props = {};
 
-const Hero = (props: Props) => {
+
+const Hero = () => {
   return (
     <section className={styles.hero} id='hero'>
       <Container>

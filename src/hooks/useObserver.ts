@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
   threshold?: number;
@@ -22,9 +22,8 @@ export function useObserver<T extends HTMLDivElement = HTMLDivElement>({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        onChange
-          ? onChange(entry.isIntersecting)
-          : setIsVisible(entry.isIntersecting);
+        if (onChange) onChange(entry.isIntersecting);
+        else setIsVisible(entry.isIntersecting);
       },
       { threshold, root, rootMargin }
     );
@@ -35,9 +34,9 @@ export function useObserver<T extends HTMLDivElement = HTMLDivElement>({
       const rect = node.getBoundingClientRect();
       const isInitiallyVisible =
         rect.top < window.innerHeight && rect.bottom >= 0;
-      onChange
-        ? onChange(isInitiallyVisible)
-        : setIsVisible(isInitiallyVisible);
+
+      if (onChange) onChange(isInitiallyVisible);
+      else setIsVisible(isInitiallyVisible);
     }
 
     return () => {

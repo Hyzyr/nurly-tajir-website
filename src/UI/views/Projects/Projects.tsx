@@ -6,9 +6,9 @@ import ProjectCard from './ProjectCard';
 import Icon from '@/UI/components/Icon';
 import ProjectsCardsWrapper from './ProjectsCardsWrapper';
 
-type Props = {};
 
-const Projects = (props: Props) => {
+
+const Projects = () => {
   return (
     <section className={styles.projects}>
       <Container>

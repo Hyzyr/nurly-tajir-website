@@ -89,7 +89,8 @@ const HeaderMenu = ({ active, toggle }: Props) => {
       isFirstLoad.current = false;
       initStyles();
     }
-    active ? setVisible() : setHidden();
+    if (active) setVisible();
+    else setHidden();
   }, [active]);
 
   return createPortal(

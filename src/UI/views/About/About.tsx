@@ -1,9 +1,9 @@
 import Container, { ContainerInner } from '@/UI/containers';
 import styles from './styles.module.scss';
 
-type Props = {};
 
-const About = (props: Props) => {
+
+const About = () => {
   return (
     <section className={styles.about}>
       <Container>

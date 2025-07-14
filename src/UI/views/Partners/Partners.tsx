@@ -4,9 +4,9 @@ import styles from './styles.module.scss';
 import data from './data.json';
 import PartnersSlider, { PartnersSliderItem } from './PartnersSlider';
 
-type Props = {};
 
-const Partners = (props: Props) => {
+
+const Partners = () => {
   return (
     <section className={styles.partners}>
       <Container>

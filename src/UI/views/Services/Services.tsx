@@ -8,9 +8,9 @@ import data from './data.json';
 import { useState } from 'react';
 import ServiceInfoCard from './ServiceInfoCard';
 
-type Props = {};
 
-const Services = (props: Props) => {
+
+const Services = () => {
   const [info, setInfo] = useState(false);
   const [active, setActive] = useState(1);
 

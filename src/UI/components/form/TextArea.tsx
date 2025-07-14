@@ -3,8 +3,7 @@
 import React, { useId } from 'react';
 import styles from './styles.module.scss';
 
-interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 const Textarea = ({
   value,

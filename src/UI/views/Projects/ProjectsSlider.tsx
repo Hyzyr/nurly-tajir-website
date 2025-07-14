@@ -9,7 +9,7 @@ type Props = {
 };
 
 const ProjectsSlider = ({ children }: Props) => {
-  const [ref, api] = useEmblaCarousel({ dragFree: true, loop: false });
+  const [ref] = useEmblaCarousel({ dragFree: true, loop: false });
 
   return (
     <div ref={ref} className={styles.slider}>

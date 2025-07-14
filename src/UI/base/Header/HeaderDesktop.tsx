@@ -7,9 +7,9 @@ import Container from '@/UI/containers';
 import Link from 'next/link';
 import React from 'react';
 
-type Props = {};
 
-const HeaderDesktop = (props: Props) => {
+
+const HeaderDesktop = () => {
   return (
     <>
       <div className={styles.header__pre}>

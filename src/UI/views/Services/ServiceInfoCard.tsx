@@ -3,7 +3,6 @@ import Button from '@/UI/components/Button';
 import styles from './styles.module.scss';
 
 import React from 'react';
-import { useMedia } from '@/hooks/useMedia';
 import Icon from '@/UI/components/Icon';
 
 type Props = {
@@ -21,7 +20,6 @@ const ServiceInfoCard = ({
   className,
   onBackClick,
 }: Props) => {
-  const isMobile = useMedia('max-width: 768px');
 
   return (
     <div className={`${styles.info} ${className ?? ''}`}>

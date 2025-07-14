@@ -3,13 +3,12 @@ import styles from './styles.module.scss';
 
 import Container from '@/UI/containers';
 import React, { useState } from 'react';
-import Button from '@/UI/components/Button';
 import HamburgerBtn from './HamburgerBtn';
 import HeaderMenu from './HeaderMenu';
 
-type Props = {};
 
-const HeaderMob = (props: Props) => {
+
+const HeaderMob = () => {
   const [menuActive, setMenuActive] = useState(false);
 
   const toggleMenu = () => {

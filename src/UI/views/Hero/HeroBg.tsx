@@ -4,9 +4,9 @@ import styles from './styles.module.scss';
 import { useHeroBg } from './useHeroBg';
 import { useObserver } from '@/hooks/useObserver';
 
-type Props = {};
 
-const HeroBg = (props: Props) => {
+
+const HeroBg = () => {
   const yellow = useRef<HTMLSpanElement | null>(null);
   const blue = useRef<HTMLSpanElement | null>(null);
   const { ref, isVisible } = useObserver();

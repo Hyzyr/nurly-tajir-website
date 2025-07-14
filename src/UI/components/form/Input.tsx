@@ -3,7 +3,7 @@
 import React, { useId } from 'react';
 import styles from './styles.module.scss';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input = ({
   type = 'text',

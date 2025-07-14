@@ -4,10 +4,9 @@ import * as iconsSVG from '@/UI/assets/SimpleIconsSVG';
 export type IconNames = keyof typeof iconsSVG;
 type Props = {
   name: IconNames;
-  size?: 'small' | 'medium' | 'large';
 };
 
-const Icon = ({ name, size }: Props) => {
+const Icon = ({ name }: Props) => {
   return <span className={`icon ${styles.icon}`}>{iconsSVG[name]}</span>;
 };
 

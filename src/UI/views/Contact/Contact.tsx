@@ -5,9 +5,9 @@ import { LabeledInput } from '@/UI/components/form/Input';
 import { LabeledTextarea } from '@/UI/components/form/TextArea';
 import Button from '@/UI/components/Button';
 
-type Props = {};
 
-const Contact = (props: Props) => {
+
+const Contact = () => {
   return (
     <section className={styles.contact}>
       <Container>
