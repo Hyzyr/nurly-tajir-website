@@ -1,3 +1,5 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .services {
   padding: 100px 0;
 
@@ -10,7 +12,6 @@
     display: flex;
     justify-content: flex-end;
     text-align: end;
-    padding: 0 3.55em;
 
     h3 {
       font-style: normal;
@@ -25,7 +26,7 @@
   display: flex;
   flex-direction: row;
   padding: 0px;
-  gap: 20px;
+  gap: 1em;
   padding: 0.88em;
   background: var(--n40);
   border-radius: 1.34em;
@@ -77,7 +78,7 @@
   }
 
   &__noimage {
-    height: unset;
+    height: unset !important;
   }
   &__title {
     strong {
@@ -216,14 +217,40 @@
       animation: 0.3s fadeInUp ease-out 0.1s backwards;
     }
   }
-  strong {
-    z-index: 1;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.04em;
-    color: var(--primary-800);
-    animation: 0.3s fadeInUp ease-out 0.2s backwards;
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 1.5em;
+    padding: 0.25em;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.35em;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--n100);
+      transition: 0.13s ease-out;
+
+      svg {
+        transform: rotate(90deg);
+      }
+
+      &:active {
+        color: var(--n600);
+      }
+    }
+    strong {
+      z-index: 1;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--primary-800);
+      animation: 0.3s fadeInUp ease-out 0.2s backwards;
+    }
   }
   &__desc {
     display: flex;
@@ -255,5 +282,95 @@
   to {
     opacity: 1;
     transform: translate(0);
+  }
+}
+
+@include breakpoints.respond-max(lg) {
+  .grid {
+    padding: 0.6em;
+    gap: 0.5em;
+    &__tabs {
+      gap: inherit;
+    }
+    &__info {
+      width: calc(35% - 0.5em);
+    }
+  }
+  .card {
+    height: 26vh;
+  }
+  .info {
+    padding: 1em 0.5em;
+    &__desc {
+      gap: 0.5em;
+      padding: 0.5em;
+    }
+  }
+}
+@include breakpoints.respond-max(md-extra) {
+  .card {
+    width: calc(50% - 0.25em);
+    flex: unset;
+    height: 18vh;
+    border-radius: 1em;
+  }
+  .grid {
+    gap: 0.5em;
+    &__tabs {
+      width: 60%;
+    }
+    &__info {
+      width: calc(40% - 0.5em);
+    }
+  }
+}
+@include breakpoints.respond-max(md) {
+  .services {
+    padding: 80px 0;
+  }
+  .card {
+    width: calc(50% - 0.5em);
+  }
+  .grid {
+    gap: 1em;
+    position: relative;
+
+    &__tabs {
+      width: 100%;
+    }
+    &__info {
+    }
+  }
+  .info {
+    position: absolute;
+    left: 0.5em;
+    top: 0.5em;
+    padding: 1em;
+    width: calc(100% - 1em);
+    height: calc(100% - 1em);
+    transform: translateY(10%);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s ease-in;
+    overflow: hidden;
+
+    &__desc {
+      padding: 1em;
+    }
+
+    &:global(.active) {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+      transition: 0.4s ease-in;
+    }
+  }
+}
+@include breakpoints.respond-max(xsm) {
+  .grid {
+    gap: 0.5em;
+  }
+  .card {
+    width: calc(50% - 0.25em);
   }
 }

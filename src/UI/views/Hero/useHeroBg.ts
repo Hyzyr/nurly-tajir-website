@@ -11,6 +11,7 @@ type Props = {
 export function useHeroBg({ active = true, yellow, blue }: Props) {
   useGSAP(
     () => {
+      if (window.innerWidth < 768) return;
       if (!yellow.current || !blue.current) return;
       if (!active) return;
       const handleMouseMove = (e: MouseEvent) => {

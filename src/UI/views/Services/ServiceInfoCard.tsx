@@ -1,16 +1,28 @@
+'use client';
 import Button from '@/UI/components/Button';
 import styles from './styles.module.scss';
 
 import React from 'react';
+import { useMedia } from '@/hooks/useMedia';
+import Icon from '@/UI/components/Icon';
 
 type Props = {
   image: string;
   title: string;
   description: string;
   className?: string;
+  onBackClick?: () => void;
 };
 
-const ServiceInfoCard = ({ image, title, description, className }: Props) => {
+const ServiceInfoCard = ({
+  image,
+  title,
+  description,
+  className,
+  onBackClick,
+}: Props) => {
+  const isMobile = useMedia('max-width: 768px');
+
   return (
     <div className={`${styles.info} ${className ?? ''}`}>
       <div className="bg">
@@ -19,10 +31,16 @@ const ServiceInfoCard = ({ image, title, description, className }: Props) => {
       <div className={styles.info__image}>
         <img src={`/images/website/services/${image}`} alt="icon-image" />
       </div>
-      <strong className="h4 _sm">{title}</strong>
+      <div className={styles.info__title}>
+        <button onClick={onBackClick}>
+          <Icon name="arrowDownSVG" />
+          Back
+        </button>
+        <strong className="h4 _sm">{title}</strong>
+      </div>
       <div className={styles.info__desc}>
         <p>{description}</p>
-        <Button text="contact us" />
+        <Button text="contact us" style="outlined" />
       </div>
     </div>
   );

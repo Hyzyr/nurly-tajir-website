@@ -4,7 +4,7 @@ import Container from '@/UI/containers';
 import data from './data.json';
 import ProjectCard from './ProjectCard';
 import Icon from '@/UI/components/Icon';
-import ProjectsRow from './ProjectsRow';
+import ProjectsCardsWrapper from './ProjectsCardsWrapper';
 
 type Props = {};
 
@@ -14,7 +14,7 @@ const Projects = (props: Props) => {
       <Container>
         <div className={styles.projects__inner}>
           <small>Highlighted Projects</small>
-          <ProjectsRow>
+          <ProjectsCardsWrapper>
             {data.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
@@ -22,7 +22,7 @@ const Projects = (props: Props) => {
               <strong className="subtitle _lg">Request Consultation</strong>
               <Icon name="arrowCorner" />
             </div>
-          </ProjectsRow>
+          </ProjectsCardsWrapper>
         </div>
       </Container>
     </section>

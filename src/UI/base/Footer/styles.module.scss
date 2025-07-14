@@ -1,3 +1,5 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .footer {
   background: var(--primary-900);
   &__inner {
@@ -85,6 +87,48 @@
     &:active {
       color: var(--primary-400);
       transition-duration: 0.1s;
+    }
+  }
+}
+
+@include breakpoints.respond-max(lg) {
+  .footer {
+    &__column {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
+}
+@include breakpoints.respond-max(md-extra) {
+  .footer {
+    &__column {
+      &:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+@include breakpoints.respond-max(md) {
+  .footer {
+    &__inner {
+      gap: 2rem;
+      flex-direction: column;
+    }
+    &__column {
+      :global(.subtitle) {
+        display: none;
+      }
+    }
+  }
+}
+@include breakpoints.respond-max(sm) {
+  .footer {
+    &__copyright {
+      flex-direction: column;
+      gap: 0.75em;
+      align-items: center;
+      padding: 20px 0 30px;
     }
   }
 }

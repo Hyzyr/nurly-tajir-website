@@ -1,3 +1,5 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .about {
   padding: 120px 0;
 
@@ -5,7 +7,6 @@
     display: flex;
     flex-direction: column;
     gap: 3.55rem;
-    padding: 0 3.5em;
   }
   &__header {
     h3 {
@@ -38,6 +39,47 @@
         b {
           font-weight: 600;
         }
+      }
+    }
+  }
+}
+
+@include breakpoints.respond-max(md-extra) {
+  .about {
+    &__inner {
+      align-items: center;
+      text-align: center;
+    }
+    &__header {
+      max-width: 650px;
+    }
+  }
+}
+@include breakpoints.respond-max(md) {
+  .about {
+    &__inner {
+      align-items: center;
+      text-align: center;
+    }
+    &__header {
+      display: contents;
+      h3 {
+        max-width: 500px;
+      }
+    }
+    &__body {
+      display: contents;
+      flex-direction: column;
+
+      svg {
+        width: 60%;
+        max-width: 350px;
+        order: -1;
+      }
+
+      &__info {
+        width: 100%;
+        align-items: center;
       }
     }
   }

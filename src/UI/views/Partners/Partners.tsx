@@ -1,4 +1,4 @@
-import Container from '@/UI/containers';
+import Container, { ContainerInner } from '@/UI/containers';
 import styles from './styles.module.scss';
 
 import data from './data.json';
@@ -11,7 +11,7 @@ const Partners = (props: Props) => {
     <section className={styles.partners}>
       <Container>
         <div className={styles.partners__inner}>
-          <div className={styles.partners__header}>
+          <ContainerInner className={styles.partners__header}>
             <h5 className="h5">Our Partners</h5>
             <p className="_lg">
               We are official distributors in Turkmenistan for leading global
@@ -19,7 +19,7 @@ const Partners = (props: Props) => {
               Honeywell — delivering certified, high-quality solutions backed by
               trusted technology.
             </p>
-          </div>
+          </ContainerInner>
           <div className={styles.partners__body}>
             <PartnersSlider>
               {[...data, ...data].map((img, index) => (

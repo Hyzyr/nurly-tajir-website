@@ -1,5 +1,8 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .hero {
   position: relative;
+  margin-top: 125px;
 
   &__body {
     display: flex;
@@ -54,6 +57,24 @@
       right: -5%;
       color: var(--yellow);
       opacity: 0.12;
+    }
+  }
+
+  @include breakpoints.respond-max(lg) {
+    margin-top: 75px;
+    &__bg {
+      width: 60vw;
+      left: 40%;
+    }
+  }
+  @include breakpoints.respond-max(sm) {
+    &__bg {
+      width: 90vw;
+      left: 10%;
+      top: 57.5%;
+    }
+    &__body {
+      padding-bottom: 7vh;
     }
   }
 }

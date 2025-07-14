@@ -1,3 +1,5 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .products {
   &__inner {
     display: flex;
@@ -100,7 +102,6 @@
     }
   }
 }
-
 .card {
   position: relative;
   display: flex;
@@ -150,11 +151,11 @@
       letter-spacing: 0.04em;
     }
   }
-
   &__brands {
     display: flex;
     align-items: center;
     gap: 0.5em;
+
     span {
       display: flex;
       padding: 0.55em 0.88em;
@@ -170,6 +171,79 @@
       line-height: 120%;
       letter-spacing: 0.01em;
       color: var(--n10);
+    }
+  }
+}
+
+@include breakpoints.respond-max(xl) {
+  .card {
+    height: 45vh;
+    min-height: 450px;
+  }
+}
+@include breakpoints.respond-max(lg) {
+  .products {
+    &__grid {
+      gap: 0.8em;
+    }
+  }
+}
+@include breakpoints.respond-max(md-extra) {
+  .card {
+    border-radius: 1.5em;
+    flex: 1 0 48%;
+    min-height: unset;
+    &__brands {
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 100%;
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  .products {
+    &__grid {
+      &__button {
+        border-radius: 1.5em;
+      }
+    }
+  }
+}
+@include breakpoints.respond-max(sm) {
+  .products {
+    &__grid {
+      gap: 8px;
+    }
+  }
+  .card {
+    height: 30vh;
+    width: 100%;
+    flex: unset;
+    border-radius: 1em;
+
+    &__title {
+      flex: unset;
+      width: max-content;
+      max-width: unset;
+      padding: 0.5em;
+    }
+    &__brands {
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 100%;
+
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  .products {
+    &__grid {
+      &__button {
+        border-radius: 1em;
+      }
     }
   }
 }

@@ -1,3 +1,5 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
 .projects {
   padding: 80px 0;
   &__inner {
@@ -27,7 +29,8 @@
       padding: 0.88em;
       border-radius: 1.33em;
       flex-shrink: 0;
-      min-width: 10vw;
+      width: 10vw;
+      min-width: 100px;
       overflow: hidden;
       z-index: 0;
       transition: 0.1s ease;
@@ -104,6 +107,7 @@
   display: flex;
   position: relative;
   width: 35vw;
+  min-width: 400px;
   flex-shrink: 0;
   border-radius: 1.33em;
   overflow: hidden;
@@ -111,6 +115,7 @@
   :global(.ratioImage) {
     padding-bottom: 90%;
   }
+
   &__content {
     position: absolute;
     top: 0;
@@ -154,5 +159,66 @@
     font-size: 1rem;
     line-height: 140%;
     color: var(--n900);
+  }
+}
+.slider {
+  &__container {
+    display: flex;
+    gap: 1.5em;
+  }
+
+  .card {
+    border-radius: 1em;
+    min-width: unset;
+    width: unset;
+    min-height: 45vh;
+    flex: 0 0 95%;
+
+    &__title {
+      width: max-content;
+      border-radius: 0.36em;
+    }
+    &__description {
+      background: rgba(#fff, 0.65);
+      font-size: 14px;
+      line-height: 130%;
+      padding: 6px 8px;
+    }
+  }
+}
+@include breakpoints.respond-max(xlg) {
+  .projects {
+    &__card {
+      gap: 1em;
+    }
+  }
+  .card {
+    &__content {
+      padding: 1em;
+    }
+    &__title {
+      padding: 0.8em;
+    }
+  }
+}
+@include breakpoints.respond-max(lg) {
+  .projects {
+    &__card {
+      gap: 0.8em;
+    }
+  }
+  .card {
+    &__content {
+      padding: 0.6em;
+    }
+    &__title {
+      padding: 0.6em;
+      min-width: 125px;
+    }
+  }
+}
+@include breakpoints.respond-max(xsm) {
+  .projects {
+    padding: 30px 0 60px 0;
   }
 }

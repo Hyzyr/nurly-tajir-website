@@ -1,22 +1,32 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './styles.module.scss';
 import useEmblaCarousel from 'embla-carousel-react';
 import AutoScroll from 'embla-carousel-auto-scroll';
+import { useObserver } from '@/hooks/useObserver';
 
 type Props = {
   children: React.ReactNode;
 };
 
 const PartnersSlider = ({ children }: Props) => {
-  const [ref, api] = useEmblaCarousel({ loop: true, dragFree: true }, [
-    AutoScroll({ stopOnInteraction: true, speed:0.4 }),
+  const [wrapperRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true }, [
+    AutoScroll({ stopOnInteraction: true, speed: 0.4 }),
   ]);
-
+  const { ref } = useObserver({
+    onChange: (state) => {
+      // window.api = api;
+      console.log('state', state)
+      console.log(emblaApi)
+      // state? api.stop()
+    },
+  });
   return (
-    <div className={styles.slider} ref={ref}>
-      <div className={styles.slider__container}>{children}</div>
+    <div className={styles.slider} ref={wrapperRef}>
+      <div className={styles.slider__container} ref={ref}>
+        {children}
+      </div>
     </div>
   );
 };

@@ -6,9 +6,9 @@ import ProductCard from './ProductCard';
 import data from './data.json';
 import Icon from '@/UI/components/Icon';
 
-type Props = {};
 
-const Products = (props: Props) => {
+const Products = () => {
+  
   return (
     <section className={styles.products}>
       <Container>

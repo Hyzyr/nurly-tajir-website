@@ -1,5 +1,6 @@
-import Container from '@/UI/containers';
 import styles from './styles.module.scss';
+
+import Container, { ContainerInner } from '@/UI/containers';
 import { LabeledInput } from '@/UI/components/form/Input';
 import { LabeledTextarea } from '@/UI/components/form/TextArea';
 import Button from '@/UI/components/Button';
@@ -10,7 +11,7 @@ const Contact = (props: Props) => {
   return (
     <section className={styles.contact}>
       <Container>
-        <div className={styles.contact__inner}>
+        <ContainerInner className={styles.contact__inner}>
           <div className={`${styles.contact__bg} bg`}>
             <img
               src="/images/website/banner-contacts.webp"
@@ -29,11 +30,11 @@ const Contact = (props: Props) => {
               placeholder="Write something..."
               rows={6}
             />
-            <div className="dflex">
+            <div className="fbox">
               <Button text="Contact Us" />
             </div>
           </div>
-        </div>
+        </ContainerInner>
       </Container>
     </section>
   );

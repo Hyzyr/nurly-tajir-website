@@ -1,3 +1,4 @@
-import Container from './Container';
+import Container, { ContainerInner } from './Container';
 
- export default Container;
+export { ContainerInner };
+export default Container;

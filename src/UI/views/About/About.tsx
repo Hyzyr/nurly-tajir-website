@@ -1,4 +1,4 @@
-import Container from '@/UI/containers';
+import Container, { ContainerInner } from '@/UI/containers';
 import styles from './styles.module.scss';
 
 type Props = {};
@@ -7,7 +7,7 @@ const About = (props: Props) => {
   return (
     <section className={styles.about}>
       <Container>
-        <div className={styles.about__inner}>
+        <ContainerInner className={styles.about__inner}>
           <div className={styles.about__header}>
             <h3 className="h3">
               <span className="color-gray">Empowering Turkmenistan with</span>
@@ -34,7 +34,7 @@ const About = (props: Props) => {
               </p>
             </div>
           </div>
-        </div>
+        </ContainerInner>
       </Container>
     </section>
   );

@@ -6,12 +6,25 @@
   max-width: 1440px;
   padding: 0 60px;
 
+  &__inner {
+    padding-left: 3.5em;
+    padding-right: 3.5em;
+  }
+
   @include breakpoints.respond-max(xl) {
     padding: 0 50px;
     max-width: 1180px;
+    &__inner {
+      padding-left: 2.5em;
+      padding-right: 2.5em;
+    }
   }
   @include breakpoints.respond-max(lg) {
     padding: 0 40px;
+    &__inner {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
   @include breakpoints.respond-max(md-extra) {
     padding: 0 30px;

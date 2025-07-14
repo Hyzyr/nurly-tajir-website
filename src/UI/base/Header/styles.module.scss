@@ -8,9 +8,6 @@
   z-index: 4;
   transition: box-shadow 0.2s ease, background-color 0.3s ease-in 0.15s;
 
-  & + section {
-    margin-top: 120px;
-  }
   &__pre {
     padding: 12px 0px 8px;
     background: var(--n40);

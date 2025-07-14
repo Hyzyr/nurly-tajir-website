@@ -105,19 +105,19 @@ const HyzyrLogo = () => {
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M6.89089 14.835H5.10907V9.48951H6.89089V14.835Z"
-              fill="white"
+              fill="#a4bcd6"
             />
             <path
               d="M4.34543 3.27203H1.72491V12.1433H4.34543V13.0531H0.272705V2.36223H4.34543V3.27203Z"
-              fill="white"
+              fill="#a4bcd6"
             />
             <path
               d="M11.7273 13.0531H7.65452V12.1433H10.275V3.27203H7.65452V2.36223H11.7273V13.0531Z"
-              fill="white"
+              fill="#a4bcd6"
             />
             <path
               d="M6.89089 6.18042H5.10907V0.834961H6.89089V6.18042Z"
-              fill="white"
+              fill="#a4bcd6"
             />
           </svg>
         </span>
