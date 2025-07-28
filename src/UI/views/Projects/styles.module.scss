@@ -186,7 +186,7 @@
     }
   }
 }
-@include breakpoints.respond-max(xlg) {
+@include breakpoints.respond-max(xl) {
   .projects {
     &__card {
       gap: 1em;

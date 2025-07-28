@@ -12,6 +12,7 @@ type Props = {
 };
 
 const SCROLL_OFFSET = 200;
+const UPMOVE_OFFSET = 40;
 
 const HeaderWrapper = ({ children }: Props) => {
   const headerRef = useRef<HTMLDivElement>(null);
@@ -46,12 +47,26 @@ const HeaderWrapper = ({ children }: Props) => {
       }
     };
 
+    let isUp = false;
+    let upStart = 0;
+
     const observer = Observer.create({
       type: 'wheel,touch,scroll',
       onUp: () => {
-        if (isStickyRef.current && !isVisibleRef.current) {
-          gsap.to(header, { y: '0%', duration: 0.7, ease: 'power2.out' });
-          isVisibleRef.current = true;
+        console.log('move up', {
+          isUp,
+          upStart,
+          scrollY: window.scrollY,
+          diff: window.scrollY - upStart,
+        });
+        if (!isUp) {
+          upStart = window.scrollY;
+          isUp = true;
+        } else if (isUp && upStart - window.scrollY > UPMOVE_OFFSET) {
+          if (isStickyRef.current && !isVisibleRef.current) {
+            gsap.to(header, { y: '0%', duration: 0.7, ease: 'power2.out' });
+            isVisibleRef.current = true;
+          }
         }
       },
       onDown: () => {
@@ -59,6 +74,7 @@ const HeaderWrapper = ({ children }: Props) => {
           gsap.to(header, { y: '-100%', duration: 0.3, ease: 'power2.in' });
           isVisibleRef.current = false;
         }
+        isUp = false;
       },
       tolerance: 10,
       preventDefault: false,

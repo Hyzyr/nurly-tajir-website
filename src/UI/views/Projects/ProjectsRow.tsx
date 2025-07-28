@@ -37,7 +37,7 @@ const ProjectsRow = ({ children }: Props) => {
           start: () => `+=${hero.clientHeight * 0.7} top`,
           end: () => `+=${scrollDistance + 100}`, // how long to pin
           scrub: 1,
-          markers: true
+          // markers: true
         },
       });
     }, container);

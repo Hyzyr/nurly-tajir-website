@@ -5,11 +5,11 @@ import Icon, { IconNames } from '@/UI/components/Icon';
 import Logo from '@/UI/components/Logo';
 import Container from '@/UI/containers';
 import Link from 'next/link';
-import React from 'react';
-
-
+import { useTranslations } from 'next-intl';
 
 const HeaderDesktop = () => {
+  const t = useTranslations('nav');
+
   return (
     <>
       <div className={styles.header__pre}>
@@ -45,13 +45,13 @@ const HeaderDesktop = () => {
             <Logo />
             <nav>
               <div className="fbox fbox-gap-2">
-                <Link href={'#projects'}>Projects</Link>
-                <Link href={'#services'}>Services</Link>
-                <Link href={'#products'}>Products</Link>
-                <Link href={'#about-us'}>About Us</Link>
-                <Link href={'#contacts'}>Contacts</Link>
+                <Link href={'#projects'}>{t('projects')}</Link>
+                <Link href={'#services'}>{t('services')}</Link>
+                <Link href={'#products'}>{t('products')}</Link>
+                <Link href={'#about-us'}>{t('about_us')}</Link>
+                <Link href={'#contacts'}>{t('contacts')}</Link>
               </div>
-              <Button text="Get Quote" />
+              <Button text={t('get_quote')} />
             </nav>
           </div>
         </Container>
