@@ -3,7 +3,8 @@
 
 const i18n = {
   locales: ['en', 'fr', 'es'], // ← your supported locales
-  defaultLocale: 'en', // ← your fallback locale
+  defaultLocale: 'en', // ← your fallback locale+
+  localeDetection: true,
 };
 
 export default i18n;

@@ -7,6 +7,7 @@ import { createPortal } from 'react-dom';
 import Button from '@/UI/components/Button';
 
 import gsap from 'gsap';
+import { useTranslations } from 'next-intl';
 
 type Props = {
   active: boolean;
@@ -14,6 +15,8 @@ type Props = {
 };
 
 const HeaderMenu = ({ active, toggle }: Props) => {
+  const t = useTranslations('common');
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const isFirstLoad = useRef(true);
@@ -98,11 +101,11 @@ const HeaderMenu = ({ active, toggle }: Props) => {
       <nav ref={bodyRef}>
         <small>Menu</small>
         <div className={styles.menu__links}>
-          <Link href={'#projects'}>Projects</Link>
-          <Link href={'#services'}>Services</Link>
-          <Link href={'#products'}>Products</Link>
-          <Link href={'#about-us'}>About Us</Link>
-          <Link href={'#contacts'}>Contacts</Link>
+          <Link href={'#projects'}>{t('nav.projects')}</Link>
+          <Link href={'#services'}>{t('nav.services')}</Link>
+          <Link href={'#products'}>{t('nav.products')}</Link>
+          <Link href={'#about-us'}>{t('nav.about_us')}</Link>
+          <Link href={'#contacts'}>{t('nav.contacts')}</Link>
         </div>
         <Button text="Get Quote" />
       </nav>

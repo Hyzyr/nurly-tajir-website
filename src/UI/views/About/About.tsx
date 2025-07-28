@@ -1,37 +1,34 @@
 import Container, { ContainerInner } from '@/UI/containers';
 import styles from './styles.module.scss';
-
-
+import { useMessages, useTranslations } from 'next-intl';
+import { FormatText } from '@/UI/components/FormatText';
 
 const About = () => {
+  const t = useTranslations('home.about');
+  const title = t('title').split('\n');
+
   return (
     <section className={styles.about}>
       <Container>
         <ContainerInner className={styles.about__inner}>
           <div className={styles.about__header}>
             <h3 className="h3">
-              <span className="color-gray">Empowering Turkmenistan with</span>
-              <br />
-              Smart, Reliable Technology
+              {title[0] && <span className="color-gray">{title[0]}</span>}
+              {title[1] && (
+                <>
+                  <br /> {title[1]}
+                </>
+              )}
             </h3>
           </div>
           <div className={styles.about__body}>
             <LogoSVG />
             <div className={styles.about__body__info}>
-              <p>
-                <b>Nurly Täjir</b> is a fast-growing technology company established in
-                2025, dedicated to delivering modern infrastructure systems
-                across Turkmenistan. In a short time, we’ve successfully
-                implemented over 15 projects in sectors such as aviation,
-                hospitality, healthcare, and commercial development.
-              </p>
-              <p>
-                Surveillance to smart building systems and advanced
-                communication. As official distributors of trusted global
-                brands, we provide high-quality solutions backed by expert
-                installation, support, and long-term reliability. We don’t just
-                deliver systems — <b>we build trust through technology.</b>
-              </p>
+              {t('paragraph') && (
+                <p>
+                  <FormatText text={t('paragraph')} />
+                </p>
+              )}
             </div>
           </div>
         </ContainerInner>

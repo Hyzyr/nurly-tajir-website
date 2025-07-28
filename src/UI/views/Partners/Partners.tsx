@@ -6,7 +6,7 @@ import PartnersSlider, { PartnersSliderItem } from './PartnersSlider';
 
 
 
-const Partners = () => {
+const Partners = () => {  
   return (
     <section className={styles.partners}>
       <Container>

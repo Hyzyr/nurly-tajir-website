@@ -2,50 +2,66 @@ import Logo from '@/UI/components/Logo';
 import styles from './styles.module.scss';
 import Icon from '@/UI/components/Icon';
 import Container from '@/UI/containers';
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+
+const COMPANY_LINKS = [
+  'projects',
+  'services',
+  'products',
+  'about_us',
+  'contacts',
+];
+const LEGAL_LINKS = [
+  'projects',
+  'services',
+  'products',
+  'about_us',
+  'contacts',
+];
 
 const Footer = () => {
+  const t = useTranslations('common');
+
   return (
     <footer className={styles.footer}>
       <Container>
         <div className={styles.footer__inner}>
           <div className={styles.footer__column}>
             <Logo style="white" />
-            <p className="_sm">
-              In a short time, we’ve successfully implemented over 15 projects
-              in variouse sectors
-            </p>
+            <p className="_sm">{t('info')}</p>
           </div>
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">Company</strong>
             <div className="fbox fbox-column fbox-gap-2">
-              <a href="#projects" className={styles.footer__link}>
-                Projects
-              </a>
-              <a href="#services" className={styles.footer__link}>
-                Services
-              </a>
-              <a href="#products" className={styles.footer__link}>
-                Products
-              </a>
-              <a href="#about-us" className={styles.footer__link}>
-                About Us
-              </a>
-              <a href="#contacts" className={styles.footer__link}>
-                Contacts
-              </a>
+              <Link href={'#projects'} className={styles.footer__link}>
+                {t('nav.projects')}
+              </Link>
+              <Link href={'#services'} className={styles.footer__link}>
+                {t('nav.services')}
+              </Link>
+              <Link href={'#products'} className={styles.footer__link}>
+                {t('nav.products')}
+              </Link>
+              <Link href={'#about-us'} className={styles.footer__link}>
+                {t('nav.about_us')}
+              </Link>
+              <Link href={'#contacts'} className={styles.footer__link}>
+                {t('nav.contacts')}
+              </Link>
             </div>
           </div>
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">Legal</strong>
             <div className="fbox fbox-column fbox-gap-2">
               <a href="#" className={styles.footer__link}>
-                Documents
+                {t('nav.documents')}
               </a>
               <a href="#" className={styles.footer__link}>
-                Privacy Policy
+                {t('nav.privacy_policy')}
               </a>
               <a href="#" className={styles.footer__link}>
-                Terms & Conditions
+                {t('nav.terms')}
               </a>
             </div>
           </div>
@@ -54,23 +70,21 @@ const Footer = () => {
             <ul>
               <li>
                 <Icon name="mapPinIcon" />
-                <a href="mailto:info@nurly-tajir.com">
-                  Turkmenistan, Ashgabat Oguzhan 126
-                </a>
+                <a>{t('address.address1')}</a>
               </li>
               <li>
                 <Icon name="mapPinIcon" />
-                <a href="mailto:info@nurly-tajir.com">
-                  Turkmenistan, Ashgabat Azady 62/15
-                </a>
+                <a>{t('address.address2')}</a>
               </li>
               <li>
                 <Icon name="phoneIcon" />
-                <a href="mailto:info@nurly-tajir.com">+993 63 102030</a>
+                <a href={`tel:${t('address.phone')}`}>{t('address.phone')}</a>
               </li>
               <li>
                 <Icon name="emailIcon" />
-                <a href="mailto:info@nurly-tajir.com">info@nurly-tajir.com</a>
+                <a href={`mailto:${t('address.email')}`}>
+                  {t('address.email')}
+                </a>
               </li>
             </ul>
           </div>

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 const HeaderDesktop = () => {
-  const t = useTranslations('nav');
+  const t = useTranslations('common');
 
   return (
     <>
@@ -26,14 +26,14 @@ const HeaderDesktop = () => {
             </div>
             <div className={styles.header__pre__body__group}>
               <HeaderPreLink
-                href="tel:+993 63 102030"
+                href={`tel:${t('address.email')}`}
                 iconName="phoneIcon"
-                label="+993 63 102030"
+                label={t('address.email')}
               />
               <HeaderPreLink
-                href="mailto:info@nurly-tajir.com"
+                href={`mailto:${t('address.phone')}`}
                 iconName="emailIcon"
-                label="info@nurly-tajir.com"
+                label={t('address.phone')}
               />
             </div>
           </div>
@@ -45,11 +45,11 @@ const HeaderDesktop = () => {
             <Logo />
             <nav>
               <div className="fbox fbox-gap-2">
-                <Link href={'#projects'}>{t('projects')}</Link>
-                <Link href={'#services'}>{t('services')}</Link>
-                <Link href={'#products'}>{t('products')}</Link>
-                <Link href={'#about-us'}>{t('about_us')}</Link>
-                <Link href={'#contacts'}>{t('contacts')}</Link>
+                <Link href={'#projects'}>{t('nav.projects')}</Link>
+                <Link href={'#services'}>{t('nav.services')}</Link>
+                <Link href={'#products'}>{t('nav.products')}</Link>
+                <Link href={'#about-us'}>{t('nav.about_us')}</Link>
+                <Link href={'#contacts'}>{t('nav.contacts')}</Link>
               </div>
               <Button text={t('get_quote')} />
             </nav>
@@ -66,7 +66,7 @@ type HeaderPreLinkProps = {
   label: string;
 };
 
-const HeaderPreLink = ({ href, label, iconName }: HeaderPreLinkProps) => {
+const   HeaderPreLink = ({ href, label, iconName }: HeaderPreLinkProps) => {
   return (
     <a href={href} className={styles.header__pre__link}>
       <Icon name={iconName} />

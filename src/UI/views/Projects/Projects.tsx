@@ -5,19 +5,12 @@ import data from './data.json';
 import ProjectCard from './ProjectCard';
 import Icon from '@/UI/components/Icon';
 import ProjectsCardsWrapper from './ProjectsCardsWrapper';
-import { useLocale, useTranslations } from 'next-intl';
-
-const dummyAwait = () =>
-  new Promise<{ test: string }>((resolve) => {
-    setTimeout(() => {
-      resolve(data); // <-- resolve with your object
-    }, 200);
-  });
+import { useTranslations } from 'next-intl';
+import { dummyAwait } from '@/UI/utils/fetch';
 
 const ProjectsContent = ({ testData }: { testData: any }) => {
   const tCommon = useTranslations('common');
   const t = useTranslations('home.projects');
-  const locale = useLocale();
 
   return (
     <section className={styles.projects}>
@@ -40,8 +33,8 @@ const ProjectsContent = ({ testData }: { testData: any }) => {
     </section>
   );
 };
-const Projects = async () => {
-  const testData = await dummyAwait();
+const Projects = async ({ locale }: { locale: string }) => {
+  const testData = await dummyAwait(locale, data);
   return <ProjectsContent testData={testData} />;
 };
 

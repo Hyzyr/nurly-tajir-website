@@ -1,45 +1,37 @@
 {
   "common": {
     "get_quote": "Get Quote",
-    "req_consultation": "Request Consultation"
-  },
-  "nav": {
-    "projects": "Projects",
-    "services": "Services",
-    "products": "Products",
-    "about_us": "About Us",
-    "contacts": "Contacts",
-    "get_quote": "Get Quote"
+    "req_consultation": "Request Consultation",
+    "explore_store": "Explore Store",
+    "nav": {
+      "projects": "Projects",
+      "services": "Services",
+      "products": "Products",
+      "about_us": "About Us",
+      "contacts": "Contacts",
+      "documents": "Documents",
+      "privacy_policy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    },
+    "address": {
+      "address1": "Turkmenistan, Ash., Agzam Gurbanov 126",
+      "address2": "Turkmenistan, Ash., Ataturk 2015",
+      "email": "info@nurytajir.com",
+      "phone": "+993 12 123456"
+    },
+    "info": "In a short time, we’ve successfully implemented over 15 projects in variouse sectors"
   },
   "contact": {
     "title": "Contact Us",
     "fields": {
       "full_name": "Full Name",
+      "full_name_placeholder": "e.g. John Doe",
       "email": "Email Address",
-      "message": "Message"
+      "email_placeholder": "e.g. john@example.com",
+      "message": "Message",
+      "message_placeholder": "Write something..."
     },
     "submit": "Contact Us"
-  },
-  "footer": {
-    "copy": "© All rights reserved © 2023 Nury Tajir",
-    "company": {
-      "projects": "Projects",
-      "services": "Services",
-      "products": "Products",
-      "about_us": "About Us",
-      "contacts": "Contacts"
-    },
-    "legal": {
-      "documents": "Documents",
-      "privacy_policy": "Privacy Policy",
-      "terms": "Terms & Conditions"
-    },
-    "office": {
-      "address1": "Turkmenistan, Ashgabat Agzam Gurbanov 126",
-      "address2": "Turkmenistan, Ashgabat Ataturk 2015",
-      "email": "info@nurytajir.com",
-      "phone": "+993 12 123456"
-    }
   },
   "home": {
     "hero": {
@@ -48,74 +40,21 @@
       "cta": "Contact Us"
     },
     "projects": {
-      "subtitle": "Highlighted Projects",
-      "highlighted": {
-        "national_airport": {
-          "title": "National Airport",
-          "description": "We implemented over 50 reliable IT and system solutions — including networking, control systems, and interactive infotainment systems — across the airport project."
-        },
-        "commercial_buildings": {
-          "title": "Commercial Buildings",
-          "description": "Designed and installed a full camera system for safety, monitoring, and secure building management on Ovodnaya Street."
-        },
-        "hotel_yyldyz": {
-          "title": "Hotel Yyldyz",
-          "description": "Built and configured a stable, hotel-wide network to support guests, operations, and in-hotel systems with seamless connectivity."
-        }
-      }
+      "subtitle": "Highlighted Projects"
     },
     "services": {
-      "title": "Services We Provide",
-      "list": {
-        "audio_video_lighting": "Professional Audio, Video & Lighting",
-        "cctv_security_cameras": {
-          "name": "CCTV & Security Cameras",
-          "description": "Advanced surveillance solution offering real‑time security monitoring for properties, businesses, and public spaces."
-        },
-        "network_solutions": "Network Solutions",
-        "structured_cabling": "Structured Cabling",
-        "smart_building_solutions": "Smart Building Solutions",
-        "it_systems": "IT Systems",
-        "fire_detection_systems": "Fire Detection Systems",
-        "access_control_parking_systems": "Access Control & Parking Systems"
-      }
+      "title": "Services\n We Provide"
     },
     "partners": {
       "title": "Our Partners",
       "description": "We are official distributors in Turkmenistan for leading global brands like Samsung, Bosch, Philips, Hikvision, Cisco, and Honeywell — delivering certified, high‑quality solutions backed by trusted technology."
     },
     "products": {
-      "title": "Our Products",
-      "items": {
-        "security_cameras": {
-          "title": "Security Cameras",
-          "brands": "Hikvision, Dahua, Samsung"
-        },
-        "automation_smart_home": {
-          "title": "Automation Smart Home",
-          "brands": "Amazon, LG, Philips Hue"
-        },
-        "alarm_systems": {
-          "title": "Alarm Systems",
-          "brands": "Bosch, Notifier, Honeywell"
-        },
-        "cables_fiber_optics": {
-          "title": "Cables & Fiber Optics",
-          "brands": "Ugreen, AFL, Corning Incorporated"
-        },
-        "network_solutions": {
-          "title": "Network Solutions",
-          "brands": "TP‑Link, Tenda, ASUS"
-        },
-        "explore_store": "Explore Store"
-      }
+      "title": "Our \nProducts"
     },
-    "empower": {
-      "title": "Empowering Turkmenistan With Smart, Reliable Technology",
-      "paragraphs": [
-        "Nury Tajir is a fast‑growing technology company established in 2005, dedicated to delivering innovative IT and infrastructure systems across Turkmenistan. In partnership with global leaders in their respective fields, we implement reliable system solutions for aviation, hospitality, healthcare, and commercial development.",
-        "Our client‑centric approach ensures customized communication solutions, on‑site support, and ongoing maintenance. With a focus on quality, safety, and sustainability, we help businesses harness technology to drive growth and efficiency."
-      ]
+    "about": {
+      "title": "Empowering Turkmenistan With \nSmart, Reliable Technology",
+      "paragraph": "**Nury Tajir** is a fast‑growing technology company established in 2005, dedicated to delivering innovative IT and infrastructure systems across Turkmenistan. In partnership with global leaders in their respective fields, we implement reliable system solutions for aviation, hospitality, healthcare, and commercial development. \n\nOur client‑centric approach ensures customized communication solutions, on‑site support, and ongoing maintenance. With a focus on quality, safety, and sustainability, **we help businesses harness technology to drive growth and efficiency.**"
     }
   }
 }

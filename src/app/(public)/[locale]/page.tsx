@@ -7,14 +7,16 @@ import Partners from '@/UI/views/Partners';
 import Products from '@/UI/views/Products';
 import Projects from '@/UI/views/Projects';
 import Services from '@/UI/views/Services';
+import { useLocale } from 'next-intl';
 
 export default function Home() {
+  const locale = useLocale();
   return (
     <>
       <Header />
       <div id="pin">
         <Hero />
-        <Projects />
+        <Projects locale={locale} />
       </div>
       <Services />
       <Partners />
