@@ -24,20 +24,20 @@
   "contact": {
     "title": "Biz bilen habarlaşyň",
     "fields": {
-      "full_name": "Doly ady",
-      "full_name_placeholder": "meselem, Aman Myradow",
-      "email": "Elektron salgysy",
-      "email_placeholder": "meselem, aman@example.com",
-      "message": "Habar",
-      "message_placeholder": "Bir zat ýazyň..."
+      "full_name": "Doly adyňyz",
+      "full_name_placeholder": "ex: Aman Myradow",
+      "email": "Elektron salgyňyz",
+      "email_placeholder": "ex: aman@example.com",
+      "message": "Ugratmaly Hat",
+      "message_placeholder": "Şu ýerde ýazyň..."
     },
-    "submit": "Habarlaşyň"
+    "submit": "Habarlaşmak"
   },
   "home": {
     "hero": {
       "tagline": "Gurluşyk we Enajamlar bilen üpjün etmek",
       "title": "Döwrebap tehnologiýa\n Döwletiň ösüşi",
-      "cta": "Habarlaşyň"
+      "cta": "Habarlaşmak"
     },
     "projects": {
       "subtitle": "Öňe çykýan işlermiz"
