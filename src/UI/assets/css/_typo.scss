@@ -151,11 +151,9 @@ p {
     }
   }
 }
-
 @include breakpoints.respond-max(lg) {
   .h1 {
     font-size: 4em; // 64 / 16
-
     &._xxl {
       font-size: 4.25em; // 68 / 16
     }
@@ -232,7 +230,7 @@ p {
     }
   }
 }
-@include breakpoints.respond-max(xxsm) {
+@include breakpoints.respond-max(xsm) {
   .h1 {
     font-size: 3em; // 48 / 16
 
@@ -248,5 +246,24 @@ p {
   }
   .h4 {
     font-size: 1.5em; // 24 / 16
+  }
+
+  html[lang='ru'] {
+    .h1 {
+      font-size: 2.5em; // 48 / 16
+
+      &._xxl {
+        font-size: 2.5em; // 54 / 16
+      }
+    }
+    .h2 {
+      font-size: 2.62em; // 42 / 16
+    }
+    .h3 {
+      font-size: 2em; // 32 / 16
+    }
+    .h4 {
+      font-size: 1.5em; // 24 / 16
+    }
   }
 }
