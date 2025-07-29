@@ -11,7 +11,7 @@ type Props = {
 };
 
 const PartnersSlider = ({ children }: Props) => {
-  const [wrapperRef, emblaApi] = useEmblaCarousel(
+  const [wrapperRef] = useEmblaCarousel(
     { loop: true, dragFree: true },
     [AutoScroll({ stopOnInteraction: true, speed: 0.4 })]
   );

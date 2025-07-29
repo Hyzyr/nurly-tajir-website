@@ -1,6 +1,6 @@
 import Container, { ContainerInner } from '@/UI/containers';
 import styles from './styles.module.scss';
-import { useMessages, useTranslations } from 'next-intl';
+import {  useTranslations } from 'next-intl';
 import { FormatText } from '@/UI/components/FormatText';
 
 const About = () => {

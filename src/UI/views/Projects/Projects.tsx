@@ -8,7 +8,7 @@ import ProjectsCardsWrapper from './ProjectsCardsWrapper';
 import { useTranslations } from 'next-intl';
 import { dummyAwait } from '@/UI/utils/fetch';
 
-const ProjectsContent = ({ testData }: { testData: any }) => {
+const ProjectsContent = ({ testData }: { testData: typeof data }) => {
   const tCommon = useTranslations('common');
   const t = useTranslations('home.projects');
 
@@ -18,7 +18,7 @@ const ProjectsContent = ({ testData }: { testData: any }) => {
         <div className={styles.projects__inner}>
           <small>{t('subtitle')}</small>
           <ProjectsCardsWrapper>
-            {data.map((project, index) => (
+            {testData.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
             <div className={styles.projects__row__button}>

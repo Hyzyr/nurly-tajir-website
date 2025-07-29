@@ -6,7 +6,6 @@ import Logo from '@/UI/components/Logo';
 import Container from '@/UI/containers';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import HeaderPreDropdown from './components/LangSwitch';
 import LangSwitch from './components/LangSwitch';
 
 const HeaderDesktop = () => {

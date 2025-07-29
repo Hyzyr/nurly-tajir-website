@@ -28,7 +28,7 @@ export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({ children, params }: RootPropsType) {
+export default async function RootLayout({ children }: RootPropsType) {
   const currentLocale = await getLocale();
 
   // const locale = await getLocale();

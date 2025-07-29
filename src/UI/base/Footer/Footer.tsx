@@ -5,20 +5,6 @@ import Container from '@/UI/containers';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
-const COMPANY_LINKS = [
-  'projects',
-  'services',
-  'products',
-  'about_us',
-  'contacts',
-];
-const LEGAL_LINKS = [
-  'projects',
-  'services',
-  'products',
-  'about_us',
-  'contacts',
-];
 
 const Footer = () => {
   const t = useTranslations('common');

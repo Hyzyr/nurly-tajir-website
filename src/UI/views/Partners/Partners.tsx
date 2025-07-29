@@ -20,7 +20,11 @@ const Partners = () => {
             <PartnersSlider>
               {[...data, ...data].map((img, index) => (
                 <PartnersSliderItem key={index}>
-                  <img src={`/images/website/partners/${img}`} key={index} />
+                  <img
+                    src={`/images/website/partners/${img}`}
+                    key={index}
+                    alt={`partner-${index}`}
+                  />
                 </PartnersSliderItem>
               ))}
             </PartnersSlider>

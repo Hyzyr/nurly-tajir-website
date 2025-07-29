@@ -19,11 +19,11 @@ export function useLangSwitcher() {
     router.push(`/${newLocale}${rest}${suffix}`);
   };
   const toThreeLetter = (newLocale: Locale): LocaleThreeLetter => {
-    let index = i18n.locales.indexOf(newLocale);
+    const index = i18n.locales.indexOf(newLocale);
     return i18n.localesThreeLetter[index];
   };
   const toTwoLetter = (newLocale: LocaleThreeLetter): Locale => {
-    let index = i18n.localesThreeLetter.indexOf(newLocale);
+    const index = i18n.localesThreeLetter.indexOf(newLocale);
     return i18n.locales[index];
   };
 
