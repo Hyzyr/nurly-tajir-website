@@ -83,9 +83,12 @@ const HeaderWrapper = ({ children }: Props) => {
   }, []);
 
   return (
-    <header className={styles.header} ref={headerRef}>
-      {children}
-    </header>
+    <>
+      <div className={styles['header-space']}></div>
+      <header className={styles.header} ref={headerRef}>
+        {children}
+      </header>
+    </>
   );
 };
 

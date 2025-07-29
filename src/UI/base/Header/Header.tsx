@@ -8,13 +8,10 @@ const Header = () => {
   const isMobile = useMedia('(max-width: 1024px)');
 
   return (
-    <>
-      <div className={'header-space'}></div>
-      <HeaderWrapper>
-        {!isMobile && <HeaderDesktop />}
-        {isMobile && <HeaderMob />}
-      </HeaderWrapper>
-    </>
+    <HeaderWrapper>
+      {!isMobile && <HeaderDesktop />}
+      {isMobile && <HeaderMob />}
+    </HeaderWrapper>
   );
 };
 
