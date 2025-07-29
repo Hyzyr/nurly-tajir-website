@@ -11,14 +11,14 @@ type Props = {
 };
 
 const PartnersSlider = ({ children }: Props) => {
-  const [wrapperRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true }, [
-    AutoScroll({ stopOnInteraction: true, speed: 0.4 }),
-  ]);
+  const [wrapperRef, emblaApi] = useEmblaCarousel(
+    { loop: true, dragFree: true },
+    [AutoScroll({ stopOnInteraction: true, speed: 0.4 })]
+  );
   const { ref } = useObserver({
     onChange: (state) => {
       // window.api = api;
-      console.log('state', state)
-      console.log(emblaApi)
+      console.log('state', state);
       // state? api.stop()
     },
   });

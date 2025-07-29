@@ -1,11 +1,10 @@
-// next-intl.config.js
-/** @type {import('next-intl').NextIntlConfig} */
+export type Locale = (typeof locales)[number];
 
-const i18n = {
+export const i18n = {
   locales: ['en', 'ru', 'tm'], // ← your supported locales
   localesThreeLetter: ['eng', 'rus', 'tkm'], // ← your supported locales
   defaultLocale: 'en', // ← your fallback locale+
   localeDetection: true,
 };
-
-export default i18n;
+export const locales = [...i18n.locales] as const;
+export const defaultLocale: Locale = i18n.defaultLocale;

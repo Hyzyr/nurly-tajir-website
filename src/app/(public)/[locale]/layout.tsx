@@ -2,13 +2,10 @@ import '@/UI/assets/css/main.scss';
 
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
-import {
-  NextIntlClientProvider,
-  IntlProvider as NextIntlProvider,
-} from 'next-intl';
+import { hasLocale, Locale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
-import i18n from '../../../../next-intl.config';
 import { getLocale } from 'next-intl/server';
+import { locales } from '@/i18n/config';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -19,6 +16,7 @@ const manrope = Manrope({
 
 type RootPropsType = {
   children: React.ReactNode;
+  params: Promise<{ locale: Locale }>;
 };
 export const dynamic = 'force-dynamic'; // SSR on each request, + SSG
 export const metadata: Metadata = {
@@ -27,16 +25,24 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ locale }));
+  return locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({ children }: RootPropsType) {
-  const locale = await getLocale();
+export default async function RootLayout({ children, params }: RootPropsType) {
+  const currentLocale = await getLocale();
+
+  // const locale = await getLocale();
+  console.log({ currentLocale });
+  // const messages = await loadMessages()
+  // Enable static
+  if (!hasLocale(locales, currentLocale)) {
+    notFound();
+  }
 
   return (
-    <html lang={locale}>
+    <html lang={currentLocale}>
       <body className={`${manrope.variable} `}>
-        <NextIntlClientProvider locale={locale}>
+        <NextIntlClientProvider>
           <main className={'main'} id="main">
             {children}
           </main>

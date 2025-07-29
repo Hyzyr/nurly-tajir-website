@@ -53,12 +53,6 @@ const HeaderWrapper = ({ children }: Props) => {
     const observer = Observer.create({
       type: 'wheel,touch,scroll',
       onUp: () => {
-        console.log('move up', {
-          isUp,
-          upStart,
-          scrollY: window.scrollY,
-          diff: window.scrollY - upStart,
-        });
         if (!isUp) {
           upStart = window.scrollY;
           isUp = true;

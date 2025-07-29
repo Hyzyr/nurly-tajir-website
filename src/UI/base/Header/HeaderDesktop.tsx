@@ -6,6 +6,8 @@ import Logo from '@/UI/components/Logo';
 import Container from '@/UI/containers';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import HeaderPreDropdown from './components/LangSwitch';
+import LangSwitch from './components/LangSwitch';
 
 const HeaderDesktop = () => {
   const t = useTranslations('common');
@@ -18,11 +20,7 @@ const HeaderDesktop = () => {
             <div className={styles.header__pre__body__group}>
               <span>Turkmenistan, Ashgabat</span>
               <hr className="seperator seperator-ver" />
-              <HeaderPreLink
-                href="tel:+993 63 102030"
-                iconName="translateIcon"
-                label="Eng"
-              />
+              <LangSwitch />
             </div>
             <div className={styles.header__pre__body__group}>
               <HeaderPreLink
@@ -66,7 +64,7 @@ type HeaderPreLinkProps = {
   label: string;
 };
 
-const   HeaderPreLink = ({ href, label, iconName }: HeaderPreLinkProps) => {
+const HeaderPreLink = ({ href, label, iconName }: HeaderPreLinkProps) => {
   return (
     <a href={href} className={styles.header__pre__link}>
       <Icon name={iconName} />
@@ -74,4 +72,5 @@ const   HeaderPreLink = ({ href, label, iconName }: HeaderPreLinkProps) => {
     </a>
   );
 };
+
 export default HeaderDesktop;

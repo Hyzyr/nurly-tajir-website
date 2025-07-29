@@ -1,0 +1,60 @@
+{
+  "common": {
+    "get_quote": "Teklip alyň",
+    "req_consultation": "Maslahat soramak",
+    "explore_store": "Ähli harytlar",
+    "nav": {
+      "projects": "Taslamalar",
+      "services": "Hyzmatlar",
+      "products": "Harytlar",
+      "about_us": "Biz barada",
+      "contacts": "Habarlaşmak",
+      "documents": "Resminamalar",
+      "privacy_policy": "Gizlinlik syýasaty",
+      "terms": "Şertler we şertnamalar"
+    },
+    "address": {
+      "address1": "Türkmenistan, Aşgabadyň, Agzam Gurbanow 126",
+      "address2": "Türkmenistan, Aşgabadyň, Ataturk 2015",
+      "email": "info@nurytajir.com",
+      "phone": "+993 12 123456"
+    },
+    "info": "Gysga wagtyň içinde dürli pudaklarda 15-den gowrak taslamalary üstünlikli amala aşyrdyk"
+  },
+  "contact": {
+    "title": "Biz bilen habarlaşyň",
+    "fields": {
+      "full_name": "Doly ady",
+      "full_name_placeholder": "meselem, Aman Myradow",
+      "email": "Elektron salgysy",
+      "email_placeholder": "meselem, aman@example.com",
+      "message": "Habar",
+      "message_placeholder": "Bir zat ýazyň..."
+    },
+    "submit": "Habarlaşyň"
+  },
+  "home": {
+    "hero": {
+      "tagline": "Gurluşyk we Enajamlar bilen üpjün etmek",
+      "title": "Döwrebap tehnologiýa\n Döwletiň ösüşi",
+      "cta": "Habarlaşyň"
+    },
+    "projects": {
+      "subtitle": "Öňe çykýan işlermiz"
+    },
+    "services": {
+      "title": "hyzmatlarymyz \n El ýeter we Çalt"
+    },
+    "partners": {
+      "title": "Biziň hyzmatdaşlarymyz",
+      "description": "Biz Türkmenistanda Samsung, Bosch, Philips, Hikvision, Cisco we Honeywell ýaly dünýä belli brendleriň resmi dileri bolup, ynamdar tehnologiýalara esaslanan ýokary hilli çözgütleri üpjün edýäris."
+    },
+    "products": {
+      "title": "Biziň\n harytlarymyz"
+    },
+    "about": {
+      "title": "Akylly we ygtybarly tehnologiýa \n Döwrebap Döwlete gadam",
+      "paragraph": "**Nury Tajir** — 2005-nji ýylda döredilen we Türkmenistanda innowasion IT we infrastruktura ulgamlaryny gurnamak hyzmatlaryny ýerine ýetirýän, çalt ösýän tehnologiýa kompaniýasy. Öz ugurlarynda dünýä liderleri bilen hyzmatdaşlykda awiasiýa, myhmanhana, saglyk we söwda ösüşi üçin ygtybarly ulgam çözgütlerini amala aşyrýarys.\n\nMüşderi merkezlerini çemeleşmemiz aragatnaşyk çözgütlerini, ýerinde goldaw we yzygiderli hyzmaty üpjün edýär. Hil, howpsuzlyk we durnuklylyk esasynda, **biz işler üçin ösüşi we netijeliligi ýokarlandyrmak üçin tehnologiýalary ulanmagyna kömek edýäris.**"
+    }
+  }
+}

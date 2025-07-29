@@ -15,7 +15,7 @@ const Products = () => {
   return (
     <section className={styles.products}>
       <Container>
-        <div className={styles.cts__inner}>
+        <div className={styles.products__inner}>
           <h3 className="h3">
             {title[0] && <span className="color-gray">{title[0]}</span>}
             {title[1] && (

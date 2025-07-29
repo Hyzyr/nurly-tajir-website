@@ -13,7 +13,6 @@ const HeaderMob = () => {
 
   const toggleMenu = () => {
     const newState = !menuActive;
-    console.log('toggle menu ', newState);
     setMenuActive(newState);
     document.body.style.overflow = newState ? 'hidden' : '';
   };
