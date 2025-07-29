@@ -6,13 +6,11 @@ import React, { useState } from 'react';
 import HamburgerBtn from './HamburgerBtn';
 import HeaderMenu from './HeaderMenu';
 
-
-
 const HeaderMob = () => {
   const [menuActive, setMenuActive] = useState(false);
 
-  const toggleMenu = () => {
-    const newState = !menuActive;
+  const toggleMenu = (state?: boolean) => {
+    const newState = state === undefined ? !menuActive : state;
     setMenuActive(newState);
     document.body.style.overflow = newState ? 'hidden' : '';
   };

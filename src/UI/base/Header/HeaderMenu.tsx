@@ -8,14 +8,17 @@ import Button from '@/UI/components/Button';
 
 import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
+import LangSwitch from './components/LangSwitch';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   active: boolean;
-  toggle: () => void;
+  toggle: (state?: boolean) => void;
 };
 
 const HeaderMenu = ({ active, toggle }: Props) => {
   const t = useTranslations('common');
+  const path = usePathname();
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -96,16 +99,33 @@ const HeaderMenu = ({ active, toggle }: Props) => {
     else setHidden();
   }, [active]);
 
+  useEffect(() => {
+    toggle(false);
+  }, [path]);
+
   return createPortal(
     <div className={styles.menu} ref={wrapperRef} onClick={onClick}>
       <nav ref={bodyRef}>
-        <small>Menu</small>
+        <div className={styles.menu__header}>
+          <small>Menu</small>
+          <LangSwitch onClick={() => toggle(false)} />
+        </div>
         <div className={styles.menu__links}>
-          <Link href={'#projects'}>{t('nav.projects')}</Link>
-          <Link href={'#services'}>{t('nav.services')}</Link>
-          <Link href={'#products'}>{t('nav.products')}</Link>
-          <Link href={'#about-us'}>{t('nav.about_us')}</Link>
-          <Link href={'#contacts'}>{t('nav.contacts')}</Link>
+          <Link href={'#projects'} onClick={() => toggle(false)}>
+            {t('nav.projects')}
+          </Link>
+          <Link href={'#services'} onClick={() => toggle(false)}>
+            {t('nav.services')}
+          </Link>
+          <Link href={'#products'} onClick={() => toggle(false)}>
+            {t('nav.products')}
+          </Link>
+          <Link href={'#about-us'} onClick={() => toggle(false)}>
+            {t('nav.about_us')}
+          </Link>
+          <Link href={'#contacts'} onClick={() => toggle(false)}>
+            {t('nav.contacts')}
+          </Link>
         </div>
         <Button text="Get Quote" />
       </nav>

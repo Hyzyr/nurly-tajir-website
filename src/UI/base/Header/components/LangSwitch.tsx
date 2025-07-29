@@ -4,8 +4,13 @@ import styles from '../styles.module.scss';
 import Icon from '@/UI/components/Icon';
 import { useLangSwitcher } from '@/hooks/useLangSwitch';
 import { setUserLocale } from '@/utils/locale';
+import { Locale } from 'next-intl';
 
-const LangSwitch = () => {
+type Props = {
+  onClick?: (lang: Locale) => void;
+};
+
+const LangSwitch = ({ onClick }: Props) => {
   const {
     current: locale,
     onChange,
@@ -20,7 +25,8 @@ const LangSwitch = () => {
     setActive(newState);
   };
 
-  const onOptionClick = (lang: string) => {
+  const onOptionClick = (lang: Locale) => {
+    if (onClick) onClick(lang);
     onChange(lang);
     setUserLocale(lang);
     toggle(false);
