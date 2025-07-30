@@ -1,13 +1,11 @@
+import { supabase } from '@/utils/supabase/client';
 import React from 'react';
 
-type Props = {};
+const page = async () => {
+  const data = await supabase.from('services').select();
+  console.log('data : \n', data);
 
-const page = (props: Props) => {
-  return (
-    <div>
-      <h1>Welcome to Dashboard</h1>
-    </div>
-  );
+  return <pre>{JSON.stringify(data.data, null, 2)}</pre>;
 };
 
 export default page;

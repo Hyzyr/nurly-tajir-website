@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@supabase/auth-helpers-react": "^0.5.0",
+    "@supabase/auth-ui-react": "^0.4.7",
+    "@supabase/supabase-js": "^2.53.0",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-fade": "^8.6.0",
@@ -19,7 +22,9 @@
     "next": "15.3.5",
     "next-intl": "^4.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-data-table-component": "^7.7.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.61.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

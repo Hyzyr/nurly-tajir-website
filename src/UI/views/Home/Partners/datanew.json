@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Samsung",
+    "link": "https://www.samsung.com"
+  },
+  {
+    "name": "TP‑Link",
+    "link": "https://www.tp-link.com"
+  },
+  {
+    "name": "Ubiquiti",
+    "link": "https://www.ui.com"
+  },
+  {
+    "name": "Bosch",
+    "link": "https://www.bosch.com"
+  },
+  {
+    "name": "Cisco",
+    "link": "https://www.cisco.com"
+  },
+  {
+    "name": "Panasonic",
+    "link": "https://www.panasonic.com"
+  },
+  {
+    "name": "MikroTik",
+    "link": "https://mikrotik.com"
+  },
+  {
+    "name": "JBL",
+    "link": "https://www.jbl.com"
+  }
+]
