@@ -3,7 +3,9 @@
 import React, { useId } from 'react';
 import styles from './styles.module.scss';
 
-type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement> & {
+  sizeStyle?: 'sm' | 'md' | 'lg';
+};
 
 const Textarea = ({
   value,
@@ -13,10 +15,11 @@ const Textarea = ({
   id,
   disabled,
   className,
+  sizeStyle = 'md',
   ...rest
 }: TextareaProps) => {
   return (
-    <div className={`${styles.input} ${className ?? ''}`}>
+    <div className={`${styles.input}  _${sizeStyle} ${className ?? ''}`}>
       <textarea
         value={value}
         onChange={onChange}
@@ -33,19 +36,24 @@ const Textarea = ({
 type LabeledTextareaProps = TextareaProps & {
   label: string;
   wrapperClassName?: string;
+  sizeStyle?: 'sm' | 'md' | 'lg';
 };
 
 export const LabeledTextarea = ({
   wrapperClassName,
   label,
+  sizeStyle = 'md',
   ...restProps
 }: LabeledTextareaProps) => {
   const id = useId();
 
   return (
-    <div className={`${styles.input__group} ${wrapperClassName ?? ''}`}>
+    <div
+      className={
+        `${styles.input__group}  _${sizeStyle}` + ` ${wrapperClassName ?? ''}`
+      }>
       <label htmlFor={id}>{label}</label>
-      <Textarea {...restProps} id={id} />
+      <Textarea {...restProps} id={id} sizeStyle={sizeStyle} />
     </div>
   );
 };

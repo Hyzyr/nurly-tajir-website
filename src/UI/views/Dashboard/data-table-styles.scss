@@ -1,0 +1,58 @@
+@use '@/UI/assets/css/mixins/helpers';
+
+.rdt {
+  &_Table {
+    &Row {
+      background: transparent;
+      border-color: var(--n30) !important;
+      &:nth-child(odd) {
+        background: rgba(#000, 0.015);
+      }
+    }
+    &Col {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--n800);
+      font-family: var(--font-clash);
+      text-transform: capitalize;
+    }
+    &Cell {
+      font-size: 14px;
+      font-family: var(--font-manrope);
+
+      p {
+        max-width: 320px;
+        white-space: normal;
+        line-height: 1.4;
+        overflow: hidden;
+        max-height: 7em;
+        overflow: auto;
+
+        @include helpers.scrolbar-size(3px);
+
+        b {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+.tableWrapper {
+  box-shadow: 0 8px 16px rgba(#182e45, 0.05), 0 6px 8px rgba(#182e45, 0.015);
+  border-radius: 1.35em;
+  overflow: hidden;
+  background: var(--n0);
+  border-radius: 1.35em;
+}
+.tableBadge {
+  border-radius: 0.75em;
+  font-size: 12px;
+  padding: 6px;
+  background: rgba(#000, 0.05);
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+}

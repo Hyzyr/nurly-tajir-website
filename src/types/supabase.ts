@@ -1,3 +1,7 @@
+export interface Brand {
+  name: string;
+  link: string;
+}
 /** Row type for public.product_categories */
 export interface ProductCategory {
   id: string; // UUID
@@ -5,10 +9,7 @@ export interface ProductCategory {
   name_en: string;
   name_ru: string;
   name_tm: string;
-  brands: Array<{
-    name: string;
-    link: string;
-  }>;
+  brands: Array<Brand>;
   inserted_at: string; // ISO timestamp
   updated_at: string; // ISO timestamp
 } /** Type for inserting a new product category (id & timestamps optional) */
@@ -42,33 +43,46 @@ export type ProductCategoryUpdate = {
 /** Row type for public.services */
 export interface Service {
   id: string; // UUID
-  title: string;
-  description: string;
+  title_en: string; // English title
+  title_ru: string; // Russian title
+  title_tm: string; // Turkmen title
+  description_en: string;
+  description_ru: string;
+  description_tm: string;
   image_icon: string | null;
   image: string;
-  inserted_at: string; // ISO timestamp
+  created_at: string; // ISO timestamp
   updated_at: string; // ISO timestamp
 }
+
 /** Type for inserting a new service (id & timestamps optional) */
 export type ServiceInsert = {
   id?: string;
-  title: string;
-  description: string;
+  title_en: string;
+  title_ru: string;
+  title_tm: string;
+  description_en: string;
+  description_ru: string;
+  description_tm: string;
   image_icon?: string | null;
   image: string;
-  inserted_at?: string;
+  created_at?: string;
   updated_at?: string;
 };
+
 /** Type for updating a service (only id is required) */
 export type ServiceUpdate = {
   id: string;
-  title?: string;
-  description?: string;
+  title_en?: string;
+  title_ru?: string;
+  title_tm?: string;
+  description_en?: string;
+  description_ru?: string;
+  description_tm?: string;
   image_icon?: string | null;
   image?: string;
-  // typically you wouldn’t set timestamps manually on update
+  // you normally wouldn’t set timestamps manually on update
 };
-
 /** Row type for public.projects */
 export interface Project {
   id: string; // UUID

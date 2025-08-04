@@ -1,10 +1,12 @@
+import Icon, { IconNames } from '../Icon';
 import styles from './styles.module.scss';
 
 type Props = {
   text?: string;
   children?: React.ReactNode;
   size?: 'md' | 'lg' | 'sm';
-  style?: 'default' | 'outlined';
+  style?: 'default' | 'secondary' | 'outlined';
+  icon?: IconNames;
   onClick?: () => void;
 };
 
@@ -13,6 +15,7 @@ const Button = ({
   children,
   style = 'default',
   size = 'md',
+  icon,
   onClick,
 }: Props) => {
   const sizeClass = `button-${size}`;
@@ -22,6 +25,7 @@ const Button = ({
     <button
       className={`button ${styles.button} ${styles[sizeClass]} ${styles[styleClass]}`}
       onClick={onClick}>
+      {icon && <Icon name={icon} />}
       {text && text}
       {children && children}
     </button>

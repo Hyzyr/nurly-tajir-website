@@ -22,14 +22,17 @@ const Contact = () => {
           <div className={styles.form}>
             <h5 className="h5">{t('title')}</h5>
             <LabeledInput
+              sizeStyle="lg"
               label={t('fields.full_name')}
               placeholder={t('fields.full_name_placeholder')}
             />
             <LabeledInput
+              sizeStyle="lg"
               label={t('fields.email')}
               placeholder={t('fields.email_placeholder')}
             />
             <LabeledTextarea
+              sizeStyle="lg"
               label={t('fields.message')}
               placeholder={t('fields.message_placeholder')}
               rows={6}

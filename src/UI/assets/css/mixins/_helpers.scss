@@ -1,0 +1,60 @@
+@mixin no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+@mixin hideScroll {
+  scrollbar-width: none; /* Firefox 64 */
+  -ms-overflow-style: none; /* Internet Explorer 11 */
+  &::-webkit-scrollbar {
+    /** WebKit */
+    display: none;
+  }
+}
+@mixin scrolbar-size($width: 6px) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+}
+@mixin custom-scrollbar {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--primary-50);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--n50);
+    border-radius: 8px 0 0 8px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-300);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--primary-50);
+  }
+
+//   scrollbar-width: thin;
+//   scrollbar-color: var(--primary-100);
+}
+
+@mixin ellipsis($line: 3) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@mixin ellipsisLine($line: 3) {
+  -webkit-line-clamp: $line;
+}

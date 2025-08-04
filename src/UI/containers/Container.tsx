@@ -1,11 +1,12 @@
 import styles from './styles.module.scss';
 
 type Props = {
+  size?: 'md' | 'lg' | 'xlg';
   children: React.ReactNode;
 };
 
-const Container = ({ children }: Props) => {
-  return <div className={styles.container}>{children}</div>;
+const Container = ({ children, size = 'md' }: Props) => {
+  return <div className={`${styles.container}  _${size}`}>{children}</div>;
 };
 
 type ContainerInnerProps = {

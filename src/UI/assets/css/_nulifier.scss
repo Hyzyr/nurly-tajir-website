@@ -1,7 +1,11 @@
+@use './mixins/helpers';
+
+@include helpers.custom-scrollbar;
 body {
   font-family: var(--font-manrope);
   background: var(--n20);
   color: var(--n900);
+
 }
 * {
   margin: 0;
@@ -31,6 +35,7 @@ html,
 body {
   font-size: 18px;
   line-height: 1;
+  height: 100%;
 }
 
 ol,

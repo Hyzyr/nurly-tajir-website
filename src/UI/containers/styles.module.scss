@@ -11,6 +11,16 @@
     padding-right: 3.5em;
   }
 
+  &:global(._xlg) {
+    max-width: 1940px;
+  }
+  &:global(._lg) {
+    max-width: 1680px;
+  }
+  &:global(._sm) {
+    max-width: 1320px;
+  }
+
   @include breakpoints.respond-max(xl) {
     padding: 0 50px;
     max-width: 1180px;
