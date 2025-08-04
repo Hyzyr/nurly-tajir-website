@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
-    "@supabase/auth-helpers-react": "^0.5.0",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/auth-ui-react": "^0.4.7",
+    "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.53.0",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",

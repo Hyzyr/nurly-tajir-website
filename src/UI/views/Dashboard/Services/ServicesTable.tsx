@@ -1,6 +1,5 @@
 'use client';
 import { Service } from '@/types/supabase';
-import { fetchAll } from '@/utils/supabase/client';
 import React, { useEffect, useRef, useState } from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
@@ -11,6 +10,7 @@ import DashboardTable, {
 import Button from '@/UI/components/Button';
 import ServiceEditModal from './ServiceEditModal';
 import { ModalRef } from '@/UI/components/Modal/Modal';
+import { fetchAll } from '@/utils/supabase/client';
 
 type ServiceWithID = Service & { index: number };
 
@@ -76,9 +76,9 @@ const columns: TableColumn<ServiceWithID>[] = [
   },
 ];
 
-const Table = () => {
+const ServicesTable = () => {
   const editModalRef = useRef<ModalRef | null>(null);
-  const [modalData, setModalData] = useState<Service | null>(null);
+  const [editModalData, setEditModalData] = useState<Service | null>(null);
   const [data, setData] = useState<ServiceWithID[] | null>(null);
 
   useEffect(() => {
@@ -92,9 +92,13 @@ const Table = () => {
     });
   }, []);
 
+  const onAdd = () => {
+    if (editModalRef.current) editModalRef.current.show();
+    setEditModalData(null);
+  };
   const onEdit = (data: Service) => {
     if (editModalRef.current) editModalRef.current.show();
-    setModalData(data);
+    setEditModalData(data);
   };
   const editModalClose = () => {
     if (editModalRef.current) editModalRef.current.hide();
@@ -115,8 +119,8 @@ const Table = () => {
                     <Button
                       text="Edit"
                       size="sm"
-                      icon="arrowCorner"
-                      style="outlined"
+                      icon="editSVG"
+                      style="secondary"
                       onClick={() => onEdit(row as Service)}
                     />
                   </ActionsCell>
@@ -128,16 +132,21 @@ const Table = () => {
         )}
         {!data && 'No Data'}
         <DashboardTableCta>
-          <Button size="sm" icon="mapPinIcon" text="Add New" />
+          <Button
+            size="sm"
+            icon="editFilledSVG"
+            text="Add New"
+            onClick={() => onAdd()}
+          />
         </DashboardTableCta>
       </div>
 
       {data && data[0] && (
         <ServiceEditModal
           ref={editModalRef}
-          data={modalData ?? null}
+          data={editModalData ?? null}
           onClose={() => editModalClose()}
-          // key={modalData?.id}
+          // key={editModalData?.id}
         />
       )}
     </DashboardTable>
@@ -169,4 +178,4 @@ const ServiceDescriptions = ({
     </p>
   );
 };
-export default Table;
+export default ServicesTable;

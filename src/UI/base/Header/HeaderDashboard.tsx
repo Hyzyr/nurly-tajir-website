@@ -10,7 +10,7 @@ const HeaderDashboard = () => {
   return (
     <HeaderWrapper>
       <div className={styles.header__main}>
-        <Container>
+        <Container size='lg'>
           <div className={styles.header__main__body}>
             <Logo />
             <nav>

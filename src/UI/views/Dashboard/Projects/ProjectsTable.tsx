@@ -27,7 +27,7 @@ const columns: TableColumn<ProjectWithID>[] = [
     grow: 0,
   },
   {
-    name: 'Title En',
+    name: 'Info En',
     selector: (row) => row.title_en,
     cell: (row) => (
       <InfoCell title={row.title_en} description={row.description_en} />
@@ -36,7 +36,7 @@ const columns: TableColumn<ProjectWithID>[] = [
     grow: 0.45,
   },
   {
-    name: 'Title Ru',
+    name: 'Info Ru',
     selector: (row) => row.title_ru,
     cell: (row) => (
       <InfoCell title={row.title_ru} description={row.description_ru} />
@@ -45,7 +45,7 @@ const columns: TableColumn<ProjectWithID>[] = [
     grow: 0.45,
   },
   {
-    name: 'Title Tm',
+    name: 'Info Tm',
     selector: (row) => row.title_tm,
     cell: (row) => (
       <InfoCell title={row.title_tm} description={row.description_tm} />

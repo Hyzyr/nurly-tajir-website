@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 type Props = {
   text?: string;
   children?: React.ReactNode;
-  size?: 'md' | 'lg' | 'sm';
+  size?: 'md' | 'lg' | 'sm' | 'xsm';
   style?: 'default' | 'secondary' | 'outlined';
   icon?: IconNames;
   onClick?: () => void;

@@ -21,11 +21,6 @@
   letter-spacing: 0.02em;
   white-space: nowrap;
 
-  &-lg {
-    font-size: 20px;
-    padding: 0.88em 1.5em;
-  }
-
   &-default {
     border-color: transparent;
     background: var(--primary-900);
@@ -56,5 +51,33 @@
       transition-duration: 0.1s;
       background: rgba(#b4bac0, 0.15);
     }
+  }
+  &-secondary {
+    color: var(--n300);
+    background: rgba(#b4bac0, 0.05);
+    font-weight: 500;
+    border-color: transparent;
+    border-radius: 1.12em;
+    padding: 0.77em 1.2em;
+
+    &:hover {
+      color: var(--primary-800);
+      background: var(--n30);
+    }
+    &:active {
+      color: var(--primary-600);
+      transition-duration: 0.1s;
+      background: rgba(#b4bac0, 0.15);
+    }
+  }
+
+  &-lg {
+    padding: 0.88em 1.5em;
+  }
+  &-sm {
+    font-size: 16px;
+    padding: 0.7em 0.8em;
+    min-height: unset;
+    min-width: unset;
   }
 }
