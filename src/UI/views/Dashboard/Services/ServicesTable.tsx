@@ -13,7 +13,10 @@ import { ModalRef } from '@/UI/components/Modal/Modal';
 import { fetchAll } from '@/utils/supabase/client';
 
 type ServiceWithID = Service & { index: number };
-
+type Props = {
+  data: ServiceWithID[] | null;
+  refetch: () => void;
+};
 const columns: TableColumn<ServiceWithID>[] = [
   {
     name: 'ID',
@@ -76,21 +79,9 @@ const columns: TableColumn<ServiceWithID>[] = [
   },
 ];
 
-const ServicesTable = () => {
+const ServicesTable = ({ data }: Props) => {
   const editModalRef = useRef<ModalRef | null>(null);
   const [editModalData, setEditModalData] = useState<Service | null>(null);
-  const [data, setData] = useState<ServiceWithID[] | null>(null);
-
-  useEffect(() => {
-    fetchAll<Service>('services').then((data) => {
-      const dataWithIndex = data.map((item, index) => ({
-        ...item,
-        index: index + 1,
-      }));
-
-      setData(dataWithIndex as ServiceWithID[]);
-    });
-  }, []);
 
   const onAdd = () => {
     if (editModalRef.current) editModalRef.current.show();

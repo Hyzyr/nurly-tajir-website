@@ -81,6 +81,7 @@ export function DynamicForm<T extends Record<string, any>>({
           case 'textarea':
             return (
               <LabeledTextarea
+                key={key}
                 sizeStyle="sm"
                 label={label}
                 value={String(fieldVal ?? '')}
@@ -88,7 +89,7 @@ export function DynamicForm<T extends Record<string, any>>({
               />
             );
           case 'image':
-            return <LabeledImageInput label={label} ratioPercent={1} />;
+            return <LabeledImageInput  key={key} label={label} ratioPercent={1} />;
           case 'checkbox':
             return (
               <div key={key} className="mb-4 flex items-center">

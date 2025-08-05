@@ -1,12 +1,12 @@
 import ProductCategoryTable from '@/UI/views/Dashboard/Products/ProductCategoryTable';
 import ProjectsTable from '@/UI/views/Dashboard/Projects/ProjectsTable';
-import ServicesTable from '@/UI/views/Dashboard/Services/ServicesTable';
+import { ServicesManager } from '@/UI/views/Dashboard/Services';
 import React from 'react';
 
 const page = async () => {
   return (
     <>
-      <ServicesTable />
+      <ServicesManager />
       <ProjectsTable />
       <ProductCategoryTable />
     </>
