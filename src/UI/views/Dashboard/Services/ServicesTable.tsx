@@ -1,6 +1,6 @@
 'use client';
 import { Service } from '@/types/supabase';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
   ActionsCell,
@@ -10,7 +10,6 @@ import DashboardTable, {
 import Button from '@/UI/components/Button';
 import ServiceEditModal from './ServiceEditModal';
 import { ModalRef } from '@/UI/components/Modal/Modal';
-import { fetchAll } from '@/utils/supabase/client';
 
 type ServiceWithID = Service & { index: number };
 type Props = {
@@ -92,7 +91,7 @@ const ServicesTable = ({ data }: Props) => {
     setEditModalData(data);
   };
   const editModalClose = () => {
-    if (editModalRef.current) editModalRef.current.hide();
+    // if (editModalRef.current) editModalRef.current.hide();
   };
 
   return (
@@ -132,12 +131,11 @@ const ServicesTable = ({ data }: Props) => {
         </DashboardTableCta>
       </div>
 
-      {data && data[0] && (
+      {data && (
         <ServiceEditModal
           ref={editModalRef}
           data={editModalData ?? null}
           onClose={() => editModalClose()}
-          // key={editModalData?.id}
         />
       )}
     </DashboardTable>

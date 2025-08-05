@@ -86,7 +86,7 @@ const ImageInput = React.forwardRef<ImageInputRef, ImageInputProps>(
             className={`${styles.inputFile__preview} ${
               previewUrl ? styles.active : ''
             }`}>
-            <img src={previewUrl ?? ''} alt="preview-file" />
+            {previewUrl && <img src={previewUrl} alt="preview-file" />}
           </div>
           <span className={styles.inputFile__updatebtn} onClick={onClick}>
             <Icon name="imageUploadsSVG" />

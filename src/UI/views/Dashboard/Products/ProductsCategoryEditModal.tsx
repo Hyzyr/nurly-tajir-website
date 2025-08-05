@@ -1,37 +1,31 @@
-import React from 'react';
-import { servicesConfig } from './constants';
-import { Service } from '@/types/supabase';
 import { DynamicForm } from '@/UI/components/form/DynamicForm';
-import Button from '@/UI/components/Button';
-import Modal from '@/UI/components/Modal';
-import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
 import { LabeledImageInput } from '@/UI/components/form/ImageInput';
+import Modal from '@/UI/components/Modal';
+import React from 'react';
+import { productsCategoryConfig } from './constants';
+import { ProductCategory } from '@/types/supabase';
+import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
+import Button from '@/UI/components/Button';
 
 type Props = {
-  data: Service | null;
+  data: ProductCategory | null;
   onClose?: () => void;
 };
 
-const ServiceEditModal = React.forwardRef<ModalRef, Props>(
+const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
   ({ data, onClose }, ref) => {
     const generateImageURL = (src: string) => {
-      return src.startsWith('http') ? src : `/images/website/services/${src}`;
+      return src.startsWith('http') ? src : `/images/website/products/${src}`;
     };
+
     return (
-      <Modal title="Edit Service" onClose={onClose} ref={ref}>
-        <DynamicForm config={servicesConfig} value={data ?? {}} />
-        <div className="fbox fbox-gap-1">
-          <LabeledImageInput
-            label="Image"
-            ratioPercent={1}
-            url={data?.image ? generateImageURL(data.image) : null}
-          />
-          <LabeledImageInput
-            label="Icon"
-            ratioPercent={1}
-            url={data?.image_icon ? generateImageURL(data.image_icon) : null}
-          />
-        </div>
+      <Modal title="Edit Products Group" onClose={onClose} ref={ref}>
+        <LabeledImageInput
+          label="Image"
+          ratioPercent={1}
+          url={data?.image ? generateImageURL(data.image) : null}
+        />
+        <DynamicForm config={productsCategoryConfig} value={data ?? {}} />
         <ModalCTA>
           <Button
             size="sm"
@@ -63,4 +57,4 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
   }
 );
 
-export default ServiceEditModal;
+export default ProductsCategoryEditModal;

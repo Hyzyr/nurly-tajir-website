@@ -1,7 +1,6 @@
 'use client';
 import { Brand, ProductCategory } from '@/types/supabase';
-import { fetchAll } from '@/utils/supabase/client';
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
   ActionsCell,
@@ -9,8 +8,13 @@ import DashboardTable, {
   DashboardTableCta,
 } from '../DashboardTable';
 import Button from '@/UI/components/Button';
+import { ModalRef } from '@/UI/components/Modal/Modal';
+import ProductsCategoryEditModal from './ProductsCategoryEditModal';
 
 type ProductCategoryWithID = ProductCategory & { index: number };
+type Props = {
+  data: ProductCategoryWithID[] | null;
+};
 
 const columns: TableColumn<ProductCategoryWithID>[] = [
   {
@@ -51,52 +55,64 @@ const columns: TableColumn<ProductCategoryWithID>[] = [
   },
 ];
 
-const ProductCategoryTable = () => {
-  const [data, setData] = useState<ProductCategoryWithID[] | null>(null);
+const ProductCategoryTable = ({ data }: Props) => {
+  const editModalRef = useRef<ModalRef>(null);
+  const [editModalData, setEditModalData] = useState<ProductCategory | null>(
+    null
+  );
 
-  useEffect(() => {
-    fetchAll<ProductCategory>('product_categories').then((data) => {
-      const dataWithIndex = data.map((item, index) => ({
-        ...item,
-        index: index + 1,
-      }));
+  const onEdit = (data: ProductCategory) => {
+    setEditModalData(data);
+    if (editModalRef.current) editModalRef.current.show();
+  };
+  const onAdd = () => console.log('on addgf');
+  const editModalClose = () => {};
 
-      console.log('ProductCategory : \n', data);
-      setData(dataWithIndex as ProductCategoryWithID[]);
-    });
-  }, []);
-  const onEdit = (data: ProductCategory) => console.log('edit data : ', data);
-
-  if (!data) return 'No data';
   return (
-    <DashboardTable title="Products Group">
-      <div className={'tableWrapper'}>
-        <DataTable
-          columns={[
-            ...columns,
-            {
-              name: <ActionsHeader>Tools</ActionsHeader>,
-              grow: 0.45,
-              cell: (row) => (
-                <ActionsCell>
-                  <Button
-                    text="Edit"
-                    size="sm"
-                    icon="arrowCorner"
-                    style="outlined"
-                    onClick={() => onEdit(row as ProductCategory)}
-                  />
-                </ActionsCell>
-              ),
-            },
-          ]}
-          data={data}
+    <>
+      <DashboardTable title="Products Group">
+        <div className={'tableWrapper'}>
+          {data && (
+            <DataTable
+              columns={[
+                ...columns,
+                {
+                  name: <ActionsHeader>Tools</ActionsHeader>,
+                  grow: 0.45,
+                  cell: (row) => (
+                    <ActionsCell>
+                      <Button
+                        text="Edit"
+                        size="sm"
+                        icon="editSVG"
+                        style="secondary"
+                        onClick={() => onEdit(row)}
+                      />
+                    </ActionsCell>
+                  ),
+                },
+              ]}
+              data={data}
+            />
+          )}
+          {!data && 'No Data'}
+          <DashboardTableCta>
+            <Button
+              size="sm"
+              icon="plusSVG"
+              text="Add New"
+              onClick={() => onAdd()}
+            />
+          </DashboardTableCta>
+        </div>
+      </DashboardTable>
+      {data && (
+        <ProductsCategoryEditModal
+          ref={editModalRef}
+          data={editModalData ?? null}
         />
-        <DashboardTableCta>
-          <Button size="sm" icon="mapPinIcon" text="Add New" />
-        </DashboardTableCta>
-      </div>
-    </DashboardTable>
+      )}
+    </>
   );
 };
 type InfoCellProps = {

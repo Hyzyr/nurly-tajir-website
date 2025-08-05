@@ -1,7 +1,6 @@
 'use client';
 import { Project } from '@/types/supabase';
-import { fetchAll } from '@/utils/supabase/client';
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
   ActionsCell,
@@ -9,9 +8,13 @@ import DashboardTable, {
   DashboardTableCta,
 } from '../DashboardTable';
 import Button from '@/UI/components/Button';
+import { ModalRef } from '@/UI/components/Modal/Modal';
+import ProjectsEditModal from './ProjectsEditModal';
 
 type ProjectWithID = Project & { index: number };
-
+type Props = {
+  data: ProjectWithID[] | null;
+};
 const columns: TableColumn<ProjectWithID>[] = [
   {
     name: 'ID',
@@ -55,50 +58,65 @@ const columns: TableColumn<ProjectWithID>[] = [
   },
 ];
 
-const ProjectsTable = () => {
-  const [data, setData] = useState<ProjectWithID[] | null>(null);
+const ProjectsTable = ({ data }: Props) => {
+  const editModalRef = useRef<ModalRef>(null);
+  const [editModalData, setEditModalData] = useState<Project | null>(null);
 
-  useEffect(() => {
-    fetchAll<Project>('projects').then((data) => {
-      const dataWithIndex = data.map((item, index) => ({
-        ...item,
-        index: index + 1,
-      }));
+  const onEdit = (data: Project) => {
+    setEditModalData(data);
+    if (editModalRef.current) editModalRef.current.show();
+  };
+  const onAdd = () => {
+    // if (editModalRef.current) editModalRef.current.show();
+    // setEditModalData(null);
+  };
+  const editModalClose = () => {
+    if (editModalRef.current) editModalRef.current.hide();
+  };
 
-      setData(dataWithIndex as ProjectWithID[]);
-    });
-  }, []);
-  const onEdit = (data: Project) => console.log('edit data : ', data);
-
-  if (!data) return 'No data';
   return (
     <DashboardTable title="Projects">
       <div className={'tableWrapper'}>
-        <DataTable
-          columns={[
-            ...columns,
-            {
-              name: <ActionsHeader>Tools</ActionsHeader>,
-              grow: 0.45,
-              cell: (row) => (
-                <ActionsCell>
-                  <Button
-                    text="Edit"
-                    size="sm"
-                    icon="arrowCorner"
-                    style="outlined"
-                    onClick={() => onEdit(row as Project)}
-                  />
-                </ActionsCell>
-              ),
-            },
-          ]}
-          data={data}
-        />
+        {data && (
+          <DataTable
+            columns={[
+              ...columns,
+              {
+                name: <ActionsHeader>Tools</ActionsHeader>,
+                grow: 0.45,
+                cell: (row) => (
+                  <ActionsCell>
+                    <Button
+                      text="Edit"
+                      size="sm"
+                      icon="editSVG"
+                      style="secondary"
+                      onClick={() => onEdit(row)}
+                    />
+                  </ActionsCell>
+                ),
+              },
+            ]}
+            data={data}
+          />
+        )}
+        {!data && 'No Data'}
         <DashboardTableCta>
-          <Button size="sm" icon="mapPinIcon" text="Add New" />
+          <Button
+            size="sm"
+            icon="plusSVG"
+            text="Add New"
+            onClick={() => onAdd()}
+          />
         </DashboardTableCta>
       </div>
+      {data && (
+        <ProjectsEditModal
+          ref={editModalRef}
+          data={editModalData ?? null}
+          onClose={() => editModalClose()}
+        />
+      )}
     </DashboardTable>
   );
 };

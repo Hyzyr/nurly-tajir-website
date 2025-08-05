@@ -1,2 +1,2 @@
-
-export { default as ServicesManager } from './ServicespProvider';
+import ServicesManager from './ServicesProvider';
+export default ServicesManager;

@@ -8,7 +8,7 @@ import ServicesTable from './ServicesTable';
 
 type ServiceWithID = Service & { index: number };
 
-const ServicespProvider = () => {
+const ServicesProvider = () => {
   const [data, setData] = useState<ServiceWithID[] | null>(null);
 
   const fetchServices = React.useCallback(() => {
@@ -29,4 +29,4 @@ const ServicespProvider = () => {
   return <ServicesTable data={data} refetch={fetchServices} />;
 };
 
-export default ServicespProvider;
+export default ServicesProvider;
