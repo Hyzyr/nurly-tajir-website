@@ -46,8 +46,9 @@ const HeaderDesktop = () => {
                 <Link href={'#services'}>{t('nav.services')}</Link>
                 <Link href={'#products'}>{t('nav.products')}</Link>
                 <Link href={'#about-us'}>{t('nav.about_us')}</Link>
-                <Link href={'#contacts'}>{t('nav.contacts')}</Link>
+                {/* <Link href={'#contacts'}>{t('nav.contacts')}</Link> */}
               </div>
+              <span>&nbsp; &nbsp; &nbsp;</span>
               <Button text={t('get_quote')} />
             </nav>
           </div>

@@ -1,6 +1,6 @@
 'use client';
 import { Service } from '@/types/supabase';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
   ActionsCell,
@@ -8,13 +8,12 @@ import DashboardTable, {
   DashboardTableCta,
 } from '../DashboardTable';
 import Button from '@/UI/components/Button';
-import ServiceEditModal from './ServiceEditModal';
-import { ModalRef } from '@/UI/components/Modal/Modal';
 
 type ServiceWithID = Service & { index: number };
 type Props = {
   data: ServiceWithID[] | null;
-  refetch: () => void;
+  onAdd: () => void;
+  onEdit: (data: Service) => void;
 };
 const columns: TableColumn<ServiceWithID>[] = [
   {
@@ -78,22 +77,7 @@ const columns: TableColumn<ServiceWithID>[] = [
   },
 ];
 
-const ServicesTable = ({ data }: Props) => {
-  const editModalRef = useRef<ModalRef | null>(null);
-  const [editModalData, setEditModalData] = useState<Service | null>(null);
-
-  const onAdd = () => {
-    if (editModalRef.current) editModalRef.current.show();
-    setEditModalData(null);
-  };
-  const onEdit = (data: Service) => {
-    if (editModalRef.current) editModalRef.current.show();
-    setEditModalData(data);
-  };
-  const editModalClose = () => {
-    // if (editModalRef.current) editModalRef.current.hide();
-  };
-
+const ServicesTable = ({ data, onAdd, onEdit }: Props) => {
   return (
     <DashboardTable title="Services">
       <div className={'tableWrapper'}>
@@ -130,14 +114,6 @@ const ServicesTable = ({ data }: Props) => {
           />
         </DashboardTableCta>
       </div>
-
-      {data && (
-        <ServiceEditModal
-          ref={editModalRef}
-          data={editModalData ?? null}
-          onClose={() => editModalClose()}
-        />
-      )}
     </DashboardTable>
   );
 };

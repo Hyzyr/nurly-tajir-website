@@ -25,7 +25,6 @@ const ImageInput = React.forwardRef<ImageInputRef, ImageInputProps>(
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [previewUrl, setPreviewUrl] = useState<string | null>(url);
 
-    console.log({ url });
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
       const fileList = e.target.files;
       const file: File | null =

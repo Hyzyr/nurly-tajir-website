@@ -27,10 +27,6 @@ export function useLangSwitcher() {
     return i18n.locales[index];
   };
 
-  React.useEffect(() => {
-    console.log({ current });
-  }, [current]);
-
   return {
     current,
     locales: i18n.locales,

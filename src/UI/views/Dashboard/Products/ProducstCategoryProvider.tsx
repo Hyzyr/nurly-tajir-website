@@ -16,7 +16,6 @@ const ProducstCategoryProvider = () => {
         index: index + 1,
       }));
 
-      console.log('ProductCategory : \n', data);
       setData(dataWithIndex as ProductCategoryWithID[]);
     });
   }, []);

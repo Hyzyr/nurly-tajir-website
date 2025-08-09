@@ -1,7 +1,6 @@
-// components/Input.tsx
+import styles from './styles.module.scss';
 
 import React, { useId } from 'react';
-import styles from './styles.module.scss';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   sizeStyle?: 'sm' | 'md' | 'lg';
@@ -9,28 +8,13 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 
 const Input = ({
   type = 'text',
-  value,
-  onChange,
-  placeholder,
-  name,
-  id,
-  disabled,
   className,
   sizeStyle = 'md',
   ...rest
 }: InputProps) => {
   return (
     <div className={`${styles.input}  _${sizeStyle} ${className ?? ''}`}>
-      <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        name={name}
-        id={id}
-        disabled={disabled}
-        {...rest}
-      />
+      <input type={type} {...rest} />
     </div>
   );
 };

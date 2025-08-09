@@ -1,19 +1,24 @@
-import { type NextRequest } from 'next/server'
-import { updateSession } from '@/utils/supabase/middleware'
+import createMiddleware from 'next-intl/middleware';
+import { NextRequest } from 'next/server';
 
-export async function middleware(request: NextRequest) {
-  return await updateSession(request)
+export default async function middleware(request: NextRequest) {
+  // Step 1: Use the incoming request (example)
+  const defaultLocale = request.headers.get('x-your-custom-locale') || 'en';
+  const locales = ['en', 'de'];
+  // Step 2: Create and call the next-intl middleware (example)
+  const handleI18nRouting = createMiddleware({
+    locales: locales,
+    defaultLocale: defaultLocale,
+  });
+  const response = handleI18nRouting(request);
+
+  // Step 3: Alter the response (example)
+  response.headers.set('x-your-custom-locale', defaultLocale);
+
+  return response;
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
-     */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
-}
+  // Match only internationalized pathnames
+  matcher: ['/', '/(de|en)/:path*'],
+};

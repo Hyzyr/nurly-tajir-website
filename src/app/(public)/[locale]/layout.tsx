@@ -32,9 +32,9 @@ export default async function RootLayout({ children }: RootPropsType) {
   const currentLocale = await getLocale();
 
   // const locale = await getLocale();
-  console.log({ currentLocale });
   // const messages = await loadMessages()
   // Enable static
+  
   if (!hasLocale(locales, currentLocale)) {
     notFound();
   }

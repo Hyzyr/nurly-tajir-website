@@ -42,7 +42,6 @@ export async function fetchAll<T>(
     .from<string, T>(table) // ← now supplying both generics
     .select('*')
     .order(sortBy, { ascending });
-  console.log({ data });
 
   if (error) {
     console.error(`❌ [Supabase] error fetching "${table}":`, error);

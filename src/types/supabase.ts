@@ -66,8 +66,6 @@ export type ServiceInsert = {
   description_tm: string;
   image_icon?: string | null;
   image: string;
-  created_at?: string;
-  updated_at?: string;
 };
 
 /** Type for updating a service (only id is required) */

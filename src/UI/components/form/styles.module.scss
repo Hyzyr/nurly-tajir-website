@@ -1,3 +1,5 @@
+@use '@/UI/assets/css/mixins/helpers';
+
 .input {
   display: flex;
 
@@ -40,6 +42,11 @@
   textarea {
     resize: none;
     min-height: 5em;
+
+    @include helpers.scrolbar-size(2px);
+    &::-webkit-scrollbar-track {
+      margin: 0.5em;
+    }
   }
 
   &__group {
@@ -79,6 +86,7 @@
         font-size: 18px;
       }
     }
+
     &:global(._sm) {
       font-size: 14px;
     }

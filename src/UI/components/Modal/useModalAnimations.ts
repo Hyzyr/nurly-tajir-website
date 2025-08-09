@@ -21,7 +21,6 @@ const useModalAnimations = ({ ref: wrapperRef }: Props) => {
     const tl = timeline.current;
     if (!tl || !wrapper || !modal) return;
     gsap.set(wrapper, { clearProps: 'display' });
-    console.log('show');
     closed.current = false;
 
     tl.clear()
@@ -55,7 +54,6 @@ const useModalAnimations = ({ ref: wrapperRef }: Props) => {
     const modal = wrapper?.querySelector(`.${styles.modal}`) as HTMLDivElement;
     const tl = timeline.current;
     if (!tl || !wrapper || !modal) return;
-    console.log('hide');
     closed.current = true;
 
     tl.clear()
@@ -87,7 +85,6 @@ const useModalAnimations = ({ ref: wrapperRef }: Props) => {
     const modal = wrapper?.querySelector(`.${styles.modal}`) as HTMLDivElement;
     const tl = timeline.current;
     if (!tl || !wrapper || !modal) return;
-    console.log('shake');
 
     tl.clear().to(modal, {
       rotate: 2,
