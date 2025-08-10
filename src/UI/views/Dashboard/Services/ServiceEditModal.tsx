@@ -48,7 +48,7 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
         Object.keys(servicesConfig) as (keyof ServiceInsert)[]
       );
 
-      updateById('services', data?.id, {
+      updateById('services' as const, data?.id, {
         // id: data?.id,
         ...newData,
       });

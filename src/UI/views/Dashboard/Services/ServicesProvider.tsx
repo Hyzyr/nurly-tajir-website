@@ -2,12 +2,12 @@
 
 import React, { useRef } from 'react';
 import { Service, ServiceInsert, ServiceUpdate } from '@/types/supabase';
-import { fetchAll } from '@/utils/supabase/client';
 import { useEffect, useState } from 'react';
 import ServicesTable from './ServicesTable';
 import { ModalRef } from '@/UI/components/Modal/Modal';
 import ServiceEditModal from './ServiceEditModal';
 import { emptyService } from './constants';
+import { supabase } from '@/utils/supabase/client';
 
 type ServiceWithID = Service & { index: number };
 
@@ -32,14 +32,20 @@ const ServicesProvider = () => {
   const fetchServices = React.useCallback(() => {
     setIsFetching(true);
 
-    fetchAll<Service>('services').then((data) => {
-      const dataWithIndex = data.map((item, index) => ({
-        ...item,
-        index: index + 1,
-      }));
-      setIsFetching(false);
-      setData(dataWithIndex as ServiceWithID[]);
-    });
+    supabase
+      .from('services')
+      .select('*')
+      .then(({ data, error }) => {
+        if (error) throw error;
+        const rows = (data ?? []) as Service[]; // rows is Service[]
+        
+        const dataWithIndex: ServiceWithID[] = rows.map((item, i) => ({
+          ...item,
+          index: i + 1,
+        }));
+        setIsFetching(false);
+        setData(dataWithIndex);
+      });
   }, [data]);
 
   useEffect(() => {

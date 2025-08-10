@@ -1,3 +1,7 @@
+import { Database } from '@/utils/supabase/database.types';
+
+type Tables = Database['public']['Tables'];
+
 export interface Brand {
   name: string;
   link: string;
@@ -41,46 +45,10 @@ export type ProductCategoryUpdate = {
 };
 
 /** Row type for public.services */
-export interface Service {
-  id: string; // UUID
-  title_en: string; // English title
-  title_ru: string; // Russian title
-  title_tm: string; // Turkmen title
-  description_en: string;
-  description_ru: string;
-  description_tm: string;
-  image_icon: string | null;
-  image: string;
-  created_at: string; // ISO timestamp
-  updated_at: string; // ISO timestamp
-}
+export type Service = Tables['services']['Row'];
+export type ServiceInsert = Tables['services']['Insert'];
+export type ServiceUpdate = Tables['services']['Update'];
 
-/** Type for inserting a new service (id & timestamps optional) */
-export type ServiceInsert = {
-  id?: string;
-  title_en: string;
-  title_ru: string;
-  title_tm: string;
-  description_en: string;
-  description_ru: string;
-  description_tm: string;
-  image_icon?: string | null;
-  image: string;
-};
-
-/** Type for updating a service (only id is required) */
-export type ServiceUpdate = {
-  id: string;
-  title_en?: string;
-  title_ru?: string;
-  title_tm?: string;
-  description_en?: string;
-  description_ru?: string;
-  description_tm?: string;
-  image_icon?: string | null;
-  image?: string;
-  // you normally wouldn’t set timestamps manually on update
-};
 /** Row type for public.projects */
 export interface Project {
   id: string; // UUID
