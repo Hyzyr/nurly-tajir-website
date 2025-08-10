@@ -32,7 +32,7 @@ type FieldConfig<T> =
       itemConfig: FieldConfig<T extends Array<infer U> ? U : unknown>;
     };
 
-export type FieldConfigMap<T> = { [K in keyof T]-?: FieldConfig<T[K]> };
+export type FieldConfigMap<T> = { [K in keyof T]?: FieldConfig<T[K]> };
 
 export type DynamicFormProps<T extends Record<string, unknown>> = {
   value: T;

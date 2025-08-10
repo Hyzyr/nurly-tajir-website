@@ -1,3 +1,4 @@
+'use client';
 import React, { RefObject, useEffect, useRef } from 'react';
 import { servicesConfig } from './constants';
 import { ServiceInsert, ServiceUpdate } from '@/types/supabase';
@@ -48,7 +49,7 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
         Object.keys(servicesConfig) as (keyof ServiceInsert)[]
       );
 
-      updateById('services' as const, data?.id, {
+      updateById('services', data?.id, {
         // id: data?.id,
         ...newData,
       });

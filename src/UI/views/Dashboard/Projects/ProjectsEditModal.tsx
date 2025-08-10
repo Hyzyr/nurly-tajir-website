@@ -1,7 +1,8 @@
+'use client';
 import { Project } from '@/types/supabase';
 import { DynamicForm } from '@/UI/components/form/DynamicForm';
 import Modal from '@/UI/components/Modal';
-import React from 'react';
+import React, { RefObject } from 'react';
 import { projectsConfig } from './constants';
 import { LabeledImageInput } from '@/UI/components/form/ImageInput';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
@@ -41,8 +42,8 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
             style="secondary"
             text="Close"
             onClick={() => {
-              // @ts-ignore
-              if (ref?.current?.hide) ref.current.hide();
+              const controler = (ref as RefObject<ModalRef> | null)?.current;
+              if (controler) controler.hide();
             }}
           />
           <Button
@@ -55,7 +56,7 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
       </Modal>
     );
   }
-) as React.FC<Props>;
+);
 
 ProjectsEditModal.displayName = 'ProjectsEditModal';
 export default ProjectsEditModal;

@@ -10,7 +10,7 @@ const ProducstCategoryProvider = () => {
   const [data, setData] = useState<ProductCategoryWithID[] | null>(null);
 
   useEffect(() => {
-    fetchAll<ProductCategory>('product_categories').then((data) => {
+    fetchAll('product_categories').then((data) => {
       const dataWithIndex = data.map((item, index) => ({
         ...item,
         index: index + 1,

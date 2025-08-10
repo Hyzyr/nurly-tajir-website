@@ -11,7 +11,7 @@ const ProjectsProvider = () => {
   const [data, setData] = useState<ProjectWithID[] | null>(null);
 
   useEffect(() => {
-    fetchAll<Project>('projects').then((data) => {
+    fetchAll('projects').then((data) => {
       const dataWithIndex = data.map((item, index) => ({
         ...item,
         index: index + 1,

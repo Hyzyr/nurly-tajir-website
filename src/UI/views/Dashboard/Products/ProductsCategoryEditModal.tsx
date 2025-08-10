@@ -1,7 +1,7 @@
 import { DynamicForm } from '@/UI/components/form/DynamicForm';
 import { LabeledImageInput } from '@/UI/components/form/ImageInput';
 import Modal from '@/UI/components/Modal';
-import React from 'react';
+import React, { RefObject } from 'react';
 import { productsCategoryConfig } from './constants';
 import { ProductCategory } from '@/types/supabase';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
@@ -41,8 +41,8 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
             style="secondary"
             text="Close"
             onClick={() => {
-              // @ts-ignore
-              if (ref?.current?.hide) ref.current.hide();
+              const controler = (ref as RefObject<ModalRef> | null)?.current;
+              if (controler) controler.hide();
             }}
           />
           <Button
@@ -55,7 +55,7 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
       </Modal>
     );
   }
-) as React.FC<Props>;
+);
 
 ProductsCategoryEditModal.displayName = 'ProductsCategoryEditModal';
 export default ProductsCategoryEditModal;

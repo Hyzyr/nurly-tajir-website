@@ -50,7 +50,7 @@ const columns: TableColumn<ProductCategoryWithID>[] = [
   },
   {
     name: 'Brands',
-    cell: (row) => <InfoCell brands={row.brands} />,
+    cell: (row) => <InfoCell brands={JSON.parse(row.brands as string)} />,
     grow: 0.45,
   },
 ];
