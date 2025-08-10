@@ -55,6 +55,7 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
       </Modal>
     );
   }
-);
+) as React.FC<Props>;
 
+ProductsCategoryEditModal.displayName = 'ProductsCategoryEditModal';
 export default ProductsCategoryEditModal;

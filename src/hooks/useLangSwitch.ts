@@ -1,7 +1,6 @@
 import { useLocale } from 'next-intl';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import i18n from '../../next-intl.config';
-import React from 'react';
 
 type Locale = (typeof i18n.locales)[number];
 type LocaleThreeLetter = (typeof i18n.localesThreeLetter)[number];

@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { RefObject, useEffect, useRef } from 'react';
 import { servicesConfig } from './constants';
-import { Service, ServiceInsert, ServiceUpdate } from '@/types/supabase';
+import { ServiceInsert, ServiceUpdate } from '@/types/supabase';
 import {
   DynamicForm,
   DynamicFormHandle,
@@ -17,18 +17,15 @@ type Props = {
   disabled?: boolean;
 };
 
-function pickFromFormData<T extends Record<string, any>, K extends keyof T>(
-  formData: T,
-  keys: readonly K[]
-): Pick<T, K> {
-  const result = {} as Pick<T, K>;
-
-  keys.forEach((key) => {
-    result[key] = formData[key];
-  });
-
-  return result;
+function pickFromFormData<
+  T extends Record<PropertyKey, unknown>,
+  K extends keyof T
+>(formData: T, keys: readonly K[]): Pick<T, K> {
+  const acc: Partial<Pick<T, K>> = {};
+  for (const key of keys) acc[key] = formData[key];
+  return acc as Pick<T, K>;
 }
+
 const ServiceEditModal = React.forwardRef<ModalRef, Props>(
   ({ data, onClose }, ref) => {
     const formHandle = useRef<DynamicFormHandle<ServiceInsert> | null>(null);
@@ -90,8 +87,8 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
             style="secondary"
             text="Close"
             onClick={() => {
-              // @ts-ignore
-              if (ref?.current?.hide) ref.current.hide();
+              const controler = (ref as RefObject<ModalRef> | null)?.current;
+              if (controler) controler.hide();
             }}
           />
           <Button
@@ -107,4 +104,5 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
   }
 );
 
+ServiceEditModal.displayName = 'ServiceEditModal';
 export default ServiceEditModal;

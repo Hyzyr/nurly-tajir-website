@@ -66,7 +66,7 @@ const ProductCategoryTable = ({ data }: Props) => {
     if (editModalRef.current) editModalRef.current.show();
   };
   const onAdd = () => console.log('on addgf');
-  const editModalClose = () => {};
+  // const editModalClose = () => {};
 
   return (
     <>

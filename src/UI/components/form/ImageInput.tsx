@@ -117,4 +117,5 @@ const LabeledImageInput = ({
 };
 
 export { LabeledImageInput };
+ImageInput.displayName = 'ImageInput'; 
 export default ImageInput;

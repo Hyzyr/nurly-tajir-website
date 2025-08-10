@@ -94,4 +94,5 @@ export const ModalCTA = ({ children }: PropsWithChildren) => {
   return <div className={styles.modal__cta}>{children}</div>;
 };
 
+Modal.displayName = 'Modal';
 export default Modal;

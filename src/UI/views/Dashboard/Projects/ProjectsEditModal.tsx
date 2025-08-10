@@ -55,6 +55,7 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
       </Modal>
     );
   }
-);
+) as React.FC<Props>;
 
+ProjectsEditModal.displayName = 'ProjectsEditModal';
 export default ProjectsEditModal;

@@ -1,7 +1,4 @@
-import { ProjectInsert } from "@/types/supabase";
-import { FieldConfigMap } from "@/UI/components/form/DynamicForm";
-
-export const projectsConfig: FieldConfigMap<ProjectInsert> = {
+export const projectsConfig = {
   title_en: { label: 'Title English', type: 'text' },
   description_en: { label: 'Description English', type: 'textarea' },
   title_ru: { label: 'Title Russian', type: 'text' },

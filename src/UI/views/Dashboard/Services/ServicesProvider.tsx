@@ -7,20 +7,21 @@ import { useEffect, useState } from 'react';
 import ServicesTable from './ServicesTable';
 import { ModalRef } from '@/UI/components/Modal/Modal';
 import ServiceEditModal from './ServiceEditModal';
+import { emptyService } from './constants';
 
 type ServiceWithID = Service & { index: number };
 
 const ServicesProvider = () => {
   const [data, setData] = useState<ServiceWithID[] | null>(null);
   const [editModalData, setEditModalData] = useState<Service | null>(null);
-  const [addModalData, setAddModalData] = useState<ServiceInsert | {}>({});
+  const [addModalData, setAddModalData] = useState<ServiceInsert>(emptyService);
   const editModalRef = useRef<ModalRef | null>(null);
   const addModalRef = useRef<ModalRef | null>(null);
   const [isFetching, setIsFetching] = useState(false);
 
   const onAdd = () => {
     if (addModalRef.current) addModalRef.current.show();
-    setAddModalData({});
+    setAddModalData(emptyService);
     setEditModalData(null);
   };
   const onEdit = (data: Service) => {
