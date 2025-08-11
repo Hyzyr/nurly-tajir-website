@@ -13,7 +13,7 @@ const ProjectsContent = ({ testData }: { testData: typeof data }) => {
   const t = useTranslations('home.projects');
 
   return (
-    <section className={styles.projects}>
+    <section className={styles.projects} id="projects">
       <Container>
         <div className={styles.projects__inner}>
           <small>{t('subtitle')}</small>

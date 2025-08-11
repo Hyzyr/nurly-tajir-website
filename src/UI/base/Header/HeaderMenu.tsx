@@ -1,7 +1,6 @@
 'use client';
 import styles from './styles.module.scss';
 
-import Link from 'next/link';
 import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Button from '@/UI/components/Button';
@@ -10,6 +9,7 @@ import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
 import LangSwitch from './components/LangSwitch';
 import { usePathname } from 'next/navigation';
+import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
 
 type Props = {
   active: boolean;
@@ -23,6 +23,7 @@ const HeaderMenu = ({ active, toggle }: Props) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const isFirstLoad = useRef(true);
+  const scrollTo = useGsapScrollTo();
 
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (toggle && e.target === wrapperRef.current) toggle();
@@ -89,6 +90,12 @@ const HeaderMenu = ({ active, toggle }: Props) => {
       },
     });
   };
+  const scrollToSection =
+    (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
+      toggle(false);
+    };
 
   useEffect(() => {
     if (isFirstLoad.current) {
@@ -111,21 +118,21 @@ const HeaderMenu = ({ active, toggle }: Props) => {
           <LangSwitch onClick={() => toggle(false)} />
         </div>
         <div className={styles.menu__links}>
-          <Link href={'#projects'} onClick={() => toggle(false)}>
+          <a href={'#projects'} onClick={scrollToSection('#projects')}>
             {t('nav.projects')}
-          </Link>
-          <Link href={'#services'} onClick={() => toggle(false)}>
+          </a>
+          <a href={'#services'} onClick={scrollToSection('#services')}>
             {t('nav.services')}
-          </Link>
-          <Link href={'#products'} onClick={() => toggle(false)}>
+          </a>
+          <a href={'#products'} onClick={scrollToSection('#products')}>
             {t('nav.products')}
-          </Link>
-          <Link href={'#about-us'} onClick={() => toggle(false)}>
+          </a>
+          <a href={'#about-us'} onClick={scrollToSection('#about-us')}>
             {t('nav.about_us')}
-          </Link>
-          <Link href={'#contacts'} onClick={() => toggle(false)}>
+          </a>
+          <a href={'#contacts'} onClick={scrollToSection('#footer')}>
             {t('nav.contacts')}
-          </Link>
+          </a>
         </div>
         <Button text="Get Quote" />
       </nav>

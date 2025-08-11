@@ -11,7 +11,10 @@
       "contacts": "Contacts",
       "documents": "Documents",
       "privacy_policy": "Privacy Policy",
-      "terms": "Terms & Conditions"
+      "terms": "Terms & Conditions",
+      "company" : "Company",
+      "legal" : "Legal",
+      "office" : "Office"
     },
     "address": {
       "address1": "Turkmenistan, Ash., Agzam Gurbanov 126",

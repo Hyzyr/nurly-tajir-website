@@ -9,7 +9,7 @@ const Partners = () => {
   const t = useTranslations('home.partners');
 
   return (
-    <section className={styles.partners}>
+    <section className={styles.partners} id='partners'>
       <Container>
         <div className={styles.partners__inner}>
           <ContainerInner className={styles.partners__header}>

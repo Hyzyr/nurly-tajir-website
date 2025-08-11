@@ -13,7 +13,7 @@ const Products = () => {
   const title = t('title').split('\n');
 
   return (
-    <section className={styles.products}>
+    <section className={styles.products} id="products">
       <Container>
         <div className={styles.products__inner}>
           <h3 className="h3">

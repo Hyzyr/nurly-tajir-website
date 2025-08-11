@@ -10,7 +10,7 @@ const Contact = () => {
   const t = useTranslations('contact');
 
   return (
-    <section className={styles.contact}>
+    <section className={styles.contact} id="contacts">
       <Container>
         <ContainerInner className={styles.contact__inner}>
           <div className={`${styles.contact__bg} bg`}>

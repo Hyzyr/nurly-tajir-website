@@ -3,14 +3,13 @@ import styles from './styles.module.scss';
 import Icon from '@/UI/components/Icon';
 import Container from '@/UI/containers';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-
+import FooterLink from './FooterLink';
 
 const Footer = () => {
   const t = useTranslations('common');
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="footer">
       <Container>
         <div className={styles.footer__inner}>
           <div className={styles.footer__column}>
@@ -20,34 +19,31 @@ const Footer = () => {
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">Company</strong>
             <div className="fbox fbox-column fbox-gap-2">
-              <Link href={'#projects'} className={styles.footer__link}>
-                {t('nav.projects')}
-              </Link>
-              <Link href={'#services'} className={styles.footer__link}>
-                {t('nav.services')}
-              </Link>
-              <Link href={'#products'} className={styles.footer__link}>
-                {t('nav.products')}
-              </Link>
-              <Link href={'#about-us'} className={styles.footer__link}>
-                {t('nav.about_us')}
-              </Link>
-              <Link href={'#contacts'} className={styles.footer__link}>
-                {t('nav.contacts')}
-              </Link>
+              <FooterLink selector={'#projects'} title={t('nav.projects')} />
+              <FooterLink selector={'#services'} title={t('nav.services')} />
+              <FooterLink selector={'#products'} title={t('nav.products')} />
+              <FooterLink selector={'#about-us'} title={t('nav.about_us')} />
             </div>
           </div>
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">Legal</strong>
             <div className="fbox fbox-column fbox-gap-2">
-              <a href="#" className={styles.footer__link}>
+              {/* <a href="#" className={styles.footer__link}>
                 {t('nav.documents')}
-              </a>
-              <a href="#" className={styles.footer__link}>
-                {t('nav.privacy_policy')}
-              </a>
-              <a href="#" className={styles.footer__link}>
+              </a> */}
+              <a
+                href="/docs/Nury_Tajir_Privacy_Policy_TOS_RU.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                className={styles.footer__link}
+                target="_blank"
+                rel="noopener noreferrer">
                 {t('nav.terms')}
+              </a>
+              <a
+                href="/docs/Nury_Tajir_Privacy_Policy_TOS_RU.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                className={styles.footer__link}
+                target="_blank"
+                rel="noopener noreferrer">
+                {t('nav.privacy_policy')}
               </a>
             </div>
           </div>

@@ -247,7 +247,7 @@
   }
 }
 .headermob {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   padding: 0.88em 0;
@@ -375,5 +375,16 @@
 @include breakpoints.respond-max(lg) {
   .header-space {
     height: 75px;
+  }
+  .header {
+    &__pre {
+      display: none;
+    }
+    &__main {
+      display: none;
+    }
+  }
+  .headermob {
+    display: flex;
   }
 }

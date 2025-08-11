@@ -11,7 +11,7 @@ const Services = () => {
   const title = t('title').split('\n');
 
   return (
-    <section className={styles.services}>
+    <section className={styles.services} id="services">
       <Container>
         <div className={styles.services__inner}>
           <ContainerInner className={styles.services__title}>

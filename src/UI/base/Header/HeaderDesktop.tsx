@@ -4,12 +4,19 @@ import Button from '@/UI/components/Button';
 import Icon, { IconNames } from '@/UI/components/Icon';
 import Logo from '@/UI/components/Logo';
 import Container from '@/UI/containers';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import LangSwitch from './components/LangSwitch';
+import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
 
 const HeaderDesktop = () => {
   const t = useTranslations('common');
+  const scrollTo = useGsapScrollTo();
+
+  const scrollToSection =
+    (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault();
+      scrollTo(section, { offsetY: window!.innerHeight * 0.15 });
+    };
 
   return (
     <>
@@ -42,11 +49,21 @@ const HeaderDesktop = () => {
             <Logo />
             <nav>
               <div className="fbox fbox-gap-2">
-                <Link href={'#projects'}>{t('nav.projects')}</Link>
-                <Link href={'#services'}>{t('nav.services')}</Link>
-                <Link href={'#products'}>{t('nav.products')}</Link>
-                <Link href={'#about-us'}>{t('nav.about_us')}</Link>
-                {/* <Link href={'#contacts'}>{t('nav.contacts')}</Link> */}
+                <a href={'#projects'} onClick={scrollToSection('#projects')}>
+                  {t('nav.projects')}
+                </a>
+                <a href={'#services'} onClick={scrollToSection('#services')}>
+                  {t('nav.services')}
+                </a>
+                <a href={'#products'} onClick={scrollToSection('#products')}>
+                  {t('nav.products')}
+                </a>
+                <a href={'#about-us'} onClick={scrollToSection('#about-us')}>
+                  {t('nav.about_us')}
+                </a>
+                <a href={'#footer'} onClick={scrollToSection('#footer')}>
+                  {t('nav.contacts')}
+                </a>
               </div>
               <span>&nbsp; &nbsp; &nbsp;</span>
               <Button text={t('get_quote')} />

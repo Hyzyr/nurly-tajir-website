@@ -1,6 +1,6 @@
 import Container, { ContainerInner } from '@/UI/containers';
 import styles from './styles.module.scss';
-import {  useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { FormatText } from '@/UI/components/FormatText';
 
 const About = () => {
@@ -8,7 +8,7 @@ const About = () => {
   const title = t('title').split('\n');
 
   return (
-    <section className={styles.about}>
+    <section className={styles.about} id="about-us">
       <Container>
         <ContainerInner className={styles.about__inner}>
           <div className={styles.about__header}>
