@@ -3,6 +3,10 @@
     "get_quote": "Get Quote",
     "req_consultation": "Request Consultation",
     "explore_store": "Explore Store",
+    "company": "Company",
+    "legal": "Legal",
+    "office": "Office",
+    "info": "In a short time, we’ve successfully implemented over 15 projects in variouse sectors",
     "nav": {
       "projects": "Projects",
       "services": "Services",
@@ -11,18 +15,14 @@
       "contacts": "Contacts",
       "documents": "Documents",
       "privacy_policy": "Privacy Policy",
-      "terms": "Terms & Conditions",
-      "company" : "Company",
-      "legal" : "Legal",
-      "office" : "Office"
+      "terms": "Terms & Conditions"
     },
     "address": {
       "address1": "Turkmenistan, Ash., Agzam Gurbanov 126",
       "address2": "Turkmenistan, Ash., Ataturk 2015",
       "email": "info@nurytajir.com",
       "phone": "+993 12 123456"
-    },
-    "info": "In a short time, we’ve successfully implemented over 15 projects in variouse sectors"
+    }
   },
   "contact": {
     "title": "Contact Us",

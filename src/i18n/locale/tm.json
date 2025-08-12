@@ -3,26 +3,26 @@
     "get_quote": "Teklip alyň",
     "req_consultation": "Maslahat soramak",
     "explore_store": "Ähli harytlar",
+    "company": "Kompaniýa",
+    "legal": "Hukuk",
+    "office": "Ofis",
+    "info": "Gysga wagtyň içinde dürli pudaklarda 15-den gowrak taslamalary üstünlikli amala aşyrdyk",
     "nav": {
       "projects": "Taslamalar",
       "services": "Hyzmatlar",
       "products": "Harytlar",
       "about_us": "Biz barada",
-      "contacts": "Habarlaşmak",
+      "contacts": "Kontaktlar",
       "documents": "Resminamalar",
       "privacy_policy": "Gizlinlik syýasaty",
-      "terms": "Şertler we şertnamalar",
-      "company": "Kompaniýa",
-      "legal": "Hukuk",
-      "office": "Ofis"
+      "terms": "Şertler we şertnamalar"
     },
     "address": {
       "address1": "Türkmenistan, Aşgabadyň, Agzam Gurbanow 126",
       "address2": "Türkmenistan, Aşgabadyň, Ataturk 2015",
       "email": "info@nurytajir.com",
       "phone": "+993 12 123456"
-    },
-    "info": "Gysga wagtyň içinde dürli pudaklarda 15-den gowrak taslamalary üstünlikli amala aşyrdyk"
+    }
   },
   "contact": {
     "title": "Biz bilen habarlaşyň",

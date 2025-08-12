@@ -17,7 +17,7 @@ const Footer = () => {
             <p className="_sm">{t('info')}</p>
           </div>
           <div className={styles.footer__column}>
-            <strong className="subtitle _xsm">Company</strong>
+            <strong className="subtitle _xsm">{t('company')}</strong>
             <div className="fbox fbox-column fbox-gap-2">
               <FooterLink selector={'#projects'} title={t('nav.projects')} />
               <FooterLink selector={'#services'} title={t('nav.services')} />
@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <div className={styles.footer__column}>
-            <strong className="subtitle _xsm">Legal</strong>
+            <strong className="subtitle _xsm">{t('legal')}</strong>
             <div className="fbox fbox-column fbox-gap-2">
               {/* <a href="#" className={styles.footer__link}>
                 {t('nav.documents')}
@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
           </div>
           <div className={styles.footer__column}>
-            <strong className="subtitle _xsm">Office</strong>
+            <strong className="subtitle _xsm">{t('office')}</strong>
             <ul>
               <li>
                 <Icon name="mapPinIcon" />
