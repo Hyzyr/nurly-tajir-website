@@ -3,10 +3,11 @@ import styles from './styles.module.scss';
 import Container from '@/UI/containers';
 import data from './data.json';
 import ProjectCard from './ProjectCard';
-import Icon from '@/UI/components/Icon';
 import ProjectsCardsWrapper from './ProjectsCardsWrapper';
 import { useTranslations } from 'next-intl';
 import { dummyAwait } from '@/UI/utils/fetch';
+import { useContactModal } from '@/UI/components/ContactModal';
+import ProjectButton from './ProjectsButton';
 
 const ProjectsContent = ({ testData }: { testData: typeof data }) => {
   const tCommon = useTranslations('common');
@@ -21,18 +22,16 @@ const ProjectsContent = ({ testData }: { testData: typeof data }) => {
             {testData.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))}
-            <div className={styles.projects__row__button}>
-              <strong className="subtitle _lg">
-                {tCommon('req_consultation')}
-              </strong>
-              <Icon name="arrowCorner" />
-            </div>
+            <ProjectButton
+              text={tCommon('req_consultation')}
+            />
           </ProjectsCardsWrapper>
         </div>
       </Container>
     </section>
   );
 };
+
 const Projects = async ({ locale }: { locale: string }) => {
   const testData = await dummyAwait(locale, data);
   return <ProjectsContent testData={testData} />;

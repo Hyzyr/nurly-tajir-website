@@ -44,7 +44,7 @@ const ContactModalProvider = ({ children }: PropsWithChildren) => {
 
   return (
     <ContactModalContext.Provider value={context}>
-      {isInit && <ContactModal onClose={context.closeModal} />}
+      {isInit && <ContactModal onClose={context.closeModal} ref={ref} />}
       {children}
     </ContactModalContext.Provider>
   );

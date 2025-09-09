@@ -7,9 +7,14 @@ import Container from '@/UI/containers';
 import { useTranslations } from 'next-intl';
 import LangSwitch from './components/LangSwitch';
 import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
+import { useContactModal } from '@/UI/components/ContactModal';
 
 const HeaderDesktop = () => {
   const t = useTranslations('common');
+
+  const contactModal = useContactModal();
+  const contactUs = () => contactModal.openModal()
+
   const scrollTo = useGsapScrollTo();
 
   const scrollToSection =
@@ -66,7 +71,10 @@ const HeaderDesktop = () => {
                 </a>
               </div>
               <span>&nbsp; &nbsp; &nbsp;</span>
-              <Button text={t('get_quote')} />
+              <Button
+                text={t('get_quote')}
+                onClick={contactUs}
+              />
             </nav>
           </div>
         </Container>

@@ -4,6 +4,7 @@ import styles from './styles.module.scss';
 
 import React from 'react';
 import Icon from '@/UI/components/Icon';
+import { useContactModal } from '@/UI/components/ContactModal';
 
 type Props = {
   image: string;
@@ -20,6 +21,8 @@ const ServiceInfoCard = ({
   className,
   onBackClick,
 }: Props) => {
+  const contactModal = useContactModal();
+  const contactUs = () => contactModal.openModal();
 
   return (
     <div className={`${styles.info} ${className ?? ''}`}>
@@ -38,7 +41,7 @@ const ServiceInfoCard = ({
       </div>
       <div className={styles.info__desc}>
         <p>{description}</p>
-        <Button text="contact us" style="outlined" />
+        <Button text="contact us" style="outlined" onClick={contactUs} />
       </div>
     </div>
   );

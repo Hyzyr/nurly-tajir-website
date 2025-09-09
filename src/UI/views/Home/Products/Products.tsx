@@ -4,12 +4,11 @@ import Container from '@/UI/containers';
 import ProductCard from './ProductCard';
 
 import data from './data.json';
-import Icon from '@/UI/components/Icon';
 import { useTranslations } from 'next-intl';
+import ProductsCta from './ProductsCta';
 
 const Products = () => {
   const t = useTranslations('home.products');
-  const tCommon = useTranslations('common');
   const title = t('title').split('\n');
 
   return (
@@ -33,10 +32,7 @@ const Products = () => {
                 image={category.image}
               />
             ))}
-            <div className={styles.products__grid__button}>
-              <strong className="h5">{tCommon('explore_store')}</strong>
-              <Icon name="arrowCorner" />
-            </div>
+            <ProductsCta />
           </div>
         </div>
       </Container>
