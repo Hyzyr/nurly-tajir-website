@@ -7,12 +7,14 @@ import Partners from '@/UI/views/Home/Partners';
 import Products from '@/UI/views/Home/Products';
 import Projects from '@/UI/views/Home/Projects';
 import Services from '@/UI/views/Home/Services';
+
 import { useLocale } from 'next-intl';
+import { ContactModalProvider } from '@/UI/components/ContactModal';
 
 export default function Home() {
   const locale = useLocale();
   return (
-    <>
+    <ContactModalProvider>
       <Header />
       <div id="pin">
         <Hero />
@@ -24,6 +26,6 @@ export default function Home() {
       <About />
       <Contact />
       <Footer />
-    </>
+    </ContactModalProvider>
   );
 }

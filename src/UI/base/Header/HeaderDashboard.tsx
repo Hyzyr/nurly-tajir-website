@@ -8,9 +8,9 @@ import Button from '@/UI/components/Button';
 
 const HeaderDashboard = () => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper key={'header-admin'}>
       <div className={styles.header__main}>
-        <Container size='lg'>
+        <Container size="lg">
           <div className={styles.header__main__body}>
             <Logo />
             <nav>

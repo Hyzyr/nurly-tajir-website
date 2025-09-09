@@ -34,7 +34,7 @@ export default async function RootLayout({ children }: RootPropsType) {
   // const locale = await getLocale();
   // const messages = await loadMessages()
   // Enable static
-  
+
   if (!hasLocale(locales, currentLocale)) {
     notFound();
   }

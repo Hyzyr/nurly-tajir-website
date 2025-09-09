@@ -5,11 +5,12 @@ import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Button from '@/UI/components/Button';
 
-import gsap from 'gsap';
 import { useTranslations } from 'next-intl';
 import LangSwitch from './components/LangSwitch';
 import { usePathname } from 'next/navigation';
 import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
+import { useContactModal } from '@/UI/components/ContactModal';
+import useHeaderMenu from './useHeaderMenu';
 
 type Props = {
   active: boolean;
@@ -19,77 +20,26 @@ type Props = {
 const HeaderMenu = ({ active, toggle }: Props) => {
   const t = useTranslations('common');
   const path = usePathname();
+  const contactModal = useContactModal();
 
   const wrapperRef = useRef<HTMLDivElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const isFirstLoad = useRef(true);
   const scrollTo = useGsapScrollTo();
 
+  const { initStyles, setVisible, setHidden } = useHeaderMenu({
+    wrapperRef,
+    bodyRef,
+  });
+
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (toggle && e.target === wrapperRef.current) toggle();
   };
-
-  const initStyles = () => {
-    const wrapper = wrapperRef.current;
-    const body = bodyRef.current;
-
-    if (!wrapper || !body) return;
-    gsap.set(wrapper, {
-      left: `200%`,
-      opacity: 0,
-      pointerEvents: 'none',
-    });
-    gsap.set(body, {
-      opacity: 0,
-      y: 30,
-    });
+  const getQuoteClick = () => {
+    toggle(false);
+    contactModal.openModal();
   };
-  const setVisible = () => {
-    const wrapper = wrapperRef.current;
-    const body = bodyRef.current;
 
-    if (!wrapper || !body) return;
-    gsap.set(wrapper, {
-      left: `0`,
-      y: 30,
-      pointerEvents: 'all',
-    });
-    gsap.to(wrapper, {
-      opacity: 1,
-      duration: 0.3,
-    });
-    gsap.to(body, {
-      opacity: 1,
-      y: 0,
-      duration: 0.3,
-      delay: 0.25,
-    });
-  };
-  const setHidden = () => {
-    const wrapper = wrapperRef.current;
-    const body = bodyRef.current;
-
-    if (!wrapper || !body) return;
-
-    gsap.to(body, {
-      opacity: 0,
-      y: 30,
-      duration: 0.23,
-    });
-    gsap.to(wrapper, {
-      opacity: 0,
-      duration: 0.3,
-      delay: 0.2,
-
-      onComplete: () => {
-        gsap.set(wrapper, {
-          left: `200%`,
-          opacity: 0,
-          pointerEvents: 'none',
-        });
-      },
-    });
-  };
   const scrollToSection =
     (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
       event.preventDefault();
@@ -109,6 +59,8 @@ const HeaderMenu = ({ active, toggle }: Props) => {
   useEffect(() => {
     toggle(false);
   }, [path]);
+
+  if (!document.getElementById('main')) return 'No Main Container';
 
   return createPortal(
     <div className={styles.menu} ref={wrapperRef} onClick={onClick}>
@@ -134,7 +86,7 @@ const HeaderMenu = ({ active, toggle }: Props) => {
             {t('nav.contacts')}
           </a>
         </div>
-        <Button text="Get Quote" />
+        <Button text="Get Quote" onClick={() => getQuoteClick()} />
       </nav>
     </div>,
     document.getElementById('main') as HTMLElement

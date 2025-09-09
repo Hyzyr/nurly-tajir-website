@@ -22,6 +22,7 @@ type Props = {
 export type ModalRef = {
   show: () => void;
   hide: () => void;
+  isVisible: () => boolean;
   wrapperRef: RefObject<HTMLDivElement | null>;
 };
 
@@ -29,7 +30,9 @@ const Modal = React.forwardRef<ModalRef, Props>(
   ({ title = 'title', children, onClose, foldable = false }, ref) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const { hide, show, shake } = useModalAnimations({ ref: wrapperRef });
+    const { hide, show, shake, isVisible } = useModalAnimations({
+      ref: wrapperRef,
+    });
 
     // handle on fog click
     const handleClose = React.useCallback(() => {
@@ -64,6 +67,7 @@ const Modal = React.forwardRef<ModalRef, Props>(
           window.document.body.style.overflow = '';
           hide();
         },
+        isVisible: () => isVisible(),
         wrapperRef: wrapperRef,
       }),
       [show, hide]

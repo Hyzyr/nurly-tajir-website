@@ -10,6 +10,7 @@ import DashboardTable, {
 import Button from '@/UI/components/Button';
 import { ModalRef } from '@/UI/components/Modal/Modal';
 import ProductsCategoryEditModal from './ProductsCategoryEditModal';
+import { Json } from '@/utils/supabase/database.types';
 
 type ProductCategoryWithID = ProductCategory & { index: number };
 type Props = {
@@ -50,7 +51,7 @@ const columns: TableColumn<ProductCategoryWithID>[] = [
   },
   {
     name: 'Brands',
-    cell: (row) => <InfoCell brands={JSON.parse(row.brands as string)} />,
+    cell: (row) => <InfoCell json={row.brands} />,
     grow: 0.45,
   },
 ];
@@ -116,16 +117,32 @@ const ProductCategoryTable = ({ data }: Props) => {
   );
 };
 type InfoCellProps = {
-  brands: Brand[];
+  brands?: Brand[];
+  json?: Json | Brand[];
 };
-const InfoCell = ({ brands }: InfoCellProps) => {
+const InfoCell = ({ brands, json }: InfoCellProps) => {
+  const data: Brand[] | null = React.useMemo(() => {
+    if (brands) return brands;
+    else if (!json) return null;
+    else if (json && typeof json === 'object') return json as Brand[];
+
+    try {
+      const parsedData = JSON.parse(json as string);
+      if (parsedData) return parsedData;
+    } catch (error) {
+      console.log('ProductsCategoryTable : can not parse JSON:  \n ', json);
+      if (error instanceof Error) console.log(error?.message);
+    }
+    return null;
+  }, [brands, json]);
   return (
     <div className="tableBadge__wrapper">
-      {brands.map((brand, index) => (
-        <a href={brand?.link} key={index} className="tableBadge">
-          {brand?.name}
-        </a>
-      ))}
+      {data &&
+        data.map((brand, index) => (
+          <a href={brand?.link} key={index} className="tableBadge">
+            {brand?.name}
+          </a>
+        ))}
     </div>
   );
 };

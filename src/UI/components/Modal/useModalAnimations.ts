@@ -99,6 +99,7 @@ const useModalAnimations = ({ ref: wrapperRef }: Props) => {
     show,
     hide,
     shake,
+    isVisible: () => !(closed.current === true),
   };
 };
 
