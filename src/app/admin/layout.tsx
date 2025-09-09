@@ -1,5 +1,4 @@
 import '@/UI/assets/css/main.scss';
-import HeaderDashboard from '@/UI/base/Header/HeaderDashboard';
 
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';

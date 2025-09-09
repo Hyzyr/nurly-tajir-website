@@ -17,7 +17,6 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
         fugiat ullam delectus ab animi. Pariatur dolores libero ipsum quasi
         sapiente illo.
       </p>
-      
       <ModalCTA>
         <Button
           size="sm"
@@ -41,4 +40,5 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
   );
 });
 
+ContactModal.displayName = 'ContactModal';
 export default ContactModal;
