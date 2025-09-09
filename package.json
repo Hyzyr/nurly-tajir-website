@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "gen:component": "plop"
+    "gen:component": "plop",
+    "gen:types": "supabase gen types typescript --project-id fbdajjskbdqqdhmwxcdn --schema public > src/utils/supabase/database.types.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

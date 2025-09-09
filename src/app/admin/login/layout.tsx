@@ -3,7 +3,6 @@ import HeaderDashboard from '@/UI/base/Header/HeaderDashboard';
 
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
-import AdminGuard from './AdminGuard';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -24,12 +23,9 @@ export default async function RootLayout({ children }: RootPropsType) {
   return (
     <html lang={'en'}>
       <body className={`${manrope.variable} `}>
-        <AdminGuard>
-          <main className={'main'} id="main">
-            <HeaderDashboard />
-            {children}
-          </main>
-        </AdminGuard>
+        <main className={'main'} id="main">
+          {children}
+        </main>
       </body>
     </html>
   );

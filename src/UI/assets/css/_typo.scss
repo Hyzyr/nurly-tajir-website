@@ -108,6 +108,12 @@ p {
 }
 
 .color {
+  &-red {
+    color: var(--red-500);
+  }
+  &-primary {
+    color: var(--primary-600);
+  }
   &-gray {
     color: var(--primary-100);
   }

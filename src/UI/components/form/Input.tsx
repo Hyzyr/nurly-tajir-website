@@ -13,7 +13,7 @@ const Input = ({
   ...rest
 }: InputProps) => {
   return (
-    <div className={`${styles.input}  _${sizeStyle} ${className ?? ''}`}>
+    <div className={`input ${styles.input}  _${sizeStyle} ${className ?? ''}`}>
       <input type={type} {...rest} />
     </div>
   );

@@ -3,6 +3,7 @@ import Icon, { IconNames } from '../Icon';
 import styles from './styles.module.scss';
 
 type Props = {
+  disabled?: boolean;
   text?: string;
   children?: React.ReactNode;
   size?: 'md' | 'lg' | 'sm' | 'xsm';
@@ -21,6 +22,7 @@ const Button = ({
   icon,
   state,
   inlineCSS,
+  disabled,
   onClick,
 }: Props) => {
   const sizeClass = `button-${size}`;
@@ -28,6 +30,7 @@ const Button = ({
 
   return (
     <button
+      disabled={disabled}
       className={`button ${styles.button} ${styles[sizeClass]} ${
         styles[styleClass]
       }
