@@ -1,10 +1,9 @@
 import styles from './styles.module.scss';
 
 import Container, { ContainerInner } from '@/UI/containers';
-import { LabeledInput } from '@/UI/components/form/Input';
-import { LabeledTextarea } from '@/UI/components/form/TextArea';
-import Button from '@/UI/components/Button';
+
 import { useTranslations } from 'next-intl';
+import ContactForm from './ContactForm';
 
 const Contact = () => {
   const t = useTranslations('contact');
@@ -21,25 +20,7 @@ const Contact = () => {
           </div>
           <div className={styles.form}>
             <h5 className="h5">{t('title')}</h5>
-            <LabeledInput
-              sizeStyle="lg"
-              label={t('fields.full_name')}
-              placeholder={t('fields.full_name_placeholder')}
-            />
-            <LabeledInput
-              sizeStyle="lg"
-              label={t('fields.email')}
-              placeholder={t('fields.email_placeholder')}
-            />
-            <LabeledTextarea
-              sizeStyle="lg"
-              label={t('fields.message')}
-              placeholder={t('fields.message_placeholder')}
-              rows={6}
-            />
-            <div className="fbox">
-              <Button text={t('submit')} />
-            </div>
+            <ContactForm />
           </div>
         </ContainerInner>
       </Container>

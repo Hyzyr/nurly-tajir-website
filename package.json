@@ -11,6 +11,7 @@
     "gen:types": "supabase gen types typescript --project-id fbdajjskbdqqdhmwxcdn --schema public > src/utils/supabase/database.types.ts"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@gsap/react": "^2.1.2",
     "@supabase/auth-helpers-nextjs": "^0.10.0",
     "@supabase/auth-ui-react": "^0.4.7",

@@ -17,11 +17,18 @@
   display: flex;
   flex-direction: column;
   align-self: center;
-  gap: 1.34em;
+  gap: 1.6em;
   padding: 2.68em 1.77em 1.77em;
   border-radius: 1.77em;
   width: 100%;
   max-width: 560px;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.34em;
+    width: 100%;
+  }
 
   &:before {
     position: absolute;

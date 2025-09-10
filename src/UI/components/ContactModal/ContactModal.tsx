@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useRef } from 'react';
 import Modal, { ModalCTA, ModalRef } from '../Modal/Modal';
 import Button from '../Button';
 import Icon, { IconNames } from '../Icon';
 import { useTranslations } from 'next-intl';
+import ContactForm from '@/UI/views/Home/Contact/ContactForm';
 
 type Props = {
   onClose?: () => void;
@@ -11,6 +12,18 @@ type Props = {
 
 const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
   const t = useTranslations('common');
+  const formRef = useRef<HTMLFormElement>(null);
+  const submit = () => {
+    if (formRef.current) {
+      const isValid = formRef.current?.checkValidity();
+      if (!isValid) {
+        formRef.current?.reportValidity(); // shows the browser's native error tooltips
+        return;
+      }
+      const event = new Event('submit', { bubbles: true, cancelable: true });
+      formRef.current.dispatchEvent(event);
+    }
+  };
 
   return (
     <Modal title="Contact Us" onClose={onClose} ref={ref}>
@@ -20,19 +33,20 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
         fugiat ullam delectus ab animi. Pariatur dolores libero ipsum quasi
         sapiente illo.
       </p>
-      <div className="fbox fbox-gap-2 fbox-center">
-        <Link
-          href={`tel:${t('address.email')}`}
-          iconName="phoneIcon"
-          label={t('address.email')}
-        />
-        <Link
-          href={`mailto:${t('address.phone')}`}
-          iconName="emailIcon"
-          label={t('address.phone')}
-        />
-      </div>
+      <ContactForm ref={formRef} customSubmit />
       <ModalCTA>
+        <div className="fbox fbox-gap-2 fbox-center" style={{ flexGrow: 1 }}>
+          <Link
+            href={`tel:${t('address.phone')}`}
+            iconName="phoneIcon"
+            label={t('address.phone')}
+          />
+          <Link
+            href={`mailto:${t('address.email')}`}
+            iconName="emailIcon"
+            label={t('address.email')}
+          />
+        </div>
         <Button
           size="sm"
           icon="crossSVG"
@@ -46,8 +60,9 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
         />
         <Button
           size="sm"
-          icon="tickSVG"
-          text="Save"
+          icon="sendSVG"
+          text="Send"
+          onClick={submit}
           inlineCSS={{ minWidth: '110px', justifyContent: 'flex-start' }}
         />
       </ModalCTA>

@@ -34,7 +34,9 @@
       "message": "Ugratmaly Hat",
       "message_placeholder": "Şu ýerde ýazyň..."
     },
-    "submit": "Habarlaşmak"
+    "submit": "Habarlaşmak",
+    "success_message": "Hatyňyz üstünlikli ugradyldy!",
+    "error_message": "Bir näsazlyk ýüze çykdy. Täzeden synanyşyň."
   },
   "home": {
     "hero": {

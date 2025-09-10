@@ -2,16 +2,13 @@ import { CSSProperties } from 'react';
 import Icon, { IconNames } from '../Icon';
 import styles from './styles.module.scss';
 
-type Props = {
-  disabled?: boolean;
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   text?: string;
-  children?: React.ReactNode;
   size?: 'md' | 'lg' | 'sm' | 'xsm';
   style?: 'default' | 'secondary' | 'outlined';
   state?: 'default' | 'warning' | 'danger' | 'success';
   inlineCSS?: CSSProperties;
   icon?: IconNames;
-  onClick?: () => void;
 };
 
 const Button = ({

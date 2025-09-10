@@ -13,7 +13,7 @@ const HeaderDesktop = () => {
   const t = useTranslations('common');
 
   const contactModal = useContactModal();
-  const contactUs = () => contactModal.openModal()
+  const contactUs = () => contactModal.openModal();
 
   const scrollTo = useGsapScrollTo();
 
@@ -35,14 +35,14 @@ const HeaderDesktop = () => {
             </div>
             <div className={styles.header__pre__body__group}>
               <HeaderPreLink
-                href={`tel:${t('address.email')}`}
+                href={`tel:${t('address.phone')}`}
                 iconName="phoneIcon"
-                label={t('address.email')}
+                label={t('address.phone')}
               />
               <HeaderPreLink
-                href={`mailto:${t('address.phone')}`}
+                href={`mailto:${t('address.email')}`}
                 iconName="emailIcon"
-                label={t('address.phone')}
+                label={t('address.email')}
               />
             </div>
           </div>
@@ -71,10 +71,7 @@ const HeaderDesktop = () => {
                 </a>
               </div>
               <span>&nbsp; &nbsp; &nbsp;</span>
-              <Button
-                text={t('get_quote')}
-                onClick={contactUs}
-              />
+              <Button text={t('get_quote')} onClick={contactUs} />
             </nav>
           </div>
         </Container>

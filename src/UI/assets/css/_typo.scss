@@ -108,6 +108,9 @@ p {
 }
 
 .color {
+  &-primary-lighter {
+    color: var(--secondary-400);
+  }
   &-red {
     color: var(--red-500);
   }

@@ -34,7 +34,9 @@
       "message": "Message",
       "message_placeholder": "Write something..."
     },
-    "submit": "Contact Us"
+    "submit": "Contact Us",
+    "success_message": "Message sent successfully!",
+    "error_message": "Something went wrong. Please try again."
   },
   "home": {
     "hero": {
