@@ -26,6 +26,7 @@
   },
   "contact": {
     "title": "Contact Us",
+    "description": "Want to get in touch? Fill out the form below — whether you have questions, need a quote, or just want more information, we’ll get back to you as soon as possible.",
     "fields": {
       "full_name": "Full Name",
       "full_name_placeholder": "e.g. John Doe",

@@ -12,6 +12,7 @@ type Props = {
 
 const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
   const t = useTranslations('common');
+  const tContact = useTranslations('contact');
   const formRef = useRef<HTMLFormElement>(null);
   const submit = () => {
     if (formRef.current) {
@@ -26,13 +27,8 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
   };
 
   return (
-    <Modal title="Contact Us" onClose={onClose} ref={ref}>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
-        placeat repellendus nostrum quo pariatur velit dolorem numquam expedita,
-        fugiat ullam delectus ab animi. Pariatur dolores libero ipsum quasi
-        sapiente illo.
-      </p>
+    <Modal title={tContact('title')} onClose={onClose} ref={ref}>
+      <p>{tContact('description')}</p>
       <ContactForm ref={formRef} customSubmit />
       <ModalCTA>
         <div className="fbox fbox-gap-2 fbox-center" style={{ flexGrow: 1 }}>
@@ -63,7 +59,6 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
           icon="sendSVG"
           text="Send"
           onClick={submit}
-          inlineCSS={{ minWidth: '110px', justifyContent: 'flex-start' }}
         />
       </ModalCTA>
     </Modal>

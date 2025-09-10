@@ -26,6 +26,7 @@
   },
   "contact": {
     "title": "Biz bilen habarlaşyň",
+    "description": "Bziň bilen habarlaşmagymyzy isleýärsiňizmi? Aşakdaky formany dolduryň – soraglaryňyz, teklipleriňiz ýa-da hyzmatlarymyz barada maglumat almak üçin biz size iň gysga wagtda jogap bereris.",
     "fields": {
       "full_name": "Doly adyňyz",
       "full_name_placeholder": "ex: Aman Myradow",
