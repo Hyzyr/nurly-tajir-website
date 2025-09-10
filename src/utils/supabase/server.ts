@@ -4,13 +4,13 @@ import type { Database } from '@/utils/supabase/database.types';
 import { cookies } from 'next/headers';
 
 // ---- Shared table helper types ----
-type Tables = Database['public']['Tables'];
-type TableName = keyof Tables;
-type Row<T extends TableName> = Tables[T]['Row'];
-type InsertFor<T extends TableName> = Tables[T]['Insert'];
-type UpdateFor<T extends TableName> = Tables[T]['Update'];
-type TablesWithId = { [K in TableName]: 'id' extends keyof Row<K> ? K : never }[TableName];
-type IdType<T extends TablesWithId> = Row<T>['id'];
+export type Tables = Database['public']['Tables'];
+export type TableName = keyof Tables;
+export type Row<T extends TableName> = Tables[T]['Row'];
+export type InsertFor<T extends TableName> = Tables[T]['Insert'];
+export type UpdateFor<T extends TableName> = Tables[T]['Update'];
+export type TablesWithId = { [K in TableName]: 'id' extends keyof Row<K> ? K : never }[TableName];
+export type IdType<T extends TablesWithId> = Row<T>['id'];
 
 // IMPORTANT: make this async so we can await cookies() in Next 15+
 async function getServerSupabase() {

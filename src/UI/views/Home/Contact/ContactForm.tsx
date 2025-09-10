@@ -76,4 +76,5 @@ const ContactForm = React.forwardRef<
   );
 });
 
+ContactForm.displayName = 'ContactForm';
 export default ContactForm;

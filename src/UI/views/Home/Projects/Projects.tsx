@@ -1,7 +1,6 @@
 'use client';
 
 import ProjectsContent, { ProjectInfo } from './ProjectsContent';
-import { Tables } from '@/utils/supabase/database.types';
 import { Locales } from '@/i18n/config';
 import { dbHelper } from '@/utils/supabase/helper';
 import { fetchAll } from '@/utils/supabase/client';
