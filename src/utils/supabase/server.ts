@@ -1,60 +1,110 @@
+// src/utils/supabase/server.ts
 import { createServerClient } from '@supabase/ssr';
+import type { Database } from '@/utils/supabase/database.types';
 import { cookies } from 'next/headers';
 
-const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+// ---- Shared table helper types ----
+type Tables = Database['public']['Tables'];
+type TableName = keyof Tables;
+type Row<T extends TableName> = Tables[T]['Row'];
+type InsertFor<T extends TableName> = Tables[T]['Insert'];
+type UpdateFor<T extends TableName> = Tables[T]['Update'];
+type TablesWithId = { [K in TableName]: 'id' extends keyof Row<K> ? K : never }[TableName];
+type IdType<T extends TablesWithId> = Row<T>['id'];
 
-
-export async function createClient() {
+// IMPORTANT: make this async so we can await cookies() in Next 15+
+async function getServerSupabase() {
   const cookieStore = await cookies();
-  return createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-    cookies: {
-      getAll() {
-        return cookieStore.getAll();
+
+  // NOTE: don't over-annotate the return type. Let it infer.
+  return createServerClient<Database>(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      // Newer @supabase/ssr expects getAll/setAll (not headers, and not get/set/remove)
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet) {
+          for (const { name, value, options } of cookiesToSet) {
+            // Next's cookies().set accepts an object
+            cookieStore.set({ name, value, ...(options ?? {}) });
+          }
+        },
       },
-      setAll(cookiesToSet) {
-        try {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options)
-          );
-        } catch {
-          // The `setAll` method was called from a Server Component.
-          // This can be ignored if you have middleware refreshing
-          // user sessions.
-        }
-      },
-    },
-  });
+    }
+  );
 }
 
-/**
- * Fetch all rows from a given table, sorted by the specified column.
- * Logs any errors and returns an empty array on failure.
- */
-export async function fetchAll<T>(
-  table: string,
-  sortBy: string = 'inserted_at',
-  ascending: boolean = false
-): Promise<T[]> {
-  const supabase = await createClient();
+// ---- Typed helpers (server) ----
+// Use await getServerSupabase() in each function to bind to the current request.
 
-  const { data, error } = await supabase
-    .from<string, T>(table) // ← now supplying both generics
-    .select('*')
-    .order(sortBy, { ascending });
-
-  if (error) {
-    console.error(`❌ [Supabase] error fetching "${table}":`, error);
-
-    console.error('❌ Supabase error:', {
-      message: error.message,
-      details: error.details,
-      hint: error.hint,
-      code: error.code,
-    });
-
-    return [];
-  }
-
+export async function fetchAll<T extends TableName>(
+  table: T,
+  sortBy?: keyof Row<T> & string,
+  ascending = false
+): Promise<Row<T>[]> {
+  const supabase = await getServerSupabase();
+  const base = supabase.from(table).select<'*', Row<T>>('*');
+  const query = sortBy ? base.order(sortBy, { ascending }) : base;
+  const { data, error } = await query;
+  if (error) throw error;
   return data ?? [];
 }
+
+// export async function fetchById<T extends TablesWithId>(
+//   table: T,
+//   id: IdType<T>
+// ): Promise<Row<T> | null> {
+//   const supabase = await getServerSupabase();
+//   const { data, error } = await supabase
+//     .from(table)
+//     .select<'*', Row<T>>('*')
+//     .eq('id', id)           // prefer eq over match for tighter types
+//     .single();
+//   if (error) throw error;
+//   return data ?? null;
+// }
+
+// export async function createRow<T extends TableName>(
+//   table: T,
+//   payload: InsertFor<T>
+// ): Promise<Row<T> | null> {
+//   const supabase = await getServerSupabase();
+//   const { data, error } = await supabase
+//     .from(table)
+//     .insert(payload)
+//     .select<'*', Row<T>>('*')
+//     .single();
+//   if (error) throw error;
+//   return data ?? null;
+// }
+
+// export async function updateById<T extends TablesWithId>(
+//   table: T,
+//   id: IdType<T>,
+//   updates: UpdateFor<T>
+// ): Promise<Row<T>> {
+//   const supabase = await getServerSupabase();
+//   const { data, error } = await supabase
+//     .from(table)
+//     .update(updates)
+//     .eq('id', id)
+//     .select<'*', Row<T>>('*')
+//     .single();
+//   if (error) throw error;
+//   return data;
+// }
+
+// export async function deleteById<T extends TablesWithId>(
+//   table: T,
+//   id: IdType<T>
+// ): Promise<boolean> {
+//   const supabase = await getServerSupabase();
+//   const { error } = await supabase.from(table).delete().eq('id', id);
+//   if (error) throw error;
+//   return true;
+// }
+
+

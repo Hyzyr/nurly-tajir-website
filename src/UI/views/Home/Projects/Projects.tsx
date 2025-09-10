@@ -1,40 +1,31 @@
-import styles from './styles.module.scss';
+'use client';
 
-import Container from '@/UI/containers';
-import data from './data.json';
-import ProjectCard from './ProjectCard';
-import ProjectsCardsWrapper from './ProjectsCardsWrapper';
-import { useTranslations } from 'next-intl';
-import { dummyAwait } from '@/UI/utils/fetch';
-import { useContactModal } from '@/UI/components/ContactModal';
-import ProjectButton from './ProjectsButton';
+import ProjectsContent, { ProjectInfo } from './ProjectsContent';
+import { Tables } from '@/utils/supabase/database.types';
+import { Locales } from '@/i18n/config';
+import { dbHelper } from '@/utils/supabase/helper';
+import { fetchAll } from '@/utils/supabase/client';
+import { useEffect, useState } from 'react';
 
-const ProjectsContent = ({ testData }: { testData: typeof data }) => {
-  const tCommon = useTranslations('common');
-  const t = useTranslations('home.projects');
+const Projects = ({ locale }: { locale: Locales }) => {
+  const [data, setData] = useState<ProjectInfo[] | null>(null);
 
-  return (
-    <section className={styles.projects} id="projects">
-      <Container>
-        <div className={styles.projects__inner}>
-          <small>{t('subtitle')}</small>
-          <ProjectsCardsWrapper>
-            {testData.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
-            <ProjectButton
-              text={tCommon('req_consultation')}
-            />
-          </ProjectsCardsWrapper>
-        </div>
-      </Container>
-    </section>
-  );
-};
+  useEffect(() => {
+    fetchAll('projects').then((res) => {
+      const projectsData: ProjectInfo[] | null = res
+        ? res.map((project) => ({
+            id: project.id,
+            title: project[dbHelper.getTitle(locale)],
+            description: project[dbHelper.getDescription(locale)],
+            image: project.image,
+          }))
+        : null;
+      setData(projectsData);
+    });
+  }, [locale]);
 
-const Projects = async ({ locale }: { locale: string }) => {
-  const testData = await dummyAwait(locale, data);
-  return <ProjectsContent testData={testData} />;
+  if (!data) return 'loading';
+  return <ProjectsContent data={data} />;
 };
 
 export default Projects;

@@ -2,13 +2,13 @@ import styles from './styles.module.scss';
 
 import React from 'react';
 
-type Props = {
+type ProjectCardInfo = {
   title: string;
   description: string;
   image: string;
 };
 
-const ProjectCard = ({ image, title, description }: Props) => {
+const ProjectCard = ({ image, title, description }: ProjectCardInfo) => {
   return (
     <div className={styles.card}>
       <div className="ratioImage">
@@ -24,4 +24,5 @@ const ProjectCard = ({ image, title, description }: Props) => {
   );
 };
 
+export type { ProjectCardInfo };
 export default ProjectCard;

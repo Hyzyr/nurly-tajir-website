@@ -21,7 +21,7 @@ export default function Home() {
         <Projects locale={locale} />
       </div>
       <Services />
-      <Partners />
+      <Partners />  
       <Products />
       <About />
       <Contact />

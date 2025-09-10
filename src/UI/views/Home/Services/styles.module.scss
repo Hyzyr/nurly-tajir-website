@@ -250,6 +250,9 @@
       letter-spacing: 0.04em;
       color: var(--primary-800);
       animation: 0.3s fadeInUp ease-out 0.2s backwards;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
   &__desc {
@@ -337,8 +340,6 @@
 
     &__tabs {
       width: 100%;
-    }
-    &__info {
     }
   }
   .info {

@@ -1,14 +1,9 @@
+import { ProductInfo } from './ProductsGrid';
 import styles from './styles.module.scss';
 
 import React from 'react';
 
-type Props = {
-  image: string;
-  title: string;
-  brands: string[];
-};
-
-const ProductCard = ({ image, title, brands }: Props) => {
+const ProductCard = ({ image, title, brands }: Partial<ProductInfo>) => {
   return (
     <div className={styles.card}>
       <div className={styles.card__image}>
@@ -17,11 +12,15 @@ const ProductCard = ({ image, title, brands }: Props) => {
       <div className={styles.card__title}>
         <strong className="subtitle _lg">{title}</strong>
       </div>
-      <div className={styles.card__brands}>
-        {brands.map((brand, index) => (
-          <span key={index}>{brand}</span>
-        ))}
-      </div>
+      {brands && (
+        <div className={styles.card__brands}>
+          {brands.map((brand, index) => (
+            <a href={brand.link} key={index}>
+              {brand.name}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

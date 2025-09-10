@@ -1,11 +1,9 @@
 import styles from './styles.module.scss';
 
 import Container from '@/UI/containers';
-import ProductCard from './ProductCard';
 
-import data from './data.json';
 import { useTranslations } from 'next-intl';
-import ProductsCta from './ProductsCta';
+import ProductsGrid from './ProductsGrid';
 
 const Products = () => {
   const t = useTranslations('home.products');
@@ -23,17 +21,7 @@ const Products = () => {
               </>
             )}
           </h3>
-          <div className={styles.products__grid}>
-            {data.map((category, index) => (
-              <ProductCard
-                key={index}
-                brands={category.brands}
-                title={category.name}
-                image={category.image}
-              />
-            ))}
-            <ProductsCta />
-          </div>
+          <ProductsGrid />
         </div>
       </Container>
     </section>
