@@ -47,6 +47,7 @@
         a {
           font-size: inherit;
           transition: 0.3s ease-in 0.05s;
+          white-space: pre-line;
 
           &:hover {
             color: var(--primary-200);
