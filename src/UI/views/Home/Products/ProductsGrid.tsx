@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
+import ProductCardSkeleton from './ProductCardSkeleton';
 import styles from './styles.module.scss';
 import ProductsCta from './ProductsCta';
 import { fetchAll } from '@/utils/supabase/client';
@@ -17,11 +18,16 @@ export type ProductInfo = {
 
 const ProductsGrid = () => {
   const [data, setData] = useState<ProductInfo[] | null>(null);
+  const [loading, setLoading] = useState(true);
   const locale = useLocale();
 
   useEffect(() => {
+    setLoading(true);
     fetchAll('product_categories').then((data) => {
-      if (!data) return;
+      if (!data) {
+        setLoading(false);
+        return;
+      }
       const newData: ProductInfo[] = data.map((product) => ({
         title: product[dbHelper.getName(locale)],
         brands:
@@ -32,10 +38,23 @@ const ProductsGrid = () => {
         image: product.image,
       }));
       setData(newData);
+      setLoading(false);
     });
   }, [locale]);
 
-  if (!data) return 'loading';
+  if (loading) {
+    return (
+      <div className={styles.products__grid}>
+        {[...Array(3)].map((_, index) => (
+          <ProductCardSkeleton key={index} />
+        ))}
+        <ProductsCta />
+      </div>
+    );
+  }
+
+  if (!data) return null;
+
   return (
     <div className={styles.products__grid}>
       {data.map((category) => (

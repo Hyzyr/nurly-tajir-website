@@ -13,5 +13,19 @@
     "image": "/images/projects/project-3.png",
     "title": "Hotel Yyldyz",
     "description": "Built and configured a stable, hotel-wide network to support guests, operations, and internal systems with seamless connectivity."
+  },
+  {
+    "image": "/images/projects/project-4.png",
+    "title": "Baherden etrap",
+    "description_en": "Developed and implemented a comprehensive IT infrastructure for administrative and public service facilities in Baherden Etrap — including network setup, surveillance systems, and secure digital management for smooth daily operations.",
+    "description_ru": "Разработана и внедрена современная IT-инфраструктура для административных и общественных объектов Бахерденского этрапа, включая настройку сетей, системы видеонаблюдения и безопасное цифровое управление для стабильной работы.",
+    "description_tm": "Baherden etrabynda edara we jemgyýetçilik desgalary üçin doly IT infrastruktura döredildi — aragatnaşyk ulgamlary, gözegçilik kameralary we ygtybarly sanly dolandyryş ulgamy bilen işleriň sazlaşykly ýerine ýetirilişi üpjün edildi."
+  },
+  {
+    "image": "/images/projects/project-4.png",
+    "title": "Turkmen State Energy Institute",
+    "description_en": "Designed and implemented a high-performance IT and networking system for the Turkmen State Energy Institute in Mary. The infrastructure supports educational technologies, administrative operations, and digital security — ensuring reliable connectivity across the entire campus.",
+    "description_ru": "Спроектирована и внедрена высокопроизводительная IT-и сетевая система для Туркменского государственного энергетического института в Мары. Инфраструктура поддерживает учебные технологии, административные процессы и цифровую безопасность, обеспечивая стабильную связь по всему кампусу.",
+    "description_tm": "Mary şäherindäki Türkmenistanyň Döwlet Energetika Instituty üçin ýokary öndürijilikli IT we aragatnaşyk ulgamy gurlup ornaşdyryldy. Bu infrastruktura bilim tehnologiýalaryny, dolandyryş işlerini we sanly howpsuzlygy goldaýar — ähli kampus boýunça durnukly birikmäni üpjün edýär."
   }
 ]

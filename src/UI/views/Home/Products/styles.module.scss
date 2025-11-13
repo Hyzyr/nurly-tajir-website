@@ -248,3 +248,137 @@
     }
   }
 }
+
+
+// Skeleton Styles 
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.card__skeleton {
+  pointer-events: none;
+  user-select: none;
+  background: linear-gradient(
+    110deg,
+    #e8eaec 8%,
+    #f5f6f7 18%,
+    #e8eaec 33%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s ease-in-out infinite;
+
+  .skeleton__image {
+    position: absolute;
+    border-radius: inherit;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.1) 0%,
+      rgba(220, 220, 220, 0.25) 50%,
+      rgba(200, 200, 200, 0.1) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    opacity: 0.4;
+  }
+
+  .skeleton__title {
+    padding: 0.88em;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0px 4px 33.4px rgba(30, 30, 30, 0.08);
+    backdrop-filter: blur(7px);
+    border-radius: 0.88em;
+    width: 60%;
+    max-width: 200px;
+    height: 2.5em;
+    align-self: flex-start;
+    
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(255, 255, 255, 0.2) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  .skeleton__brands {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .skeleton__brand {
+    padding: 0.55em 0.88em;
+    background: rgba(255, 255, 255, 0.45);
+    box-shadow: 0px 4px 33.4px rgba(30, 30, 30, 0.08);
+    backdrop-filter: blur(5px);
+    border-radius: 0.55em;
+    width: 80px;
+    height: 2em;
+    
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.35) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+}
+
+// Responsive adjustments for skeleton
+@include breakpoints.respond-max(md-extra) {
+  .card__skeleton {
+    .skeleton__title {
+      width: 50%;
+      height: 2.2em;
+    }
+    
+    .skeleton__brands {
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .skeleton__brand {
+      font-size: 14px;
+      width: 70px;
+      height: 1.8em;
+    }
+  }
+}
+
+@include breakpoints.respond-max(sm) {
+  .card__skeleton {
+    .skeleton__title {
+      width: max-content;
+      max-width: 150px;
+      padding: 0.5em;
+      height: 2em;
+    }
+    
+    .skeleton__brands {
+      gap: 8px;
+    }
+    
+    .skeleton__brand {
+      width: 60px;
+      height: 1.6em;
+    }
+    
+    .skeleton__image {
+      opacity: 0.3;
+    }
+  }
+}

@@ -8,6 +8,7 @@ import ServiceInfoCard from './ServiceInfoCard';
 import { fetchAll } from '@/utils/supabase/client';
 import { useLocale } from 'next-intl';
 import { dbHelper } from '@/utils/supabase/helper';
+import  { ServicesGridSkeleton } from './ServiceCardSkeleton';
 
 export type ServiceInfo = {
   id: string;
@@ -52,7 +53,9 @@ const ServicesGrid = () => {
     });
   }, [locale]);
 
-  if (!data) return 'loading';
+ if (!data) {
+  return <ServicesGridSkeleton />;
+}
   return (
     <div className={styles.grid}>
       <div className={styles.grid__tabs}>

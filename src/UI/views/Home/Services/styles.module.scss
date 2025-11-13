@@ -44,6 +44,9 @@
     flex-shrink: 0;
     z-index: 0;
   }
+  &__info{
+    display: flex;
+  }
 }
 .card {
   cursor: pointer;
@@ -378,5 +381,203 @@
   }
   .card {
     width: calc(50% - 0.25em);
+  }
+}
+
+
+// Skeleton Styles 
+.skeleton {
+  pointer-events: none;
+  user-select: none;
+  width: 100%;
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  
+  &__cardImage,
+  &__cardTitle,
+  &__cardBtn,
+  &__infoImage,
+  &__infoTitle,
+  &__infoText,
+  &__infoButton {
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.1) 0%,
+      rgba(220, 220, 220, 0.25) 50%,
+      rgba(200, 200, 200, 0.1) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 0.88em;
+  }
+  
+  // Card Image Skeleton
+  &__cardImage {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 70%;
+    opacity: 0.15; 
+    border-radius: 1.34em;
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.08) 0%,
+      rgba(220, 220, 220, 0.18) 50%,
+      rgba(200, 200, 200, 0.08) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  &__cardTitle {
+    height: 1.34em;
+    width: 70%;
+    border-radius: 0.44em;
+  }
+  
+  &__cardBtn {
+    width: 1.34em;
+    height: 1.34em;
+    border-radius: 50%;
+  }
+  
+  
+  &__infoImage {
+    position: absolute;
+    left: -5%;
+    bottom: 0; 
+    width: 110%;
+    height: 90%;
+    opacity: 0.08; 
+    border-radius: 1em;
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.05) 0%,
+      rgba(220, 220, 220, 0.12) 50%,
+      rgba(200, 200, 200, 0.05) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2.5s infinite linear;
+  }
+  
+  &__infoTitle {
+    height: 2em;
+    width: 80%;
+    border-radius: 0.5em;
+  }
+  
+  &__infoText {
+    height: 1em;
+    width: 100%;
+    margin-bottom: 0.5em;
+    border-radius: 0.44em;
+    
+    &:nth-child(2) {
+      width: 95%;
+    }
+    
+    &:nth-child(3) {
+      width: 60%;
+      margin-bottom: 0;
+    }
+  }
+  
+  &__infoButton {
+    height: 2.66em;
+    width: 8em;
+    border-radius: 1.34em;
+    margin-top: 0.66em;
+  }
+  
+  // Card state override
+  &.card {
+    cursor: default;
+    background: var(--n0); 
+    
+    &:hover {
+      border-color: var(--n0);
+      
+      .card__btn {
+        color: var(--primary-100);
+        
+        &:after {
+          transform: scale(1);
+          background: transparent;
+        }
+      }
+    }
+  }
+  
+  // Info card override
+  &.info {
+    background: white;
+  }
+}
+
+// Responsive skeleton adjustments
+@include breakpoints.respond-max(lg) {
+  .skeleton {
+    &__infoTitle {
+      height: 1.8em;
+    }
+    
+    &__cardTitle {
+      height: 1.2em;
+    }
+  }
+}
+
+@include breakpoints.respond-max(md-extra) {
+  .skeleton {
+    &__cardImage {
+      height: 65%;
+      opacity: 0.12;
+    }
+    
+    &__infoImage {
+      height: 88%;
+    }
+  }
+}
+
+@include breakpoints.respond-max(md) {
+  .skeleton {
+    &__infoImage {
+      height: 85%;
+      left: 0%;
+      width: 100%;
+    }
+    
+    &__infoTitle {
+      height: 1.5em;
+      width: 70%;
+    }
+    
+    &__infoText {
+      height: 0.9em;
+    }
+  }
+}
+
+@include breakpoints.respond-max(xsm) {
+  .skeleton {
+    &__cardTitle {
+      width: 85%;
+      height: 1.1em;
+    }
+    
+    &__cardImage {
+      height: 60%;
+    }
   }
 }

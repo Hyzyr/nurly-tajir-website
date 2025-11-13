@@ -222,3 +222,214 @@
     padding: 30px 0 60px 0;
   }
 }
+
+
+// Projects Skeleton Styles
+.skeleton {
+  pointer-events: none;
+  user-select: none;
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  // Base shimmer for all skeleton elements - Daha belirgin
+  &__image,
+  &__title,
+  &__descLine,
+  &__buttonText,
+  &__buttonIcon {
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.15) 0%,
+      rgba(220, 220, 220, 0.3) 50%,
+      rgba(200, 200, 200, 0.15) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+    border-radius: 0.88em;
+  }
+  
+  // Card image skeleton - Daha görünür arka plan
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.33em;
+    opacity: 0.3; // 0.15'ten 0.3'e çıkarıldı
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.2) 0%,
+      rgba(220, 220, 220, 0.35) 50%,
+      rgba(200, 200, 200, 0.2) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  // Card title skeleton
+  &__title {
+    height: 1.5em;
+    width: 120px;
+    border-radius: 1em;
+  }
+  
+  // Description lines skeleton
+  &__descLine {
+    height: 1em;
+    width: 100%;
+    margin-bottom: 0.5em;
+    border-radius: 0.44em;
+    
+    &:nth-child(2) {
+      width: 95%;
+    }
+    
+    &:nth-child(3) {
+      width: 70%;
+      margin-bottom: 0;
+    }
+  }
+  
+  // Button skeleton
+  &__buttonText {
+    width: 60%;
+    height: 80%;
+    border-radius: 0.5em;
+    background: linear-gradient(
+      90deg,
+      rgba(200, 200, 200, 0.2) 0%,
+      rgba(220, 220, 220, 0.4) 50%,
+      rgba(200, 200, 200, 0.2) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  
+  &__buttonIcon {
+    position: absolute;
+    top: 0.88em;
+    right: 0.88em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+  }
+  
+  // Card skeleton specific styles
+  &.card {
+    background: linear-gradient(
+      110deg,
+      #e8eaec 8%,
+      #f5f6f7 18%,
+      #e8eaec 33%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s ease-in-out infinite;
+    
+    .card__title {
+      background: rgba(13, 33, 51, 0.15); 
+      backdrop-filter: blur(12px);
+      box-shadow: 0px 0.25em 2em rgba(30, 30, 30, 0.1);
+    }
+    
+    .card__description {
+      background: rgba(255, 255, 255, 0.85); 
+      backdrop-filter: blur(5px);
+      box-shadow: 0px 4px 33.4px rgba(30, 30, 30, 0.04);
+    }
+  }
+  
+  // Button skeleton specific styles
+  &.projects__row__button {
+    background: linear-gradient(
+      180deg,
+      #e0e2e4 0%,
+      #e6edf5 35.1%,
+      #e0e2e4 100%
+    );
+    opacity: 0.7;
+    
+    &:before,
+    &:after {
+      display: none;
+    }
+    
+    &:hover {
+      transform: none;
+      opacity: 0.7;
+      
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+// Slider skeleton responsive
+.slider .skeleton.card {
+  .card__title {
+    border-radius: 0.36em;
+    width: max-content;
+    min-width: 100px;
+  }
+  
+  .card__description {
+    background: rgba(255, 255, 255, 0.75);
+    font-size: 14px;
+  }
+  
+  .skeleton__descLine {
+    height: 0.9em;
+  }
+}
+
+// Responsive skeleton adjustments
+@include breakpoints.respond-max(xl) {
+  .skeleton {
+    &__title {
+      height: 1.4em;
+    }
+    
+    &__descLine {
+      height: 0.95em;
+    }
+  }
+}
+
+@include breakpoints.respond-max(lg) {
+  .skeleton {
+    &__title {
+      height: 1.2em;
+      width: 100px;
+    }
+    
+    &__descLine {
+      height: 0.9em;
+    }
+    
+    &__image {
+      opacity: 0.25;
+    }
+  }
+}
+
+@include breakpoints.respond-max(xsm) {
+  .skeleton {
+    &__image {
+      opacity: 0.2;
+    }
+    
+    &__descLine {
+      height: 0.85em;
+      margin-bottom: 0.4em;
+    }
+  }
+}
