@@ -35,14 +35,14 @@ const HeaderDesktop = () => {
             </div>
             <div className={styles.header__pre__body__group}>
               <HeaderPreLink
-                href={`tel:${t('address.phone')}`}
+                href={t('address.phone.link')}
                 iconName="phoneIcon"
-                label={t('address.phone')}
+                label={t('address.phone.title')}
               />
               <HeaderPreLink
-                href={`mailto:${t('address.email')}`}
+                href={t('address.email.link')}
                 iconName="emailIcon"
-                label={t('address.email')}
+                label={t('address.email.title')}
               />
             </div>
           </div>

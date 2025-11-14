@@ -51,22 +51,46 @@ const Footer = () => {
             <strong className="subtitle _xsm">{t('office')}</strong>
             <ul>
               <li>
-                <Icon name="mapPinIcon" />
-                <a>{t('address.address1')}</a>
+                <div
+                  className="fbox fbox-column fbox-gap-1"
+                  title={t('address.address1.pretitle')}>
+                  {/* <strong className="smalltitle _xsm color-primary-darker">
+                    <small>{t('address.address1.pretitle')}</small>
+                  </strong> */}
+                  <a
+                    className="fbox fbox-gap-1 fbox-center"
+                    href={t('address.address1.link')}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <Icon name="mapPinIcon" />
+                    {t('address.address1.title')}
+                  </a>
+                </div>
               </li>
               <li>
-                <Icon name="mapPinIcon" />
-                <a>{t('address.address2')}</a>
+                <div
+                  className="fbox fbox-column fbox-gap-1"
+                  title={t('address.address2.pretitle')}>
+                  {/* <strong className="smalltitle _xsm color-primary-darker">
+                    <small>{t('address.address2.pretitle')}</small>
+                  </strong> */}
+                  <a
+                    className="fbox fbox-gap-1 fbox-center"
+                    href={t('address.address2.link')}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    <Icon name="mapPinIcon" />
+                    {t('address.address2.title')}
+                  </a>
+                </div>
               </li>
               <li>
                 <Icon name="phoneIcon" />
-                <a href={`tel:${t('address.phone')}`}>{t('address.phone')}</a>
+                <a href={t('address.phone.link')}>{t('address.phone.title')}</a>
               </li>
               <li>
                 <Icon name="emailIcon" />
-                <a href={`mailto:${t('address.email')}`}>
-                  {t('address.email')}
-                </a>
+                <a href={t('address.email.link')}>{t('address.email.title')}</a>
               </li>
             </ul>
           </div>

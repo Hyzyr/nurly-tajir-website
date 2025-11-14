@@ -18,10 +18,24 @@
       "terms": "Terms & Conditions"
     },
     "address": {
-      "address1": "Turkmenistan, Ashgabatn\n6th Mikrodistrict",
-      "address2": "Turkmenistan, Ashgabat\nParahat 7/5 42",
-      "email": "info@nurytajir.com",
-      "phone": "+993 64 647032"
+      "address1": {
+        "pretitle": "Main Office",
+        "title": "Söwda Merkezi, 3rd Floor \nSona M. Street Aşgabat, Turkmenistan",
+        "link": "https://maps.app.goo.gl/vMtfhCkbZZFmFQiW8"
+      },
+      "address2": {
+        "pretitle": "Retail Store",
+        "title": "Parahat 7/5, Building 42\nAşgabat, Turkmenistan",
+        "link": "https://maps.app.goo.gl/t6bDM5LuQhTro9zS9"
+      },
+      "email": {
+        "title": "info@nurytajir.com",
+        "link": "mailto:info@nurytajir.com"
+      },
+      "phone": {
+        "title": "+993 64 647032",
+        "link": "tel:+99364647032"
+      }
     }
   },
   "contact": {

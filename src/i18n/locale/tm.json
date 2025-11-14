@@ -18,10 +18,24 @@
       "terms": "Şertler we şertnamalar"
     },
     "address": {
-      "address1": "Türkmenistan, Aşgabat\n6-njy Mikrayon",
-      "address2": "Türkmenistan, Aşgabat\nParahat 7/5 42",
-      "email": "info@nurytajir.com",
-      "phone": "+993 64 647032"
+      "address1": {
+        "pretitle": "Baş ofis",
+        "title": "Söwda Merkezi, 3-nji gat\nSona M. köçesi Aşgabat, Türkmenistan",
+        "link": "https://maps.app.goo.gl/vMtfhCkbZZFmFQiW8"
+      },
+      "address2": {
+        "pretitle": "Söwda dükany",
+        "title": "Parahat 7/5, 42-nji bina\nAşgabat, Türkmenistan",
+        "link": "https://maps.app.goo.gl/t6bDM5LuQhTro9zS9"
+      },
+      "email": {
+        "title": "info@nurytajir.com",
+        "link": "mailto:info@nurytajir.com"
+      },
+      "phone": {
+        "title": "+993 64 647032",
+        "link": "tel:+99364647032"
+      }
     }
   },
   "contact": {

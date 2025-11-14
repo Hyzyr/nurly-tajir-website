@@ -18,10 +18,24 @@
       "terms": "Условия и положения"
     },
     "address": {
-      "address1": "Туркменистан, Ашхабад\n6-й Микрорайон",
-      "address2": "Туркменистан, Ашхабад\nПарахат 7/5 42",
-      "email": "info@nurytajir.com",
-      "phone": "+993 64 647032"
+      "address1": {
+        "pretitle": "Главный офис",
+        "title": "Сёвда Меркези, 3-й этаж\nул. Сона М. Ашхабад, Туркменистан",
+        "link": "https://maps.app.goo.gl/vMtfhCkbZZFmFQiW8"
+      },
+      "address2": {
+        "pretitle": "Розничный магазин",
+        "title": "Парахат 7/5, здание 42\nАшхабад, Туркменистан",
+        "link": "https://maps.app.goo.gl/t6bDM5LuQhTro9zS9"
+      },
+      "email": {
+        "title": "info@nurytajir.com",
+        "link": "mailto:info@nurytajir.com"
+      },
+      "phone": {
+        "title": "+993 64 647032",
+        "link": "tel:+99364647032"
+      }
     }
   },
   "contact": {
