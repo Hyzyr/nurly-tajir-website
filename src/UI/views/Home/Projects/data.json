@@ -27,5 +27,19 @@
     "description_en": "Designed and implemented a high-performance IT and networking system for the Turkmen State Energy Institute in Mary. The infrastructure supports educational technologies, administrative operations, and digital security — ensuring reliable connectivity across the entire campus.",
     "description_ru": "Спроектирована и внедрена высокопроизводительная IT-и сетевая система для Туркменского государственного энергетического института в Мары. Инфраструктура поддерживает учебные технологии, административные процессы и цифровую безопасность, обеспечивая стабильную связь по всему кампусу.",
     "description_tm": "Mary şäherindäki Türkmenistanyň Döwlet Energetika Instituty üçin ýokary öndürijilikli IT we aragatnaşyk ulgamy gurlup ornaşdyryldy. Bu infrastruktura bilim tehnologiýalaryny, dolandyryş işlerini we sanly howpsuzlygy goldaýar — ähli kampus boýunça durnukly birikmäni üpjün edýär."
+  },
+  {
+    "image": "/images/projects/parahat7-mekdep.jpg",
+    "title": "Turkmen State Energy Institute",
+    "description_en": "Installed a complete IT and security infrastructure for the Parahat 7 school — including structured networking, surveillance systems, and digital management tools that support efficient learning, administration, and daily operations.",
+    "description_ru": "В школе Парахат-7 внедрена комплексная IT- и система безопасности: структурированная сеть, видеонаблюдение и цифровые инструменты управления, обеспечивающие эффективный учебный процесс и стабильную организационную работу.",
+    "description_tm": "Parahat 7 mekdebinde doly IT we howpsuzlyk ulgamy ornaşdyryldy — düzülen aragatnaşyk ulgamlary, wideo gözegçilik we sanly dolandyryş serişdeleri bilen okuw we ýolbaşçylyk işleri ygtybarly ýagdaýda guraldy."
+  },
+  {
+    "image": "/images/projects/parahat7-cagalarBagy.jpg",
+    "title": "Turkmen State Energy Institute",
+    "description_en": "Developed a secure and child-friendly IT environment for the Parahat 7 kindergarten — including internal networking, surveillance coverage, and system support that ensures safety, communication reliability, and smooth daily operations.",
+    "description_ru": "Для детского сада Парахат-7 разработана и внедрена безопасная, удобная IT-инфраструктура: внутренняя сеть, видеонаблюдение и системная поддержка, обеспечивающие безопасность детей и стабильную работу учреждения.",
+    "description_tm": "Parahat 7 çagalar bagy üçin howpsuz we çaga-ýakymly IT infrastruktura döredildi — içerki ulgamlar, wideo gözegçilik we durnukly aragatnaşyk ulgamlary bilen merkezde howpsuzlygyň we günlik işleriň sazlaşykly işlemegi üpjün edildi."
   }
 ]
