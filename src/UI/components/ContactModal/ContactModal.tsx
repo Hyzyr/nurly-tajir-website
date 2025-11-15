@@ -33,14 +33,14 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
       <ModalCTA>
         <div className="fbox fbox-gap-2 fbox-center" style={{ flexGrow: 1 }}>
           <Link
-            href={`tel:${t('address.phone')}`}
+            href={t('address.phone.link')}
             iconName="phoneIcon"
-            label={t('address.phone')}
+            label={t('address.phone.title')}
           />
           <Link
-            href={`mailto:${t('address.email')}`}
+            href={t('address.email.link')}
             iconName="emailIcon"
-            label={t('address.email')}
+            label={t('address.email.title')}
           />
         </div>
         <Button
