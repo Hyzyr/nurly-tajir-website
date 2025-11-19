@@ -745,9 +745,9 @@
   }
 
   .modal {
-    max-height: 99vh;
+    max-height: 90vh;
     padding: 1em;
-    height: 100%;
+    
 
     &__header h2 {
       font-size: 1.2rem;
@@ -818,8 +818,8 @@
   .modal {
     border-radius: 1em;
     padding: 0.8em;
-    max-height: 95vh;
-    height: 100%;
+    max-height: 70vh;
+  
     &__header {
       h2 {
         font-size: 1.1rem;
