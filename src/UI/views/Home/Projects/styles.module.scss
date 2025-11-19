@@ -1,4 +1,4 @@
-@use '@/UI/assets/css/mixins/breakpoints';
+@use "@/UI/assets/css/mixins/breakpoints";
 
 .projects {
   padding: 80px 0;
@@ -37,7 +37,7 @@
 
       &:before {
         position: absolute;
-        content: '';
+        content: "";
         top: 0;
         left: 0;
         width: 100%;
@@ -55,7 +55,7 @@
       }
       &:after {
         position: absolute;
-        content: '';
+        content: "";
         top: 100%;
         left: 50%;
         width: 0;
@@ -223,12 +223,11 @@
   }
 }
 
-
 // Projects Skeleton Styles
 .skeleton {
   pointer-events: none;
   user-select: none;
-  
+
   @keyframes shimmer {
     0% {
       background-position: -1000px 0;
@@ -237,7 +236,7 @@
       background-position: 1000px 0;
     }
   }
-  
+
   // Base shimmer for all skeleton elements - Daha belirgin
   &__image,
   &__title,
@@ -254,7 +253,7 @@
     animation: shimmer 2s infinite linear;
     border-radius: 0.88em;
   }
-  
+
   // Card image skeleton - Daha görünür arka plan
   &__image {
     position: absolute;
@@ -273,31 +272,31 @@
     background-size: 1000px 100%;
     animation: shimmer 2s infinite linear;
   }
-  
+
   // Card title skeleton
   &__title {
     height: 1.5em;
     width: 120px;
     border-radius: 1em;
   }
-  
+
   // Description lines skeleton
   &__descLine {
     height: 1em;
     width: 100%;
     margin-bottom: 0.5em;
     border-radius: 0.44em;
-    
+
     &:nth-child(2) {
       width: 95%;
     }
-    
+
     &:nth-child(3) {
       width: 70%;
       margin-bottom: 0;
     }
   }
-  
+
   // Button skeleton
   &__buttonText {
     width: 60%;
@@ -312,7 +311,7 @@
     background-size: 1000px 100%;
     animation: shimmer 2s infinite linear;
   }
-  
+
   &__buttonIcon {
     position: absolute;
     top: 0.88em;
@@ -321,31 +320,26 @@
     height: 1.5em;
     border-radius: 50%;
   }
-  
+
   // Card skeleton specific styles
   &.card {
-    background: linear-gradient(
-      110deg,
-      #e8eaec 8%,
-      #f5f6f7 18%,
-      #e8eaec 33%
-    );
+    background: linear-gradient(110deg, #e8eaec 8%, #f5f6f7 18%, #e8eaec 33%);
     background-size: 1000px 100%;
     animation: shimmer 2s ease-in-out infinite;
-    
+
     .card__title {
-      background: rgba(13, 33, 51, 0.15); 
+      background: rgba(13, 33, 51, 0.15);
       backdrop-filter: blur(12px);
       box-shadow: 0px 0.25em 2em rgba(30, 30, 30, 0.1);
     }
-    
+
     .card__description {
-      background: rgba(255, 255, 255, 0.85); 
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(5px);
       box-shadow: 0px 4px 33.4px rgba(30, 30, 30, 0.04);
     }
   }
-  
+
   // Button skeleton specific styles
   &.projects__row__button {
     background: linear-gradient(
@@ -355,16 +349,16 @@
       #e0e2e4 100%
     );
     opacity: 0.7;
-    
+
     &:before,
     &:after {
       display: none;
     }
-    
+
     &:hover {
       transform: none;
       opacity: 0.7;
-      
+
       &:before,
       &:after {
         display: none;
@@ -380,12 +374,12 @@
     width: max-content;
     min-width: 100px;
   }
-  
+
   .card__description {
     background: rgba(255, 255, 255, 0.75);
     font-size: 14px;
   }
-  
+
   .skeleton__descLine {
     height: 0.9em;
   }
@@ -397,7 +391,7 @@
     &__title {
       height: 1.4em;
     }
-    
+
     &__descLine {
       height: 0.95em;
     }
@@ -410,11 +404,11 @@
       height: 1.2em;
       width: 100px;
     }
-    
+
     &__descLine {
       height: 0.9em;
     }
-    
+
     &__image {
       opacity: 0.25;
     }
@@ -426,10 +420,472 @@
     &__image {
       opacity: 0.2;
     }
-    
+
     &__descLine {
       height: 0.85em;
       margin-bottom: 0.4em;
+    }
+  }
+}
+
+// Modal Overlay
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2em;
+  animation: fadeIn 0.3s ease-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  &__closing {
+    animation: fadeOut 0.3s ease-out forwards;
+  }
+}
+
+// Modal Container
+.modal {
+  position: relative;
+  background: var(--white);
+  border-radius: 1.33em;
+  max-width: 1123px;
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s ease-out;
+  padding: 1em;
+  gap: 1em;
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  }
+
+  &__closing {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  // Header
+  &__header {
+    h2 {
+      font-size: 1.5rem;
+      color: var(--n900);
+      line-height: 120%;
+      letter-spacing: 0.01em;
+      font-weight: 600;
+      margin: 0;
+    }
+  }
+
+  // Body (Image + Content)
+  &__body {
+    display: flex;
+    gap: 1.5em;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  // Left Side (Image)
+  &__left {
+    flex: 0 0 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__imageContainer {
+    width: 100%;
+    height: 100%;
+    max-height: 450px;
+    overflow: hidden;
+    border-radius: 1em;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1em;
+    }
+  }
+
+  // Right Side (Content)
+  &__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+  }
+
+  // Close Button
+  &__close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 0.5em;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: 0.2s ease;
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 60%;
+      background: var(--n700);
+      transition: 0.2s ease;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:hover {
+      background: var(--n50);
+
+      &:after,
+      &:before {
+        background: var(--primary-700);
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+
+      &:before {
+        transform: translate(-50%, -50%) rotate(55deg);
+      }
+
+      &:after {
+        transform: translate(-50%, -50%) rotate(-55deg);
+      }
+    }
+  }
+
+  // Content Area
+  &__content {
+    padding: 1em 1em 1em 0;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  // Description
+  &__description {
+    p {
+      font-family: var(--font-manrope);
+      font-size: 18px;
+      line-height: 160%;
+      color: var(--n900);
+      margin: 0;
+    }
+  }
+
+  // Technologies Section
+  &__tech {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+  }
+
+  &__techTitle {
+    font-family: var(--font-manrope);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-100);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  &__techList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+  }
+
+  &__tag {
+    padding: 0.5em 0.88em;
+    background: var(--primary-50);
+    border-radius: 0.66em;
+    font-family: var(--font-manrope);
+    font-size: 16px;
+    color: var(--n800);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  // Contact Section
+  &__contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+
+    p {
+      font-family: var(--font-manrope);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--n800);
+      margin: 0;
+    }
+  }
+}
+
+// Tablet & Smaller Laptops
+@include breakpoints.respond-max(lg) {
+  .modalOverlay {
+    padding: 1.5em;
+  }
+
+  .modal {
+    padding: 1.2em;
+    max-height: 80vh;
+
+    &__header h2 {
+      font-size: 1.33rem;
+    }
+
+    &__body {
+      gap: 1.2em;
+    }
+
+    &__left {
+      flex: 0 0 55%;
+    }
+
+    &__imageContainer {
+      max-height: 380px;
+    }
+
+    &__content {
+      gap: 1.2em;
+      padding: 0.8em 0.8em 0.8em 0;
+    }
+
+    &__description p {
+      font-size: 0.94rem;
+    }
+
+    &__contact {
+      align-items: center;
+      justify-content: space-between;
+
+      p {
+        font-size: 0.88rem;
+      }
+    }
+  }
+}
+
+// Tablet Portrait
+@include breakpoints.respond-max(md) {
+  .modalOverlay {
+    padding: 1em;
+  }
+
+  .modal {
+    max-height: 99vh;
+    padding: 1em;
+    height: 100%;
+
+    &__header h2 {
+      font-size: 1.2rem;
+    }
+
+    &__body {
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    &__left {
+      flex: 0 0 auto;
+      width: 100%;
+      max-height: 280px;
+    }
+
+    &__imageContainer {
+      max-height: 280px;
+    }
+
+    &__right {
+      flex: 1;
+      min-height: 0;
+    }
+
+    &__close {
+      top: 1em;
+      right: 1em;
+      width: 1.8em;
+      height: 1.8em;
+    }
+
+    &__content {
+      padding: 0.5em 0;
+      gap: 1em;
+    }
+
+    &__description p {
+      font-size: 0.88rem;
+      line-height: 150%;
+    }
+
+    &__techTitle {
+      font-size: 0.8rem;
+    }
+
+    &__tag {
+      font-size: 0.8rem;
+      padding: 0.4em 0.7em;
+    }
+
+    &__contact {
+      padding-top: 0.8em;
+
+      p {
+        font-size: 0.84rem;
+      }
+    }
+  }
+}
+
+// Mobile
+@include breakpoints.respond-max(xsm) {
+  .modalOverlay {
+    padding: 0.5em;
+  }
+
+  .modal {
+    border-radius: 1em;
+    padding: 0.8em;
+    max-height: 95vh;
+    height: 100%;
+    &__header {
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+
+    &__body {
+      gap: 0.8em;
+    }
+
+    &__left {
+      max-height: 220px;
+    }
+
+    &__imageContainer {
+      max-height: 220px;
+      border-radius: 0.66em;
+
+      img {
+        border-radius: 0.66em;
+      }
+    }
+
+    &__close {
+      width: 1.6em;
+      height: 1.6em;
+      top: 0.5em;
+      right: 1em;
+
+      &:after,
+      &:before {
+        height: 55%;
+      }
+    }
+
+    &__content {
+      gap: 0.8em;
+      padding: 0.3em 0;
+    }
+
+    &__description p {
+      font-size: 0.84rem;
+      line-height: 145%;
+    }
+
+    &__techTitle {
+      font-size: 0.75rem;
+    }
+
+    &__techList {
+      gap: 0.4em;
+    }
+
+    &__tag {
+      font-size: 0.75rem;
+      padding: 0.35em 0.6em;
+      border-radius: 0.5em;
+    }
+
+    &__contact {
+      padding-top: 0.6em;
+      gap: 0.6em;
+
+      p {
+        font-size: 0.8rem;
+      }
     }
   }
 }

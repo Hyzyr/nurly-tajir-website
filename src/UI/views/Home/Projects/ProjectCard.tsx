@@ -1,6 +1,6 @@
-import styles from './styles.module.scss';
+import styles from "./styles.module.scss";
 
-import React from 'react';
+import React from "react";
 
 type ProjectCardInfo = {
   title: string;
@@ -8,9 +8,18 @@ type ProjectCardInfo = {
   image: string;
 };
 
-const ProjectCard = ({ image, title, description }: ProjectCardInfo) => {
+type ProjectCardProps = ProjectCardInfo & {
+  onClick?: () => void;
+};
+
+const ProjectCard = ({
+  image,
+  title,
+  description,
+  onClick,
+}: ProjectCardProps) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={onClick}>
       <div className="ratioImage">
         <img src={image} alt="project-image" />
       </div>
