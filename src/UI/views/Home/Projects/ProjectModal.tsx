@@ -94,7 +94,7 @@ const ProjectModal = ({
               </div>
 
               <div className={styles.modal__tech}>
-                <span className={styles.modal__techTitle}>Technologies:</span>
+                <span className={styles.modal__techTitle}>Integrated technologies:</span>
                 <div className={styles.modal__techList}>
                   <span className={styles.modal__tag}>React</span>
                   <span className={styles.modal__tag}>TypeScript</span>

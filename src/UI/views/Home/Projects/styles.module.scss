@@ -471,7 +471,7 @@
 .modal {
   position: relative;
   background: var(--white);
-  border-radius: 1.33em;
+  border-radius: 1.5em;
   max-width: 1123px;
   width: 100%;
   height: auto;
@@ -480,8 +480,8 @@
   display: flex;
   flex-direction: column;
   animation: slideUp 0.4s ease-out;
-  padding: 1em;
-  gap: 1em;
+  padding: 0.7em;
+  gap: 0.7em;
 
   @keyframes slideUp {
     from {
@@ -513,18 +513,19 @@
   &__header {
     h2 {
       font-size: 1.5rem;
-      color: var(--n900);
+      color: #000000;
       line-height: 120%;
       letter-spacing: 0.01em;
-      font-weight: 600;
+      font-weight: 500;
       margin: 0;
+      font-family: var(--font-clash);
     }
   }
 
   // Body (Image + Content)
   &__body {
     display: flex;
-    gap: 1.5em;
+    gap: 1em;
     flex: 1;
     overflow: hidden;
   }
@@ -540,15 +541,15 @@
   &__imageContainer {
     width: 100%;
     height: 100%;
-    max-height: 450px;
+    max-height: 510px;
     overflow: hidden;
-    border-radius: 1em;
+    border-radius: 1.5em;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 1em;
+      border-radius: 1.5em;
     }
   }
 
@@ -564,7 +565,7 @@
   // Close Button
   &__close {
     position: absolute;
-    top: 1em;
+    top: 0.5em;
     right: 1em;
     width: 2em;
     height: 2em;
@@ -635,7 +636,7 @@
     p {
       font-family: var(--font-manrope);
       font-size: 18px;
-      line-height: 160%;
+      line-height: 140%;
       color: var(--n900);
       margin: 0;
     }
@@ -653,8 +654,8 @@
     font-size: 16px;
     font-weight: 400;
     color: var(--primary-100);
-    text-transform: uppercase;
     letter-spacing: 0.05em;
+    line-height: 140%;
   }
 
   &__techList {
@@ -666,12 +667,12 @@
   &__tag {
     padding: 0.5em 0.88em;
     background: var(--primary-50);
-    border-radius: 0.66em;
+    border-radius: 0.7em;
     font-family: var(--font-manrope);
     font-size: 16px;
     color: var(--n800);
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 140%;
   }
 
   // Contact Section
@@ -685,7 +686,7 @@
       font-family: var(--font-manrope);
       font-size: 18px;
       font-weight: 500;
-      line-height: 1.4;
+     line-height: 140%;
       color: var(--n800);
       margin: 0;
     }
@@ -699,7 +700,7 @@
   }
 
   .modal {
-    padding: 1.2em;
+    padding: 0.7em;
     max-height: 80vh;
 
     &__header h2 {
@@ -707,7 +708,7 @@
     }
 
     &__body {
-      gap: 1.2em;
+      gap: 1em;
     }
 
     &__left {
@@ -746,11 +747,12 @@
 
   .modal {
     max-height: 90vh;
-    padding: 1em;
+    padding: 0.7em;
     
 
     &__header h2 {
       font-size: 1.2rem;
+      font-family: var(--font-clash);
     }
 
     &__body {
@@ -761,11 +763,11 @@
     &__left {
       flex: 0 0 auto;
       width: 100%;
-      max-height: 280px;
+      max-height: 380px;
     }
 
     &__imageContainer {
-      max-height: 280px;
+      max-height: 380px;
     }
 
     &__right {
@@ -774,7 +776,7 @@
     }
 
     &__close {
-      top: 1em;
+      top: 0.5em;
       right: 1em;
       width: 1.8em;
       height: 1.8em;
@@ -817,7 +819,7 @@
 
   .modal {
     border-radius: 1em;
-    padding: 0.8em;
+    padding: 0.7em;
     max-height: 70vh;
   
     &__header {
@@ -836,10 +838,10 @@
 
     &__imageContainer {
       max-height: 220px;
-      border-radius: 0.66em;
+      border-radius: 1em;
 
       img {
-        border-radius: 0.66em;
+        border-radius: 1em;
       }
     }
 
@@ -876,7 +878,7 @@
     &__tag {
       font-size: 0.75rem;
       padding: 0.35em 0.6em;
-      border-radius: 0.5em;
+      border-radius: 0.7em;
     }
 
     &__contact {
