@@ -1,79 +1,43 @@
 "use client";
 
 import styles from "./styles.module.scss";
-import React, { useEffect } from "react";
-import { createPortal } from "react-dom";
+import React, { useRef, useImperativeHandle } from "react";
 import Button from "@/UI/components/Button";
+import Modal, { ModalRef } from "@/UI/components/Modal";
 import { ProjectInfo } from "./ProjectsContent";
 import { useContactModal } from "@/UI/components/ContactModal";
 
 type ProjectModalProps = {
   project: ProjectInfo | null;
-  isOpen: boolean;
-  isClosing: boolean;
-  onClose: () => void;
 };
 
-const ProjectModal = ({
-  project,
-  isOpen,
-  isClosing,
-  onClose,
-}: ProjectModalProps) => {
-  const contactModal = useContactModal();
+const ProjectModal = React.forwardRef<ModalRef, ProjectModalProps>(
+  ({ project }, ref) => {
+    const modalRef = useRef<ModalRef>(null);
+    const contactModal = useContactModal();
 
-  const handleContactClick = () => {
-    onClose();
-    setTimeout(() => {
-      contactModal.openModal();
-    }, 300);
-  };
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isOpen]);
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isOpen) {
-        onClose();
-      }
+    const handleContactClick = () => {
+      modalRef.current?.hide();
+      setTimeout(() => {
+        contactModal.openModal();
+      }, 300);
     };
 
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [isOpen, onClose]);
+    useImperativeHandle(ref, () => ({
+      show: () => modalRef.current?.show(),
+      hide: () => modalRef.current?.hide(),
+      isVisible: () => modalRef.current?.isVisible() ?? false,
+      wrapperRef: modalRef.current?.wrapperRef ?? null,
+    }));
 
-  if (!isOpen || !project) return null;
+    if (!project) return null;
 
-  const handleBackdropClick = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
-  };
-
-  const modalContent = (
-    <div
-      className={`${styles.modalOverlay} ${
-        isClosing ? styles.modalOverlay__closing : ""
-      }`}
-      onClick={handleBackdropClick}
-    >
-      <div
-        className={`${styles.modal} ${isClosing ? styles.modal__closing : ""}`}
+    return (
+      <Modal
+        ref={modalRef}
+        title={project.title}
+        foldable
       >
-        <div className={styles.modal__header}>
-          <h2>{project.title}</h2>
-        </div>
-
         <div className={styles.modal__body}>
           <div className={styles.modal__left}>
             <div className={styles.modal__imageContainer}>
@@ -82,12 +46,6 @@ const ProjectModal = ({
           </div>
 
           <div className={styles.modal__right}>
-            <button
-              className={styles.modal__close}
-              onClick={onClose}
-              aria-label="Close modal"
-            />
-
             <div className={styles.modal__content}>
               <div className={styles.modal__description}>
                 <p>{project.description}</p>
@@ -113,11 +71,10 @@ const ProjectModal = ({
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      </Modal>
+    );
+  }
+);
 
-  return createPortal(modalContent, document.body);
-};
-
+ProjectModal.displayName = 'ProjectModal';
 export default ProjectModal;

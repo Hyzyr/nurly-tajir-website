@@ -5,12 +5,14 @@ import styles from './styles.module.scss';
 import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useWindowResize } from '@/hooks/useWindowResize';
 gsap.registerPlugin(ScrollTrigger);
 
 type Props = { children: React.ReactNode };
 
 const ProjectsRow = ({ children }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const trigger = useWindowResize();
 
   useLayoutEffect(() => {
     const container = containerRef.current;
@@ -34,6 +36,7 @@ const ProjectsRow = ({ children }: Props) => {
           trigger: pinElement,
           pin: true,
           pinSpacing: true,
+          anticipatePin: 1,
           start: () => `+=${hero.clientHeight * 0.7} top`,
           end: () => `+=${scrollDistance + 100}`, // how long to pin
           scrub: 1,
@@ -43,7 +46,7 @@ const ProjectsRow = ({ children }: Props) => {
     }, container);
 
     return () => ctx.revert();
-  }, []);
+  }, [trigger]);
 
   return (
     <div className={styles.projects__row} ref={containerRef}>

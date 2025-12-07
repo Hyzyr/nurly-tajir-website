@@ -1,6 +1,6 @@
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-import React from "react";
+import React from 'react';
 
 type ProjectCardInfo = {
   title: string;
@@ -27,7 +27,10 @@ const ProjectCard = ({
         <div className={styles.card__title}>
           <strong className="subtitle _lg">{title}</strong>
         </div>
-        <div className={styles.card__description}>{description}</div>
+        <div className={styles.card__description}>
+          <p>{description}</p>
+          <span className="subtitle _xxsm color-primary">read more</span>
+        </div>
       </div>
     </div>
   );

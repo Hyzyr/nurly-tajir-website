@@ -73,6 +73,9 @@
   line-height: 120%;
   letter-spacing: 0.02em;
 
+  &._xxsm {
+    font-size: 0.9em; // 18 / 18
+  }
   &._xsm {
     font-size: 1em; // 18 / 18
   }
@@ -91,6 +94,7 @@ p {
   color: var(--n800);
   line-height: 1.5;
   font-weight: 400;
+
 
   &._sm {
     font-size: 0.89em; // 16 / 18

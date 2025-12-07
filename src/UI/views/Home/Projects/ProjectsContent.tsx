@@ -8,7 +8,8 @@ import ProjectsCardsWrapper from "./ProjectsCardsWrapper";
 import { useTranslations } from "next-intl";
 import ProjectButton from "./ProjectsButton";
 import ProjectModal from "./ProjectModal";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { ModalRef } from "@/UI/components/Modal";
 
 export type ProjectInfo = ProjectCardInfo & { id: string };
 
@@ -20,26 +21,18 @@ const ProjectsContent = ({ data }: ProjectsContentProps) => {
   const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(
     null
   );
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+  const projectModalRef = useRef<ModalRef>(null);
   const tCommon = useTranslations("common");
   const t = useTranslations("home.projects");
 
   const handleProjectClick = (project: ProjectInfo) => {
     setSelectedProject(project);
-    setIsModalOpen(true);
-    setIsClosing(false);
+    projectModalRef.current?.show();
   };
 
   const handleCloseModal = () => {
-    setIsClosing(true);
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setTimeout(() => {
-        setSelectedProject(null);
-        setIsClosing(false);
-      }, 50);
-    }, 300);
+    projectModalRef.current?.hide();
+    setSelectedProject(null);
   };
 
   return (
@@ -64,10 +57,8 @@ const ProjectsContent = ({ data }: ProjectsContentProps) => {
       </section>
 
       <ProjectModal
+        ref={projectModalRef}
         project={selectedProject}
-        isOpen={isModalOpen}
-        isClosing={isClosing}
-        onClose={handleCloseModal}
       />
     </>
   );

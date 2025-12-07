@@ -1,4 +1,5 @@
-@use "@/UI/assets/css/mixins/breakpoints";
+@use '@/UI/assets/css/mixins/breakpoints';
+@use '@/UI/assets/css/mixins/helpers';
 
 .projects {
   padding: 80px 0;
@@ -37,7 +38,7 @@
 
       &:before {
         position: absolute;
-        content: "";
+        content: '';
         top: 0;
         left: 0;
         width: 100%;
@@ -55,7 +56,7 @@
       }
       &:after {
         position: absolute;
-        content: "";
+        content: '';
         top: 100%;
         left: 50%;
         width: 0;
@@ -159,6 +160,10 @@
     font-size: 1rem;
     line-height: 140%;
     color: var(--n900);
+    p {
+      overflow: hidden;
+      @include helpers.ellipsis(2);
+    }
   }
 }
 .slider {
@@ -582,7 +587,7 @@
     &:after,
     &:before {
       position: absolute;
-      content: "";
+      content: '';
       top: 50%;
       left: 50%;
       width: 2px;
@@ -686,7 +691,7 @@
       font-family: var(--font-manrope);
       font-size: 18px;
       font-weight: 500;
-     line-height: 140%;
+      line-height: 140%;
       color: var(--n800);
       margin: 0;
     }
@@ -748,7 +753,6 @@
   .modal {
     max-height: 90vh;
     padding: 0.7em;
-    
 
     &__header h2 {
       font-size: 1.2rem;
@@ -821,7 +825,7 @@
     border-radius: 1em;
     padding: 0.7em;
     max-height: 70vh;
-  
+
     &__header {
       h2 {
         font-size: 1.1rem;
