@@ -1,6 +1,6 @@
 'use client';
 import { Project } from '@/types/supabase';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
   ActionsCell,
@@ -8,12 +8,12 @@ import DashboardTable, {
   DashboardTableCta,
 } from '../DashboardTable';
 import Button from '@/UI/components/Button';
-import { ModalRef } from '@/UI/components/Modal/Modal';
-import ProjectsEditModal from './ProjectsEditModal';
 
 type ProjectWithID = Project & { index: number };
 type Props = {
   data: ProjectWithID[] | null;
+  onAdd: () => void;
+  onEdit: (data: Project) => void;
 };
 const columns: TableColumn<ProjectWithID>[] = [
   {
@@ -58,22 +58,7 @@ const columns: TableColumn<ProjectWithID>[] = [
   },
 ];
 
-const ProjectsTable = ({ data }: Props) => {
-  const editModalRef = useRef<ModalRef>(null);
-  const [editModalData, setEditModalData] = useState<Project | null>(null);
-
-  const onEdit = (data: Project) => {
-    setEditModalData(data);
-    if (editModalRef.current) editModalRef.current.show();
-  };
-  const onAdd = () => {
-    // if (editModalRef.current) editModalRef.current.show();
-    // setEditModalData(null);
-  };
-  const editModalClose = () => {
-    if (editModalRef.current) editModalRef.current.hide();
-  };
-
+const ProjectsTable = ({ data, onAdd, onEdit }: Props) => {
   return (
     <DashboardTable title="Projects">
       <div className={'tableWrapper'}>
@@ -110,13 +95,6 @@ const ProjectsTable = ({ data }: Props) => {
           />
         </DashboardTableCta>
       </div>
-      {data && (
-        <ProjectsEditModal
-          ref={editModalRef}
-          data={editModalData ?? null}
-          onClose={() => editModalClose()}
-        />
-      )}
     </DashboardTable>
   );
 };

@@ -3,10 +3,10 @@
   &__inner {
     display: flex;
     flex-direction: column;
-    gap: 1.34em;
+    gap: 1em;
 
     h2 {
-      margin-bottom: 1rem;
+      line-height: 1;
     }
   }
 }

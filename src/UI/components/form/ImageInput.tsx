@@ -75,7 +75,7 @@ const ImageInput = React.forwardRef<ImageInputRef, ImageInputProps>(
             type="file"
             onChange={handleFileChange}
             className="block mb-4 w-full text-sm text-gray-700 border border-gray-300 rounded p-2"
-            accept="*/*"
+            accept="image/*"
             id={id ? '' + id : ''}
           />
           <div className={styles.inputFile__placeholder}>

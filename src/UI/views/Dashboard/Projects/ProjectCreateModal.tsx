@@ -1,26 +1,24 @@
 'use client';
 import React, { RefObject, useRef } from 'react';
-import { ProjectUpdate } from '@/types/supabase';
 import Button from '@/UI/components/Button';
 import Modal from '@/UI/components/Modal';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
-import { updateById, deleteById } from '@/utils/supabase/client';
+import { createRow } from '@/utils/supabase/client';
 import { uploadImage } from '@/utils/supabase/storage';
 import ProjectForm, { ProjectFormHandle } from './ProjectForm';
 
 type Props = {
-  data: ProjectUpdate | null;
   onClose?: () => void;
   disabled?: boolean;
   onRefresh?: () => void;
 };
 
-const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
-  ({ data, onClose, onRefresh }, ref) => {
+const ProjectCreateModal = React.forwardRef<ModalRef, Props>(
+  ({ onClose, onRefresh }, ref) => {
     const formHandle = useRef<ProjectFormHandle | null>(null);
 
     const onSave = async () => {
-      if (!formHandle.current || !data?.id) return;
+      if (!formHandle.current) return;
       const { formData, imageFile } = formHandle.current.getData();
 
       try {
@@ -42,7 +40,7 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
 
         const { index, ...cleanFormData } = formData as any;
 
-        await updateById('projects', data.id, {
+        await createRow('projects', {
           ...cleanFormData,
           image: imagePath,
         });
@@ -53,50 +51,23 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
         
         if (onRefresh) onRefresh();
       } catch (error) {
-        console.error('Error updating project:', error);
-        alert('Failed to update project. Please check console for details.');
-      }
-    };
-
-    const onDelete = async () => {
-      if (!data?.id) return;
-      
-      const confirmed = window.confirm('Are you sure you want to delete this project?');
-      if (!confirmed) return;
-
-      try {
-        await deleteById('projects', data.id);
-        const controller = (ref as RefObject<ModalRef> | null)?.current;
-        if (controller) controller.hide();
-        if (onClose) onClose();
-        
-        if (onRefresh) onRefresh();
-      } catch (error) {
-        console.error('Error deleting project:', error);
+        console.error('Error creating project:', error);
+        alert('Failed to create project. Please check console for details.');
       }
     };
 
     return (
-      <Modal title="Edit Project" onClose={onClose} ref={ref}>
-        <ProjectForm ref={formHandle} data={data} />
+      <Modal title="Create Project" onClose={onClose} ref={ref}>
+        <ProjectForm ref={formHandle} data={null} />
         <ModalCTA>
-          <Button
-            size="sm"
-            icon="trashSVG"
-            style="secondary"
-            state="danger"
-            text="Delete"
-            inlineCSS={{ marginRight: 'auto' }}
-            onClick={() => onDelete()}
-          />
           <Button
             size="sm"
             icon="crossSVG"
             style="secondary"
             text="Close"
             onClick={() => {
-              const controler = (ref as RefObject<ModalRef> | null)?.current;
-              if (controler) controler.hide();
+              const controller = (ref as RefObject<ModalRef> | null)?.current;
+              if (controller) controller.hide();
             }}
           />
           <Button
@@ -112,5 +83,5 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
   }
 );
 
-ProjectsEditModal.displayName = 'ProjectsEditModal';
-export default ProjectsEditModal;
+ProjectCreateModal.displayName = 'ProjectCreateModal';
+export default ProjectCreateModal;

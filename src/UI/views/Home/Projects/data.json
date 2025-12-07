@@ -1,45 +1,60 @@
 [
   {
     "image": "/images/projects/project-1.png",
-    "title": "National Airport",
+    "title_en": "National Airport",
+    "title_ru": "Национальный аэропорт",
+    "title_tm": "Milli howa menzili",
     "description": "We implemented over 50 reliable IT and system solutions — including networking, control systems, and integration support across the airport facility."
   },
   {
     "image": "/images/projects/project-2.png",
-    "title": "Commercial Buildings",
+    "title_en": "Commercial Buildings",
+    "title_ru": "Коммерческие здания",
+    "title_tm": "Kommersiýa jaýlary",
     "description": "Designed and installed a full camera system for safety, monitoring, and secure building management on Cehow Street."
   },
   {
     "image": "/images/projects/project-3.png",
-    "title": "Hotel Yyldyz",
+    "title_en": "Hotel Yyldyz",
+    "title_ru": "Отель Ыылдыз",
+    "title_tm": "Myhmanhana Ýyldyz",
     "description": "Built and configured a stable, hotel-wide network to support guests, operations, and internal systems with seamless connectivity."
   },
   {
     "image": "/images/projects/project-4.png",
-    "title": "Baherden etrap",
+    "title_en": "Baherden Etrap",
+    "title_ru": "Бахерденский этрап",
+    "title_tm": "Baherden etraby",
     "description_en": "Developed and implemented a comprehensive IT infrastructure for administrative and public service facilities in Baherden Etrap — including network setup, surveillance systems, and secure digital management for smooth daily operations.",
     "description_ru": "Разработана и внедрена современная IT-инфраструктура для административных и общественных объектов Бахерденского этрапа, включая настройку сетей, системы видеонаблюдения и безопасное цифровое управление для стабильной работы.",
     "description_tm": "Baherden etrabynda edara we jemgyýetçilik desgalary üçin doly IT infrastruktura döredildi — aragatnaşyk ulgamlary, gözegçilik kameralary we ygtybarly sanly dolandyryş ulgamy bilen işleriň sazlaşykly ýerine ýetirilişi üpjün edildi."
   },
   {
     "image": "/images/projects/project-4.png",
-    "title": "Turkmen State Energy Institute",
+    "title_en": "Turkmen State Energy Institute",
+    "title_ru": "Туркменский государственный энергетический институт",
+    "title_tm": "Türkmenistanyň Döwlet Energetika Instituty",
     "description_en": "Designed and implemented a high-performance IT and networking system for the Turkmen State Energy Institute in Mary. The infrastructure supports educational technologies, administrative operations, and digital security — ensuring reliable connectivity across the entire campus.",
     "description_ru": "Спроектирована и внедрена высокопроизводительная IT-и сетевая система для Туркменского государственного энергетического института в Мары. Инфраструктура поддерживает учебные технологии, административные процессы и цифровую безопасность, обеспечивая стабильную связь по всему кампусу.",
     "description_tm": "Mary şäherindäki Türkmenistanyň Döwlet Energetika Instituty üçin ýokary öndürijilikli IT we aragatnaşyk ulgamy gurlup ornaşdyryldy. Bu infrastruktura bilim tehnologiýalaryny, dolandyryş işlerini we sanly howpsuzlygy goldaýar — ähli kampus boýunça durnukly birikmäni üpjün edýär."
   },
   {
     "image": "/images/projects/parahat7-mekdep.jpg",
-    "title": "Turkmen State Energy Institute",
-    "description_en": "Installed a complete IT and security infrastructure for the Parahat 7 school — including structured networking, surveillance systems, and digital management tools that support efficient learning, administration, and daily operations.",
-    "description_ru": "В школе Парахат-7 внедрена комплексная IT- и система безопасности: структурированная сеть, видеонаблюдение и цифровые инструменты управления, обеспечивающие эффективный учебный процесс и стабильную организационную работу.",
-    "description_tm": "Parahat 7 mekdebinde doly IT we howpsuzlyk ulgamy ornaşdyryldy — düzülen aragatnaşyk ulgamlary, wideo gözegçilik we sanly dolandyryş serişdeleri bilen okuw we ýolbaşçylyk işleri ygtybarly ýagdaýda guraldy."
+    "title_en": "Parahat-7 Secondary School",
+    "title_ru": "Средняя школа Парахат-7",
+    "title_tm": "Parahat-7 orta mekdebi",
+    "description_en": "Installed a complete IT and security infrastructure for Parahat-7 Secondary School — including structured networking, surveillance systems, and digital management tools that support teaching, administration, and daily operations.",
+    "description_ru": "Для средней школы Парахат-7 установлена комплексная IT- и система безопасности: структурированная сеть, системы видеонаблюдения и цифровые инструменты управления, которые поддерживают учебный процесс, администрацию и повседневную работу.",
+    "description_tm": "Parahat-7 orta mekdebi üçin doly IT we howpsuzlyk infrastrukturasyny ornaşdyrdyk — düzülen aragatnaşyk ulgamlary, wideo gözegçilik we sanly dolandyryş gurallary bilen okuw, dolandyryş we günlük işleriň dowamlylygyna goldaw berýär."
   },
   {
     "image": "/images/projects/parahat7-cagalarBagy.jpg",
-    "title": "Turkmen State Energy Institute",
-    "description_en": "Developed a secure and child-friendly IT environment for the Parahat 7 kindergarten — including internal networking, surveillance coverage, and system support that ensures safety, communication reliability, and smooth daily operations.",
-    "description_ru": "Для детского сада Парахат-7 разработана и внедрена безопасная, удобная IT-инфраструктура: внутренняя сеть, видеонаблюдение и системная поддержка, обеспечивающие безопасность детей и стабильную работу учреждения.",
-    "description_tm": "Parahat 7 çagalar bagy üçin howpsuz we çaga-ýakymly IT infrastruktura döredildi — içerki ulgamlar, wideo gözegçilik we durnukly aragatnaşyk ulgamlary bilen merkezde howpsuzlygyň we günlik işleriň sazlaşykly işlemegi üpjün edildi."
+    "title_en": "Parahat-7 Kindergarten",
+    "title_ru": "Детский сад Парахат-7",
+    "title_tm": "Parahat 7 çagalar bagy",
+    "description_en": "Implemented a secure, child-friendly IT and safety system for Parahat-7 Kindergarten — internal networking, appropriate surveillance for child safety, and management tools to support staff and daily operations.",
+    "description_ru": "Для детского сада Парахат-7 реализована безопасная и удобная IT- и система безопасности: внутренняя сеть, ненавязчивое видеонаблюдение для обеспечения безопасности детей и инструменты управления для поддержки персонала и ежедневных процессов.",
+    "description_tm": "Parahat-7 çagalar bagy üçin howpsuz we çaga-ýakymly IT we howpsuzlyk ulgamy ornaşdyryldy — içerki aragatnaşyk, çagalaryň howpsuzlygy üçin laýyk syn, we işgärleri hem-de günlük işleriň alnyp barylşyny goldaýan dolandyryş gurallary bilen.",
+    "description_extra": ""
   }
 ]

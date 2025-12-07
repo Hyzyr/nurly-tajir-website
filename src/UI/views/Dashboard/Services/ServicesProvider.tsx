@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { Service, ServiceInsert, ServiceUpdate } from '@/types/supabase';
+import { Service } from '@/types/supabase';
 import { useEffect, useState } from 'react';
 import ServicesTable from './ServicesTable';
 import { ModalRef } from '@/UI/components/Modal/Modal';
 import ServiceEditModal from './ServiceEditModal';
-import { emptyService } from './constants';
+import ServiceCreateModal from './ServiceCreateModal';
 import { supabase } from '@/utils/supabase/client';
 
 type ServiceWithID = Service & { index: number };
@@ -14,14 +14,12 @@ type ServiceWithID = Service & { index: number };
 const ServicesProvider = () => {
   const [data, setData] = useState<ServiceWithID[] | null>(null);
   const [editModalData, setEditModalData] = useState<Service | null>(null);
-  const [addModalData, setAddModalData] = useState<ServiceInsert>(emptyService);
   const editModalRef = useRef<ModalRef | null>(null);
   const addModalRef = useRef<ModalRef | null>(null);
   const [isFetching, setIsFetching] = useState(false);
 
   const onAdd = () => {
     if (addModalRef.current) addModalRef.current.show();
-    setAddModalData(emptyService);
     setEditModalData(null);
   };
   const onEdit = (data: Service) => {
@@ -46,7 +44,7 @@ const ServicesProvider = () => {
         setIsFetching(false);
         setData(dataWithIndex);
       });
-  }, [data]);
+  }, []);
 
   useEffect(() => {
     fetchServices();
@@ -60,13 +58,14 @@ const ServicesProvider = () => {
           disabled={isFetching}
           ref={editModalRef}
           data={editModalData ?? null}
+          onRefresh={fetchServices}
         />
       )}
       {data && (
-        <ServiceEditModal
+        <ServiceCreateModal
           disabled={isFetching}
           ref={addModalRef}
-          data={addModalData as ServiceUpdate}
+          onRefresh={fetchServices}
         />
       )}
     </>

@@ -1,26 +1,24 @@
 'use client';
 import React, { RefObject, useRef } from 'react';
-import { ProductCategoryUpdate } from '@/types/supabase';
 import Button from '@/UI/components/Button';
 import Modal from '@/UI/components/Modal';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
-import { updateById, deleteById } from '@/utils/supabase/client';
+import { createRow } from '@/utils/supabase/client';
 import { uploadImage } from '@/utils/supabase/storage';
 import ProductCategoryForm, { ProductCategoryFormHandle } from './ProductCategoryForm';
 
 type Props = {
-  data: ProductCategoryUpdate | null;
   onClose?: () => void;
   disabled?: boolean;
   onRefresh?: () => void;
 };
 
-const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
-  ({ data, onClose, onRefresh }, ref) => {
+const ProductCategoryCreateModal = React.forwardRef<ModalRef, Props>(
+  ({ onClose, onRefresh }, ref) => {
     const formHandle = useRef<ProductCategoryFormHandle | null>(null);
 
     const onSave = async () => {
-      if (!formHandle.current || !data?.id) return;
+      if (!formHandle.current) return;
       const { formData, imageFile } = formHandle.current.getData();
 
       try {
@@ -42,7 +40,7 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
 
         const { index, ...cleanFormData } = formData as any;
 
-        await updateById('product_categories', data.id, {
+        await createRow('product_categories', {
           ...cleanFormData,
           image: imagePath,
         });
@@ -53,50 +51,23 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
         
         if (onRefresh) onRefresh();
       } catch (error) {
-        console.error('Error updating product category:', error);
-        alert('Failed to update product category. Please check console for details.');
-      }
-    };
-
-    const onDelete = async () => {
-      if (!data?.id) return;
-      
-      const confirmed = window.confirm('Are you sure you want to delete this product category?');
-      if (!confirmed) return;
-
-      try {
-        await deleteById('product_categories', data.id);
-        const controller = (ref as RefObject<ModalRef> | null)?.current;
-        if (controller) controller.hide();
-        if (onClose) onClose();
-        
-        if (onRefresh) onRefresh();
-      } catch (error) {
-        console.error('Error deleting product category:', error);
+        console.error('Error creating product category:', error);
+        alert('Failed to create product category. Please check console for details.');
       }
     };
 
     return (
-      <Modal title="Edit Product Category" onClose={onClose} ref={ref}>
-        <ProductCategoryForm ref={formHandle} data={data} />
+      <Modal title="Create Product Category" onClose={onClose} ref={ref}>
+        <ProductCategoryForm ref={formHandle} data={null} />
         <ModalCTA>
-          <Button
-            size="sm"
-            icon="trashSVG"
-            style="secondary"
-            state="danger"
-            text="Delete"
-            inlineCSS={{ marginRight: 'auto' }}
-            onClick={() => onDelete()}
-          />
           <Button
             size="sm"
             icon="crossSVG"
             style="secondary"
             text="Close"
             onClick={() => {
-              const controler = (ref as RefObject<ModalRef> | null)?.current;
-              if (controler) controler.hide();
+              const controller = (ref as RefObject<ModalRef> | null)?.current;
+              if (controller) controller.hide();
             }}
           />
           <Button
@@ -112,5 +83,5 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
   }
 );
 
-ProductsCategoryEditModal.displayName = 'ProductsCategoryEditModal';
-export default ProductsCategoryEditModal;
+ProductCategoryCreateModal.displayName = 'ProductCategoryCreateModal';
+export default ProductCategoryCreateModal;

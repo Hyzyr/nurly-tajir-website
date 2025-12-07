@@ -1,26 +1,25 @@
 'use client';
 import React, { RefObject, useRef } from 'react';
-import { ServiceUpdate } from '@/types/supabase';
 import Button from '@/UI/components/Button';
 import Modal from '@/UI/components/Modal';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
-import { updateById, deleteById } from '@/utils/supabase/client';
+import { createRow } from '@/utils/supabase/client';
 import { uploadImage } from '@/utils/supabase/storage';
 import ServiceForm, { ServiceFormHandle } from './ServiceForm';
 
 type Props = {
-  data: ServiceUpdate | null;
   onClose?: () => void;
   disabled?: boolean;
   onRefresh?: () => void;
 };
 
-const ServiceEditModal = React.forwardRef<ModalRef, Props>(
-  ({ data, onClose, onRefresh }, ref) => {
+const ServiceCreateModal = React.forwardRef<ModalRef, Props>(
+  ({ onClose, onRefresh }, ref) => {
     const formHandle = useRef<ServiceFormHandle | null>(null);
 
     const onSave = async () => {
-      if (!formHandle.current || !data?.id) return;
+      console.log('saving...');
+      if (!formHandle.current) return;
       const { formData, imageFile, iconFile } = formHandle.current.getData();
       
       console.log('Form data:', formData);
@@ -28,7 +27,7 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
       console.log('Icon file:', iconFile);
 
       try {
-        // Upload images if new files are provided
+        // Upload images if provided
         let imagePath = formData.image;
         let iconPath = formData.image_icon;
 
@@ -63,8 +62,8 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
         // Remove fields that don't exist in database schema
         const { index, ...cleanFormData } = formData as any;
 
-        // Update service with new data and image URLs
-        await updateById('services', data.id, {
+        // Create service with image URLs
+        await createRow('services', {
           ...cleanFormData,
           image: imagePath,
           image_icon: iconPath,
@@ -77,60 +76,34 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
         // Refresh table data
         if (onRefresh) onRefresh();
       } catch (error) {
-        console.error('Error updating service:', error);
-        alert('Failed to update service. Please check console for details.');
-      }
-    };
-
-    const onDelete = async () => {
-      if (!data?.id) return;
-      
-      const confirmed = window.confirm('Are you sure you want to delete this service?');
-      if (!confirmed) return;
-
-      try {
-        await deleteById('services', data.id);
-        const controller = (ref as RefObject<ModalRef> | null)?.current;
-        if (controller) controller.hide();
-        if (onClose) onClose();
-        
-        // Refresh table data
-        if (onRefresh) onRefresh();
-      } catch (error) {
-        console.error('Error deleting service:', error);
-        // Handle error, perhaps show a message
+        console.error('Error creating service:', error);
+        alert('Failed to create service. Please check console for details.');
       }
     };
 
     return (
-      <Modal title="Edit Service" onClose={onClose} ref={ref}>
-        <ServiceForm ref={formHandle} data={data} />
+      <Modal title="Create Service" onClose={onClose} ref={ref}>
+        <ServiceForm ref={formHandle} data={null} />
         <ModalCTA>
-          <Button
-            size="sm"
-            icon="trashSVG"
-            style="secondary"
-            state="danger"
-            text="Delete"
-            inlineCSS={{ marginRight: 'auto' }}
-            onClick={() => onDelete()}
-          />
           <Button
             size="sm"
             icon="crossSVG"
             style="secondary"
             text="Close"
             onClick={() => {
-              const controler = (ref as RefObject<ModalRef> | null)?.current;
-              if (controler) controler.hide();
+              const controller = (ref as RefObject<ModalRef> | null)?.current;
+              if (controller) controller.hide();
             }}
           />
           <Button
             size="sm"
             icon="tickSVG"
-            text="Save"
+            text="Save 2"
             inlineCSS={{ minWidth: '110px', justifyContent: 'flex-start' }}
-            onClick={() => onSave()}
+            onClick={() => {
+              console.log('Save button clicked');
+              onSave();
+            }}
           />
         </ModalCTA>
       </Modal>
@@ -138,5 +111,5 @@ const ServiceEditModal = React.forwardRef<ModalRef, Props>(
   }
 );
 
-ServiceEditModal.displayName = 'ServiceEditModal';
-export default ServiceEditModal;
+ServiceCreateModal.displayName = 'ServiceCreateModal';
+export default ServiceCreateModal;

@@ -1,6 +1,6 @@
 'use client';
 import { Brand, ProductCategory } from '@/types/supabase';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, {
   ActionsCell,
@@ -8,13 +8,13 @@ import DashboardTable, {
   DashboardTableCta,
 } from '../DashboardTable';
 import Button from '@/UI/components/Button';
-import { ModalRef } from '@/UI/components/Modal/Modal';
-import ProductsCategoryEditModal from './ProductsCategoryEditModal';
 import { Json } from '@/utils/supabase/database.types';
 
 type ProductCategoryWithID = ProductCategory & { index: number };
 type Props = {
   data: ProductCategoryWithID[] | null;
+  onAdd: () => void;
+  onEdit: (data: ProductCategory) => void;
 };
 
 const columns: TableColumn<ProductCategoryWithID>[] = [
@@ -56,19 +56,7 @@ const columns: TableColumn<ProductCategoryWithID>[] = [
   },
 ];
 
-const ProductCategoryTable = ({ data }: Props) => {
-  const editModalRef = useRef<ModalRef>(null);
-  const [editModalData, setEditModalData] = useState<ProductCategory | null>(
-    null
-  );
-
-  const onEdit = (data: ProductCategory) => {
-    setEditModalData(data);
-    if (editModalRef.current) editModalRef.current.show();
-  };
-  const onAdd = () => console.log('on addgf');
-  // const editModalClose = () => {};
-
+const ProductCategoryTable = ({ data, onAdd, onEdit }: Props) => {
   return (
     <>
       <DashboardTable title="Products Group">
@@ -107,12 +95,6 @@ const ProductCategoryTable = ({ data }: Props) => {
           </DashboardTableCta>
         </div>
       </DashboardTable>
-      {data && (
-        <ProductsCategoryEditModal
-          ref={editModalRef}
-          data={editModalData ?? null}
-        />
-      )}
     </>
   );
 };
