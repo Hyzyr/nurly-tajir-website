@@ -38,10 +38,12 @@ const ProjectCreateModal = React.forwardRef<ModalRef, Props>(
           imagePath = imageUrl;
         }
 
-        const { index, ...cleanFormData } = formData as any;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { index: _index, ...cleanFormData } = formData as Record<string, unknown>;
 
         await createRow('projects', {
-          ...cleanFormData,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ...(cleanFormData as any),
           image: imagePath,
         });
 

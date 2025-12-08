@@ -30,11 +30,6 @@ const ProjectsContent = ({ data }: ProjectsContentProps) => {
     projectModalRef.current?.show();
   };
 
-  const handleCloseModal = () => {
-    projectModalRef.current?.hide();
-    setSelectedProject(null);
-  };
-
   return (
     <>
       <section className={styles.projects} id="projects">

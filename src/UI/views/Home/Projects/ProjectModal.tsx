@@ -27,7 +27,7 @@ const ProjectModal = React.forwardRef<ModalRef, ProjectModalProps>(
       show: () => modalRef.current?.show(),
       hide: () => modalRef.current?.hide(),
       isVisible: () => modalRef.current?.isVisible() ?? false,
-      wrapperRef: modalRef.current?.wrapperRef ?? null,
+      wrapperRef: modalRef.current?.wrapperRef ?? ({ current: null } as React.RefObject<HTMLDivElement | null>),
     }));
 
     if (!project) return null;

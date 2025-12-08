@@ -40,10 +40,12 @@ const ProjectsEditModal = React.forwardRef<ModalRef, Props>(
           imagePath = imageUrl;
         }
 
-        const { index, ...cleanFormData } = formData as any;
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { index: _index, ...cleanFormData } = formData as Record<string, unknown>;
 
         await updateById('projects', data.id, {
-          ...cleanFormData,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          ...(cleanFormData as any),
           image: imagePath,
         });
 

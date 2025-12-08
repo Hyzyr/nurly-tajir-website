@@ -27,8 +27,8 @@ export async function uploadImage(
     } = supabase.storage.from('website-images').getPublicUrl(data.path);
 
     return publicUrl;
-  } catch (error: any) {
-    if (error?.message?.includes('row-level security')) {
+  } catch (error: unknown) {
+    if (error instanceof Error && error.message?.includes('row-level security')) {
       console.error('RLS Policy Error: Please set up storage policies. See storage.ts for SQL commands.');
     }
     console.error('Error uploading image:', error);
