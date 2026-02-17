@@ -14,13 +14,7 @@ type Props = {
   onBackClick?: () => void;
 };
 
-const ServiceInfoCard = ({
-  image,
-  title,
-  description,
-  className,
-  onBackClick,
-}: Props) => {
+const ServiceInfoCard = ({ image, title, description, className, onBackClick }: Props) => {
   const contactModal = useContactModal();
   const contactUs = () => contactModal.openModal();
 
@@ -41,7 +35,7 @@ const ServiceInfoCard = ({
       </div>
       <div className={styles.info__desc}>
         <p>{description}</p>
-        <Button text="contact us" style="outlined" onClick={contactUs} />
+        <Button text="contact us" style="outlined" onClick={contactUs} size="sm" />
       </div>
     </div>
   );

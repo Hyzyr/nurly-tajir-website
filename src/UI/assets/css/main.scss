@@ -89,6 +89,21 @@
     border-radius: inherit;
   }
 }
+.logo {
+  font-size: 1.12rem;
+  height: 2.22em;
+  width: 5.11em;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &._lg {
+    font-size: 1.32rem;
+  }
+}
 
 @include breakpoints.respond-max(xxl) {
   body,

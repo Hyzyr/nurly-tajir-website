@@ -11,10 +11,9 @@ type Props = {
 };
 
 const PartnersSlider = ({ children }: Props) => {
-  const [wrapperRef] = useEmblaCarousel(
-    { loop: true, dragFree: true },
-    [AutoScroll({ stopOnInteraction: true, speed: 0.4 })]
-  );
+  const [wrapperRef] = useEmblaCarousel({ loop: true, dragFree: true }, [
+    AutoScroll({ stopOnInteraction: true, speed: 0.4 }),
+  ]);
   const { ref } = useObserver({
     onChange: (state) => {
       // window.api = api;
@@ -31,11 +30,7 @@ const PartnersSlider = ({ children }: Props) => {
   );
 };
 
-export const PartnersSliderItem = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
+export const PartnersSliderItem = ({ children }: { children: React.ReactNode }) => {
   return <div className={styles.slider__item}>{children}</div>;
 };
 

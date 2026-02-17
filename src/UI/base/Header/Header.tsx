@@ -6,7 +6,7 @@ import HeaderMob from './HeaderMob';
 
 const Header = () => {
   const isMobile = useMedia('(max-width: 1024px)');
-  
+
   return (
     <HeaderWrapper>
       {!isMobile && <HeaderDesktop />}

@@ -15,11 +15,7 @@ type ContainerInnerProps = {
 };
 
 const ContainerInner = ({ className, children }: ContainerInnerProps) => {
-  return (
-    <div className={`${styles.container__inner} ${className ?? ''}`}>
-      {children}
-    </div>
-  );
+  return <div className={`${styles.container__inner} ${className ?? ''}`}>{children}</div>;
 };
 
 export { ContainerInner };

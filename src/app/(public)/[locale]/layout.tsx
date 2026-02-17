@@ -6,6 +6,7 @@ import { hasLocale, Locale, NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { getLocale } from 'next-intl/server';
 import { locales } from '@/i18n/config';
+import { ContactModalProvider } from '@/UI/components/ContactModal';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -44,7 +45,7 @@ export default async function RootLayout({ children }: RootPropsType) {
       <body className={`${manrope.variable} `}>
         <NextIntlClientProvider>
           <main className={'main'} id="main">
-            {children}
+            <ContactModalProvider>{children}</ContactModalProvider>
           </main>
         </NextIntlClientProvider>
       </body>

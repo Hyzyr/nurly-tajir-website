@@ -2,11 +2,7 @@
 import { Brand, ProductCategory } from '@/types/supabase';
 import React from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
-import DashboardTable, {
-  ActionsCell,
-  ActionsHeader,
-  DashboardTableCta,
-} from '../DashboardTable';
+import DashboardTable, { ActionsCell, ActionsHeader, DashboardTableCta } from '../DashboardTable';
 import Button from '@/UI/components/Button';
 import { Json } from '@/utils/supabase/database.types';
 
@@ -27,8 +23,7 @@ const columns: TableColumn<ProductCategoryWithID>[] = [
   },
   {
     name: 'Image',
-    cell: (row) =>
-      row.image ? <ProjectImg src={row.image} alt={row.name_en} /> : null,
+    cell: (row) => (row.image ? <ProjectImg src={row.image} alt={row.name_en} /> : null),
     grow: 0,
   },
   {
@@ -86,12 +81,7 @@ const ProductCategoryTable = ({ data, onAdd, onEdit }: Props) => {
           )}
           {!data && 'No Data'}
           <DashboardTableCta>
-            <Button
-              size="sm"
-              icon="plusSVG"
-              text="Add New"
-              onClick={() => onAdd()}
-            />
+            <Button size="sm" icon="plusSVG" text="Add New" onClick={() => onAdd()} />
           </DashboardTableCta>
         </div>
       </DashboardTable>

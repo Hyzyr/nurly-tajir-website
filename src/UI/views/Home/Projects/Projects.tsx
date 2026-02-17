@@ -25,7 +25,7 @@ const Projects = ({ locale }: { locale: Locales }) => {
     });
   }, [locale]);
 
- if (!data) {
+  if (!data) {
     return (
       <section className={styles.projects} id="projects">
         <Container>

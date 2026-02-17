@@ -11,16 +11,12 @@ type Props = {
 const FooterLink = ({ selector, title }: Props) => {
   const scrollTo = useGsapScrollTo();
 
-  const scrollToSection =
-    (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
-      scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
-    };
+  const scrollToSection = (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
+  };
   return (
-    <a
-      href={selector}
-      onClick={scrollToSection(selector)}
-      className={styles.footer__link}>
+    <a href={selector} onClick={scrollToSection(selector)} className={styles.footer__link}>
       {title}
     </a>
   );

@@ -1,11 +1,5 @@
 'use client';
-import React, {
-  createContext,
-  PropsWithChildren,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { createContext, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import ContactModal from './ContactModal';
 import { ModalRef } from '../Modal/Modal';
 
@@ -16,9 +10,7 @@ type ContactModalContextType = {
   closeModal: () => void;
 };
 
-export const ContactModalContext = createContext<
-  ContactModalContextType | undefined
->(undefined);
+export const ContactModalContext = createContext<ContactModalContextType | undefined>(undefined);
 
 const ContactModalProvider = ({ children }: PropsWithChildren) => {
   const ref = useRef<ModalRef | null>(null);
@@ -38,8 +30,7 @@ const ContactModalProvider = ({ children }: PropsWithChildren) => {
   };
 
   useEffect(() => {
-    if (!isInit && !!document && document.getElementById('main'))
-      setIsInit(true);
+    if (!isInit && !!document && document.getElementById('main')) setIsInit(true);
   }, []);
 
   return (

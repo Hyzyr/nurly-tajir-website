@@ -3,13 +3,7 @@
 import styles from './styles.module.scss';
 
 import { createPortal } from 'react-dom';
-import React, {
-  PropsWithChildren,
-  RefObject,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react';
+import React, { PropsWithChildren, RefObject, useEffect, useImperativeHandle, useRef } from 'react';
 import useModalAnimations from './useModalAnimations';
 
 type Props = {
@@ -74,17 +68,11 @@ const Modal = React.forwardRef<ModalRef, Props>(
     );
 
     return createPortal(
-      <div
-        ref={wrapperRef}
-        style={{ display: 'none' }}
-        className={`${styles.modal__wrapper} `}>
+      <div ref={wrapperRef} style={{ display: 'none' }} className={`${styles.modal__wrapper} `}>
         <div className={styles.modal}>
           <div className={styles.modal__header}>
             <h5 className="h6">{title}</h5>
-            <button
-              className={styles.modal__header__close}
-              onClick={handleClose}
-            />
+            <button className={styles.modal__header__close} onClick={handleClose} />
           </div>
           <div className={styles.modal__body}>{children}</div>
         </div>

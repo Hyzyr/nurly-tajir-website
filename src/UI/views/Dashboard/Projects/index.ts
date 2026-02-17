@@ -1,2 +1,2 @@
-import ProjectsManager from './ProjectsProvider'
+import ProjectsManager from './ProjectsProvider';
 export default ProjectsManager;

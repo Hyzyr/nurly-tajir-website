@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import Input from '@/UI/components/form/Input';
 import Button from '@/UI/components/Button';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -31,7 +32,9 @@ const SignIn = () => {
     <div className={styles.auth__wrapper}>
       <div className={styles.auth}>
         <div className="logo fbox fbox-justify-center">
-          <Image src="/images/favicon.svg" alt="" width={50} height={50} />
+          <Link href="/">
+            <Image src="/images/favicon.svg" alt="" width={50} height={50} />
+          </Link>
         </div>
         <div className={styles.auth__body}>
           <h4 className="h6 color-primary">Login</h4>

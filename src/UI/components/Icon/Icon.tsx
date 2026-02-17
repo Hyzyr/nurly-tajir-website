@@ -8,9 +8,7 @@ type Props = {
 };
 
 const Icon = ({ name, className = '' }: Props) => {
-  return (
-    <span className={`icon ${styles.icon} ${className}`}>{iconsSVG[name]}</span>
-  );
+  return <span className={`icon ${styles.icon} ${className}`}>{iconsSVG[name]}</span>;
 };
 
 export default Icon;

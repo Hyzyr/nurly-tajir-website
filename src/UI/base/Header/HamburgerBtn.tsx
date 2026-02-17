@@ -13,12 +13,13 @@ const HamburgerBtn = ({ active: activeState, onClick }: Props) => {
     if (onClick) onClick();
     else setActive(!active);
   };
-  
+
   return (
     <button
       id="nav-icon3"
       className={`${styles.hamburger} ${active || activeState ? 'open' : ''}`}
-      onClick={clickHandler}>
+      onClick={clickHandler}
+    >
       <div className={styles.hamburger__body}>
         <span></span>
         <span></span>

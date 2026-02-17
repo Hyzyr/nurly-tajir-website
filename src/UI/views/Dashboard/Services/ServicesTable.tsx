@@ -2,11 +2,7 @@
 import { Service } from '@/types/supabase';
 import React from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
-import DashboardTable, {
-  ActionsCell,
-  ActionsHeader,
-  DashboardTableCta,
-} from '../DashboardTable';
+import DashboardTable, { ActionsCell, ActionsHeader, DashboardTableCta } from '../DashboardTable';
 import Button from '@/UI/components/Button';
 
 type ServiceWithID = Service & { index: number };
@@ -25,54 +21,34 @@ const columns: TableColumn<ServiceWithID>[] = [
   },
   {
     name: 'Image',
-    cell: (row) =>
-      row.image ? <ServiceImg src={row.image} alt={row.title_en} /> : null,
+    cell: (row) => (row.image ? <ServiceImg src={row.image} alt={row.title_en} /> : null),
     grow: 0,
   },
   {
     name: 'icon',
     cell: (row) =>
-      row.image_icon ? (
-        <ServiceImg src={row.image_icon} alt={row.title_en} />
-      ) : (
-        'no icon'
-      ),
+      row.image_icon ? <ServiceImg src={row.image_icon} alt={row.title_en} /> : 'no icon',
     grow: 0,
   },
   {
     name: 'Info En',
     grow: 0.85,
     selector: (row) => row.title_en,
-    cell: (row) => (
-      <ServiceDescriptions
-        title={row.title_en}
-        description={row.description_en}
-      />
-    ),
+    cell: (row) => <ServiceDescriptions title={row.title_en} description={row.description_en} />,
     sortable: true,
   },
   {
     name: 'Info Ru',
     grow: 0.85,
     selector: (row) => row.title_ru,
-    cell: (row) => (
-      <ServiceDescriptions
-        title={row.title_ru}
-        description={row.description_ru}
-      />
-    ),
+    cell: (row) => <ServiceDescriptions title={row.title_ru} description={row.description_ru} />,
     sortable: true,
   },
   {
     name: 'Info Tm',
     grow: 0.85,
     selector: (row) => row.title_tm,
-    cell: (row) => (
-      <ServiceDescriptions
-        title={row.title_tm}
-        description={row.description_tm}
-      />
-    ),
+    cell: (row) => <ServiceDescriptions title={row.title_tm} description={row.description_tm} />,
     sortable: true,
   },
 ];
@@ -106,12 +82,7 @@ const ServicesTable = ({ data, onAdd, onEdit }: Props) => {
         )}
         {!data && 'No Data'}
         <DashboardTableCta>
-          <Button
-            size="sm"
-            icon="editFilledSVG"
-            text="Add New"
-            onClick={() => onAdd()}
-          />
+          <Button size="sm" icon="editFilledSVG" text="Add New" onClick={() => onAdd()} />
         </DashboardTableCta>
       </div>
     </DashboardTable>
@@ -132,10 +103,7 @@ type ServiceDescriptionsProps = {
   title: string;
   description: string;
 };
-const ServiceDescriptions = ({
-  title,
-  description,
-}: ServiceDescriptionsProps) => {
+const ServiceDescriptions = ({ title, description }: ServiceDescriptionsProps) => {
   return (
     <p style={{ maxWidth: 'unset', padding: '0.5em 0' }}>
       <b>{title} </b> <br />

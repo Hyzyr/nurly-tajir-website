@@ -17,11 +17,10 @@ const HeaderDesktop = () => {
 
   const scrollTo = useGsapScrollTo();
 
-  const scrollToSection =
-    (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
-      scrollTo(section, { offsetY: window!.innerHeight * 0.15 });
-    };
+  const scrollToSection = (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollTo(section, { offsetY: window!.innerHeight * 0.15 });
+  };
 
   return (
     <>

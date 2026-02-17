@@ -36,7 +36,7 @@ const ProducstCategoryProvider = () => {
       .then(({ data, error }) => {
         if (error) throw error;
         const rows = (data ?? []) as ProductCategory[];
-        
+
         const dataWithIndex: ProductCategoryWithID[] = rows.map((item, i) => ({
           ...item,
           index: i + 1,

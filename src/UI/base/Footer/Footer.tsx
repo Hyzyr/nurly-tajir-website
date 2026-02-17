@@ -13,7 +13,7 @@ const Footer = () => {
       <Container>
         <div className={styles.footer__inner}>
           <div className={styles.footer__column}>
-            <Logo style="white" />
+            <Logo style="white" size='lg' />
             <p className="_sm">{t('info')}</p>
           </div>
           <div className={styles.footer__column}>
@@ -35,14 +35,16 @@ const Footer = () => {
                 href="/docs/Nury_Tajir_Privacy_Policy_TOS_RU.pdf#toolbar=0&navpanes=0&scrollbar=0"
                 className={styles.footer__link}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 {t('nav.terms')}
               </a>
               <a
                 href="/docs/Nury_Tajir_Privacy_Policy_TOS_RU.pdf#toolbar=0&navpanes=0&scrollbar=0"
                 className={styles.footer__link}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+              >
                 {t('nav.privacy_policy')}
               </a>
             </div>
@@ -51,9 +53,7 @@ const Footer = () => {
             <strong className="subtitle _xsm">{t('office')}</strong>
             <ul>
               <li>
-                <div
-                  className="fbox fbox-column fbox-gap-1"
-                  title={t('address.address1.pretitle')}>
+                <div className="fbox fbox-column fbox-gap-1" title={t('address.address1.pretitle')}>
                   {/* <strong className="smalltitle _xsm color-primary-darker">
                     <small>{t('address.address1.pretitle')}</small>
                   </strong> */}
@@ -61,16 +61,15 @@ const Footer = () => {
                     className="fbox fbox-gap-1 fbox-center"
                     href={t('address.address1.link')}
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <Icon name="mapPinIcon" />
                     {t('address.address1.title')}
                   </a>
                 </div>
               </li>
               <li>
-                <div
-                  className="fbox fbox-column fbox-gap-1"
-                  title={t('address.address2.pretitle')}>
+                <div className="fbox fbox-column fbox-gap-1" title={t('address.address2.pretitle')}>
                   {/* <strong className="smalltitle _xsm color-primary-darker">
                     <small>{t('address.address2.pretitle')}</small>
                   </strong> */}
@@ -78,7 +77,8 @@ const Footer = () => {
                     className="fbox fbox-gap-1 fbox-center"
                     href={t('address.address2.link')}
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                  >
                     <Icon name="mapPinIcon" />
                     {t('address.address2.title')}
                   </a>
@@ -110,21 +110,16 @@ const HyzyrLogo = () => {
   return (
     <div className="fbox fbox-gap-1 fbox-center">
       <small> Designed and Developed by</small>
-      <a
-        href="https://hyzyr.com"
-        target="_blank"
-        className="fbox fbox-gap-1 fbox-center">
+      <a href="https://hyzyr.com" target="_blank" className="fbox fbox-gap-1 fbox-center">
         <span className="icon">
           <svg
             width="12"
             height="15"
             viewBox="0 0 12 15"
             fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M6.89089 14.835H5.10907V9.48951H6.89089V14.835Z"
-              fill="#a4bcd6"
-            />
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M6.89089 14.835H5.10907V9.48951H6.89089V14.835Z" fill="#a4bcd6" />
             <path
               d="M4.34543 3.27203H1.72491V12.1433H4.34543V13.0531H0.272705V2.36223H4.34543V3.27203Z"
               fill="#a4bcd6"
@@ -133,10 +128,7 @@ const HyzyrLogo = () => {
               d="M11.7273 13.0531H7.65452V12.1433H10.275V3.27203H7.65452V2.36223H11.7273V13.0531Z"
               fill="#a4bcd6"
             />
-            <path
-              d="M6.89089 6.18042H5.10907V0.834961H6.89089V6.18042Z"
-              fill="#a4bcd6"
-            />
+            <path d="M6.89089 6.18042H5.10907V0.834961H6.89089V6.18042Z" fill="#a4bcd6" />
           </svg>
         </span>
         <small>HYZYR</small>

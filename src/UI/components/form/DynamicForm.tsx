@@ -22,9 +22,7 @@ type FieldConfig<T> =
   | {
       label?: string;
       type: 'object';
-      fields: FieldConfigMap<
-        T extends Record<string, unknown> ? T : Record<string, unknown>
-      >;
+      fields: FieldConfigMap<T extends Record<string, unknown> ? T : Record<string, unknown>>;
     }
   | {
       label?: string;
@@ -82,8 +80,7 @@ function DynamicFormInner<T extends Record<string, unknown>>(
         switch ((cfg as { type: string }).type) {
           case 'text':
           case 'number': {
-            const isNumber =
-              (cfg as { type: 'number' | 'text' }).type === 'number';
+            const isNumber = (cfg as { type: 'number' | 'text' }).type === 'number';
             const inputValue: string | number = isNumber
               ? typeof fieldVal === 'number'
                 ? fieldVal
@@ -114,16 +111,12 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                 sizeStyle="sm"
                 label={label}
                 value={String(fieldVal ?? '')}
-                onChange={(e) =>
-                  handleChange(fieldKey, e.target.value as T[typeof fieldKey])
-                }
+                onChange={(e) => handleChange(fieldKey, e.target.value as T[typeof fieldKey])}
               />
             );
           }
           case 'image': {
-            return (
-              <LabeledImageInput key={key} label={label} ratioPercent={1} />
-            );
+            return <LabeledImageInput key={key} label={label} ratioPercent={1} />;
           }
           case 'checkbox': {
             return (
@@ -131,12 +124,7 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                 <input
                   type="checkbox"
                   checked={Boolean(fieldVal)}
-                  onChange={(e) =>
-                    handleChange(
-                      fieldKey,
-                      e.target.checked as T[typeof fieldKey]
-                    )
-                  }
+                  onChange={(e) => handleChange(fieldKey, e.target.checked as T[typeof fieldKey])}
                   className="mr-2"
                 />
                 <label>{label}</label>
@@ -144,9 +132,7 @@ function DynamicFormInner<T extends Record<string, unknown>>(
             );
           }
           case 'select': {
-            const options = (
-              cfg as Extract<FieldConfig<unknown>, { type: 'select' }>
-            ).options;
+            const options = (cfg as Extract<FieldConfig<unknown>, { type: 'select' }>).options;
             return (
               <div key={key} className="mb-4">
                 <label className="block font-medium mb-1">{label}</label>
@@ -160,7 +146,8 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                     const v = e.target.value as unknown as T[typeof fieldKey];
                     handleChange(fieldKey, v);
                   }}
-                  className="w-full border px-2 py-1 rounded">
+                  className="w-full border px-2 py-1 rounded"
+                >
                   {options?.map((opt) =>
                     typeof opt === 'string' ? (
                       <option key={opt} value={opt}>
@@ -177,9 +164,8 @@ function DynamicFormInner<T extends Record<string, unknown>>(
             );
           }
           case 'object': {
-            const fields = (
-              cfg as Extract<FieldConfig<unknown>, { type: 'object' }>
-            ).fields as FieldConfigMap<
+            const fields = (cfg as Extract<FieldConfig<unknown>, { type: 'object' }>)
+              .fields as FieldConfigMap<
               T[typeof fieldKey] extends Record<string, unknown>
                 ? T[typeof fieldKey]
                 : Record<string, unknown>
@@ -195,28 +181,17 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                 <DynamicForm
                   // @ts-expect-error generic inference through forwardRef wrapper
                   value={childVal}
-                  config={
-                    fields as unknown as FieldConfigMap<Record<string, unknown>>
-                  }
+                  config={fields as unknown as FieldConfigMap<Record<string, unknown>>}
                 />
               </fieldset>
             );
           }
           case 'array': {
-            const itemConfig = (
-              cfg as Extract<FieldConfig<unknown>, { type: 'array' }>
-            ).itemConfig as FieldConfig<
-              T[typeof fieldKey] extends Array<infer U> ? U : unknown
-            >;
+            const itemConfig = (cfg as Extract<FieldConfig<unknown>, { type: 'array' }>)
+              .itemConfig as FieldConfig<T[typeof fieldKey] extends Array<infer U> ? U : unknown>;
 
-            const arr = isArray<
-              T[typeof fieldKey] extends Array<infer U> ? U : never
-            >(fieldVal)
-              ? (fieldVal as unknown as (T[typeof fieldKey] extends Array<
-                  infer U
-                >
-                  ? U
-                  : never)[])
+            const arr = isArray<T[typeof fieldKey] extends Array<infer U> ? U : never>(fieldVal)
+              ? (fieldVal as unknown as (T[typeof fieldKey] extends Array<infer U> ? U : never)[])
               : [];
 
             return (
@@ -227,18 +202,10 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                     <DynamicForm
                       value={item as unknown as Record<string, unknown>}
                       config={
-                        (
-                          itemConfig as Extract<
-                            FieldConfig<unknown>,
-                            { type: 'object' }
-                          >
-                        ).type === 'object'
-                          ? ((
-                              itemConfig as Extract<
-                                FieldConfig<unknown>,
-                                { type: 'object' }
-                              >
-                            ).fields as FieldConfigMap<Record<string, unknown>>)
+                        (itemConfig as Extract<FieldConfig<unknown>, { type: 'object' }>).type ===
+                        'object'
+                          ? ((itemConfig as Extract<FieldConfig<unknown>, { type: 'object' }>)
+                              .fields as FieldConfigMap<Record<string, unknown>>)
                           : ({
                               value: {
                                 type: (itemConfig as { type: string }).type as
@@ -249,24 +216,18 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                                   | 'checkbox'
                                   | 'select',
                               },
-                            } as unknown as FieldConfigMap<
-                              Record<string, unknown>
-                            >)
+                            } as unknown as FieldConfigMap<Record<string, unknown>>)
                       }
                     />
                     <button
                       type="button"
                       onClick={() => {
-                        const current = isArray(fieldVal)
-                          ? [...(fieldVal as unknown[])]
-                          : [];
+                        const current = isArray(fieldVal) ? [...(fieldVal as unknown[])] : [];
                         current.splice(idx, 1);
-                        handleChange(
-                          fieldKey,
-                          current as unknown as T[typeof fieldKey]
-                        );
+                        handleChange(fieldKey, current as unknown as T[typeof fieldKey]);
                       }}
-                      className="ml-2 text-red-500">
+                      className="ml-2 text-red-500"
+                    >
                       Remove
                     </button>
                   </div>
@@ -274,21 +235,15 @@ function DynamicFormInner<T extends Record<string, unknown>>(
                 <button
                   type="button"
                   onClick={() => {
-                    const current = isArray(fieldVal)
-                      ? [...(fieldVal as unknown[])]
-                      : [];
+                    const current = isArray(fieldVal) ? [...(fieldVal as unknown[])] : [];
                     const toAdd = (
-                      (itemConfig as { type: string }).type === 'object'
-                        ? {}
-                        : ''
+                      (itemConfig as { type: string }).type === 'object' ? {} : ''
                     ) as unknown;
                     current.push(toAdd);
-                    handleChange(
-                      fieldKey,
-                      current as unknown as T[typeof fieldKey]
-                    );
+                    handleChange(fieldKey, current as unknown as T[typeof fieldKey]);
                   }}
-                  className="text-blue-600">
+                  className="text-blue-600"
+                >
                   Add Item
                 </button>
               </div>
@@ -304,7 +259,7 @@ function DynamicFormInner<T extends Record<string, unknown>>(
 
 // `forwardRef` + generics dance with precise callable signature
 export const DynamicForm = React.forwardRef(DynamicFormInner) as <
-  T extends Record<string, unknown>
+  T extends Record<string, unknown>,
 >(
   props: DynamicFormProps<T> & { ref?: React.Ref<DynamicFormHandle<T>> }
 ) => React.ReactElement | null;

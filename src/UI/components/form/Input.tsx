@@ -6,12 +6,7 @@ type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   sizeStyle?: 'sm' | 'md' | 'lg';
 };
 
-const Input = ({
-  type = 'text',
-  className,
-  sizeStyle = 'md',
-  ...rest
-}: InputProps) => {
+const Input = ({ type = 'text', className, sizeStyle = 'md', ...rest }: InputProps) => {
   return (
     <div className={`input ${styles.input}  _${sizeStyle} ${className ?? ''}`}>
       <input type={type} {...rest} />
@@ -34,10 +29,7 @@ const LabeledInput = ({
   const id = useId();
 
   return (
-    <div
-      className={
-        `${styles.input__group} _${sizeStyle}` + ` ${wrapperClassName ?? ''}`
-      }>
+    <div className={`${styles.input__group} _${sizeStyle}` + ` ${wrapperClassName ?? ''}`}>
       <label htmlFor={id}>{label}</label>
       <Input {...restProps} id={id} sizeStyle={sizeStyle} />
     </div>

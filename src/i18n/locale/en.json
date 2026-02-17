@@ -76,5 +76,15 @@
       "title": "Empowering Turkmenistan With \nSmart, Reliable Technology",
       "paragraph": "**Nury Tajir** is a fast‑growing technology company established in 2005, dedicated to delivering innovative IT and infrastructure systems across Turkmenistan. In partnership with global leaders in their respective fields, we implement reliable system solutions for aviation, hospitality, healthcare, and commercial development. \n\nOur client‑centric approach ensures customized communication solutions, on‑site support, and ongoing maintenance. With a focus on quality, safety, and sustainability, **we help businesses harness technology to drive growth and efficiency.**"
     }
+  },
+  "projects": {
+    "hero": {
+      "tagline": "Proven Results in IT Infrastructure",
+      "title": "We Power\n The Next \nTech Evolution",
+      "cta": "Contact Us"
+    },
+    "featured": {
+      "subtitle": "Highlighted Projects"
+    }
   }
 }

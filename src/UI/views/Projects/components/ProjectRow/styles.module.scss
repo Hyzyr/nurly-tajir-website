@@ -1,0 +1,45 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
+.project-row {
+  background: var(--n20);
+  border: 1px solid var(--primary-100);
+  display: flex;
+  gap: 16px;
+  height: 575px;
+  padding: 12px;
+  border-radius: 24px;
+  width: 100%;
+
+  &__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+@include breakpoints.respond-max(xl) {
+  .project-row {
+    height: auto;
+    flex-direction: column;
+
+    &__info {
+      flex: auto;
+    }
+  }
+}
+
+@include breakpoints.respond-max(md) {
+  .project-row {
+    padding: 8px;
+    gap: 8px;
+  }
+}

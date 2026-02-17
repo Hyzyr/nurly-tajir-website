@@ -50,7 +50,7 @@ const ProductCategoryCreateModal = React.forwardRef<ModalRef, Props>(
         const controller = (ref as RefObject<ModalRef> | null)?.current;
         if (controller) controller.hide();
         if (onClose) onClose();
-        
+
         if (onRefresh) onRefresh();
       } catch (error) {
         console.error('Error creating product category:', error);

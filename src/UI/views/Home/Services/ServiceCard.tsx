@@ -15,10 +15,9 @@ const ServiceCard = ({ imageIcon, title, active, onClick }: Props) => {
     <div
       className={`${styles.card} 
     ${active ? 'active' : ''} ${imageIcon ? '' : styles.card__noimage}`}
-      onClick={onClick}>
-      {imageIcon && (
-        <img src={`/images/website/services/${imageIcon}`} alt="icon-image" />
-      )}
+      onClick={onClick}
+    >
+      {imageIcon && <img src={`/images/website/services/${imageIcon}`} alt="icon-image" />}
       <div className={styles.card__title}>
         <strong className="subtitle _lg">{title}</strong>
       </div>

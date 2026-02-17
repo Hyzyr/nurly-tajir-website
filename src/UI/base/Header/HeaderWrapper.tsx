@@ -29,11 +29,7 @@ const HeaderWrapper = ({ children }: Props) => {
         isStickyRef.current = true;
         gsap.set(header, { y: '-100%', position: 'fixed' });
         header.classList.add('sticky');
-      } else if (
-        scrollY <= SCROLL_OFFSET &&
-        isStickyRef.current &&
-        !isVisibleRef.current
-      ) {
+      } else if (scrollY <= SCROLL_OFFSET && isStickyRef.current && !isVisibleRef.current) {
         isStickyRef.current = false;
         header.classList.remove('sticky');
 

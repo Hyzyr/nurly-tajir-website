@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-import Container from "@/UI/containers";
-import ProjectCard, { ProjectCardInfo } from "./ProjectCard";
-import ProjectsCardsWrapper from "./ProjectsCardsWrapper";
-import { useTranslations } from "next-intl";
-import ProjectButton from "./ProjectsButton";
-import ProjectModal from "./ProjectModal";
-import { useState, useRef } from "react";
-import { ModalRef } from "@/UI/components/Modal";
+import Container from '@/UI/containers';
+import ProjectCard, { ProjectCardInfo } from './ProjectCard';
+import ProjectsCardsWrapper from './ProjectsCardsWrapper';
+import { useTranslations } from 'next-intl';
+import ProjectButton from './ProjectsButton';
+import ProjectModal from './ProjectModal';
+import { useState, useRef } from 'react';
+import { ModalRef } from '@/UI/components/Modal';
 
 export type ProjectInfo = ProjectCardInfo & { id: string };
 
@@ -18,12 +18,10 @@ type ProjectsContentProps = {
 };
 
 const ProjectsContent = ({ data }: ProjectsContentProps) => {
-  const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(
-    null
-  );
+  const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(null);
   const projectModalRef = useRef<ModalRef>(null);
-  const tCommon = useTranslations("common");
-  const t = useTranslations("home.projects");
+  const tCommon = useTranslations('common');
+  const t = useTranslations('home.projects');
 
   const handleProjectClick = (project: ProjectInfo) => {
     setSelectedProject(project);
@@ -35,7 +33,7 @@ const ProjectsContent = ({ data }: ProjectsContentProps) => {
       <section className={styles.projects} id="projects">
         <Container>
           <div className={styles.projects__inner}>
-            <small>{t("subtitle")}</small>
+            <small>{t('subtitle')}</small>
             <ProjectsCardsWrapper>
               {data &&
                 data.map((project, index) => (
@@ -45,16 +43,13 @@ const ProjectsContent = ({ data }: ProjectsContentProps) => {
                     onClick={() => handleProjectClick(project)}
                   />
                 ))}
-              <ProjectButton text={tCommon("req_consultation")} />
+              <ProjectButton text={tCommon('req_consultation')} />
             </ProjectsCardsWrapper>
           </div>
         </Container>
       </section>
 
-      <ProjectModal
-        ref={projectModalRef}
-        project={selectedProject}
-      />
+      <ProjectModal ref={projectModalRef} project={selectedProject} />
     </>
   );
 };

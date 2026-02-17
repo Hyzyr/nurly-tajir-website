@@ -25,10 +25,26 @@ const ProjectsRow = ({ children }: Props) => {
     const scrollDistance = totalWidth - viewportWidth;
 
     const pinElement = document.getElementById('pin') as HTMLDivElement;
-    const hero = document.getElementById('hero') as HTMLDivElement;
 
-    if (!pinElement || !hero) return;
+    if (!pinElement) return;
     const ctx = gsap.context(() => {
+      // Use container dimensions for calculations
+      const containerHeight = container.clientHeight;
+      const containerOffsetHeight = container.offsetHeight;
+
+      // Responsive calculations based on container and screen size
+      const isMobile = window.innerWidth <= 768;
+      const isTablet = window.innerWidth <= 1024;
+
+      let startOffset;
+      if (isMobile) {
+        startOffset = containerHeight * 0.2; // Start earlier on mobile
+      } else if (isTablet) {
+        startOffset = containerHeight * 0.3; // Medium start on tablet
+      } else {
+        startOffset = containerHeight * 0.5; // Balanced start on desktop
+      }
+
       gsap.to(container, {
         x: -scrollDistance,
         ease: 'none',
@@ -37,8 +53,8 @@ const ProjectsRow = ({ children }: Props) => {
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
-          start: () => `+=${hero.clientHeight * 0.7} top`,
-          end: () => `+=${scrollDistance + 100}`, // how long to pin
+          start: () => `+=${startOffset} top`,
+          end: () => `+=${scrollDistance + containerOffsetHeight * 0.1}`, // End based on container height
           scrub: 1,
           // markers: true
         },

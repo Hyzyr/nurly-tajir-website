@@ -1,0 +1,35 @@
+@use '@/UI/assets/css/mixins/breakpoints';
+
+.projects {
+  width: 100%;
+  padding: 90px 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    overflow: hidden;
+    border-radius: 24px;
+    width: 100%;
+  }
+}
+
+@include breakpoints.respond-max(lg) {
+  .projects {
+    padding: 70px 0;
+
+    &__inner {
+      gap: 40px;
+    }
+  }
+}
+
+@include breakpoints.respond-max(md) {
+  .projects {
+    padding: 50px 0;
+
+    &__inner {
+      gap: 24px;
+    }
+  }
+}

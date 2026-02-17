@@ -36,11 +36,7 @@ const ServiceForm = forwardRef<ServiceFormHandle, Props>(({ data }, ref) => {
 
   return (
     <>
-      <DynamicForm
-        config={servicesConfig}
-        value={data ?? ({} as ServiceInsert)}
-        ref={formRef}
-      />
+      <DynamicForm config={servicesConfig} value={data ?? ({} as ServiceInsert)} ref={formRef} />
       <div className="fbox fbox-gap-1">
         <div>
           <label>Image</label>

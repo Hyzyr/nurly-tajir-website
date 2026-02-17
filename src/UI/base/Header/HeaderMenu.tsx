@@ -40,12 +40,11 @@ const HeaderMenu = ({ active, toggle }: Props) => {
     contactModal.openModal();
   };
 
-  const scrollToSection =
-    (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
-      event.preventDefault();
-      scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
-      toggle(false);
-    };
+  const scrollToSection = (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
+    toggle(false);
+  };
 
   useEffect(() => {
     if (isFirstLoad.current) {

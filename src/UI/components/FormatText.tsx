@@ -16,9 +16,7 @@ export function FormatText({ text }: FormatTextProps) {
 
     parts.forEach((part, i) => {
       if (part.startsWith('**') && part.endsWith('**')) {
-        elements.push(
-          <b key={`bold-${lineIndex}-${i}`}>{part.slice(2, -2)}</b>
-        );
+        elements.push(<b key={`bold-${lineIndex}-${i}`}>{part.slice(2, -2)}</b>);
       } else {
         elements.push(<span key={`text-${lineIndex}-${i}`}>{part}</span>);
       }

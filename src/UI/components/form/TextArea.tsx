@@ -48,10 +48,7 @@ export const LabeledTextarea = ({
   const id = useId();
 
   return (
-    <div
-      className={
-        `${styles.input__group}  _${sizeStyle}` + ` ${wrapperClassName ?? ''}`
-      }>
+    <div className={`${styles.input__group}  _${sizeStyle}` + ` ${wrapperClassName ?? ''}`}>
       <label htmlFor={id}>{label}</label>
       <Textarea {...restProps} id={id} sizeStyle={sizeStyle} />
     </div>

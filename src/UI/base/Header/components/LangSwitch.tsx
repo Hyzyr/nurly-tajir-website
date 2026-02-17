@@ -35,7 +35,8 @@ const LangSwitch = ({ onClick }: Props) => {
   return (
     <div
       className={`${styles.header__pre__drop} ${active ? 'active' : ''}`}
-      onClick={() => toggle()}>
+      onClick={() => toggle()}
+    >
       <Icon name={'translateIcon'} className="_label" />
       <span>{toThreeLetter(locale)}</span>
       <Icon name={'arrowDownSVG'} className="_arrow" />

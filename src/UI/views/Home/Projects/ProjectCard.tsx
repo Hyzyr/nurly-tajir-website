@@ -12,12 +12,7 @@ type ProjectCardProps = ProjectCardInfo & {
   onClick?: () => void;
 };
 
-const ProjectCard = ({
-  image,
-  title,
-  description,
-  onClick,
-}: ProjectCardProps) => {
+const ProjectCard = ({ image, title, description, onClick }: ProjectCardProps) => {
   return (
     <div className={styles.card} onClick={onClick}>
       <div className="ratioImage">

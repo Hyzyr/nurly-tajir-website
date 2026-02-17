@@ -33,11 +33,7 @@ const ProjectForm = forwardRef<ProjectFormHandle, Props>(({ data }, ref) => {
 
   return (
     <>
-      <DynamicForm
-        config={projectsConfig}
-        value={data ?? ({} as ProjectInsert)}
-        ref={formRef}
-      />
+      <DynamicForm config={projectsConfig} value={data ?? ({} as ProjectInsert)} ref={formRef} />
       <div>
         <label>Image</label>
         <ImageInput

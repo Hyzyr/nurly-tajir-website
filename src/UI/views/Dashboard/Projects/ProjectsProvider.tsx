@@ -37,7 +37,7 @@ const ProjectsProvider = () => {
       .then(({ data, error }) => {
         if (error) throw error;
         const rows = (data ?? []) as Project[];
-        
+
         const dataWithIndex: ProjectWithID[] = rows.map((item, i) => ({
           ...item,
           index: i + 1,
@@ -63,11 +63,7 @@ const ProjectsProvider = () => {
         />
       )}
       {data && (
-        <ProjectCreateModal
-          disabled={isFetching}
-          ref={addModalRef}
-          onRefresh={fetchProjects}
-        />
+        <ProjectCreateModal disabled={isFetching} ref={addModalRef} onRefresh={fetchProjects} />
       )}
     </>
   );

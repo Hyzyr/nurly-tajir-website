@@ -52,7 +52,7 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
         const controller = (ref as RefObject<ModalRef> | null)?.current;
         if (controller) controller.hide();
         if (onClose) onClose();
-        
+
         if (onRefresh) onRefresh();
       } catch (error) {
         console.error('Error updating product category:', error);
@@ -62,7 +62,7 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
 
     const onDelete = async () => {
       if (!data?.id) return;
-      
+
       const confirmed = window.confirm('Are you sure you want to delete this product category?');
       if (!confirmed) return;
 
@@ -71,7 +71,7 @@ const ProductsCategoryEditModal = React.forwardRef<ModalRef, Props>(
         const controller = (ref as RefObject<ModalRef> | null)?.current;
         if (controller) controller.hide();
         if (onClose) onClose();
-        
+
         if (onRefresh) onRefresh();
       } catch (error) {
         console.error('Error deleting product category:', error);

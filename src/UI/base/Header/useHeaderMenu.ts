@@ -13,10 +13,7 @@ type useHeaderMenuReturns = {
   setHidden: () => void;
 };
 
-const useHeaderMenu = ({
-  wrapperRef,
-  bodyRef,
-}: Props): useHeaderMenuReturns => {
+const useHeaderMenu = ({ wrapperRef, bodyRef }: Props): useHeaderMenuReturns => {
   const initStyles = () => {
     const wrapper = wrapperRef?.current;
     const body = bodyRef?.current;

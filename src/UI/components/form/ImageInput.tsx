@@ -1,13 +1,6 @@
 import Icon from '../Icon';
 import styles from './styles.module.scss';
-import React, {
-  ChangeEvent,
-  useEffect,
-  useId,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+import React, { ChangeEvent, useEffect, useId, useImperativeHandle, useRef, useState } from 'react';
 
 type ImageInputProps = {
   id?: string | number;
@@ -27,8 +20,7 @@ const ImageInput = React.forwardRef<ImageInputRef, ImageInputProps>(
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>): void => {
       const fileList = e.target.files;
-      const file: File | null =
-        fileList && fileList.length > 0 ? fileList[0] : null;
+      const file: File | null = fileList && fileList.length > 0 ? fileList[0] : null;
       setSelectedFile(file);
       setPreviewUrl(null);
 
@@ -69,7 +61,8 @@ const ImageInput = React.forwardRef<ImageInputRef, ImageInputProps>(
           className={styles.inputFile__body}
           style={{
             paddingBottom: `${ratioPercent * 100}%`,
-          }}>
+          }}
+        >
           <input
             ref={inputRef}
             type="file"
@@ -81,10 +74,7 @@ const ImageInput = React.forwardRef<ImageInputRef, ImageInputProps>(
           <div className={styles.inputFile__placeholder}>
             <Icon name="imageSVG" />
           </div>
-          <div
-            className={`${styles.inputFile__preview} ${
-              previewUrl ? styles.active : ''
-            }`}>
+          <div className={`${styles.inputFile__preview} ${previewUrl ? styles.active : ''}`}>
             {previewUrl && <img src={previewUrl} alt="preview-file" />}
           </div>
           <span className={styles.inputFile__updatebtn} onClick={onClick}>
@@ -101,11 +91,7 @@ type LabeledInputProps = ImageInputProps & {
   wrapperClassName?: string;
 };
 
-const LabeledImageInput = ({
-  wrapperClassName,
-  label,
-  ...restProps
-}: LabeledInputProps) => {
+const LabeledImageInput = ({ wrapperClassName, label, ...restProps }: LabeledInputProps) => {
   const id = useId();
 
   return (
@@ -117,5 +103,5 @@ const LabeledImageInput = ({
 };
 
 export { LabeledImageInput };
-ImageInput.displayName = 'ImageInput'; 
+ImageInput.displayName = 'ImageInput';
 export default ImageInput;

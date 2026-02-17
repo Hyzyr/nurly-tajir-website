@@ -36,7 +36,7 @@ const ServicesProvider = () => {
       .then(({ data, error }) => {
         if (error) throw error;
         const rows = (data ?? []) as Service[]; // rows is Service[]
-        
+
         const dataWithIndex: ServiceWithID[] = rows.map((item, i) => ({
           ...item,
           index: i + 1,
@@ -62,11 +62,7 @@ const ServicesProvider = () => {
         />
       )}
       {data && (
-        <ServiceCreateModal
-          disabled={isFetching}
-          ref={addModalRef}
-          onRefresh={fetchServices}
-        />
+        <ServiceCreateModal disabled={isFetching} ref={addModalRef} onRefresh={fetchServices} />
       )}
     </>
   );

@@ -8,9 +8,7 @@ type SkeletonProps = {
 const ServiceCardSkeleton = ({ hasImage = true }: SkeletonProps) => {
   return (
     <div className={`${styles.card} ${styles.skeleton} ${!hasImage ? styles.card__noimage : ''}`}>
-      {hasImage && (
-        <div className={styles.skeleton__cardImage} />
-      )}
+      {hasImage && <div className={styles.skeleton__cardImage} />}
       <div className={styles.card__title}>
         <div className={styles.skeleton__cardTitle} />
       </div>

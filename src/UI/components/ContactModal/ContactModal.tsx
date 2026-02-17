@@ -44,22 +44,15 @@ const ContactModal = React.forwardRef<ModalRef, Props>(({ onClose }, ref) => {
           />
         </div>
         <Button
-          size="sm"
           icon="crossSVG"
           style="secondary"
           text="Close"
           onClick={() => {
-            const controler = (ref as React.RefObject<ModalRef> | null)
-              ?.current;
+            const controler = (ref as React.RefObject<ModalRef> | null)?.current;
             if (controler) controler.hide();
           }}
         />
-        <Button
-          size="sm"
-          icon="sendSVG"
-          text="Send"
-          onClick={submit}
-        />
+        <Button icon="sendSVG" text="Send" onClick={submit} />
       </ModalCTA>
     </Modal>
   );
