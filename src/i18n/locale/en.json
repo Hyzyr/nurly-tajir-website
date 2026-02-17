@@ -2,6 +2,7 @@
   "common": {
     "get_quote": "Get Quote",
     "req_consultation": "Request Consultation",
+    "explore_projects": "Explore Projects",
     "explore_store": "Explore Store",
     "company": "Company",
     "legal": "Legal",
@@ -56,7 +57,7 @@
   "home": {
     "hero": {
       "tagline": "From Development to Deployment",
-      "title": "We Power\n The Next \nTech Evolution",
+      "title": "We Power\n The Next Tech \n Evolution",
       "cta": "Contact Us"
     },
     "projects": {
@@ -70,7 +71,7 @@
       "description": "We are official distributors in Turkmenistan for leading global brands like Samsung, Bosch, Philips, Hikvision, Cisco, and Honeywell — delivering certified, high‑quality solutions backed by trusted technology."
     },
     "products": {
-      "title": "Our \nProducts"
+      "title": "Our \nTech Partners"
     },
     "about": {
       "title": "Empowering Turkmenistan With \nSmart, Reliable Technology",
@@ -80,7 +81,7 @@
   "projects": {
     "hero": {
       "tagline": "Proven Results in IT Infrastructure",
-      "title": "We Power\n The Next \nTech Evolution",
+      "title": "Our Projects",
       "cta": "Contact Us"
     },
     "featured": {

@@ -70,7 +70,9 @@
       background: rgba(#b4bac0, 0.15);
     }
   }
-
+  :global(.icon) {
+    font-size: 0.8em;
+  }
   &-lg {
     padding: 0.88em 1.5em;
   }

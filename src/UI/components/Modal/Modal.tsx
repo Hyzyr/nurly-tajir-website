@@ -5,6 +5,7 @@ import styles from './styles.module.scss';
 import { createPortal } from 'react-dom';
 import React, { PropsWithChildren, RefObject, useEffect, useImperativeHandle, useRef } from 'react';
 import useModalAnimations from './useModalAnimations';
+import { useLenisScroll } from '@/hooks/useLenisScroll';
 
 type Props = {
   onClose?: () => void;
@@ -23,6 +24,7 @@ export type ModalRef = {
 const Modal = React.forwardRef<ModalRef, Props>(
   ({ title = 'title', children, onClose, foldable = false }, ref) => {
     const wrapperRef = useRef<HTMLDivElement>(null);
+    const { stopScroll, startScroll } = useLenisScroll();
 
     const { hide, show, shake, isVisible } = useModalAnimations({
       ref: wrapperRef,
@@ -31,10 +33,10 @@ const Modal = React.forwardRef<ModalRef, Props>(
     // handle on fog click
     const handleClose = React.useCallback(() => {
       if (onClose) onClose();
-      window.document.body.style.overflow = '';
+      startScroll();
 
       hide();
-    }, [hide, onClose]);
+    }, [hide, onClose, startScroll]);
 
     useEffect(() => {
       const wrapper = wrapperRef.current;
@@ -54,17 +56,17 @@ const Modal = React.forwardRef<ModalRef, Props>(
       ref,
       () => ({
         show: () => {
-          window.document.body.style.overflow = 'hidden';
+          stopScroll();
           show();
         },
         hide: () => {
-          window.document.body.style.overflow = '';
+          startScroll();
           hide();
         },
         isVisible: () => isVisible(),
         wrapperRef: wrapperRef,
       }),
-      [show, hide]
+      [show, hide, stopScroll, startScroll]
     );
 
     return createPortal(

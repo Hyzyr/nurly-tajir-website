@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation';
 import { getLocale } from 'next-intl/server';
 import { locales } from '@/i18n/config';
 import { ContactModalProvider } from '@/UI/components/ContactModal';
+import { LenisProvider } from '@/providers/LenisProvider';
 
 const manrope = Manrope({
   subsets: ['latin'],
@@ -43,11 +44,13 @@ export default async function RootLayout({ children }: RootPropsType) {
   return (
     <html lang={currentLocale}>
       <body className={`${manrope.variable} `}>
-        <NextIntlClientProvider>
-          <main className={'main'} id="main">
-            <ContactModalProvider>{children}</ContactModalProvider>
-          </main>
-        </NextIntlClientProvider>
+        <LenisProvider>
+          <NextIntlClientProvider>
+            <main className={'main'} id="main">
+              <ContactModalProvider>{children}</ContactModalProvider>
+            </main>
+          </NextIntlClientProvider>
+        </LenisProvider>
       </body>
     </html>
   );

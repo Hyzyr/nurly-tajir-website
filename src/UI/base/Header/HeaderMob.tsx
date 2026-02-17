@@ -5,14 +5,16 @@ import Container from '@/UI/containers';
 import React, { useState } from 'react';
 import HamburgerBtn from './HamburgerBtn';
 import HeaderMenu from './HeaderMenu';
+import { useLenisScroll } from '@/hooks/useLenisScroll';
 
 const HeaderMob = () => {
   const [menuActive, setMenuActive] = useState(false);
+  const { stopScroll, startScroll } = useLenisScroll();
 
   const toggleMenu = (state?: boolean) => {
     const newState = state === undefined ? !menuActive : state;
     setMenuActive(newState);
-    document.body.style.overflow = newState ? 'hidden' : '';
+    newState ? stopScroll() : startScroll();
   };
 
   return (

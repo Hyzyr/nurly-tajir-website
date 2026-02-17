@@ -3,21 +3,21 @@ import React from 'react';
 import Icon from '@/UI/components/Icon';
 
 import styles from './styles.module.scss';
-import { useContactModal } from '@/UI/components/ContactModal';
+import Link from 'next/link';
+import { useLocale } from 'next-intl';
 
 type ProjectButtonType = {
   text: string;
 };
 
 const ProjectButton = ({ text }: ProjectButtonType) => {
-  const contactModal = useContactModal();
-  const contactUs = () => contactModal.openModal();
+  const locale = useLocale();
 
   return (
-    <div className={styles.projects__row__button} onClick={contactUs}>
+    <Link href={`/${locale}/projects`} className={styles.projects__row__button}>
       <strong className="subtitle _lg">{text}</strong>
       <Icon name="arrowCorner" />
-    </div>
+    </Link>
   );
 };
 

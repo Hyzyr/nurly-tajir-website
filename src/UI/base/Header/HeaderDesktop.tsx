@@ -4,22 +4,30 @@ import Button from '@/UI/components/Button';
 import Icon, { IconNames } from '@/UI/components/Icon';
 import Logo from '@/UI/components/Logo';
 import Container from '@/UI/containers';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname } from 'next/navigation';
 import LangSwitch from './components/LangSwitch';
 import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
 import { useContactModal } from '@/UI/components/ContactModal';
 
 const HeaderDesktop = () => {
   const t = useTranslations('common');
+  const locale = useLocale();
+  const pathname = usePathname();
 
   const contactModal = useContactModal();
   const contactUs = () => contactModal.openModal();
 
   const scrollTo = useGsapScrollTo();
 
+  const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
+
   const scrollToSection = (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    scrollTo(section, { offsetY: window!.innerHeight * 0.15 });
+    if (isHomePage) {
+      event.preventDefault();
+      scrollTo(section, { offsetY: window!.innerHeight * 0.15 });
+    }
+    // If not on home page, let the link navigate normally to /${locale}/#section
   };
 
   return (
@@ -53,19 +61,17 @@ const HeaderDesktop = () => {
             <Logo />
             <nav>
               <div className="fbox fbox-gap-2">
-                <a href={'#projects'} onClick={scrollToSection('#projects')}>
-                  {t('nav.projects')}
-                </a>
-                <a href={'#services'} onClick={scrollToSection('#services')}>
+                <a href={`/${locale}/projects`}>{t('nav.projects')}</a>
+                <a href={`/services`} onClick={scrollToSection('#services')}>
                   {t('nav.services')}
                 </a>
-                <a href={'#products'} onClick={scrollToSection('#products')}>
+                <a href={`/${locale}/#products`} onClick={scrollToSection('#products')}>
                   {t('nav.products')}
                 </a>
-                <a href={'#about-us'} onClick={scrollToSection('#about-us')}>
+                <a href={`/${locale}/#about-us`} onClick={scrollToSection('#about-us')}>
                   {t('nav.about_us')}
                 </a>
-                <a href={'#footer'} onClick={scrollToSection('#footer')}>
+                <a href={`/${locale}/#footer`} onClick={scrollToSection('#footer')}>
                   {t('nav.contacts')}
                 </a>
               </div>

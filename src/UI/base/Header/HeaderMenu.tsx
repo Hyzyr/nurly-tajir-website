@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Button from '@/UI/components/Button';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import LangSwitch from './components/LangSwitch';
 import { usePathname } from 'next/navigation';
 import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
@@ -19,6 +19,7 @@ type Props = {
 
 const HeaderMenu = ({ active, toggle }: Props) => {
   const t = useTranslations('common');
+  const locale = useLocale();
   const path = usePathname();
   const contactModal = useContactModal();
 
@@ -32,6 +33,8 @@ const HeaderMenu = ({ active, toggle }: Props) => {
     bodyRef,
   });
 
+  const isHomePage = path === `/${locale}` || path === `/${locale}/`;
+
   const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (toggle && e.target === wrapperRef.current) toggle();
   };
@@ -41,8 +44,10 @@ const HeaderMenu = ({ active, toggle }: Props) => {
   };
 
   const scrollToSection = (section: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
-    event.preventDefault();
-    scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
+    if (isHomePage) {
+      event.preventDefault();
+      scrollTo(section, { offsetY: window!.innerHeight * 0.12 });
+    }
     toggle(false);
   };
 
@@ -69,19 +74,19 @@ const HeaderMenu = ({ active, toggle }: Props) => {
           <LangSwitch onClick={() => toggle(false)} />
         </div>
         <div className={styles.menu__links}>
-          <a href={'#projects'} onClick={scrollToSection('#projects')}>
+          <a href={`/${locale}/#projects`} onClick={scrollToSection('#projects')}>
             {t('nav.projects')}
           </a>
-          <a href={'#services'} onClick={scrollToSection('#services')}>
+          <a href={`/${locale}/#services`} onClick={scrollToSection('#services')}>
             {t('nav.services')}
           </a>
-          <a href={'#products'} onClick={scrollToSection('#products')}>
+          <a href={`/${locale}/#products`} onClick={scrollToSection('#products')}>
             {t('nav.products')}
           </a>
-          <a href={'#about-us'} onClick={scrollToSection('#about-us')}>
+          <a href={`/${locale}/#about-us`} onClick={scrollToSection('#about-us')}>
             {t('nav.about_us')}
           </a>
-          <a href={'#contacts'} onClick={scrollToSection('#footer')}>
+          <a href={`/${locale}/#footer`} onClick={scrollToSection('#footer')}>
             {t('nav.contacts')}
           </a>
         </div>

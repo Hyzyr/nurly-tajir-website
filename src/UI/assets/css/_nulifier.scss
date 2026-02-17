@@ -1,6 +1,24 @@
 @use './mixins/helpers';
 
 @include helpers.custom-scrollbar;
+
+// Lenis smooth scroll setup
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 body {
   font-family: var(--font-manrope);
   background: var(--n20);

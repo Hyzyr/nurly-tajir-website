@@ -6,9 +6,33 @@ import React, { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useWindowResize } from '@/hooks/useWindowResize';
+import { cn } from '@/utils/cn';
 gsap.registerPlugin(ScrollTrigger);
 
 type Props = { children: React.ReactNode };
+
+/**
+ * Get offset distance from child element to parent element
+ * @param child - The child element (can be deeply nested)
+ * @param parent - The parent/ancestor element
+ * @returns The offset top distance from child to parent
+ */
+const getOffsetToParent = (child: HTMLElement, parent: HTMLElement): number => {
+  let offsetTop = 0;
+  let currentElement: HTMLElement | null = child;
+
+  while (currentElement && currentElement !== parent) {
+    offsetTop += currentElement.offsetTop;
+    currentElement = currentElement.offsetParent as HTMLElement | null;
+
+    // Break if we've gone past the parent or reached document
+    if (!currentElement || !parent.contains(currentElement)) {
+      break;
+    }
+  }
+
+  return offsetTop;
+};
 
 const ProjectsRow = ({ children }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,9 +52,7 @@ const ProjectsRow = ({ children }: Props) => {
 
     if (!pinElement) return;
     const ctx = gsap.context(() => {
-      // Use container dimensions for calculations
-      const containerHeight = container.clientHeight;
-      const containerOffsetHeight = container.offsetHeight;
+      const containerOffsetTop = getOffsetToParent(container, pinElement);
 
       // Responsive calculations based on container and screen size
       const isMobile = window.innerWidth <= 768;
@@ -38,11 +60,11 @@ const ProjectsRow = ({ children }: Props) => {
 
       let startOffset;
       if (isMobile) {
-        startOffset = containerHeight * 0.2; // Start earlier on mobile
+        startOffset = containerOffsetTop * 0.2;
       } else if (isTablet) {
-        startOffset = containerHeight * 0.3; // Medium start on tablet
+        startOffset = containerOffsetTop * 0.3;
       } else {
-        startOffset = containerHeight * 0.5; // Balanced start on desktop
+        startOffset = containerOffsetTop * 0.65;
       }
 
       gsap.to(container, {
@@ -51,12 +73,13 @@ const ProjectsRow = ({ children }: Props) => {
         scrollTrigger: {
           trigger: pinElement,
           pin: true,
-          pinSpacing: true,
+          pinSpacing: true, // Disable fake spacing
           anticipatePin: 1,
           start: () => `+=${startOffset} top`,
-          end: () => `+=${scrollDistance + containerOffsetHeight * 0.1}`, // End based on container height
-          scrub: 1,
-          // markers: true
+          end: () => `+=${scrollDistance}`,
+          scrub: 0.5,
+          invalidateOnRefresh: true,
+          // markers: true,
         },
       });
     }, container);
@@ -65,7 +88,7 @@ const ProjectsRow = ({ children }: Props) => {
   }, [trigger]);
 
   return (
-    <div className={styles.projects__row} ref={containerRef}>
+    <div className={cn(styles.projects__row, 'change-transform')} ref={containerRef}>
       {children}
     </div>
   );

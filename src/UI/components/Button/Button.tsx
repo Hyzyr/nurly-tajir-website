@@ -9,6 +9,7 @@ type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   state?: 'default' | 'warning' | 'danger' | 'success';
   inlineCSS?: CSSProperties;
   icon?: IconNames;
+  iconRight?: boolean;
 };
 
 const Button = ({
@@ -20,6 +21,7 @@ const Button = ({
   state,
   inlineCSS,
   disabled,
+  iconRight,
   onClick,
 }: Props) => {
   const sizeClass = `button-${size}`;
@@ -34,9 +36,10 @@ const Button = ({
       ${state ? styles[state] : ''}`}
       onClick={onClick}
       style={inlineCSS}>
-      {icon && <Icon name={icon} />}
+      {icon && !iconRight && <Icon name={icon} />}
       {text && text}
       {children && children}
+      {icon && iconRight && <Icon name={icon} />}
     </button>
   );
 };

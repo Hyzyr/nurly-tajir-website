@@ -3,6 +3,8 @@
     "get_quote": "Teklip alyň",
     "req_consultation": "Maslahat soramak",
     "explore_store": "Ähli harytlar",
+    "explore_projects": "Biziň işlerimiz",
+    "explore_services": "Biziň hyzmatlarymyz",
     "company": "Kompaniýa",
     "legal": "Hukuk",
     "office": "Ofis",
@@ -70,7 +72,7 @@
       "description": "Biz Türkmenistanda Samsung, Bosch, Philips, Hikvision, Cisco we Honeywell ýaly dünýä belli brendleriň resmi dileri bolup, ynamdar tehnologiýalara esaslanan ýokary hilli çözgütleri üpjün edýäris."
     },
     "products": {
-      "title": "Biziň\n harytlarymyz"
+      "title": "Tehnologiýa \n hyzmatdaşlarymyz"
     },
     "about": {
       "title": "Akylly we ygtybarly tehnologiýa \n Döwrebap Döwlete gadam",

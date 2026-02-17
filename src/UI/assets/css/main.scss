@@ -3,6 +3,12 @@
 @use './typo';
 @use './mixins/breakpoints';
 
+// Pin wrapper for horizontal scroll section
+#pin {
+  position: relative;
+  min-height: 100vh;
+}
+
 .seperator {
   &-ver {
     display: block;
@@ -103,6 +109,21 @@
   &._lg {
     font-size: 1.32rem;
   }
+}
+
+.change-auto {
+  will-change: auto;
+  backface-visibility: hidden;
+}
+.change-transform {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.mark-3d {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 }
 
 @include breakpoints.respond-max(xxl) {

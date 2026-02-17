@@ -17,9 +17,11 @@
       color: var(--n50);
     }
   }
+
   &__row {
     display: flex;
     gap: 1.33em;
+    will-change: auto;
 
     &__button {
       cursor: pointer;
@@ -47,12 +49,7 @@
         border-radius: inherit;
         transition: 0.4s ease-out 0.05s;
 
-        background: linear-gradient(
-          180deg,
-          #e0e2e4 0%,
-          #e6edf5 35.1%,
-          #e0e2e4 100%
-        );
+        background: linear-gradient(180deg, #e0e2e4 0%, #e6edf5 35.1%, #e0e2e4 100%);
       }
       &:after {
         position: absolute;
@@ -347,12 +344,7 @@
 
   // Button skeleton specific styles
   &.projects__row__button {
-    background: linear-gradient(
-      180deg,
-      #e0e2e4 0%,
-      #e6edf5 35.1%,
-      #e0e2e4 100%
-    );
+    background: linear-gradient(180deg, #e0e2e4 0%, #e6edf5 35.1%, #e0e2e4 100%);
     opacity: 0.7;
 
     &:before,
