@@ -14,7 +14,11 @@ const HeaderMob = () => {
   const toggleMenu = (state?: boolean) => {
     const newState = state === undefined ? !menuActive : state;
     setMenuActive(newState);
-    newState ? stopScroll() : startScroll();
+    if (newState) {
+      stopScroll();
+    } else {
+      startScroll();
+    }
   };
 
   return (

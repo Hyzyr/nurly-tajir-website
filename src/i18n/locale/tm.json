@@ -11,7 +11,7 @@
     "info": "Gysga wagtyň içinde dürli pudaklarda 15-den gowrak taslamalary üstünlikli amala aşyrdyk",
     "nav": {
       "projects": "Taslamalar",
-      "services": "Hyzmatlar",
+      "services": "Hyzmatlarymyz",
       "products": "Harytlar",
       "about_us": "Biz barada",
       "contacts": "Kontaktlar",
@@ -77,6 +77,20 @@
     "about": {
       "title": "Akylly we ygtybarly tehnologiýa \n Döwrebap Döwlete gadam",
       "paragraph": "**Nury Tajir** — 2005-nji ýylda döredilen we Türkmenistanda innowasion IT we infrastruktura ulgamlaryny gurnamak hyzmatlaryny ýerine ýetirýän, çalt ösýän tehnologiýa kompaniýasy. Öz ugurlarynda dünýä liderleri bilen hyzmatdaşlykda awiasiýa, myhmanhana, saglyk we söwda ösüşi üçin ygtybarly ulgam çözgütlerini amala aşyrýarys.\n\nMüşderi merkezlerini çemeleşmemiz aragatnaşyk çözgütlerini, ýerinde goldaw we yzygiderli hyzmaty üpjün edýär. Hil, howpsuzlyk we durnuklylyk esasynda, **biz işler üçin ösüşi we netijeliligi ýokarlandyrmak üçin tehnologiýalary ulanmagyna kömek edýäris.**"
+    }
+  },
+  "projects": {
+    "hero": {
+      "tagline": "IT infrastrukturasında subut edilen netijeler",
+      "title": "Biziň taslamalarymyz",
+      "cta": "Habarlaşmak"
+    }
+  },
+  "expertise": {
+    "hero": {
+      "tagline": "Doly IT gurnama we goldaw",
+      "title": "Biziň hünärlerimiz",
+      "cta": "Habarlaşmak"
     }
   }
 }

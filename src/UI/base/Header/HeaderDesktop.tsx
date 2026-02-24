@@ -62,7 +62,7 @@ const HeaderDesktop = () => {
             <nav>
               <div className="fbox fbox-gap-2">
                 <a href={`/${locale}/projects`}>{t('nav.projects')}</a>
-                <a href={`/services`} onClick={scrollToSection('#services')}>
+                <a href={`/${locale}/expertise`} >
                   {t('nav.services')}
                 </a>
                 <a href={`/${locale}/#products`} onClick={scrollToSection('#products')}>

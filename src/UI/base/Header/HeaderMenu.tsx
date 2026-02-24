@@ -74,12 +74,8 @@ const HeaderMenu = ({ active, toggle }: Props) => {
           <LangSwitch onClick={() => toggle(false)} />
         </div>
         <div className={styles.menu__links}>
-          <a href={`/${locale}/#projects`} onClick={scrollToSection('#projects')}>
-            {t('nav.projects')}
-          </a>
-          <a href={`/${locale}/#services`} onClick={scrollToSection('#services')}>
-            {t('nav.services')}
-          </a>
+          <a href={`/${locale}/projects`}>{t('nav.projects')}</a>
+          <a href={`/${locale}/expertise`}>{t('nav.services')}</a>
           <a href={`/${locale}/#products`} onClick={scrollToSection('#products')}>
             {t('nav.products')}
           </a>

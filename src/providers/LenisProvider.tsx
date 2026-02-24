@@ -5,6 +5,13 @@ import Lenis from '@studio-freight/lenis';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap';
 
+// Extend Window interface to include lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
+
 gsap.registerPlugin(ScrollTrigger);
 
 type LenisProviderProps = {
@@ -23,7 +30,6 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1,
-      smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
     });
@@ -32,7 +38,7 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
 
     // Store Lenis instance globally for use in hooks
     if (typeof window !== 'undefined') {
-      (window as any).lenis = lenis;
+      window.lenis = lenis;
     }
 
     // Integrate Lenis with GSAP ScrollTrigger
@@ -50,7 +56,7 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
     return () => {
       lenis.destroy();
       if (typeof window !== 'undefined') {
-        delete (window as any).lenis;
+        delete window.lenis;
       }
     };
   }, []);

@@ -10,7 +10,7 @@
     "info": "In a short time, we’ve successfully implemented over 15 projects in variouse sectors",
     "nav": {
       "projects": "Projects",
-      "services": "Services",
+      "services": "Our Expertise",
       "products": "Products",
       "about_us": "About Us",
       "contacts": "Contacts",
@@ -83,9 +83,13 @@
       "tagline": "Proven Results in IT Infrastructure",
       "title": "Our Projects",
       "cta": "Contact Us"
-    },
-    "featured": {
-      "subtitle": "Highlighted Projects"
+    }
+  },
+  "expertise": {
+    "hero": {
+      "tagline": "Complete IT Installation & Support",
+      "title": "Our Expertise",
+      "cta": "Contact Us"
     }
   }
 }

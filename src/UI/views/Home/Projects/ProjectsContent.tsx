@@ -10,7 +10,6 @@ import ProjectButton from './ProjectsButton';
 import ProjectModal from './ProjectModal';
 import { useState, useRef } from 'react';
 import { ModalRef } from '@/UI/components/Modal';
-import Button from '@/UI/components/Button';
 
 export type ProjectInfo = ProjectCardInfo & { id: string };
 

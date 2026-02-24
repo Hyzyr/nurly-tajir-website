@@ -1,15 +1,15 @@
 import Footer from '@/UI/base/Footer';
 import Header from '@/UI/base/Header';
-import { ProjectsHero } from '@/UI/views/Projects/ProjectsHero';
-import ProjectsList from '@/UI/views/Projects/ProjectsList';
+import { ExpertiseHero, ExpertiseList } from '@/UI/views/Expertise';
+
 
 export default function Home() {
 
   return (
     <>
       <Header />
-      <ProjectsHero />
-      <ProjectsList />
+      <ExpertiseHero />
+      <ExpertiseList />
       <Footer />
     </>
   );

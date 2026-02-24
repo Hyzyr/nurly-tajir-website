@@ -1,5 +1,12 @@
-import { useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import Lenis from '@studio-freight/lenis';
+
+// Extend Window interface to include lenis
+declare global {
+  interface Window {
+    lenis?: Lenis;
+  }
+}
 
 /**
  * Custom hook to control Lenis smooth scroll
@@ -8,7 +15,7 @@ import Lenis from '@studio-freight/lenis';
 export const useLenisScroll = () => {
   const getLenis = useCallback((): Lenis | null => {
     if (typeof window !== 'undefined') {
-      return (window as any).lenis || null;
+      return window.lenis || null;
     }
     return null;
   }, []);

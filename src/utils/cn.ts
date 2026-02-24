@@ -17,10 +17,10 @@ type ClassValue =
   | ClassArray;
 
 interface ClassDictionary {
-  [key: string]: any;
+  [key: string]: boolean | null | undefined;
 }
 
-interface ClassArray extends Array<ClassValue> {}
+type ClassArray = ClassValue[];
 
 export const cn = (...inputs: ClassValue[]): string => {
   const out: string[] = [];
