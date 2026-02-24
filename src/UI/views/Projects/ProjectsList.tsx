@@ -1,51 +1,53 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import ProjectRow, { ProjectRowData } from './components/ProjectRow';
+import { ProjectsListSkeleton } from './components/ProjectRow/ProjectRowSkeleton';
 import styles from './styles.module.scss';
 import Container from '@/UI/containers';
+import { fetchAll } from '@/utils/supabase/client';
+import { dbHelper } from '@/utils/supabase/helper';
+import { Locales } from '@/i18n/config';
 
 type Props = {
-  projects?: ProjectRowData[];
+  locale: Locales;
   onContactClick?: () => void;
 };
-const mockProjects: ProjectRowData[] = [
-  {
-    title: 'National Airport',
-    description:
-      'We implemented over 50 reliable IT and system solutions — including networking, control systems, and integration support across the airport facility.\n\nWe implemented over 50 reliable IT and system solutions — including networking, control systems, and integration support across the airport facility.\n\n300+ camera\n20 monitors',
-    image: '/images/projects/airport.jpg',
-    badges: ['CCTV & Security Cameras', 'IT Systems', 'Fire Detection Systems', '+2'],
-    date: '29 - Jan, 2024',
-    location: 'Ashgabat',
-    client: 'Sahra Gurlushyk',
-  },
-  {
-    title: 'Commercial Buildings',
-    description:
-      'We implemented over 50 reliable IT and system solutions — including networking, control systems, and integration support across the airport facility.\n\nWe implemented over 50 reliable IT and system solutions — including networking, control systems, and integration support across the airport facility.\n\n300+ camera\n20 monitors',
-    image: '/images/projects/commercial.jpg',
-    badges: ['CCTV & Security Cameras', 'IT Systems', 'Fire Detection Systems', '+2'],
-    date: '29 - Jan, 2024',
-    location: 'Ashgabat',
-    client: 'Sahra Gurlushyk',
-  },
-];
-const ProjectsList = ({ projects = [], onContactClick }: Props) => {
-  // Mock data for demonstration - replace with actual data
 
-  const displayProjects = projects.length > 0 ? projects : mockProjects;
+const ProjectsList = ({ locale, onContactClick }: Props) => {
+  const [projects, setProjects] = useState<ProjectRowData[] | null>(null);
+
+  useEffect(() => {
+    fetchAll('projects', { sortBy: 'inserted_at', ascending: false }).then((res) => {
+      const mapped: ProjectRowData[] = res.map((project) => ({
+        title: project[dbHelper.getTitle(locale)],
+        description: project[dbHelper.getDescription(locale)],
+        image: project.image,
+        badges: project.tags ?? [],
+        date: project.completed_at ?? undefined,
+        location: project.location ?? undefined,
+        client: project.client ?? undefined,
+      }));
+      setProjects(mapped);
+    });
+  }, [locale]);
 
   return (
     <div className={styles.projects}>
       <Container>
         <div className={styles.projects__inner}>
-          {displayProjects.map((project, index) => (
-            <ProjectRow
-              key={index}
-              project={project}
-              layout={index % 2 === 0 ? 'big-left' : 'big-right'}
-              onContactClick={onContactClick}
-            />
-          ))}
+          {projects === null ? (
+            <ProjectsListSkeleton />
+          ) : (
+            projects.map((project, index) => (
+              <ProjectRow
+                key={index}
+                project={project}
+                layout={index % 2 === 0 ? 'big-left' : 'big-right'}
+                onContactClick={onContactClick}
+              />
+            ))
+          )}
         </div>
       </Container>
     </div>

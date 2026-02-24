@@ -1,15 +1,16 @@
 import Footer from '@/UI/base/Footer';
 import Header from '@/UI/base/Header';
 import { ExpertiseHero, ExpertiseList } from '@/UI/views/Expertise';
+import { useLocale } from 'next-intl';
 
-
-export default function Home() {
+export default function ExpertisePage() {
+  const locale = useLocale();
 
   return (
     <>
       <Header />
       <ExpertiseHero />
-      <ExpertiseList />
+      <ExpertiseList locale={locale} />
       <Footer />
     </>
   );

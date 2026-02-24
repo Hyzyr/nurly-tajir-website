@@ -1,3 +1,4 @@
+'use client'
 import { createBrowserClient } from '@supabase/ssr';
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Database } from '@/utils/supabase/database.types';
@@ -19,11 +20,16 @@ export const supabase: SupabaseClient<Database> = createBrowserClient<Database>(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
 
+type FetchAllOptions<T extends TableName> = {
+  sortBy?: keyof Row<T> & string;
+  ascending?: boolean;
+};
+
 export async function fetchAll<T extends TableName>(
   table: T,
-  sortBy?: keyof Row<T> & string,
-  ascending = false
+  options?: FetchAllOptions<T>
 ): Promise<Row<T>[]> {
+  const { sortBy, ascending = false } = options ?? {};
   const base = supabase.from(table).select<'*', Row<T>>('*'); // <- type result here
   const query = sortBy ? base.order(sortBy, { ascending }) : base;
   const { data, error } = await query;

@@ -43,3 +43,141 @@
     gap: 8px;
   }
 }
+
+// ───────────────────────────────────────────────
+// Skeleton / preloader styles
+// ───────────────────────────────────────────────
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-base {
+  background: linear-gradient(
+    90deg,
+    var(--n50, #e8eaec) 0%,
+    var(--n30, #f5f6f7) 50%,
+    var(--n50, #e8eaec) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.8s infinite linear;
+  border-radius: 12px;
+}
+
+.project-row-skeleton {
+  background: var(--n20, #f8f9fa);
+  border: 1px solid var(--primary-100, #e0e4ea);
+  display: flex;
+  gap: 16px;
+  height: 575px;
+  padding: 12px;
+  border-radius: 24px;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+
+  &__image {
+    @extend .skeleton-base;
+    flex: 0 0 55%;
+    border-radius: 20px;
+    height: 100%;
+  }
+
+  &__info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    min-width: 0;
+    padding: 12px 8px;
+  }
+
+  &__badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__badge {
+    @extend .skeleton-base;
+    height: 28px;
+    border-radius: 20px;
+
+    &:nth-child(1) { width: 110px; }
+    &:nth-child(2) { width: 90px; }
+    &:nth-child(3) { width: 130px; }
+    &:nth-child(4) { width: 70px; }
+  }
+
+  &__title {
+    @extend .skeleton-base;
+    height: 36px;
+    width: 70%;
+    border-radius: 10px;
+  }
+
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    span {
+      @extend .skeleton-base;
+      height: 14px;
+      border-radius: 6px;
+      display: block;
+
+      &:nth-child(1) { width: 100%; }
+      &:nth-child(2) { width: 92%; }
+      &:nth-child(3) { width: 78%; }
+      &:nth-child(4) { width: 85%; }
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 4px;
+
+    span {
+      @extend .skeleton-base;
+      height: 20px;
+      border-radius: 6px;
+      display: block;
+
+      &:nth-child(1) { width: 80px; }
+      &:nth-child(2) { width: 100px; }
+      &:nth-child(3) { width: 90px; }
+    }
+  }
+}
+
+@include breakpoints.respond-max(xl) {
+  .project-row-skeleton {
+    height: auto;
+    flex-direction: column;
+
+    &__image {
+      flex: none;
+      height: 280px;
+      width: 100%;
+    }
+  }
+}
+
+@include breakpoints.respond-max(md) {
+  .project-row-skeleton {
+    padding: 8px;
+    gap: 8px;
+
+    &__image {
+      height: 220px;
+    }
+  }
+}

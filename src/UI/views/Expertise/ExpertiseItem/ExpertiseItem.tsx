@@ -8,7 +8,7 @@ export type ExpertiseItemData = {
   id: string;
   title: string;
   description: string;
-  heroImage: string;
+  heroImage?: string;
   benefits: {
     value: string;
     label: string;
@@ -38,7 +38,9 @@ const ExpertiseItem = ({ data }: Props) => {
         </div>
 
         {/* Hero Image with Benefits */}
-        <ExpertiseHero image={data.heroImage} benefits={data.benefits} />
+        {data.heroImage && (
+          <ExpertiseHero image={data.heroImage} benefits={data.benefits} />
+        )}
 
         {/* Products Grid */}
         {data.products && data.products.length > 0 && (
