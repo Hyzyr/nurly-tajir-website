@@ -45,6 +45,23 @@ const columns: TableColumn<ProjectWithID>[] = [
     sortable: true,
     grow: 0.45,
   },
+  {
+    name: 'Meta',
+    grow: 0.4,
+    cell: (row) => (
+      <MetaCell
+        client={row.client}
+        location={row.location}
+        completedAt={row.completed_at}
+        showInMain={row.show_in_main}
+      />
+    ),
+  },
+  {
+    name: 'Tags',
+    grow: 0.4,
+    cell: (row) => <TagsCell tags={row.tags} stats={row.stats} />,
+  },
 ];
 
 const ProjectsTable = ({ data, onAdd, onEdit }: Props) => {
@@ -102,5 +119,31 @@ type ProjectImgProps = {
 const ProjectImg = ({ src, alt }: ProjectImgProps) => {
   return <img src={src} alt={alt} width={80} height={80} />;
 };
+
+type MetaCellProps = {
+  client: string | null;
+  location: string | null;
+  completedAt: string | null;
+  showInMain: boolean;
+};
+const MetaCell = ({ client, location, completedAt, showInMain }: MetaCellProps) => (
+  <p style={{ fontSize: '0.8em', lineHeight: 1.5 }}>
+    {client && <><b>Client:</b> {client}<br /></>}
+    {location && <><b>Location:</b> {location}<br /></>}
+    {completedAt && <><b>Completed:</b> {completedAt}<br /></>}
+    <b>Main:</b> {showInMain ? '✓' : '✗'}
+  </p>
+);
+
+type TagsCellProps = {
+  tags: string[] | null;
+  stats: string[] | null;
+};
+const TagsCell = ({ tags, stats }: TagsCellProps) => (
+  <p style={{ fontSize: '0.8em', lineHeight: 1.6 }}>
+    {tags && tags.length > 0 && <><b>Tags:</b> {tags.join(', ')}<br /></>}
+    {stats && stats.length > 0 && <><b>Stats:</b> {stats.join(', ')}</>}
+  </p>
+);
 
 export default ProjectsTable;

@@ -71,7 +71,7 @@ function DynamicFormInner<T extends Record<string, unknown>>(
   );
 
   return (
-    <form className={styles.form}>
+    <div className={styles.form}>
       {Object.entries(config).map(([key, cfg]) => {
         const fieldKey = key as keyof T;
         const fieldVal = data[fieldKey];
@@ -253,7 +253,7 @@ function DynamicFormInner<T extends Record<string, unknown>>(
             return null;
         }
       })}
-    </form>
+    </div>
   );
 }
 

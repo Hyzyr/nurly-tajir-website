@@ -31,14 +31,16 @@ const SignIn = () => {
   return (
     <div className={styles.auth__wrapper}>
       <div className={styles.auth}>
-        <div className="logo fbox fbox-justify-center">
-          <Link href="/">
-            <Image src="/images/favicon.svg" alt="" width={50} height={50} />
-          </Link>
-        </div>
         <div className={styles.auth__body}>
-          <h4 className="h6 color-primary">Login</h4>
-          <strong className="subtitle _sm color-gray">to admin panel</strong>
+          <div className="logo ">
+            <Link href="/">
+              <Image src="/images/favicon.svg" alt="" width={50} height={50} />
+            </Link>
+          </div>
+          <div className={styles.auth__body__group}>
+            <h4 className="h6 color-primary">Login</h4>
+            <strong className="subtitle _sm color-gray">to admin panel</strong>
+          </div>
           <form className={styles.auth__body__form} autoComplete="off">
             <Input
               placeholder="username"

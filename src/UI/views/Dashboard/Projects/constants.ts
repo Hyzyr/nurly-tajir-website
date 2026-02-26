@@ -8,4 +8,10 @@ export const projectsConfig: FieldConfigMap<ProjectInsert> = {
   description_ru: { label: 'Description Russian', type: 'textarea' },
   title_tm: { label: 'Title Turkmen', type: 'text' },
   description_tm: { label: 'Description Turkmen', type: 'textarea' },
+  client: { label: 'Client', type: 'text' },
+  location: { label: 'Location', type: 'text' },
+  completed_at: { label: 'Completed At (YYYY-MM-DD)', type: 'text' },
+  show_in_main: { label: 'Show in Main Page', type: 'checkbox' },
+  tags: { label: 'Tags', type: 'array', itemConfig: { type: 'text' } },
+  stats: { label: 'Stats', type: 'array', itemConfig: { type: 'text' } },
 };

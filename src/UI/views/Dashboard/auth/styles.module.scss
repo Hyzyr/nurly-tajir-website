@@ -1,13 +1,14 @@
 .auth {
   padding: 1rem;
   background: var(--n20);
-  box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+  box-shadow: 0 1rem 2rem rgba(hsl(0, 0%, 0%), 0.1);
   border-radius: 1.23rem;
   width: 100%;
   max-width: 430px;
 
   :global(.logo) {
     filter: drop-shadow(0 2px 5px rgba(#000, 0.15));
+    margin: 1rem auto;
   }
   &__body {
     // display
@@ -16,9 +17,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 0.25em;
+    gap: 0.5em;
 
-    min-height: 32vh;
+    min-height: 370px;
 
     :global(.button) {
       min-width: 200px;
@@ -26,6 +27,17 @@
     }
     :global(.input) {
       width: 100%;
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25em;
+
+      h4,
+      strong {
+        line-height: 1;
+      }
     }
     &__form {
       display: flex;
@@ -56,10 +68,7 @@
       left: calc(50% - 40px);
       width: 80px;
       height: 100%;
-      background: linear-gradient(
-        var(--primary-200) 20%,
-        var(--primary-400) 130%
-      );
+      background: linear-gradient(var(--primary-200) 20%, var(--primary-400) 130%);
       z-index: -1;
     }
     &:before {
