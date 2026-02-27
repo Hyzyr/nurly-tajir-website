@@ -1,11 +1,14 @@
 'use client';
-import React, { RefObject, useRef } from 'react';
+import React, { RefObject, useRef, useState } from 'react';
 import Button from '@/UI/components/Button';
 import Modal from '@/UI/components/Modal';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
 import { createRow } from '@/utils/supabase/client';
 import { uploadImage } from '@/utils/supabase/storage';
 import ProductCategoryForm, { ProductCategoryFormHandle } from './ProductCategoryForm';
+import formStyles from '@/UI/components/form/styles.module.scss';
+
+type SaveStatus = 'idle' | 'validating' | 'uploading-image' | 'saving' | 'done' | 'error';
 
 type Props = {
   onClose?: () => void;
@@ -13,72 +16,75 @@ type Props = {
   onRefresh?: () => void;
 };
 
+const LABELS: Record<SaveStatus, string> = {
+  idle: 'Save',
+  validating: 'Validating…',
+  'uploading-image': 'Uploading image…',
+  saving: 'Saving…',
+  done: 'Saved!',
+  error: 'Error – retry',
+};
+
 const ProductCategoryCreateModal = React.forwardRef<ModalRef, Props>(
   ({ onClose, onRefresh }, ref) => {
     const formHandle = useRef<ProductCategoryFormHandle | null>(null);
+    const [status, setStatus] = useState<SaveStatus>('idle');
+    const busy = !['idle', 'done', 'error'].includes(status);
 
     const onSave = async () => {
-      if (!formHandle.current) return;
+      if (!formHandle.current || busy) return;
+
+      /* 1 ── validate */
+      setStatus('validating');
+      const { valid } = formHandle.current.validate();
+      if (!valid) { setStatus('idle'); return; }
+
       const { formData, imageFile } = formHandle.current.getData();
 
       try {
+        /* 2 ── upload image */
         let imagePath = formData.image;
-
         if (imageFile) {
-          const timestamp = Date.now();
-          const imageUrl = await uploadImage(
-            'products',
-            `image-${timestamp}-${imageFile.name}`,
-            imageFile
-          );
-          if (!imageUrl) {
-            alert('Failed to upload image. Please try again.');
-            return;
-          }
-          imagePath = imageUrl;
+          setStatus('uploading-image');
+          const ts = Date.now();
+          const url = await uploadImage('products', `image-${ts}-${imageFile.name}`, imageFile);
+          if (!url) { setStatus('error'); return; }
+          imagePath = url;
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { index: _index, ...cleanFormData } = formData as Record<string, unknown>;
+        /* 3 ── save to DB */
+        setStatus('saving');
+        await createRow('product_categories', { ...formData, image: imagePath });
 
-        await createRow('product_categories', {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          ...(cleanFormData as any),
-          image: imagePath,
-        });
-
-        const controller = (ref as RefObject<ModalRef> | null)?.current;
-        if (controller) controller.hide();
-        if (onClose) onClose();
-
-        if (onRefresh) onRefresh();
+        setStatus('done');
+        setTimeout(() => {
+          const controller = (ref as RefObject<ModalRef> | null)?.current;
+          controller?.hide();
+          onClose?.();
+          onRefresh?.();
+        }, 600);
       } catch (error) {
         console.error('Error creating product category:', error);
-        alert('Failed to create product category. Please check console for details.');
+        setStatus('error');
       }
     };
 
     return (
       <Modal title="Create Product Category" onClose={onClose} ref={ref}>
         <ProductCategoryForm ref={formHandle} data={null} />
+
+        {status !== 'idle' && status !== 'done' && status !== 'error' && (
+          <div className={formStyles.saveProgress}>
+            <div className={formStyles.saveProgressBar} style={{ width: status === 'validating' ? '20%' : status === 'uploading-image' ? '55%' : '85%' }} />
+            <span>{LABELS[status]}</span>
+          </div>
+        )}
+
         <ModalCTA>
-          <Button
-            size="sm"
-            icon="crossSVG"
-            style="secondary"
-            text="Close"
-            onClick={() => {
-              const controller = (ref as RefObject<ModalRef> | null)?.current;
-              if (controller) controller.hide();
-            }}
-          />
-          <Button
-            size="sm"
-            icon="tickSVG"
-            text="Save"
-            inlineCSS={{ minWidth: '110px', justifyContent: 'flex-start' }}
-            onClick={() => onSave()}
-          />
+          <Button size="sm" icon="crossSVG" style="secondary" text="Close" disabled={busy}
+            onClick={() => { const c = (ref as RefObject<ModalRef> | null)?.current; c?.hide(); }} />
+          <Button size="sm" icon="tickSVG" text={LABELS[status]} disabled={busy}
+            inlineCSS={{ minWidth: '110px', justifyContent: 'flex-start' }} onClick={onSave} />
         </ModalCTA>
       </Modal>
     );

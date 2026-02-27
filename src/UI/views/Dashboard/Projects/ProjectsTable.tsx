@@ -53,7 +53,6 @@ const columns: TableColumn<ProjectWithID>[] = [
         client={row.client}
         location={row.location}
         completedAt={row.completed_at}
-        showInMain={row.show_in_main}
       />
     ),
   },
@@ -61,6 +60,13 @@ const columns: TableColumn<ProjectWithID>[] = [
     name: 'Tags',
     grow: 0.4,
     cell: (row) => <TagsCell tags={row.tags} stats={row.stats} />,
+  },
+  {
+    name: 'Show on Main',
+    grow: 0,
+    width: '110px',
+    center: true,
+    cell: (row) => <ShowOnMainCell value={row.show_in_main} />,
   },
 ];
 
@@ -126,13 +132,30 @@ type MetaCellProps = {
   completedAt: string | null;
   showInMain: boolean;
 };
-const MetaCell = ({ client, location, completedAt, showInMain }: MetaCellProps) => (
+const MetaCell = ({ client, location, completedAt }: Omit<MetaCellProps, 'showInMain'>) => (
   <p style={{ fontSize: '0.8em', lineHeight: 1.5 }}>
     {client && <><b>Client:</b> {client}<br /></>}
     {location && <><b>Location:</b> {location}<br /></>}
     {completedAt && <><b>Completed:</b> {completedAt}<br /></>}
-    <b>Main:</b> {showInMain ? '✓' : '✗'}
   </p>
+);
+
+const ShowOnMainCell = ({ value }: { value: boolean }) => (
+  <span
+    style={{
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0.25em 0.7em',
+      borderRadius: '999px',
+      fontSize: '12px',
+      fontWeight: 700,
+      background: value ? 'var(--green-100, #dcfce7)' : 'var(--n40)',
+      color: value ? 'var(--green-700, #15803d)' : 'var(--n300)',
+    }}
+  >
+    {value ? '✓ Yes' : '✗ No'}
+  </span>
 );
 
 type TagsCellProps = {

@@ -82,7 +82,7 @@ const ServicesTable = ({ data, onAdd, onEdit }: Props) => {
         )}
         {!data && 'No Data'}
         <DashboardTableCta>
-          <Button size="sm" icon="editFilledSVG" text="Add New" onClick={() => onAdd()} />
+          <Button size="sm" icon="plusSVG" text="Add New" onClick={() => onAdd()} />
         </DashboardTableCta>
       </div>
     </DashboardTable>

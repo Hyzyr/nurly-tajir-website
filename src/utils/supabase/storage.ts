@@ -1,5 +1,5 @@
 import { supabase } from './client';
-
+import { UploadProgressItem } from '@/UI/components/form/MultiImageUploader';
 
 export async function uploadImage(
   folder: string,
@@ -8,7 +8,7 @@ export async function uploadImage(
 ): Promise<string | null> {
   try {
     const fullPath = `${folder}/${path}`;
-    
+
     const { data, error } = await supabase.storage
       .from('website-images')
       .upload(fullPath, file, {
@@ -21,7 +21,6 @@ export async function uploadImage(
       throw error;
     }
 
-    // Get public URL
     const {
       data: { publicUrl },
     } = supabase.storage.from('website-images').getPublicUrl(data.path);
@@ -29,17 +28,53 @@ export async function uploadImage(
     return publicUrl;
   } catch (error: unknown) {
     if (error instanceof Error && error.message?.includes('row-level security')) {
-      console.error('RLS Policy Error: Please set up storage policies. See storage.ts for SQL commands.');
+      console.error(
+        'RLS Policy Error: Please set up storage policies. See storage.ts for SQL commands.'
+      );
     }
     console.error('Error uploading image:', error);
     return null;
   }
 }
 
-export async function deleteImage(
+/**
+ * Upload multiple files sequentially, reporting per-file progress via callback.
+ * Progress values: 0 = queued, 50 = uploading, 100 = done, -1 = error.
+ */
+export async function uploadImages(
   folder: string,
-  path: string
-): Promise<boolean> {
+  files: File[],
+  onProgress: (items: UploadProgressItem[]) => void
+): Promise<string[]> {
+  // Initialise all items as queued (0 %)
+  const progress: UploadProgressItem[] = files.map((f) => ({ name: f.name, progress: 0 }));
+  onProgress([...progress]);
+
+  const urls: string[] = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    // Mark as in-flight
+    progress[i] = { name: file.name, progress: 50 };
+    onProgress([...progress]);
+
+    const timestamp = Date.now();
+    const url = await uploadImage(folder, `product-${timestamp}-${file.name}`, file);
+
+    if (url) {
+      progress[i] = { name: file.name, progress: 100, url };
+      urls.push(url);
+    } else {
+      progress[i] = { name: file.name, progress: -1 };
+    }
+
+    onProgress([...progress]);
+  }
+
+  return urls;
+}
+
+export async function deleteImage(folder: string, path: string): Promise<boolean> {
   try {
     const fullPath = `${folder}/${path}`;
     const { error } = await supabase.storage.from('website-images').remove([fullPath]);

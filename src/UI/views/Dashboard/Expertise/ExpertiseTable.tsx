@@ -35,16 +35,6 @@ const columns: TableColumn<ExpertiseWithID>[] = [
       row.image ? <ExpertiseImg src={row.image} alt={row.title_en} /> : <span>—</span>,
   },
   {
-    name: 'Icon',
-    grow: 0,
-    cell: (row) =>
-      row.image_icon ? (
-        <ExpertiseImg src={row.image_icon} alt={row.title_en} />
-      ) : (
-        <span>—</span>
-      ),
-  },
-  {
     name: 'Slug',
     selector: (row) => row.service_slug,
     sortable: true,
@@ -94,18 +84,14 @@ const columns: TableColumn<ExpertiseWithID>[] = [
   },
   {
     name: 'Brands',
-    grow: 0.35,
-    cell: (row) => (
-      <span style={{ fontSize: '0.8em' }}>
-        {row.brands && row.brands.length > 0 ? row.brands.join(', ') : '—'}
-      </span>
-    ),
+    grow: 0.45,
+    cell: (row) => <BrandsCell brands={row.brands} />,
   },
 ];
 
 const ExpertiseTable = ({ data, onAdd, onEdit }: Props) => {
   return (
-    <DashboardTable title="Expertise (Services Section)">
+    <DashboardTable title="Expertise">
       <div className={'tableWrapper'}>
         {data && (
           <DataTable
@@ -138,6 +124,15 @@ const ExpertiseTable = ({ data, onAdd, onEdit }: Props) => {
     </DashboardTable>
   );
 };
+
+type BrandsCellProps = { brands: string[] | null };
+const BrandsCell = ({ brands }: BrandsCellProps) => (
+  <div className="tableBadge__wrapper">
+    {brands && brands.length > 0
+      ? brands.map((b, i) => <span key={i} className="tableBadge">{b}</span>)
+      : <span>—</span>}
+  </div>
+);
 
 type ExpertiseImgProps = { src: string; alt: string };
 const ExpertiseImg = ({ src, alt }: ExpertiseImgProps) => (
