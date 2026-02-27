@@ -19,6 +19,11 @@ export type Project = Tables['projects']['Row'];
 export type ProjectInsert = Tables['projects']['Insert'];
 export type ProjectUpdate = Tables['projects']['Update'];
 
-export type ServiceSection = Tables['services_section']['Row'];
-export type ServiceSectionInsert = Tables['services_section']['Insert'];
-export type ServiceSectionUpdate = Tables['services_section']['Update'];
+export type Expertise = Tables['expertise']['Row'];
+export type ExpertiseInsert = Tables['expertise']['Insert'];
+export type ExpertiseUpdate = Tables['expertise']['Update'];
+
+// Backwards-compat aliases
+export type ServiceSection = Expertise;
+export type ServiceSectionInsert = ExpertiseInsert;
+export type ServiceSectionUpdate = ExpertiseUpdate;

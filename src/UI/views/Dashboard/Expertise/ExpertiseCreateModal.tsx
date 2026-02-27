@@ -55,7 +55,7 @@ const ExpertiseCreateModal = React.forwardRef<ModalRef, Props>(({ onClose, onRef
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const { index: _index, ...cleanFormData } = formData as Record<string, unknown>;
 
-      await createRow('services_section', {
+      await createRow('expertise', {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         ...(cleanFormData as any),
         image: imagePath,

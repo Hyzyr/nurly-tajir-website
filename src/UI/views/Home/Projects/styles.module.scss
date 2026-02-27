@@ -188,43 +188,6 @@
     }
   }
 }
-@include breakpoints.respond-max(xl) {
-  .projects {
-    &__card {
-      gap: 1em;
-    }
-  }
-  .card {
-    &__content {
-      padding: 1em;
-    }
-    &__title {
-      padding: 0.8em;
-    }
-  }
-}
-@include breakpoints.respond-max(lg) {
-  .projects {
-    &__card {
-      gap: 0.8em;
-    }
-  }
-  .card {
-    &__content {
-      padding: 0.6em;
-    }
-    &__title {
-      padding: 0.6em;
-      min-width: 125px;
-    }
-  }
-}
-@include breakpoints.respond-max(xsm) {
-  .projects {
-    padding: 30px 0 60px 0;
-  }
-}
-
 // Projects Skeleton Styles
 .skeleton {
   pointer-events: none;
@@ -381,50 +344,6 @@
     height: 0.9em;
   }
 }
-
-// Responsive skeleton adjustments
-@include breakpoints.respond-max(xl) {
-  .skeleton {
-    &__title {
-      height: 1.4em;
-    }
-
-    &__descLine {
-      height: 0.95em;
-    }
-  }
-}
-
-@include breakpoints.respond-max(lg) {
-  .skeleton {
-    &__title {
-      height: 1.2em;
-      width: 100px;
-    }
-
-    &__descLine {
-      height: 0.9em;
-    }
-
-    &__image {
-      opacity: 0.25;
-    }
-  }
-}
-
-@include breakpoints.respond-max(xsm) {
-  .skeleton {
-    &__image {
-      opacity: 0.2;
-    }
-
-    &__descLine {
-      height: 0.85em;
-      margin-bottom: 0.4em;
-    }
-  }
-}
-
 // Modal Overlay
 .modalOverlay {
   position: fixed;
@@ -686,6 +605,83 @@
       line-height: 140%;
       color: var(--n800);
       margin: 0;
+    }
+  }
+}
+
+@include breakpoints.respond-max(xl) {
+  .projects {
+    &__card {
+      gap: 1em;
+    }
+  }
+  .card {
+    &__content {
+      padding: 1em;
+    }
+    &__title {
+      padding: 0.8em;
+    }
+  }
+}
+@include breakpoints.respond-max(lg) {
+  .projects {
+    &__card {
+      gap: 0.8em;
+    }
+  }
+  .card {
+    &__content {
+      padding: 0.6em;
+    }
+    &__title {
+      padding: 0.6em;
+      min-width: 125px;
+    }
+  }
+}
+@include breakpoints.respond-max(xsm) {
+  .projects {
+    padding: 30px 0 60px 0;
+  }
+}
+// Responsive skeleton adjustments
+@include breakpoints.respond-max(xl) {
+  .skeleton {
+    &__title {
+      height: 1.4em;
+    }
+
+    &__descLine {
+      height: 0.95em;
+    }
+  }
+}
+@include breakpoints.respond-max(lg) {
+  .skeleton {
+    &__title {
+      height: 1.2em;
+      width: 100px;
+    }
+
+    &__descLine {
+      height: 0.9em;
+    }
+
+    &__image {
+      opacity: 0.25;
+    }
+  }
+}
+@include breakpoints.respond-max(xsm) {
+  .skeleton {
+    &__image {
+      opacity: 0.2;
+    }
+
+    &__descLine {
+      height: 0.85em;
+      margin-bottom: 0.4em;
     }
   }
 }

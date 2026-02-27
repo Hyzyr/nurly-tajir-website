@@ -1,5 +1,5 @@
 'use client';
-import { ServiceSection } from '@/types/supabase';
+import { Expertise as ServiceSection } from '@/types/supabase';
 import React from 'react';
 import DataTable, { TableColumn } from 'react-data-table-component';
 import DashboardTable, { ActionsCell, ActionsHeader, DashboardTableCta } from '../DashboardTable';

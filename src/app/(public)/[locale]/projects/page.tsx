@@ -1,7 +1,8 @@
 import Footer from '@/UI/base/Footer';
 import Header from '@/UI/base/Header';
-import { ProjectsHero } from '@/UI/views/Projects/ProjectsHero';
-import ProjectsList from '@/UI/views/Projects/ProjectsList';
+import { Contact } from '@/UI/views/Home';
+import { ProjectsHero } from '@/UI/views/ProjectsPage/ProjectsHero';
+import ProjectsList from '@/UI/views/ProjectsPage/ProjectsList';
 import { useLocale } from 'next-intl';
 
 export default function ProjectsPage() {
@@ -12,6 +13,7 @@ export default function ProjectsPage() {
       <Header />
       <ProjectsHero />
       <ProjectsList locale={locale} />
+      <Contact />
       <Footer />
     </>
   );

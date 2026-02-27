@@ -1,7 +1,7 @@
 'use client';
 import React, { forwardRef, useImperativeHandle, useRef } from 'react';
 import { expertiseConfig } from './constants';
-import { ServiceSectionInsert, ServiceSectionUpdate } from '@/types/supabase';
+import { ExpertiseInsert as ServiceSectionInsert, ExpertiseUpdate as ServiceSectionUpdate } from '@/types/supabase';
 import { DynamicForm, DynamicFormHandle } from '@/UI/components/form/DynamicForm';
 import ImageInput, { ImageInputRef } from '@/UI/components/form/ImageInput';
 

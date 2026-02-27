@@ -1,53 +1,5 @@
 @use '@/UI/assets/css/mixins/breakpoints';
 
-.project-row {
-  background: var(--n20);
-  border: 1px solid var(--primary-100);
-  display: flex;
-  gap: 16px;
-  height: 575px;
-  padding: 12px;
-  border-radius: 24px;
-  width: 100%;
-
-  &__info {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    gap: 12px;
-    justify-content: center;
-    min-width: 0;
-  }
-
-  &__badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-}
-
-@include breakpoints.respond-max(xl) {
-  .project-row {
-    height: auto;
-    flex-direction: column;
-
-    &__info {
-      flex: auto;
-    }
-  }
-}
-
-@include breakpoints.respond-max(md) {
-  .project-row {
-    padding: 8px;
-    gap: 8px;
-  }
-}
-
-// ───────────────────────────────────────────────
-// Skeleton / preloader styles
-// ───────────────────────────────────────────────
-
 @keyframes shimmer {
   0% {
     background-position: -1000px 0;
@@ -69,7 +21,7 @@
   border-radius: 12px;
 }
 
-.project-row-skeleton {
+.skeleton {
   background: var(--n20, #f8f9fa);
   border: 1px solid var(--primary-100, #e0e4ea);
   display: flex;
@@ -109,10 +61,18 @@
     height: 28px;
     border-radius: 20px;
 
-    &:nth-child(1) { width: 110px; }
-    &:nth-child(2) { width: 90px; }
-    &:nth-child(3) { width: 130px; }
-    &:nth-child(4) { width: 70px; }
+    &:nth-child(1) {
+      width: 110px;
+    }
+    &:nth-child(2) {
+      width: 90px;
+    }
+    &:nth-child(3) {
+      width: 130px;
+    }
+    &:nth-child(4) {
+      width: 70px;
+    }
   }
 
   &__title {
@@ -133,10 +93,18 @@
       border-radius: 6px;
       display: block;
 
-      &:nth-child(1) { width: 100%; }
-      &:nth-child(2) { width: 92%; }
-      &:nth-child(3) { width: 78%; }
-      &:nth-child(4) { width: 85%; }
+      &:nth-child(1) {
+        width: 100%;
+      }
+      &:nth-child(2) {
+        width: 92%;
+      }
+      &:nth-child(3) {
+        width: 78%;
+      }
+      &:nth-child(4) {
+        width: 85%;
+      }
     }
   }
 
@@ -151,15 +119,22 @@
       border-radius: 6px;
       display: block;
 
-      &:nth-child(1) { width: 80px; }
-      &:nth-child(2) { width: 100px; }
-      &:nth-child(3) { width: 90px; }
+      &:nth-child(1) {
+        width: 80px;
+      }
+      &:nth-child(2) {
+        width: 100px;
+      }
+      &:nth-child(3) {
+        width: 90px;
+      }
     }
   }
 }
 
+// ─── Responsive ─────────────────────────────────────────
 @include breakpoints.respond-max(xl) {
-  .project-row-skeleton {
+  .skeleton {
     height: auto;
     flex-direction: column;
 
@@ -172,7 +147,7 @@
 }
 
 @include breakpoints.respond-max(md) {
-  .project-row-skeleton {
+  .skeleton {
     padding: 8px;
     gap: 8px;
 

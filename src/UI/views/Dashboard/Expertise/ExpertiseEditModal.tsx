@@ -1,6 +1,6 @@
 'use client';
 import React, { RefObject, useRef } from 'react';
-import { ServiceSectionUpdate } from '@/types/supabase';
+import { ExpertiseUpdate as ServiceSectionUpdate } from '@/types/supabase';
 import Button from '@/UI/components/Button';
 import Modal from '@/UI/components/Modal';
 import { ModalCTA, ModalRef } from '@/UI/components/Modal/Modal';
@@ -58,7 +58,7 @@ const ExpertiseEditModal = React.forwardRef<ModalRef, Props>(
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const { index: _index, ...cleanFormData } = formData as Record<string, unknown>;
 
-        await updateById('services_section', data.id, {
+        await updateById('expertise', data.id, {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ...(cleanFormData as any),
           image: imagePath,
@@ -81,7 +81,7 @@ const ExpertiseEditModal = React.forwardRef<ModalRef, Props>(
       if (!confirmed) return;
 
       try {
-        await deleteById('services_section', data.id);
+        await deleteById('expertise', data.id);
         const controller = (ref as RefObject<ModalRef> | null)?.current;
         if (controller) controller.hide();
         if (onClose) onClose();

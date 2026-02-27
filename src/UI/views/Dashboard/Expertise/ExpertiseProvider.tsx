@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { ServiceSection } from '@/types/supabase';
+import { Expertise as ServiceSection } from '@/types/supabase';
 import { useEffect, useState } from 'react';
 import ExpertiseTable from './ExpertiseTable';
 import { ModalRef } from '@/UI/components/Modal/Modal';
@@ -32,7 +32,7 @@ const ExpertiseProvider = () => {
     setIsFetching(true);
 
     supabase
-      .from('services_section')
+      .from('expertise')
       .select('*')
       .order('display_order', { ascending: true })
       .then(({ data, error }) => {

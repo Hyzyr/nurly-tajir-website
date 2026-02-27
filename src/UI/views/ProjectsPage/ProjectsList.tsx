@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import ProjectRow, { ProjectRowData } from './components/ProjectRow';
-import { ProjectsListSkeleton } from './components/ProjectRow/ProjectRowSkeleton';
+import { ProjectSectionCard, ProjectSectionCardData, ProjectsListSkeleton } from './ProjectSectionCard';
 import styles from './styles.module.scss';
 import Container from '@/UI/containers';
 import { fetchAll } from '@/utils/supabase/client';
@@ -11,15 +10,14 @@ import { Locales } from '@/i18n/config';
 
 type Props = {
   locale: Locales;
-  onContactClick?: () => void;
 };
 
-const ProjectsList = ({ locale, onContactClick }: Props) => {
-  const [projects, setProjects] = useState<ProjectRowData[] | null>(null);
+const ProjectsList = ({ locale }: Props) => {
+  const [projects, setProjects] = useState<ProjectSectionCardData[] | null>(null);
 
   useEffect(() => {
     fetchAll('projects', { sortBy: 'inserted_at', ascending: false }).then((res) => {
-      const mapped: ProjectRowData[] = res.map((project) => ({
+      const mapped: ProjectSectionCardData[] = res.map((project) => ({
         title: project[dbHelper.getTitle(locale)],
         description: project[dbHelper.getDescription(locale)],
         image: project.image,
@@ -40,11 +38,10 @@ const ProjectsList = ({ locale, onContactClick }: Props) => {
             <ProjectsListSkeleton />
           ) : (
             projects.map((project, index) => (
-              <ProjectRow
+              <ProjectSectionCard
                 key={index}
                 project={project}
                 layout={index % 2 === 0 ? 'big-left' : 'big-right'}
-                onContactClick={onContactClick}
               />
             ))
           )}

@@ -1,4 +1,4 @@
-import { ServiceSectionInsert } from '@/types/supabase';
+import { ExpertiseInsert as ServiceSectionInsert } from '@/types/supabase';
 import { FieldConfigMap } from '@/UI/components/form/DynamicForm';
 
 export const expertiseConfig: FieldConfigMap<ServiceSectionInsert> = {

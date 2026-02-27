@@ -17,7 +17,7 @@ const ExpertiseList = ({ locale }: Props) => {
   const [items, setItems] = useState<ExpertiseItemData[] | null>(null);
 
   useEffect(() => {
-    fetchAll('services_section', { sortBy: 'display_order', ascending: true }).then((res) => {
+    fetchAll('expertise', { sortBy: 'display_order', ascending: true }).then((res) => {
       const mapped: ExpertiseItemData[] = res.map((row) => {
         const highlightStat = row[dbHelper.getHighlightStat(locale)];
         const tag = row[dbHelper.getTag(locale)];
