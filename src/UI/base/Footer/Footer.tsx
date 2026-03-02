@@ -21,8 +21,8 @@ const Footer = () => {
             <div className="fbox fbox-column fbox-gap-2">
               <FooterLink selector={'#projects'} title={t('nav.projects')} />
               <FooterLink selector={'#services'} title={t('nav.services')} />
-              <FooterLink selector={'#products'} title={t('nav.products')} />
               <FooterLink selector={'#about-us'} title={t('nav.about_us')} />
+              <FooterLink selector={'#contacts'} title={t('nav.contacts')} />
             </div>
           </div>
           <div className={styles.footer__column}>

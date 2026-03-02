@@ -1,7 +1,7 @@
 'use client';
 import styles from './styles.module.scss';
 
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import ServiceCard from './ServiceCard';
 import { useState } from 'react';
 import ServiceInfoCard from './ServiceInfoCard';
@@ -29,6 +29,16 @@ const ServicesGrid = () => {
     setInfo(true);
   };
 
+  // Preload all service images once data is loaded to prevent flash on switch
+  const preloadImages = useCallback((services: ServiceInfo[]) => {
+    services.forEach((s) => {
+      if (s.image) {
+        const img = new Image();
+        img.src = `/images/website/services/${s.image}`;
+      }
+    });
+  }, []);
+
   useEffect(() => {
     fetchAll('services').then((data) => {
       if (!data) return;
@@ -50,8 +60,9 @@ const ServicesGrid = () => {
         );
 
       setData(services);
+      preloadImages(services);
     });
-  }, [locale]);
+  }, [locale, preloadImages]);
 
   if (!data) {
     return <ServicesGridSkeleton />;

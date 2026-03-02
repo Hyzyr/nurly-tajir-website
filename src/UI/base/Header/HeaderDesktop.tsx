@@ -7,8 +7,8 @@ import Container from '@/UI/containers';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import LangSwitch from './components/LangSwitch';
-import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
 import { useContactModal } from '@/UI/components/ContactModal';
+import { useGsapScrollTo } from '@/hooks/useGsapScrollTo';
 
 const HeaderDesktop = () => {
   const t = useTranslations('common');

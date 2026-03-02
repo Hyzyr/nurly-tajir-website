@@ -162,6 +162,21 @@
       @include helpers.ellipsis(2);
     }
   }
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    cursor: pointer;
+    background: transparent;
+  }
+  &__readmore {
+    display: inline-block;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
 }
 .slider {
   &__container {
