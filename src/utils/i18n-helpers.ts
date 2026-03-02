@@ -12,7 +12,7 @@ export type LocaleKey = 'en' | 'ru' | 'tm';
  * @param locale - The locale key ('en', 'ru', or 'tm')
  * @returns The translated string, fallback to English if not found
  */
-export function getTranslation<T extends Record<string, any>>(
+export function getTranslation<T extends Record<string, unknown>>(
   obj: T | null | undefined,
   fieldName: string,
   locale: LocaleKey
@@ -75,7 +75,7 @@ export function parseLocale(value: string | null | undefined, fallback: LocaleKe
  * @param fieldName - The base field name
  * @returns true if all locales have non-empty values
  */
-export function hasAllTranslations<T extends Record<string, any>>(
+export function hasAllTranslations<T extends Record<string, unknown>>(
   obj: T | null | undefined,
   fieldName: string
 ): boolean {

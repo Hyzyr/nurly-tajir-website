@@ -13,10 +13,7 @@ export type ExpertiseItemData = {
     value: string;
     label: string;
   }[];
-  products: {
-    id: string;
-    image: string;
-  }[];
+  images?: string[] | null;
   footerText: string;
   ctaText: string;
 };
@@ -43,8 +40,8 @@ const ExpertiseItem = ({ data }: Props) => {
         )}
 
         {/* Products Grid */}
-        {data.products && data.products.length > 0 && (
-          <ExpertiseProducts products={data.products} />
+        {data.images && data.images.length > 0 && (
+          <ExpertiseProducts products={data.images} />
         )}
 
         {/* Footer */}

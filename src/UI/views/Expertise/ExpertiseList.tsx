@@ -30,7 +30,7 @@ const ExpertiseList = ({ locale }: Props) => {
           benefits: highlightStat
             ? [{ value: highlightStat, label: tag }]
             : [],
-          products: [],
+          images: row.images ?? [],
           footerText: row[dbHelper.getInfo(locale)],
           ctaText: 'Contact Us',
         };

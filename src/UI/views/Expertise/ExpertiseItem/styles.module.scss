@@ -150,39 +150,32 @@
     }
   }
 
-  // Products grid
+  // Products — outer visual wrapper
   &__products {
     background-color: var(--n40); // #E0E2E4
-    display: flex;
-    gap: 0.66em; // 12px / 18
-    align-items: flex-start;
     line-height: 0;
     padding: 0.44em; // 8px / 18
     border-radius: 1.33em; // 24px / 18
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
 
-    @include breakpoints.respond-max(md) {
-      &::-webkit-scrollbar {
-        height: 4px;
-      }
+    // Inner clip container — sits inside padding, crops overflowing slides
+    &__clip {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 0.88em; // matches item rounding
+    }
 
-      &::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: var(--n50);
-        border-radius: 2px;
-      }
+    &__container {
+      display: flex;
+      gap: 0.66em; // 12px / 18
+      align-items: flex-start;
     }
 
     &__item {
       position: relative;
       width: 9.44em; // 170px / 18
       height: 9.44em; // 170px / 18
-      flex-shrink: 0;
+      flex: 0 0 auto;
       border-radius: 0.44em; // 8px / 18
       overflow: hidden;
       background-color: var(--n0);
