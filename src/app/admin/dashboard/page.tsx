@@ -4,6 +4,8 @@ import ProductsCategoryManager from '@/UI/views/Dashboard/Products';
 import ExpertiseManager from '@/UI/views/Dashboard/Expertise';
 import React from 'react';
 
+export const dynamic = 'force-dynamic';
+
 const page = async () => {
   return (
     <>
