@@ -5,24 +5,17 @@ import React, { useCallback, useEffect } from 'react';
 import ServiceCard from './ServiceCard';
 import { useState } from 'react';
 import ServiceInfoCard from './ServiceInfoCard';
-import { fetchAll } from '@/utils/supabase/client';
-import { useLocale } from 'next-intl';
-import { dbHelper } from '@/utils/supabase/helper';
-import { ServicesGridSkeleton } from './ServiceCardSkeleton';
+import type { ServiceInfo } from '@/UI/fetch';
 
-export type ServiceInfo = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  imageIcon?: string;
+export type { ServiceInfo };
+
+type Props = {
+  data: ServiceInfo[];
 };
 
-const ServicesGrid = () => {
-  const [data, setData] = useState<ServiceInfo[] | null>(null);
+const ServicesGrid = ({ data }: Props) => {
   const [info, setInfo] = useState(false);
   const [active, setActive] = useState(1);
-  const locale = useLocale();
 
   const setActiveItem = (index: number) => {
     setActive(index);
@@ -40,33 +33,9 @@ const ServicesGrid = () => {
   }, []);
 
   useEffect(() => {
-    fetchAll('services').then((data) => {
-      if (!data) return;
-      const services = data
-        .sort((a, b) => {
-          if (a.image_icon && !b.image_icon) return -1; // a goes before b
-          if (!a.image_icon && b.image_icon) return 1; // b goes before a
-          return 0; // leave order unchanged if both have or both don't have
-        })
-        .map(
-          (service) =>
-            ({
-              id: service.id,
-              title: service[dbHelper.getTitle(locale)],
-              description: service[dbHelper.getDescription(locale)],
-              imageIcon: service.image_icon,
-              image: service.image,
-            }) as ServiceInfo
-        );
+    preloadImages(data);
+  }, [data, preloadImages]);
 
-      setData(services);
-      preloadImages(services);
-    });
-  }, [locale, preloadImages]);
-
-  if (!data) {
-    return <ServicesGridSkeleton />;
-  }
   return (
     <div className={styles.grid}>
       <div className={styles.grid__tabs}>

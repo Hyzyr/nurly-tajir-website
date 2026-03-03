@@ -28,7 +28,8 @@
     "react": "^19.0.0",
     "react-data-table-component": "^7.7.0",
     "react-dom": "^19.0.0",
-    "react-hook-form": "^7.61.1"
+    "react-hook-form": "^7.61.1",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

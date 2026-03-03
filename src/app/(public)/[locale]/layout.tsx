@@ -21,7 +21,9 @@ type RootPropsType = {
   children: React.ReactNode;
   params: Promise<{ locale: Locale }>;
 };
-export const dynamic = 'force-dynamic';
+// Revalidate all public pages every hour (ISR).
+// Data rarely changes; on-demand revalidation is also possible via cache tags.
+export const revalidate = 3600;
 
 const SITE_URL = 'https://nurytajir.com';
 

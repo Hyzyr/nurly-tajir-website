@@ -1,17 +1,21 @@
 import Footer from '@/UI/base/Footer';
 import Header from '@/UI/base/Header';
-import { ExpertiseHero, ExpertiseList } from '@/UI/views/Expertise';
+import { ExpertiseHero } from '@/UI/views/Expertise';
+import ExpertiseList from '@/UI/views/Expertise/ExpertiseList';
 import { Contact } from '@/UI/views/Home';
-import { useLocale } from 'next-intl';
+import { getLocale } from 'next-intl/server';
+import type { Locales } from '@/i18n/config';
+import { fetchExpertise } from '@/UI/fetch';
 
-export default function ExpertisePage() {
-  const locale = useLocale();
+export default async function ExpertisePage() {
+  const locale = (await getLocale()) as Locales;
+  const expertise = await fetchExpertise(locale);
 
   return (
     <>
       <Header />
       <ExpertiseHero />
-      <ExpertiseList locale={locale} />
+      <ExpertiseList data={expertise} />
       <Contact />
       <Footer />
     </>

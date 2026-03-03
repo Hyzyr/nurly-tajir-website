@@ -1,50 +1,25 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
-import { ProjectSectionCard, ProjectSectionCardData, ProjectsListSkeleton } from './ProjectSectionCard';
+import React from 'react';
+import { ProjectSectionCard, ProjectSectionCardData } from './ProjectSectionCard';
 import styles from './styles.module.scss';
 import Container from '@/UI/containers';
-import { fetchAll } from '@/utils/supabase/client';
-import { dbHelper } from '@/utils/supabase/helper';
-import { Locales } from '@/i18n/config';
+import type { ProjectSectionData } from '@/UI/fetch';
 
 type Props = {
-  locale: Locales;
+  data: ProjectSectionData[];
 };
 
-const ProjectsList = ({ locale }: Props) => {
-  const [projects, setProjects] = useState<ProjectSectionCardData[] | null>(null);
-
-  useEffect(() => {
-    fetchAll('projects', { sortBy: 'inserted_at', ascending: false }).then((res) => {
-      const mapped: ProjectSectionCardData[] = res.map((project) => ({
-        title: project[dbHelper.getTitle(locale)],
-        description: project[dbHelper.getDescription(locale)],
-        image: project.image,
-        badges: project.tags ?? [],
-        date: project.completed_at ?? undefined,
-        location: project.location ?? undefined,
-        client: project.client ?? undefined,
-      }));
-      setProjects(mapped);
-    });
-  }, [locale]);
-
+const ProjectsList = ({ data }: Props) => {
   return (
     <div className={styles.projects}>
       <Container>
         <div className={styles.projects__inner}>
-          {projects === null ? (
-            <ProjectsListSkeleton />
-          ) : (
-            projects.map((project, index) => (
-              <ProjectSectionCard
-                key={index}
-                project={project}
-                layout={index % 2 === 0 ? 'big-left' : 'big-right'}
-              />
-            ))
-          )}
+          {data.map((project, index) => (
+            <ProjectSectionCard
+              key={index}
+              project={project as ProjectSectionCardData}
+              layout={index % 2 === 0 ? 'big-left' : 'big-right'}
+            />
+          ))}
         </div>
       </Container>
     </div>

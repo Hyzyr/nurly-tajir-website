@@ -1,23 +1,34 @@
 import Footer from '@/UI/base/Footer';
 import Header from '@/UI/base/Header';
 
-import { useLocale } from 'next-intl';
+import { getLocale } from 'next-intl/server';
+import type { Locales } from '@/i18n/config';
 
-import { HomeHero, Projects, About, Contact, Partners, Products, Services } from '@/UI/views/Home';
+import { HomeHero, About, Contact, Partners } from '@/UI/views/Home';
+import Services from '@/UI/views/Home/Services';
+import Products from '@/UI/views/Home/Products';
+import Projects from '@/UI/views/Home/Projects';
+import { fetchServices, fetchProducts, fetchProjects } from '@/UI/fetch';
 
-export default function Home() {
-  const locale = useLocale();
+export default async function Home() {
+  const locale = (await getLocale()) as Locales;
+
+  const [services, products, projects] = await Promise.all([
+    fetchServices(locale),
+    fetchProducts(locale),
+    fetchProjects(locale),
+  ]);
 
   return (
     <>
       <Header />
       <div id="pin" className="change-auto mark-3d">
         <HomeHero />
-        <Projects locale={locale} />
+        <Projects data={projects} />
       </div>
-      <Services />
+      <Services data={services} />
       <Partners />
-      <Products />
+      <Products data={products} />
       <About />
       <Contact />
       <Footer />

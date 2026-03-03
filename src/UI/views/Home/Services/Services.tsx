@@ -4,8 +4,13 @@ import Container, { ContainerInner } from '@/UI/containers';
 
 import { useTranslations } from 'next-intl';
 import ServicesGrid from './ServicesGrid';
+import type { ServiceInfo } from '@/UI/fetch';
 
-const Services = () => {
+type Props = {
+  data: ServiceInfo[];
+};
+
+const Services = ({ data }: Props) => {
   const t = useTranslations('home.services');
 
   const title = t('title').split('\n');
@@ -25,7 +30,7 @@ const Services = () => {
               )}
             </h3>
           </ContainerInner>
-          <ServicesGrid />
+          <ServicesGrid data={data} />
         </div>
       </Container>
     </section>

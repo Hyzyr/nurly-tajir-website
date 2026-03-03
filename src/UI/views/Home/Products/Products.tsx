@@ -4,8 +4,13 @@ import Container from '@/UI/containers';
 
 import { useTranslations } from 'next-intl';
 import ProductsGrid from './ProductsGrid';
+import type { ProductInfo } from '@/UI/fetch';
 
-const Products = () => {
+type Props = {
+  data: ProductInfo[];
+};
+
+const Products = ({ data }: Props) => {
   const t = useTranslations('home.products');
   const title = t('title').split('\n');
 
@@ -21,7 +26,7 @@ const Products = () => {
               </>
             )}
           </h3>
-          <ProductsGrid />
+          <ProductsGrid data={data} />
         </div>
       </Container>
     </section>
