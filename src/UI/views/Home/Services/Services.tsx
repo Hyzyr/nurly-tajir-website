@@ -20,7 +20,7 @@ const Services = ({ data }: Props) => {
       <Container>
         <div className={styles.services__inner}>
           <ContainerInner className={styles.services__title}>
-            <h3 className="h3">
+            <h2 className="h3">
               {title[0] && title[0]}
               {title[1] && (
                 <>
@@ -28,7 +28,7 @@ const Services = ({ data }: Props) => {
                   <span className="color-gray">{title[1]}</span>
                 </>
               )}
-            </h3>
+            </h2>
           </ContainerInner>
           <ServicesGrid data={data} />
         </div>

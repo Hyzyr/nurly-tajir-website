@@ -5,11 +5,9 @@ import styles from './styles.module.scss';
 import Container from '@/UI/containers';
 import ProjectCard, { ProjectCardInfo } from './ProjectCard';
 import ProjectsCardsWrapper from './ProjectsCardsWrapper';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import ProjectButton from './ProjectsButton';
-import ProjectModal from './ProjectModal';
-import { useState, useRef } from 'react';
-import { ModalRef } from '@/UI/components/Modal';
+import { useRouter } from 'next/navigation';
 
 export type ProjectInfo = ProjectCardInfo & { id: string };
 
@@ -18,39 +16,34 @@ type ProjectsContentProps = {
 };
 
 const ProjectsContent = ({ data }: ProjectsContentProps) => {
-  const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(null);
-  const projectModalRef = useRef<ModalRef>(null);
   const tCommon = useTranslations('common');
   const t = useTranslations('home.projects');
+  const locale = useLocale();
+  const router = useRouter();
 
   const handleProjectClick = (project: ProjectInfo) => {
-    setSelectedProject(project);
-    projectModalRef.current?.show();
+    router.push(`/${locale}/projects#project-${project.id}`);
   };
 
   return (
-    <>
-      <section className={styles.projects} id="projects">
-        <Container>
-          <div className={styles.projects__inner}>
-            <small>{t('subtitle')}</small>
-            <ProjectsCardsWrapper>
-              {data &&
-                data.map((project, index) => (
-                  <ProjectCard
-                    key={index}
-                    {...project}
-                    onClick={() => handleProjectClick(project)}
-                  />
-                ))}
-              <ProjectButton text={tCommon('explore_projects')} />
-            </ProjectsCardsWrapper>
-          </div>
-        </Container>
-      </section>
-
-      <ProjectModal ref={projectModalRef} project={selectedProject} />
-    </>
+    <section className={styles.projects} id="projects">
+      <Container>
+        <div className={styles.projects__inner}>
+          <small>{t('subtitle')}</small>
+          <ProjectsCardsWrapper>
+            {data &&
+              data.map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  {...project}
+                  onClick={() => handleProjectClick(project)}
+                />
+              ))}
+            <ProjectButton text={tCommon('explore_projects')} />
+          </ProjectsCardsWrapper>
+        </div>
+      </Container>
+    </section>
   );
 };
 

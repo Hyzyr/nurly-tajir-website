@@ -78,6 +78,7 @@ export type ProjectInfo = {
 };
 
 export type ProjectSectionData = {
+  id: string;
   title: string;
   description: string;
   image: string;
@@ -92,10 +93,9 @@ export type ExpertiseItemData = {
   title: string;
   description: string;
   heroImage?: string;
-  benefits: { value: string; label: string }[];
+  benefits?: { value: string; label: string }[];
   images?: string[] | null;
   footerText: string;
-  ctaText: string;
 };
 
 // ─── Pre-mapped server fetchers (locale-aware, cached) ─────────────
@@ -165,6 +165,7 @@ export const fetchProjectsList = unstable_cache(
   async (locale: Locales): Promise<ProjectSectionData[]> => {
     const rows = await fetchRows('projects', { sortBy: 'inserted_at', ascending: false });
     return rows.map((p) => ({
+      id: p.id,
       title: p[dbHelper.getTitle(locale)],
       description: p[dbHelper.getDescription(locale)],
       image: p.image,
@@ -189,10 +190,9 @@ export const fetchExpertise = unstable_cache(
         title: row[dbHelper.getTitle(locale)],
         description: row[dbHelper.getDescription(locale)],
         heroImage: row.image ?? undefined,
-        benefits: highlightStat ? [{ value: highlightStat, label: tag }] : [],
+        benefits: highlightStat ? [{ value: highlightStat, label: tag }] : undefined,
         images: row.images ?? [],
         footerText: row[dbHelper.getInfo(locale)],
-        ctaText: 'Contact Us',
       };
     });
   },

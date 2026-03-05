@@ -92,5 +92,19 @@
       "title": "Biziň hünärlerimiz",
       "cta": "Habarlaşmak"
     }
+  },
+  "seo": {
+    "home": {
+      "title": "Nurly Tajir — Türkmenistanda IT infrastruktura we tehnologiýa çözgütleri",
+      "description": "Aşgabatdaky öňdebaryjy IT kompaniýa: tor infrastrukturasy, wideo gözegçilik, giriş gözegçiligi, ýangyn anyklaýyş, IP telefoniýa, wideo diwarlary we akylly bina çözgütleri. Samsung, Bosch, Cisco, Hikvision, Honeywell we Philips-iň resmi distribýutory."
+    },
+    "expertise": {
+      "title": "Biziň hünärlerimiz — IT infrastruktura we tehnologiýa çözgütleri",
+      "description": "Nurly Tajir-iň hünärleri: tor infrastrukturasy, wideo gözegçilik, IP telefoniýa, ýangyn anyklaýyş, giriş gözegçiligi, wideo diwarlary, akylly öý we hünärmen ses/wideo ulgamlary."
+    },
+    "projects": {
+      "title": "Biziň taslamalarymyz — tamamlanan IT infrastruktura işleri",
+      "description": "Nurly Tajir-iň Türkmenistanda tamamlanan taslamalary: döwlet binalary, howa menzilleri, myhmanhanalar, hassahanalar we söwda desgalary — tor, wideo, ýangyn we howpsuzlyk infrastrukturasy bilen üpjün edilen."
+    }
   }
 }

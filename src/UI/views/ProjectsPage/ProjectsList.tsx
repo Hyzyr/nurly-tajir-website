@@ -10,19 +10,20 @@ type Props = {
 
 const ProjectsList = ({ data }: Props) => {
   return (
-    <div className={styles.projects}>
+    <section className={styles.projects}>
       <Container>
         <div className={styles.projects__inner}>
           {data.map((project, index) => (
             <ProjectSectionCard
-              key={index}
+              key={project.id}
+              id={`project-${project.id}`}
               project={project as ProjectSectionCardData}
               layout={index % 2 === 0 ? 'big-left' : 'big-right'}
             />
           ))}
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
 

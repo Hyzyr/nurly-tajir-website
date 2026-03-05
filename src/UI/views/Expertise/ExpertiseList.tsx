@@ -10,7 +10,7 @@ type Props = {
 
 const ExpertiseList = ({ data }: Props) => {
   return (
-    <div className={styles.expertise}>
+    <section className={styles.expertise}>
       <Container>
         <div className={styles.expertise__inner}>
           {data.map((item) => (
@@ -18,7 +18,7 @@ const ExpertiseList = ({ data }: Props) => {
           ))}
         </div>
       </Container>
-    </div>
+    </section>
   );
 };
 

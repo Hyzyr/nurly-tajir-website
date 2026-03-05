@@ -13,7 +13,7 @@ const Partners = () => {
       <Container>
         <div className={styles.partners__inner}>
           <ContainerInner className={styles.partners__header}>
-            <h5 className="h5">{t('title')}</h5>
+            <h2 className="h5">{t('title')}</h2>
             <p className="_lg">{t('description')}</p>
           </ContainerInner>
           <div className={styles.partners__body}>

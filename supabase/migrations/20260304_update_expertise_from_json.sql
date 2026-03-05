@@ -1,0 +1,360 @@
+-- Update expertise table with new data from new-inject.json
+-- Run this SQL file in Supabase SQL editor to update all expertise records
+
+-- Network Infrastructure
+UPDATE public.expertise SET
+  service_slug = 'network-infrastructure',
+  tag_en = 'Network',
+  tag_ru = 'Сеть',
+  tag_tm = 'Tor',
+  title_en = 'Network Infrastructure',
+  title_ru = 'Сетевая инфраструктура',
+  title_tm = 'Tor infrastrukturasy',
+  info_en = 'Structured cabling, LAN/WAN design, switching, and routing for reliable high-speed connectivity across your entire facility.',
+  info_ru = 'Структурированное кабелирование, проектирование LAN/WAN, коммутация и маршрутизация для надёжного высокоскоростного соединения по всему объекту.',
+  info_tm = 'Gurluşykly simleme, LAN/WAN taslamasy, kommutasiýa we marşrutlaşdyrma — desgaňyzda ygtybarly ýokary tizlikli baglanyşyk üçin.',
+  description_en = 'We design and deploy scalable network infrastructure using Cisco, Juniper, HP, Dell, and Huawei equipment. Our scope covers site survey, structured cabling (Cat5e / Cat6 / Cat6A / fiber optic), switch rack installation, router configuration, VLAN segmentation, and full network documentation. All installations comply with ISO/IEC 11801 and TIA-568 standards.',
+  description_ru = 'Мы проектируем и внедряем масштабируемую сетевую инфраструктуру с использованием оборудования Cisco, Juniper, HP, Dell и Huawei. Наши работы включают обследование объекта, структурированное кабелирование (Cat5e / Cat6 / Cat6A / оптоволокно), монтаж коммутационных шкафов, настройку маршрутизаторов, сегментацию VLAN и полную сетевую документацию. Все монтажные работы соответствуют стандартам ISO/IEC 11801 и TIA-568.',
+  description_tm = 'Biz Cisco, Juniper, HP, Dell we Huawei enjamlary ulanyp giňeldilip bilinýän tor infrastrukturasyny taslaýarys we gurnaýarys. Biziň işimiziň çäkine: desgany gözden geçirmek, gurluşykly simleme (Cat5e / Cat6 / Cat6A / süýümli optika), kommutasiýa şkafyny gurnamak, marşrutlaşdyryjy sazlamak, VLAN segmentasiýasy we doly tor resminamasy girýär.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125492933-network-infrastructure.png',
+  brands = ARRAY['Cisco', 'Juniper', 'HP', 'Dell', 'Huawei'],
+  images = ARRAY[
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442299569-network-1.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442300716-network-2.png',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442304622-network-3.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442305235-network-4.png',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442307853-network-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442308286-network-6.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442308729-network-7.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442309150-network-8.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442309621-network-9.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442310082-network-10.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442310497-network-11.webp'
+  ],
+  display_order = 1,
+  updated_at = '2026-03-02T09:05:10.975838+00:00'
+WHERE id = 'de0755a7-31bb-4325-a6f0-2c770f98ea0d';
+
+-- Telephone Systems
+UPDATE public.expertise SET
+  service_slug = 'telephone-systems',
+  tag_en = 'Telephony',
+  tag_ru = 'Телефония',
+  tag_tm = 'Telefoniýa',
+  title_en = 'Telephone & IP-PBX Systems',
+  title_ru = 'Телефония и IP-АТС',
+  title_tm = 'Telefon we IP-PBX ulgamlary',
+  info_en = 'Modern VoIP and IP-PBX solutions replacing legacy analog lines with scalable, feature-rich communication platforms.',
+  info_ru = 'Современные VoIP и IP-АТС решения, заменяющие устаревшие аналоговые линии на масштабируемые, многофункциональные коммуникационные платформы.',
+  info_tm = 'Köne analog liniýalary giňeldilip bilinýän, funksiýa baý aragatnaşyk platformalary bilen çalyşýan döwrebap VoIP we IP-PBX çözgütleri.',
+  description_en = 'We install IP-PBX systems (Panasonic, Grandstream, Unify) with SIP trunking, auto-attendant, call recording, and extension management. We migrate existing analog infrastructure to VoIP and provide end-user training. Services include cabling, hardware provisioning, dial-plan configuration, and 12-month post-installation support.',
+  description_ru = 'Мы устанавливаем IP-АТС системы (Panasonic, Grandstream, Unify) с SIP-транкингом, автосекретарём, записью звонков и управлением добавочными номерами. Мы переводим существующую аналоговую инфраструктуру на VoIP и проводим обучение пользователей. Услуги включают прокладку кабеля, поставку оборудования, настройку плана набора и 12-месячную постинсталляционную поддержку.',
+  description_tm = 'Biz SIP tranklaýyş, awto-kömekçi, jaň ýazgy we giňeltme dolandyryşy bilen IP-PBX ulgamlaryny (Panasonic, Grandstream, Unify) gurnaýarys. Biz bar bolan analok infrastrukturasyny VoIP-e geçirýäris we ulanyjy okuwyny geçirýäris.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125522406-telephone-systems.png',
+  brands = ARRAY['Panasonic', 'Grandstream', 'Unify'],
+  images = ARRAY[
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442275822-telephone-1.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442276830-telephone-2.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442277395-telephone-3.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442277958-telephone-4.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442278667-telephone-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442279166-telephone-6.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442279822-telephone-7.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442280550-telephone-8.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442281066-telephone-9.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442281555-telephone-10.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442282778-telephone-11.webp'
+  ],
+  display_order = 2,
+  updated_at = '2026-03-02T09:04:43.377504+00:00'
+WHERE id = '382bc4a9-866a-4e76-84e0-b437e2173604';
+
+-- Computer & IT Equipment Supply
+UPDATE public.expertise SET
+  service_slug = 'computer-it-equipment',
+  tag_en = 'IT Equipment',
+  tag_ru = 'IT-оборудование',
+  tag_tm = 'IT enjamlary',
+  title_en = 'Computer & IT Equipment Supply',
+  title_ru = 'Поставка компьютеров и IT-оборудования',
+  title_tm = 'Kompýuter we IT enjamlaryny üpjün etmek',
+  info_en = 'Procurement, configuration, and deployment of workstations, servers, and peripherals — all sourced from certified distributors.',
+  info_ru = 'Закупка, настройка и развёртывание рабочих станций, серверов и периферийных устройств — всё от сертифицированных дистрибьюторов.',
+  info_tm = 'Sertifisirlenen distribýutorlardan iş stansiýalary, serwerleri we periferik enjamlary satyn almak, sazlamak we gurnamak.',
+  description_en = 'We supply and deploy desktops, laptops, servers, NAS storage, UPS units, and printers from brands including HP, Dell, Lenovo, Samsung, and APC. Each deployment includes OS installation, domain/AD join, antivirus setup, and user account configuration. We also offer asset management and annual hardware maintenance contracts.',
+  description_ru = 'Мы поставляем и развёртываем настольные компьютеры, ноутбуки, серверы, NAS-хранилища, ИБП и принтеры брендов HP, Dell, Lenovo, Samsung и APC. Каждое развёртывание включает установку ОС, ввод в домен/AD, настройку антивируса и конфигурацию учётных записей пользователей. Мы также предлагаем управление активами и годовые контракты на техническое обслуживание оборудования.',
+  description_tm = 'Biz HP, Dell, Lenovo, Samsung we APC ýaly brendleriň stolüstü kompýuterlerini, noutbuklary, serwerleri, NAS saklaýyş, UPS birliklerini we çap enjamlaryny üpjün edýäris we gurnaýarys. Her gurnamada OS gurnamak, domene/AD goşmak, antiwirus sazlamak we ulanyjy hasaby sazlamak bar.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125544174-computer-it-equipment.png',
+  brands = ARRAY['HP', 'Dell', 'Lenovo', 'Samsung', 'APC'],
+  images = ARRAY[]::text[],
+  display_order = 3,
+  updated_at = '2026-02-27T17:03:24.33789+00:00'
+WHERE id = '27dc9842-a129-44f8-bb87-0ec31d89178a';
+
+-- Fire Detection & Alarm Systems
+UPDATE public.expertise SET
+  service_slug = 'fire-detection-systems',
+  tag_en = 'Fire Safety',
+  tag_ru = 'Пожарная безопасность',
+  tag_tm = 'Ýangyn howpsuzlygy',
+  title_en = 'Fire Detection & Alarm Systems',
+  title_ru = 'Системы пожарной сигнализации и обнаружения',
+  title_tm = 'Ýangyn anyklaýyş we duýduryş ulgamlary',
+  info_en = 'Life-safety grade fire detection with smoke detectors, heat sensors, and automatic alarm panels compliant with international fire codes.',
+  info_ru = 'Системы обнаружения пожара класса жизненной безопасности с детекторами дыма, тепловыми датчиками и автоматическими панелями сигнализации, соответствующие международным нормам пожарной безопасности.',
+  info_tm = 'Tüsse detektorlary, ýyly duýgurlar we halkara ýangyn kodlaryna laýyk gelýän awtomatik duýduryş panelleri bilen durmuş howpsuzlyk derejeli ýangyn anyklaýyş.',
+  description_en = 'We design and install addressable and conventional fire alarm systems using Bosch, Honeywell, and Notifier panels. Our scope includes risk assessment, detector placement design, panel installation, zone mapping, integration with BMS (Building Management Systems), commissioning, and staff training. All systems meet NFPA 72 and EN 54 standards.',
+  description_ru = 'Мы проектируем и устанавливаем адресные и обычные системы пожарной сигнализации на базе панелей Bosch, Honeywell и Notifier. Наши работы включают оценку рисков, проектирование расстановки детекторов, монтаж панелей, разметку зон, интеграцию с BMS (системой управления зданием), пусконаладку и обучение персонала. Все системы соответствуют стандартам NFPA 72 и EN 54.',
+  description_tm = 'Biz Bosch, Honeywell we Notifier panelleri ulanyp salgylanýan we adaty ýangyn duýduryş ulgamlaryny taslaýarys we gurnaýarys. Iş çäklerimize töwekgelçiligi bahalandyrmak, detektor ýerleşişini taýýarlamak, panel gurnamak, zona kartalaşdyrmak, BMS bilen integrasiýa we işgär okuwlary girýär.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125558094-fire-detection-systems.png',
+  brands = ARRAY['Bosch', 'Honeywell', 'Notifier'],
+  images = ARRAY[
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442330835-fire-detect-2.avif',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442331213-fire-detect-3.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442331722-fire-detect-4.png',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442334003-fire-detect-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442335053-fire-detect-6.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442335509-fire-detect-7.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442336009-fire-detect-8.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442336995-fire-detect-1.webp'
+  ],
+  display_order = 4,
+  updated_at = '2026-03-02T09:05:37.612558+00:00'
+WHERE id = '83ad9bc4-fb3a-4279-981a-97f374fe2c31';
+
+-- CCTV & Security Camera Systems
+UPDATE public.expertise SET
+  service_slug = 'cctv-security-cameras',
+  tag_en = 'CCTV & Security',
+  tag_ru = 'Видеонаблюдение',
+  tag_tm = 'Wideo gözegçiligi',
+  title_en = 'CCTV & Security Camera Systems',
+  title_ru = 'Системы видеонаблюдения и видеозаписи',
+  title_tm = 'Wideo gözegçilik we howpsuzlyk kamera ulgamlary',
+  info_en = 'HD and 4K surveillance camera networks with NVR/DVR storage, remote monitoring, and AI-powered analytics for complete facility visibility.',
+  info_ru = 'Сети видеонаблюдения HD и 4K с хранилищами NVR/DVR, удалённым мониторингом и аналитикой на базе ИИ для полного контроля объекта.',
+  info_tm = 'Doly desgany görmek üçin NVR/DVR saklanyşy, uzakdan gözegçilik we AI analitikasy bilen HD we 4K gözegçilik kamera torlar.',
+  description_en = 'We install IP-based CCTV systems using Hikvision, Dahua, and Bosch cameras — covering indoor, outdoor, PTZ, fisheye, and license plate recognition variants. Our deployments include NVR/DVR configuration, storage dimensioning, remote viewing setup (mobile & web), and optional AI features: face recognition, crowd detection, and perimeter alerts. Installations from 4 to 300+ cameras.',
+  description_ru = 'Мы устанавливаем IP-системы видеонаблюдения с использованием камер Hikvision, Dahua и Bosch — охватывая внутренние, наружные, PTZ, «рыбий глаз» и варианты распознавания номерных знаков. Наши проекты включают настройку NVR/DVR, подбор объёма хранилища, настройку удалённого просмотра (мобильный и веб), а также опциональные функции ИИ: распознавание лиц, обнаружение скопления людей и оповещения о периметре. Монтаж от 4 до 300+ камер.',
+  description_tm = 'Biz Hikvision, Dahua we Bosch kameralaryny ulanyp IP esasly CCTV ulgamlaryny gurnaýarys — içerde, daşarda, PTZ, balyk gözi we plaka tanaýyş görnüşlerini öz içine alýar. Gurnamalar NVR/DVR sazlamasyny, saklanyş ölçegini, uzakdan tomaşa etmek sazlamasyny we islege bagly AI aýratynlyklaryny öz içine alýar.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125594633-cctv-security-cameras.png',
+  brands = ARRAY['Hikvision', 'Dahua', 'Bosch'],
+  images = ARRAY[
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442408412-camera-1.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442408944-camera-2.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442409403-camera-3.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442409878-camera-4.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442410297-camera-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442410686-camera-6.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442411151-camera-7.webp'
+  ],
+  display_order = 5,
+  updated_at = '2026-03-02T09:06:51.732287+00:00'
+WHERE id = 'd43cf327-83d7-4cb1-bb62-015189e4cc9a';
+
+-- Doorbell & Intercom Systems
+UPDATE public.expertise SET
+  service_slug = 'doorbell-intercom-systems',
+  tag_en = 'Intercom',
+  tag_ru = 'Домофон',
+  tag_tm = 'Domofon',
+  title_en = 'Doorbell & Intercom Systems',
+  title_ru = 'Системы домофонии и переговорной связи',
+  title_tm = 'Gapyzil we interkom ulgamlary',
+  info_en = 'Video and audio intercom systems for residential complexes and commercial buildings — enabling secure visitor identification before granting entry.',
+  info_ru = 'Видео- и аудиодомофонные системы для жилых комплексов и коммерческих зданий — обеспечивающие надёжную идентификацию посетителей до предоставления доступа.',
+  info_tm = 'Ýaşaýyş toplumlary we täjirçilik binalary üçin wideo we audio interkom ulgamlary — girişe rugsat bermezden ozal myhman tanamaga mümkinçilik berýär.',
+  description_en = 'We deploy wired and IP-based video door entry systems (Panasonic, Hikvision) for apartments, offices, and gated compounds. Features include video recording, remote unlock via smartphone, integration with access control, and multi-tenant management panels. Systems scale from single-door to multi-building complexes.',
+  description_ru = 'Мы развёртываем проводные и IP-видеодомофонные системы (Panasonic, Hikvision) для квартир, офисов и закрытых комплексов. Возможности включают видеозапись, удалённое открытие через смартфон, интеграцию с системой контроля доступа и многоабонентские панели управления. Системы масштабируются от одной двери до многоэтажных комплексов.',
+  description_tm = 'Biz kwartiralar, edaralar we ýapyk toplumlar üçin simli we IP esasly wideo giriş ulgamlaryny (Panasonic, Hikvision) gurnaýarys. Wideo ýazgy, smartfon arkaly uzakdan açmak, giriş gözegçiligi bilen integrasiýa we köp abonentli dolandyryş panelleri aýratynlyklaryny öz içine alýar.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125644753-doorbell-intercom-systems.png',
+  brands = ARRAY['Panasonic', 'Hikvision'],
+  images = ARRAY[
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442379195-doorbell-1.avif',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442379945-doorbell-2.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442370512-doorbell-3.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442371022-doorbell-4.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442371490-doorbell-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442371971-doorbell-6.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442372475-doorbell-7.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442372909-doorbell-8.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442373407-doorbell-9.webp'
+  ],
+  display_order = 6,
+  updated_at = '2026-03-02T09:06:23.889854+00:00'
+WHERE id = '613f4315-4491-4550-8a75-6ab4253da2ba';
+
+-- Video Wall & Control Room Solutions
+UPDATE public.expertise SET
+  service_slug = 'video-wall-control-rooms',
+  tag_en = 'Video Control',
+  tag_ru = 'Видеоконтроль',
+  tag_tm = 'Wideo gözegçilik',
+  title_en = 'Video Wall & Control Room Solutions',
+  title_ru = 'Видеостены и решения для диспетчерских центров',
+  title_tm = 'Wideo diwar we dolandyryş otagy çözgütleri',
+  info_en = 'Command-center-grade video wall displays and operator console setups for security, traffic, and operations monitoring.',
+  info_ru = 'Видеостены командного центра и рабочие места операторов для мониторинга безопасности, трафика и операций.',
+  info_tm = 'Howpsuzlyk, trafik we operasiýa gözegçiligi üçin dolandyryş merkezi derejeli wideo diwary ekranlary we operator konsol gurnamalary.',
+  description_en = 'We design and build centralized monitoring rooms featuring LED/LCD video wall arrays (Samsung, Philips, Hikvision), multi-seat operator desks, video matrix controllers, and PSIM integration. Our turnkey scope covers structural design, display calibration, KVM switching, cable management, and operator workflow setup. Ideal for airports, municipalities, and large commercial campuses.',
+  description_ru = 'Мы проектируем и строим централизованные диспетчерские с LED/LCD видеостенами (Samsung, Philips, Hikvision), многоместными операторскими столами, матричными видеоконтроллерами и интеграцией PSIM. Наш комплексный объём работ включает конструктивное проектирование, калибровку дисплеев, коммутацию KVM, управление кабелями и настройку рабочего процесса операторов. Идеально подходит для аэропортов, муниципалитетов и крупных коммерческих кампусов.',
+  description_tm = 'Biz LED/LCD wideo diwar massiwleri (Samsung, Philips, Hikvision), köp orunly operator stollary, wideo matris gözegçileri we PSIM integrasiýasy bilen merkezi gözegçilik otaglaryny taslaýarys we gurýarys. Howa menzilleri, şäher dolandyryşy we uly täjirçilik kampuslary üçin amatly.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125664122-video-wall-control-rooms.png',
+  brands = ARRAY['Samsung', 'Philips', 'Hikvision'],
+  images = ARRAY[]::text[],
+  display_order = 7,
+  updated_at = '2026-02-27T17:03:24.33789+00:00'
+WHERE id = '3b9545ea-657f-4f30-b79c-b8f419002bd9';
+
+-- Access Control Systems
+UPDATE public.expertise SET
+  service_slug = 'access-control',
+  tag_en = 'Access Control',
+  tag_ru = 'Контроль доступа',
+  tag_tm = 'Giriş gözegçiligi',
+  title_en = 'Access Control Systems',
+  title_ru = 'Системы контроля и управления доступом (СКУД)',
+  title_tm = 'Giriş gözegçilik ulgamlary',
+  info_en = 'Electronic access management using smart cards, biometrics, and mobile credentials — controlling who enters every door, gate, and turnstile.',
+  info_ru = 'Электронное управление доступом с использованием смарт-карт, биометрии и мобильных учётных данных — контроль за тем, кто входит в каждую дверь, ворота и турникет.',
+  info_tm = 'Smart kartalar, biometrika we mobil ynanç hatlaryny ulanyp elektron giriş dolandyryşy — her gapyya, derwezeä we dönüme kimiň girýändigini gözegçilik etmek.',
+  description_en = 'We install standalone and networked access control systems (Hikvision, ZKTeco, HID) supporting RFID, fingerprint, facial recognition, and PIN-based authentication. Our deployments cover door controllers, electric locks, turnstiles, barriers, and parking gate integration. The management software provides real-time logs, shift reporting, and HR integration. Supports from 1 door to enterprise-wide 500+ reader networks.',
+  description_ru = 'Мы устанавливаем автономные и сетевые системы контроля доступа (Hikvision, ZKTeco, HID), поддерживающие RFID, отпечаток пальца, распознавание лиц и аутентификацию по PIN-коду. Наши проекты охватывают дверные контроллеры, электрозамки, турникеты, шлагбаумы и интеграцию с парковочными воротами. ПО управления обеспечивает журналы в реальном времени, отчёты по сменам и интеграцию с HR. Поддерживает от 1 двери до корпоративных сетей с 500+ считывателями.',
+  description_tm = 'Biz RFID, barmakyzyzy, ýüz tanamagy we PIN esasly tassyklamany goldaýan özbaşdak we torlanan giriş gözegçilik ulgamlaryny (Hikvision, ZKTeco, HID) gurnaýarys. Giriş gözegçilik dolandyryş programma üpjünçiligi hakyky wagtda žurnallary, çalşyk hasabatlaryny we HR integrasiýasyny üpjün edýär.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125681034-access-control.png',
+  brands = ARRAY['Hikvision', 'ZKTeco', 'HID'],
+  images = ARRAY[
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442392412-access-control-1.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442392879-access-control-2.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442393343-access-control-3.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442394590-access-control-4.png',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442397254-access-control-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442397714-access-control-6.webp'
+  ],
+  display_order = 8,
+  updated_at = '2026-03-02T09:06:38.420748+00:00'
+WHERE id = '8507461a-de18-46d3-988f-17697b00019e';
+
+-- Professional Lighting & Audio/Visual Systems
+UPDATE public.expertise SET
+  service_slug = 'professional-av-systems',
+  tag_en = 'Lighting & AV',
+  tag_ru = 'Освещение и AV',
+  tag_tm = 'Yşyklandyryş we AV',
+  title_en = 'Professional Lighting & Audio/Visual Systems',
+  title_ru = 'Профессиональные системы освещения и AV',
+  title_tm = 'Hünärmen yşyklandyryş we ses/wideo ulgamlary',
+  info_en = 'End-to-end audio, visual, and lighting design for conference rooms, theaters, and banquet halls — delivering immersive experiences for every event.',
+  info_ru = 'Комплексное проектирование аудио-, видео- и световых систем для конференц-залов, театров и банкетных зал — создаёт незабываемые впечатления на каждом мероприятии.',
+  info_tm = 'Maslahat zallary, teatrlar we toý dürli meýdançalary üçin el bilen taýýarlanan ses, wideo we yşyklandyryş ulgamlary — her çärä özüne çekiji tejribe döredýär.',
+  description_en = 'We supply and install professional AV equipment (JBL, Bose, Barco, DTS) for conference rooms, auditoriums, theaters, restaurants, and wedding venues. Our scope includes acoustic design, multi-channel surround sound systems, DMX-controlled LED stage and ambient lighting, high-brightness projection and LED video walls, HDMI/SDI signal distribution, and unified control systems (AMX, Crestron). All installations are commissioned with on-site acoustic calibration, lighting scene programming, and full handover documentation.',
+  description_ru = 'Мы поставляем и монтируем профессиональное AV-оборудование (JBL, Bose, Barco, DTS) для конференц-залов, аудиторий, театров, ресторанов и свадебных площадок. Наши работы включают акустическое проектирование, многоканальные системы объёмного звука, DMX-управляемое светодиодное сценическое и декоративное освещение, проекцию высокой яркости и LED-видеостены, распределение сигналов HDMI/SDI и единые системы управления (AMX, Crestron). Все объекты сдаются с акустической калибровкой на месте, программированием световых сцен и полным пакетом документации.',
+  description_tm = 'Biz maslahat zallary, auditorýalar, teatrlar, restoranlar we toý meýdançalary üçin hünärmen AV enjamlary (JBL, Bose, Barco, DTS) üpjün edýäris we gurnaýarys. Iş çäklerimize: akustik taslamalary, köp kanally gurşaw ses ulgamlary, DMX dolandyrylýan LED sahna we bezeg yşyklandyryşy, ýokary aýdyňlykly proýektsiýa we LED wideo diwarlary, HDMI/SDI signal paýlanyşy we birleşdirilen dolandyryş ulgamlary (AMX, Crestron) girýär.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125699531-professional-av-systems.png',
+  brands = ARRAY['JBL', 'Bose', 'Barco', 'DTS'],
+  images = ARRAY[]::text[],
+  display_order = 9,
+  updated_at = '2026-02-27T17:03:24.33789+00:00'
+WHERE id = '5e3ed5fa-e0b9-427d-a88a-b66d1c3dcbba';
+
+-- Interactive Displays & Smart Education Solutions
+UPDATE public.expertise SET
+  service_slug = 'smart-education-solutions',
+  tag_en = 'EdTech',
+  tag_ru = 'Образование',
+  tag_tm = 'Bilim tehnologiýasy',
+  title_en = 'Interactive Displays & Smart Education Solutions',
+  title_ru = 'Интерактивные панели и умные решения для образования',
+  title_tm = 'Interaktiw ekranlar we akylly bilim çözgütleri',
+  info_en = 'Interactive whiteboards, classroom projectors, and smart gadgets tailored for schools, kindergartens, universities, and training centers.',
+  info_ru = 'Интерактивные доски, проекторы и умные гаджеты, созданные для школ, детских садов, университетов и учебных центров.',
+  info_tm = 'Mekdepler, çagalar baglary, uniwersitetler we okuw merkezleri üçin niýetlenen interaktiw tagtalar, synp proektorlary we akylly enjamlar.',
+  description_en = 'We design and install smart learning environments using interactive flat panels and whiteboards (BenQ, ViewSonic, SMART Board), short-throw and ultra-short-throw projectors (Epson, NEC, BenQ), digital corridor signage, school-wide PA and bell systems, document cameras, and student response devices. Our turnkey packages cover delivery, secure wall mounting, OS and software setup, school network integration, and full teacher training sessions. Solutions are designed to meet modern pedagogical standards and classroom ergonomic guidelines, and are suitable for classrooms, lecture halls, kindergarten activity rooms, and university seminar spaces.',
+  description_ru = 'Мы проектируем и оснащаем «умные» учебные пространства с использованием интерактивных панелей и досок (BenQ, ViewSonic, SMART Board), проекторов с коротким и ультракоротким фокусом (Epson, NEC, BenQ), цифровой навигационной рекламы для коридоров, школьных систем оповещения и звонков, документ-камер и устройств для опроса студентов. Наши комплексные пакеты включают поставку, надёжный настенный монтаж, установку ОС и ПО, интеграцию со школьной сетью и полноценное обучение педагогов. Решения соответствуют современным педагогическим стандартам и эргономическим требованиям к классам.',
+  description_tm = 'Biz BenQ, ViewSonic we SMART Board interaktiw panelleri we tagtalar, gysga fokuslama we gaty gysga fokuslama proýektorlar (Epson, NEC, BenQ), koridor sanly maglumat ekranlary, mekdep boýunça habar beriş we jaň ulgamlary, resminama kameralary we talyplar üçin ses beriş enjamlaryny ulanyp akylly okuw gurşawlaryny taslaýarys we gurnaýarys. Toplumlaýyn paketlerimiziň içinde: eltip bermek, ygtybarly diwara gurnamak, OS we programma üpjünçiligini sazlamak, mekdep tory bilen integrasiýa we mugallymlar üçin okuw sapaklary bar.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125714091-smart-education-solutions.png',
+  brands = ARRAY['BenQ', 'ViewSonic', 'SMART Board', 'Epson', 'NEC'],
+  images = ARRAY[]::text[],
+  display_order = 10,
+  updated_at = '2026-02-27T17:03:24.33789+00:00'
+WHERE id = '48a9e1aa-0708-4057-a329-26818f27789e';
+
+-- Smart Home & Automation Systems
+UPDATE public.expertise SET
+  service_slug = 'smart-home-automation',
+  tag_en = 'Smart Home',
+  tag_ru = 'Умный дом',
+  tag_tm = 'Akylly öý',
+  title_en = 'Smart Home & Automation Systems',
+  title_ru = 'Системы умного дома и автоматизации',
+  title_tm = 'Akylly öý we awtomatizasiýa ulgamlary',
+  info_en = 'Integrated smart home solutions covering lighting, climate, security, and entertainment — all controlled from a single app or voice command.',
+  info_ru = 'Комплексные решения умного дома, охватывающие освещение, климат, безопасность и развлечения — всё управляется из одного приложения или голосовой командой.',
+  info_tm = 'Yşyklandyryş, klimat, howpsuzlyk we güýmenjäni öz içine alýan toplumlaýyn akylly öý çözgütleri — ählisi bir programma ýa-da ses buýrugyndan dolandyrylýar.',
+  description_en = 'We design and commission smart home and light commercial automation systems based on KNX, Z-Wave, Zigbee, and cloud platforms (Tuya, Loxone, Xiaomi). Our scope covers intelligent lighting scenes (Philips Hue, Legrand), motorized blinds and curtains, multi-zone climate and underfloor heating control, smart locks and video doorbells, multi-room audio, home security integration (CCTV + alarm), and voice assistant support (Alexa, Google Home, Yandex). We handle all cabling, hub and gateway installation, app configuration, automation scene programming, and resident handover training. Both new-build and retrofit installations are available for apartments, private houses, and boutique offices.',
+  description_ru = 'Мы проектируем и внедряем системы умного дома и лёгкой коммерческой автоматизации на базе KNX, Z-Wave, Zigbee и облачных платформ (Tuya, Loxone, Xiaomi). Наши работы охватывают умные световые сцены (Philips Hue, Legrand), моторизованные жалюзи и шторы, многозонный климат-контроль и управление тёплыми полами, умные замки и видеодомофоны, многокомнатный звук, интеграцию систем безопасности (CCTV + охранная сигнализация), а также поддержку голосовых помощников (Alexa, Google Home, Яндекс). Мы обеспечиваем прокладку кабелей, монтаж хабов и шлюзов, настройку приложений, программирование сценариев автоматизации и обучение жильцов.',
+  description_tm = 'Biz KNX, Z-Wave, Zigbee we bulut platformalary (Tuya, Loxone, Xiaomi) esasly akylly öý we ýeňil täjirçilik awtomatizasiýa ulgamlaryny taslaýarys we ulanmaga berýäris. Iş çäklerimize: akylly yşyklandyryş sahnalary (Philips Hue, Legrand), motor perdeler we toýunlar, köp zonaly klimat dolandyryşy we ýer gyzdyryş dolandyryşy, akylly gulplar we wideo gapylar, köp otag ses ulgamy, howpsuzlyk integrasiýasy (CCTV + signal) we ses kömekçi goldawy (Alexa, Google Home, Ýandeks) girýär.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125728768-smart-home-automation.png',
+  brands = ARRAY['Tuya', 'Loxone', 'Xiaomi', 'Philips Hue', 'Legrand'],
+  images = ARRAY[]::text[],
+  display_order = 11,
+  updated_at = '2026-02-27T17:03:24.33789+00:00'
+WHERE id = '353cea30-e9da-4bea-9515-18a2d69da348';
+
+-- Public Address & Announcement Systems
+UPDATE public.expertise SET
+  service_slug = 'announcement-pa-systems',
+  tag_en = 'Announcement & PA Systems',
+  tag_ru = 'Системы оповещения (PA)',
+  tag_tm = 'Habar beriş ulgamlary',
+  title_en = 'Public Address & Announcement Systems',
+  title_ru = 'Системы публичного оповещения и трансляции',
+  title_tm = 'Köpçülige habar beriş we anonslama ulgamlary',
+  info_en = 'Centralized audio announcement solutions for commercial, industrial, and public spaces — delivering clear voice and alarm broadcasts across all zones.',
+  info_ru = 'Централизованные аудиосистемы оповещения для коммерческих, промышленных и общественных объектов — обеспечивают чёткую голосовую и аварийную трансляцию по всем зонам.',
+  info_tm = 'Täjirçilik, senagat we jemgyýetçilik meýdançalary üçin merkezleşdirilen ses habar beriş çözgütleri — ähli zolaklarda aýdyň ses we duýduryş geçirişini üpjün edýär.',
+  description_en = 'We design and install IP-based and analog PA systems (Bosch, TOA, Honeywell, DSPPA) covering background music, live and pre-recorded announcements, emergency evacuation alerts, and zone-based paging. Systems integrate with fire alarm panels, BMS, and access control for automated emergency broadcasts. Suitable for offices, malls, factories, hospitals, airports, and educational campuses. Scalable from single-zone to 500+ zone enterprise networks with remote management.',
+  description_ru = 'Мы проектируем и монтируем IP и аналоговые системы оповещения (Bosch, TOA, Honeywell, DSPPA), охватывающие фоновую музыку, живые и записанные объявления, сигналы аварийной эвакуации и зональный вызов. Системы интегрируются с пожарными панелями, BMS и контролем доступа для автоматических экстренных трансляций. Подходит для офисов, торговых центров, заводов, больниц, аэропортов и учебных кампусов. Масштабируется от однозонной до корпоративной сети 500+ зон с удалённым управлением.',
+  description_tm = 'Biz IP we analog esasly PA ulgamlaryny (Bosch, TOA, Honeywell, DSPPA) taslamalaýarys we gurnaýarys: fon sazy, göni we öňünden ýazylan anonslar, adatdan daşary taşlanma signallary we zolaklaryň arasynda çagyryş. Ulgamlar ýangyn panellerine, BMS we giriş gözegçiligine integrirlenen bolup, awtomatik adatdan daşary habar beriş üpjün edýär. Ofisler, söwda merkezleri, zawodlar, hassahanalar, howa menzilleri we okuw meýdançalary üçin amatlydyr. Bir zolaklylykdan 500+ zolaklyk kärhanalar ulgamyna çenli giňeldilip bilner.',
+  highlight_stat_en = NULL,
+  highlight_stat_ru = NULL,
+  highlight_stat_tm = NULL,
+  image = 'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/image-1772125926785-announcement-pa-systems.png',
+  brands = ARRAY['Bosch', 'TOA', 'Honeywell', 'DSPPA'],
+  images = ARRAY[]::text[],
+  display_order = 12,
+  updated_at = '2026-02-27T17:03:24.33789+00:00'
+WHERE id = '037a45f7-3f66-41f1-8009-cf2bef26c747';

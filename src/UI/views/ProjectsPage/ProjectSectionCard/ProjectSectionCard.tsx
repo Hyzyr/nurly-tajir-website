@@ -17,9 +17,10 @@ export type ProjectSectionCardData = {
 type ProjectSectionCardProps = {
   project: ProjectSectionCardData;
   layout?: 'big-left' | 'big-right';
+  id?: string;
 };
 
-const ProjectSectionCard = ({ project, layout = 'big-left' }: ProjectSectionCardProps) => {
+const ProjectSectionCard = ({ project, layout = 'big-left', id }: ProjectSectionCardProps) => {
   const infoItems = [
     { label: 'Date', value: project.date ? formatDate(project.date, { month: 'short', year: 'numeric' }) : '' },
     { label: 'Location', value: project.location || '' },
@@ -38,7 +39,7 @@ const ProjectSectionCard = ({ project, layout = 'big-left' }: ProjectSectionCard
   );
 
   return (
-    <div className={styles.projectcard}>
+    <article id={id} className={styles.projectcard}>
       {layout === 'big-left' ? (
         <>
           {imageSection}
@@ -50,7 +51,7 @@ const ProjectSectionCard = ({ project, layout = 'big-left' }: ProjectSectionCard
           {imageSection}
         </>
       )}
-    </div>
+    </article>
   );
 };
 

@@ -65,9 +65,6 @@ const HeaderDesktop = () => {
                 <a href={`/${locale}/expertise`} >
                   {t('nav.services')}
                 </a>
-                <a href={`/${locale}/#products`} onClick={scrollToSection('#products')}>
-                  {t('nav.products')}
-                </a>
                 <a href={`/${locale}/#about-us`} onClick={scrollToSection('#about-us')}>
                   {t('nav.about_us')}
                 </a>

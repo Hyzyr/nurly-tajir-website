@@ -12,14 +12,14 @@ const About = () => {
       <Container>
         <ContainerInner className={styles.about__inner}>
           <div className={styles.about__header}>
-            <h3 className="h3">
+            <h2 className="h3">
               {title[0] && <span className="color-gray">{title[0]}</span>}
               {title[1] && (
                 <>
                   <br /> {title[1]}
                 </>
               )}
-            </h3>
+            </h2>
           </div>
           <div className={styles.about__body}>
             <LogoSVG />

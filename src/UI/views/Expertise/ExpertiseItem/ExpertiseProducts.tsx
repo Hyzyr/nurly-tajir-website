@@ -6,9 +6,10 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 type Props = {
   products: string[];
+  title?: string;
 };
 
-const ExpertiseProducts = ({ products }: Props) => {
+const ExpertiseProducts = ({ products, title }: Props) => {
   const [emblaRef] = useEmblaCarousel({
     dragFree: true,
     containScroll: 'trimSnaps',
@@ -23,7 +24,7 @@ const ExpertiseProducts = ({ products }: Props) => {
             <div key={i} className={styles.expertise__products__item}>
               <Image
                 src={src}
-                alt={`Product ${i + 1}`}
+                alt={`${title || 'Product'} — image ${i + 1}`}
                 fill
                 style={{ objectFit: 'cover' }}
               />

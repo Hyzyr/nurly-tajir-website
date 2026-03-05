@@ -9,13 +9,12 @@ export type ExpertiseItemData = {
   title: string;
   description: string;
   heroImage?: string;
-  benefits: {
+  benefits?: {
     value: string;
     label: string;
   }[];
   images?: string[] | null;
   footerText: string;
-  ctaText: string;
 };
 
 type Props = {
@@ -24,11 +23,11 @@ type Props = {
 
 const ExpertiseItem = ({ data }: Props) => {
   return (
-    <div className={styles.expertise__item}>
+    <article className={styles.expertise__item}>
       <div className={styles.expertise__item__body}>
         {/* Header */}
         <div className={styles.expertise__item__header}>
-          <h5 className={`h5 ${styles.expertise__item__title}`}>{data.title}</h5>
+          <h2 className={`h5 ${styles.expertise__item__title}`}>{data.title}</h2>
           <p className={`${styles.expertise__item__description}`}>
             {data.description}
           </p>
@@ -36,18 +35,18 @@ const ExpertiseItem = ({ data }: Props) => {
 
         {/* Hero Image with Benefits */}
         {data.heroImage && (
-          <ExpertiseHero image={data.heroImage} benefits={data.benefits} />
+          <ExpertiseHero image={data.heroImage} alt={data.title} benefits={data.benefits} />
         )}
 
         {/* Products Grid */}
         {data.images && data.images.length > 0 && (
-          <ExpertiseProducts products={data.images} />
+          <ExpertiseProducts products={data.images} title={data.title} />
         )}
 
         {/* Footer */}
-        <ExpertiseFooter text={data.footerText} ctaText={data.ctaText} />
+        <ExpertiseFooter text={data.footerText} />
       </div>
-    </div>
+    </article>
   );
 };
 

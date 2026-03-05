@@ -19,7 +19,7 @@ const Hero = ({ title, tagline, children, bgFixed, minHeight }: HeroProps) => {
       <Container>
         <div className={styles.hero__body} style={{ minHeight }}>
           <div className={styles.hero__content}>
-            <h6 className="subtitle">{tagline}</h6>
+            <p className="subtitle">{tagline}</p>
             <h1 className="h1">
               <FormatText text={title} />
             </h1>

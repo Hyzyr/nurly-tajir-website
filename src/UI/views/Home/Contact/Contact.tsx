@@ -13,10 +13,10 @@ const Contact = () => {
       <Container>
         <ContainerInner className={styles.contact__inner}>
           <div className={`${styles.contact__bg} bg`}>
-            <img src="/images/website/banner-contacts.webp" alt="banner-contacts.webp" />
+            <img src="/images/website/banner-contacts.webp" alt="Nurly Tajir office — contact us" />
           </div>
           <div className={styles.form}>
-            <h5 className="h5">{t('title')}</h5>
+            <h2 className="h5">{t('title')}</h2>
             <ContactForm />
           </div>
         </ContainerInner>

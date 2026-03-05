@@ -14,7 +14,6 @@ const ProjectsCardsWrapper = ({ messages, children }: Props) => {
 
   return (
     <>
-      {messages?.test && <h1>{messages?.test}</h1>}
       {!isMobile && <ProjectsRow>{children}</ProjectsRow>}
       {isMobile && <ProjectsSlider>{children}</ProjectsSlider>}
     </>

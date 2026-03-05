@@ -91,5 +91,19 @@
       "title": "Our Expertise",
       "cta": "Contact Us"
     }
+  },
+  "seo": {
+    "home": {
+      "title": "Nurly Tajir — IT Infrastructure & Technology Solutions in Turkmenistan",
+      "description": "Leading IT company in Ashgabat offering network infrastructure, CCTV, access control, fire detection, IP telephony, video walls, and smart building solutions. Official distributor of Samsung, Bosch, Cisco, Hikvision, Honeywell & Philips."
+    },
+    "expertise": {
+      "title": "Our Expertise — IT Infrastructure & Technology Solutions",
+      "description": "Explore Nurly Tajir's expertise: network infrastructure, CCTV, IP telephony, fire detection, access control, video walls, smart home automation, and more. Official distributor of Cisco, Hikvision, Bosch, Samsung, and Honeywell in Turkmenistan."
+    },
+    "projects": {
+      "title": "Our Projects — Completed IT Infrastructure Works",
+      "description": "Browse Nurly Tajir's completed projects across Turkmenistan: government buildings, airports, hotels, hospitals, and commercial facilities equipped with network, CCTV, fire alarm, access control, and smart building systems."
+    }
   }
 }

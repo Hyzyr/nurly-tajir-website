@@ -1,17 +1,28 @@
+'use client';
+
 import React from 'react';
 import styles from './styles.module.scss';
 import Button from '@/UI/components/Button';
+import { useContactModal } from '@/UI/components/ContactModal';
 
 type Props = {
   text: string;
-  ctaText: string;
 };
 
-const ExpertiseFooter = ({ text, ctaText }: Props) => {
+const ExpertiseFooter = ({ text }: Props) => {
+  const contactModal = useContactModal();
+
   return (
     <div className={styles.expertise__footer}>
       <p className={styles.expertise__footer__text}>{text}</p>
-      <Button text={ctaText} style="outlined" size="md" icon="arrowCorner" iconRight />
+      <Button
+        text="Contact Us"
+        style="outlined"
+        size="md"
+        icon="arrowCorner"
+        iconRight
+        onClick={() => contactModal.openModal()}
+      />
     </div>
   );
 };

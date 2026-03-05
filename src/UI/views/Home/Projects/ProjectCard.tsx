@@ -31,7 +31,7 @@ const ProjectCard = ({ image, title, description, onClick }: ProjectCardProps) =
         />
       )}
       <div className="ratioImage">
-        <img src={image} alt="project-image" />
+        <img src={image} alt={title} />
       </div>
       <div className={styles.card__content}>
         <div className={styles.card__title}>

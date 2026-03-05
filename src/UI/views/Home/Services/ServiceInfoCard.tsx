@@ -21,10 +21,10 @@ const ServiceInfoCard = ({ image, title, description, className, onBackClick }: 
   return (
     <div className={`${styles.info} ${className ?? ''}`}>
       <div className="bg">
-        <img src="/images/brand-shape-outlined.svg" alt="brand-shape" />
+        <img src="/images/brand-shape-outlined.svg" alt="" />
       </div>
       <div className={styles.info__image}>
-        <img src={`/images/website/services/${image}`} alt="icon-image" />
+        <img src={`/images/website/services/${image}`} alt={title} />
       </div>
       <div className={styles.info__title}>
         <button onClick={onBackClick}>

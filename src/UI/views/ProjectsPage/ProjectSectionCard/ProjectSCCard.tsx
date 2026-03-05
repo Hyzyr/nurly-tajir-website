@@ -19,7 +19,7 @@ const ProjectSCCard = ({ title, description, infoItems }: ProjectSCCardProps) =>
       {title && <h4>{title}</h4>}
       {description && (
         <p>
-          <FormatText text={description} doubleBr />
+          <FormatText text={description}  />
         </p>
       )}
       {infoItems && infoItems.length > 0 && (
