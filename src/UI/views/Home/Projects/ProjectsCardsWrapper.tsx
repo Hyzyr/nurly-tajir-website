@@ -5,11 +5,10 @@ import ProjectsRow from './ProjectsRow';
 import ProjectsSlider from './ProjectsSlider';
 
 type Props = {
-  messages?: Record<string, string>;
   children: React.ReactNode;
 };
 
-const ProjectsCardsWrapper = ({ messages, children }: Props) => {
+const ProjectsCardsWrapper = ({ children }: Props) => {
   const isMobile = useMedia('(max-width: 480px)');
 
   return (
