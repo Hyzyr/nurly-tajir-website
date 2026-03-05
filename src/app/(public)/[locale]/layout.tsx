@@ -25,7 +25,7 @@ type RootPropsType = {
 // Data rarely changes; on-demand revalidation is also possible via cache tags.
 export const revalidate = 3600;
 
-const SITE_URL = 'https://nurytajir.com';
+const SITE_URL = 'https://nurlytajir.com';
 
 const OG_LOCALE_MAP: Record<string, string> = {
   en: 'en_US',
@@ -83,7 +83,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t('description'),
       images: [
         {
-          url: '/images/og-image.jpg',
+          url: '/images/og-image.png',
           width: 1200,
           height: 630,
           alt: 'Nurly Tajir — IT Infrastructure & Technology Solutions',
@@ -94,7 +94,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
-      images: ['/images/og-image.jpg'],
+      images: ['/images/og-image.png'],
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}`,

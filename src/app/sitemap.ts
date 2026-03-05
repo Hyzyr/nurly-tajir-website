@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { locales } from '@/i18n/config';
 
-const SITE_URL = 'https://nurytajir.com';
+const SITE_URL = 'https://nurlytajir.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = ['', '/expertise', '/projects'];

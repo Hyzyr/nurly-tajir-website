@@ -12,7 +12,7 @@ import JsonLd, {
   generateBreadcrumbJsonLd,
 } from '@/UI/components/JsonLd';
 
-const SITE_URL = 'https://nurytajir.com';
+const SITE_URL = 'https://nurlytajir.com';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getLocale();
@@ -26,6 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: t('description'),
       url: `${SITE_URL}/${locale}/projects`,
       type: 'website',
+      images: [{ url: '/images/og-image.png', width: 1200, height: 630 }],
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/projects`,

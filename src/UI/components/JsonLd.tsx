@@ -43,7 +43,7 @@ type BreadcrumbLD = {
   }[];
 };
 
-const SITE_URL = 'https://nurytajir.com';
+const SITE_URL = 'https://nurlytajir.com';
 
 export const organizationJsonLd: OrganizationLD = {
   '@context': 'https://schema.org',
@@ -64,7 +64,7 @@ export const organizationJsonLd: OrganizationLD = {
     '@type': 'ContactPoint',
     telephone: '+99364647032',
     contactType: 'customer service',
-    email: 'info@nurytajir.com',
+    email: 'info@nurlytajir.com',
   },
   sameAs: [],
 };
