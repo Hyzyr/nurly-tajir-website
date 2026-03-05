@@ -190,13 +190,13 @@ UPDATE public.expertise SET
   images = ARRAY[
     'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442379195-doorbell-1.avif',
     'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442379945-doorbell-2.jpg',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442370512-doorbell-3.jpg',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442371022-doorbell-4.jpg',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442371490-doorbell-5.webp',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442371971-doorbell-6.jpg',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442372475-doorbell-7.webp',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442372909-doorbell-8.webp',
-    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442373407-doorbell-9.webp'
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442380512-doorbell-3.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442381022-doorbell-4.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442381490-doorbell-5.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442381971-doorbell-6.jpg',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442382475-doorbell-7.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442382909-doorbell-8.webp',
+    'https://fbdajjskbdqqdhmwxcdn.supabase.co/storage/v1/object/public/website-images/expertise/product-1772442383407-doorbell-9.webp'
   ],
   display_order = 6,
   updated_at = '2026-03-02T09:06:23.889854+00:00'
