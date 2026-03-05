@@ -2,11 +2,12 @@ import Logo from '@/UI/components/Logo';
 import styles from './styles.module.scss';
 import Icon from '@/UI/components/Icon';
 import Container from '@/UI/containers';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import FooterLink from './FooterLink';
 
 const Footer = () => {
   const t = useTranslations('common');
+  const locale = useLocale();
 
   return (
     <footer className={styles.footer} id="footer">
@@ -19,7 +20,7 @@ const Footer = () => {
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">{t('company')}</strong>
             <div className="fbox fbox-column fbox-gap-2">
-              <a href={`/`} className={styles.footer__link}>{t('nav.home')}</a>
+              <a href={`/${locale}`} className={styles.footer__link}>{t('nav.home')}</a>
               <FooterLink selector={'#projects'} title={t('nav.projects')} />
               <FooterLink selector={'#services'} title={t('nav.services')} />
               <FooterLink selector={'#about-us'} title={t('nav.about_us')} />
