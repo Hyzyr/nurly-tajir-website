@@ -61,6 +61,7 @@ const HeaderDesktop = () => {
             <Logo />
             <nav>
               <div className="fbox fbox-gap-2">
+                <a href={`/${locale}`}>{t('nav.home')}</a>
                 <a href={`/${locale}/projects`}>{t('nav.projects')}</a>
                 <a href={`/${locale}/expertise`} >
                   {t('nav.services')}

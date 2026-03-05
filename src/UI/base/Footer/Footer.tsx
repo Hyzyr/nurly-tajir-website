@@ -19,6 +19,7 @@ const Footer = () => {
           <div className={styles.footer__column}>
             <strong className="subtitle _xsm">{t('company')}</strong>
             <div className="fbox fbox-column fbox-gap-2">
+              <a href={`/`} className={styles.footer__link}>{t('nav.home')}</a>
               <FooterLink selector={'#projects'} title={t('nav.projects')} />
               <FooterLink selector={'#services'} title={t('nav.services')} />
               <FooterLink selector={'#about-us'} title={t('nav.about_us')} />
