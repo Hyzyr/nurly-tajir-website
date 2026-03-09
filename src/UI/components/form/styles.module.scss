@@ -460,6 +460,83 @@
   100% { margin-left: 0; }
 }
 
+/* ─── Brand List Editor ─────────────────────────────────────── */
+.brandList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  &__label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--n400);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  &__input {
+    padding: 0.55em 0.9em;
+    background: var(--n10);
+    border: 1px solid var(--n50);
+    border-radius: 0.55em;
+    font-family: var(--font-manrope);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--n600);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+
+    &::placeholder { color: var(--n200); }
+    &:focus { border-color: var(--primary-400); }
+  }
+
+  &__remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 50%;
+    border: none;
+    background: var(--n30);
+    color: var(--n400);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover { background: #fee2e2; color: #dc2626; }
+  }
+
+  &__add {
+    align-self: flex-start;
+    padding: 0.4em 0.9em;
+    background: var(--n20);
+    border: 1px dashed var(--n100);
+    border-radius: 0.55em;
+    font-family: var(--font-manrope);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--n400);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+
+    &:hover {
+      background: var(--primary-50, #eff6ff);
+      color: var(--primary-600, #2563eb);
+      border-color: var(--primary-200, #bfdbfe);
+    }
+  }
+}
+
 /* ─── Tag Input ─────────────────────────────────────────────── */
 .tagInput {
   display: flex;

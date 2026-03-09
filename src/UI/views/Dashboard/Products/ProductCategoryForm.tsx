@@ -4,7 +4,6 @@ import { ProductCategoryInsert, ProductCategoryUpdate } from '@/types/supabase';
 import ImageInput, { ImageInputRef } from '@/UI/components/form/ImageInput';
 import { LabeledInput } from '@/UI/components/form/Input';
 import LanguageTabs, { LangKey, LangTabsRef } from '@/UI/components/form/LanguageTabs';
-import TagInput from '@/UI/components/form/TagInput';
 import formStyles from '@/UI/components/form/styles.module.scss';
 
 type Props = {
@@ -20,13 +19,70 @@ export interface ProductCategoryFormHandle {
   switchTab: (lang: LangKey) => void;
 }
 
+export type Brand = { name: string; link: string };
+
+const normalizeBrands = (raw: unknown): Brand[] => {
+  if (!Array.isArray(raw)) return [];
+  return (raw as (Brand | string | null)[]).map((b) => {
+    if (!b) return null;
+    if (typeof b === 'string') return { name: b, link: '' };
+    return { name: b.name ?? '', link: b.link ?? '' };
+  }).filter((b): b is Brand => b !== null && b.name.trim() !== '');
+};
+
+/* ── Inline brand list editor ─────────────────────────────── */
+type BrandListEditorProps = {
+  value: Brand[];
+  onChange: (brands: Brand[]) => void;
+};
+
+const BrandListEditor = ({ value, onChange }: BrandListEditorProps) => {
+  const update = (i: number, field: keyof Brand, val: string) => {
+    const next = value.map((b, idx) => idx === i ? { ...b, [field]: val } : b);
+    onChange(next);
+  };
+  const remove = (i: number) => onChange(value.filter((_, idx) => idx !== i));
+  const add = () => onChange([...value, { name: '', link: '' }]);
+
+  return (
+    <div className={formStyles.brandList}>
+      <span className={formStyles.brandList__label}>Brands</span>
+      {value.map((brand, i) => (
+        <div key={i} className={formStyles.brandList__row}>
+          <input
+            className={formStyles.brandList__input}
+            placeholder="Name (e.g. Hikvision)"
+            value={brand.name}
+            onChange={(e) => update(i, 'name', e.target.value)}
+          />
+          <input
+            className={formStyles.brandList__input}
+            placeholder="Link (https://…)"
+            value={brand.link}
+            onChange={(e) => update(i, 'link', e.target.value)}
+          />
+          <button
+            type="button"
+            className={formStyles.brandList__remove}
+            onClick={() => remove(i)}
+            title="Remove"
+          >×</button>
+        </div>
+      ))}
+      <button type="button" className={formStyles.brandList__add} onClick={add}>
+        + Add Brand
+      </button>
+    </div>
+  );
+};
+
 const ProductCategoryForm = forwardRef<ProductCategoryFormHandle, Props>(({ data }, ref) => {
   const [formData, setFormData] = useState<ProductCategoryInsert>({
     name_en: data?.name_en ?? '',
     name_ru: data?.name_ru ?? '',
     name_tm: data?.name_tm ?? '',
     image: data?.image ?? '',
-    brands: data?.brands ?? [],
+    brands: normalizeBrands(data?.brands),
   });
 
   const imageRef = useRef<ImageInputRef>(null);
@@ -39,7 +95,7 @@ const ProductCategoryForm = forwardRef<ProductCategoryFormHandle, Props>(({ data
         name_ru: data.name_ru ?? '',
         name_tm: data.name_tm ?? '',
         image: data.image ?? '',
-        brands: data.brands ?? [],
+        brands: normalizeBrands(data.brands),
       });
     }
   }, [data]);
@@ -95,11 +151,9 @@ const ProductCategoryForm = forwardRef<ProductCategoryFormHandle, Props>(({ data
       </LanguageTabs>
 
       {/* Brands */}
-      <TagInput
-        label="Brands"
-        value={(formData.brands as string[]) ?? []}
+      <BrandListEditor
+        value={(formData.brands as Brand[]) ?? []}
         onChange={(brands) => set('brands')(brands)}
-        placeholder="e.g. Samsung, HP, Lenovo…"
       />
 
       {/* Image */}
