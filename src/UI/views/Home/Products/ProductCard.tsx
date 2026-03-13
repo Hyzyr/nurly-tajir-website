@@ -15,7 +15,7 @@ const ProductCard = ({ image, title, brands }: Partial<ProductInfo>) => {
       {brands && (
         <div className={styles.card__brands}>
           {brands.map((brand, index) => (
-            <a href={brand.link} key={index}>
+            <a href={`${brand.link}`} key={index}>
               {brand.name}
             </a>
           ))}
